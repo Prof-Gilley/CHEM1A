@@ -1,0 +1,918 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/xsd/ims_qtiasiv1p2p1.xsd">
+  <assessment ident="g3a4b5c6d7e8f9g0h1i2j3k4l" title="Bank 3: Enthalpy, Bond Energies, and Thermochemical Equations">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>qmd_assessmenttype</fieldlabel>
+        <fieldentry>Bank</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>1</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="root_section">
+      
+      <!-- Question 3.1: H₂ combustion stoichiometry -->
+      <item ident="b3q1a2b3c4d5e6f7g8h9i0j1k" title="Enthalpy change for H₂ combustion">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>b3q1a2b3c4d5e6f7g8h9i0j1k</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>For the reaction: 2H₂(g) + O₂(g) → 2H₂O(l), ΔH° = -571.6 kJ. What is the enthalpy change when 5.00 g of H₂ reacts completely?</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-709 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-1420 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-355 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-142 kJ]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 3.2: Carbon combustion -->
+      <item ident="b3q2b3c4d5e6f7g8h9i0j1k2l" title="Heat released from carbon combustion">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>b3q2b3c4d5e6f7g8h9i0j1k2l</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>Given: C(s) + O₂(g) → CO₂(g), ΔH° = -393.5 kJ. If 24.0 g of carbon reacts, how much heat is released?</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[787 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[197 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[393 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[1574 kJ]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 3.3: Propane mass calculation -->
+      <item ident="b3q3c4d5e6f7g8h9i0j1k2l3m" title="Mass of propane to release heat">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>b3q3c4d5e6f7g8h9i0j1k2l3m</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>The combustion of propane: C₃H₈(g) + 5O₂(g) → 3CO₂(g) + 4H₂O(l), ΔH° = -2219 kJ. What mass of propane must burn to release 5000 kJ of heat?</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[49.6 g]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[99.2 g]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[24.8 g]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[198 g]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_b</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 3.4: Endothermic process -->
+      <item ident="b3q4d5e6f7g8h9i0j1k2l3m4n" title="Identify endothermic process">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>b3q4d5e6f7g8h9i0j1k2l3m4n</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>Which process requires energy input (endothermic)?</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Formation of bonds]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Breaking of bonds]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Condensation of gas]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Combustion reactions]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_b</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 3.5: Reverse reaction enthalpy -->
+      <item ident="b3q5e6f7g8h9i0j1k2l3m4n5o" title="Reverse reaction enthalpy">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>b3q5e6f7g8h9i0j1k2l3m4n5o</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>For the reaction: N₂(g) + 3H₂(g) → 2NH₃(g), ΔH° = -92.2 kJ. What is ΔH° for: NH₃(g) → ½N₂(g) + 3/2H₂(g)?</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[+46.1 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-46.1 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[+92.2 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-184.4 kJ]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 3.6: Methane combustion -->
+      <item ident="b3q6f7g8h9i0j1k2l3m4n5o6p" title="Heat from methane combustion">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>b3q6f7g8h9i0j1k2l3m4n5o6p</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>Calculate the heat released when 15.0 g of CH₄ combusts completely. CH₄(g) + 2O₂(g) → CO₂(g) + 2H₂O(l), ΔH° = -890.3 kJ</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[834 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[417 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[1668 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[208 kJ]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 3.7: Why bond breaking endothermic -->
+      <item ident="b3q7g8h9i0j1k2l3m4n5o6p7q" title="Bond breaking endothermic">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>b3q7g8h9i0j1k2l3m4n5o6p7q</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>Why is bond breaking always endothermic?</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[It releases energy stored in bonds]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[It requires energy to overcome attractive forces]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[It increases molecular order]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[It decreases molecular motion]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_b</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 3.8: Reverse reaction sign -->
+      <item ident="b3q8h9i0j1k2l3m4n5o6p7q8r" title="Reverse reaction ΔH sign">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>b3q8h9i0j1k2l3m4n5o6p7q8r</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>If 2A + B → C has ΔH = -150 kJ, what is ΔH for: C → 2A + B?</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-150 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[+150 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-300 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[+75 kJ]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_b</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 3.9: Enthalpy of fusion -->
+      <item ident="b3q9i0j1k2l3m4n5o6p7q8r9s" title="Heat to melt ice">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>b3q9i0j1k2l3m4n5o6p7q8r9s</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>The enthalpy of fusion for ice is 6.01 kJ/mol. How much heat is needed to melt 45.0 g of ice at 0°C?</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[15.0 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[30.0 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[7.52 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[270 kJ]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 3.10: Exothermic reaction products -->
+      <item ident="b3q0j1k2l3m4n5o6p7q8r9s0t" title="Exothermic reaction characteristics">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>b3q0j1k2l3m4n5o6p7q8r9s0t</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>For an exothermic reaction at constant pressure:</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Heat flows into the system]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[ΔH is positive]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Products have lower enthalpy than reactants]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Work must be done on the system]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_c</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 3.11: SO₂ reaction stoichiometry -->
+      <item ident="b3q1k2l3m4n5o6p7q8r9s0t1u" title="Heat from SO₂ reaction">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>b3q1k2l3m4n5o6p7q8r9s0t1u</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>Given: 2SO₂(g) + O₂(g) → 2SO₃(g), ΔH° = -196.6 kJ. What is the heat released when 16.0 g of SO₂ reacts?</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[24.6 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[49.2 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[98.3 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[196.6 kJ]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 3.12: Combustion bond energies -->
+      <item ident="b3q2l3m4n5o6p7q8r9s0t1u2v" title="Why combustion exothermic">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>b3q2l3m4n5o6p7q8r9s0t1u2v</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>In terms of bond energies, why are combustion reactions exothermic?</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[More bonds are broken than formed]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Stronger bonds are broken than formed]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Weaker bonds are broken and stronger bonds are formed]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[No bonds are broken]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_c</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 3.13: Ethanol combustion -->
+      <item ident="b3q3m4n5o6p7q8r9s0t1u2v3w" title="Ethanol combustion heat">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>b3q3m4n5o6p7q8r9s0t1u2v3w</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>The standard enthalpy of combustion of ethanol is -1366.8 kJ/mol. How much heat is produced when 92.0 g of ethanol burns? (MM = 46.0 g/mol)</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[2734 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[1367 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[5468 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[683 kJ]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 3.14: Bond strength and energy -->
+      <item ident="b3q4n5o6p7q8r9s0t1u2v3w4x" title="Bond strength energy relationship">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>b3q4n5o6p7q8r9s0t1u2v3w4x</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>Which correctly describes the relationship between bond strength and energy?</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Stronger bonds require less energy to break]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Stronger bonds release more energy when formed]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Bond strength is unrelated to energy]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Weaker bonds store more energy]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_b</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 3.15: NO₂ to N₂O₄ stoichiometry -->
+      <item ident="b3q5o6p7q8r9s0t1u2v3w4x5y" title="Enthalpy change NO₂ reaction">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>b3q5o6p7q8r9s0t1u2v3w4x5y</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>For the reaction: 2NO₂(g) → N₂O₄(g), ΔH° = -57.2 kJ. If 2.30 g of NO₂ reacts, what is the enthalpy change?</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-1.43 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-2.86 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-28.6 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-57.2 kJ]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+    </section>
+  </assessment>
+</questestinterop>
