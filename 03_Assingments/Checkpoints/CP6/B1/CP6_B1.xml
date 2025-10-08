@@ -1,0 +1,918 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/xsd/ims_qtiasiv1p2p1.xsd">
+  <assessment ident="g1a2b3c4d5e6f7g8h9i0j1k2l" title="Bank 1: Heat Capacity, Temperature, and Molecular Motion">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>qmd_assessmenttype</fieldlabel>
+        <fieldentry>Bank</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>1</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="root_section">
+      
+      <!-- Question 1.1: Copper heat absorption -->
+      <item ident="b1q1a2b3c4d5e6f7g8h9i0j1k" title="Calculate heat absorbed by copper">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>b1q1a2b3c4d5e6f7g8h9i0j1k</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>A 45.0 g sample of copper metal is heated from 25.0°C to 85.0°C. If the specific heat of copper is 0.385 J/g°C, how much heat is absorbed?</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[1.04 × 10³ J]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[1.47 × 10³ J]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[693 J]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[2.31 × 10³ J]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 1.2: Specific heat of silver -->
+      <item ident="b1q2b3c4d5e6f7g8h9i0j1k2l" title="Calculate specific heat of silver">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>b1q2b3c4d5e6f7g8h9i0j1k2l</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>When 125 J of heat is added to 25.0 g of silver at 20.0°C, the temperature rises to 24.2°C. What is the specific heat of silver?</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[0.227 J/g°C]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[0.385 J/g°C]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[1.19 J/g°C]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[0.449 J/g°C]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 1.3: Metal identification -->
+      <item ident="b1q3c4d5e6f7g8h9i0j1k2l3m" title="Identify metal by specific heat">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>b1q3c4d5e6f7g8h9i0j1k2l3m</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>A metal sample weighing 75.0 g requires 812 J to increase its temperature by 12.0°C. Which metal is it most likely to be? (Specific heats: Al = 0.897, Fe = 0.449, Cu = 0.385, Pb = 0.128 J/g°C)</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Aluminum]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Iron]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Copper]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Lead]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 1.4: Kinetic energy and temperature -->
+      <item ident="b1q4d5e6f7g8h9i0j1k2l3m4n" title="Kinetic energy doubling effect">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>b1q4d5e6f7g8h9i0j1k2l3m4n</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>If the average kinetic energy of molecules doubles, what happens to the absolute temperature?</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[It increases by √2]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[It doubles]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[It quadruples]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[It increases by a factor of 8]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_b</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 1.5: Iron cooling -->
+      <item ident="b1q5e6f7g8h9i0j1k2l3m4n5o" title="Calculate heat released by iron">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>b1q5e6f7g8h9i0j1k2l3m4n5o</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>A 150.0 g iron bar (c = 0.449 J/g°C) cools from 98.0°C to 25.0°C. How much heat is released?</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[4.91 × 10³ J]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[2.46 × 10³ J]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[9.82 × 10³ J]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[1.68 × 10³ J]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 1.6: Thermal energy and molecular motion -->
+      <item ident="b1q6f7g8h9i0j1k2l3m4n5o6p" title="Thermal energy relationship">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>b1q6f7g8h9i0j1k2l3m4n5o6p</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>Which statement correctly relates thermal energy to molecular motion?</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Thermal energy is inversely proportional to molecular speed]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Thermal energy equals the total kinetic energy of all molecules]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Thermal energy depends only on molecular mass]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Thermal energy is independent of molecular motion]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_b</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 1.7: Water cooling -->
+      <item ident="b1q7g8h9i0j1k2l3m4n5o6p7q" title="Calculate final temperature of water">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>b1q7g8h9i0j1k2l3m4n5o6p7q</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>When 2.50 kJ of heat is removed from 100.0 g of water at 50.0°C, what is the final temperature? (c<sub>water</sub> = 4.184 J/g°C)</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[44.0°C]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[56.0°C]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[25.0°C]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[6.0°C]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 1.8: Aluminum heating -->
+      <item ident="b1q8h9i0j1k2l3m4n5o6p7q8r" title="Heat absorbed by aluminum">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>b1q8h9i0j1k2l3m4n5o6p7q8r</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>The temperature of 50.0 g of aluminum increases from 22.0°C to 75.0°C. How much heat was absorbed? (c<sub>Al</sub> = 0.897 J/g°C)</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[4.74 × 10³ J]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[3.36 × 10³ J]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[2.38 × 10³ J]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[1.19 × 10³ J]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_c</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 1.9: Molecular level heating -->
+      <item ident="b1q9i0j1k2l3m4n5o6p7q8r9s" title="Heating at molecular level">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>b1q9i0j1k2l3m4n5o6p7q8r9s</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>At the molecular level, what happens when a substance is heated?</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Molecules get larger]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Average molecular kinetic energy increases]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Molecules lose mass]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Intermolecular forces strengthen]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_b</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 1.10: Calculate specific heat -->
+      <item ident="b1q0j1k2l3m4n5o6p7q8r9s0t" title="Determine specific heat capacity">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>b1q0j1k2l3m4n5o6p7q8r9s0t</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>A 25.0 g sample requires 335 J to raise its temperature by 15.0°C. What is its specific heat capacity?</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[0.893 J/g°C]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[1.34 J/g°C]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[0.447 J/g°C]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[2.23 J/g°C]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 1.11: Compare thermal energy -->
+      <item ident="b1q1k2l3m4n5o6p7q8r9s0t1u" title="Compare thermal energies">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>b1q1k2l3m4n5o6p7q8r9s0t1u</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>Which has more thermal energy: 100 g of water at 50°C or 200 g of water at 30°C?</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[100 g at 50°C]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[200 g at 30°C]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[They have equal thermal energy]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Cannot be determined]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_b</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 1.12: High specific heat -->
+      <item ident="b1q2l3m4n5o6p7q8r9s0t1u2v" title="High specific heat meaning">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>b1q2l3m4n5o6p7q8r9s0t1u2v</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>If a substance has a high specific heat capacity, it means:</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[It heats up quickly with little energy input]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[It requires more energy to change its temperature]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[It cannot store thermal energy]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Its molecules move very slowly]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_b</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 1.13: Ethanol heating -->
+      <item ident="b1q3m4n5o6p7q8r9s0t1u2v3w" title="Heat needed for ethanol">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>b1q3m4n5o6p7q8r9s0t1u2v3w</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>Calculate the heat needed to warm 200.0 g of ethanol from -10.0°C to 25.0°C. (c<sub>ethanol</sub> = 2.44 J/g°C)</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[8.54 × 10³ J]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[1.22 × 10⁴ J]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[1.71 × 10⁴ J]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[4.88 × 10³ J]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_c</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 1.14: Gas pressure and temperature -->
+      <item ident="b1q4n5o6p7q8r9s0t1u2v3w4x" title="Gas pressure with temperature">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>b1q4n5o6p7q8r9s0t1u2v3w4x</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>When thermal energy is added to a gas at constant volume, the increased molecular motion results in:</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Decreased pressure]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Increased pressure]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[No change in pressure]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Decreased temperature]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_b</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 1.15: Unknown metal specific heat -->
+      <item ident="b1q5o6p7q8r9s0t1u2v3w4x5y" title="Calculate specific heat of unknown">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>b1q5o6p7q8r9s0t1u2v3w4x5y</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>A 75.0 g sample of an unknown metal releases 1.65 × 10³ J when cooled from 90.0°C to 25.0°C. What is its specific heat?</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[0.338 J/g°C]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[0.676 J/g°C]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[0.169 J/g°C]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[1.35 J/g°C]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+    </section>
+  </assessment>
+</questestinterop>
