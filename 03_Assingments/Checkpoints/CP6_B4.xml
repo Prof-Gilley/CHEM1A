@@ -1,0 +1,857 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/xsd/ims_qtiasiv1p2p1.xsd">
+  <assessment ident="g6c7e4e8f5a2d4b9c1e3f7a8b" title="Bank 4: Hess's Law, State Functions, and Complex Calculations">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>qmd_assessmenttype</fieldlabel>
+        <fieldentry>Bank</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>1</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="root_section">
+      
+      <!-- Question 4.1: Calculate ΔH° for NO + O₂ → NO₂ -->
+      <item ident="g1a2b3c4d5e6f7g8h9i0j1k2l" title="Calculate ΔH° for NO + O₂ → NO₂">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>g1a2b3c4d5e6f7g8h9i0j1k2l</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>Calculate ΔH° for: 2NO(g) + O₂(g) → 2NO₂(g)</p><p>Given: ΔH°<sub>f</sub>[NO(g)] = +90.3 kJ/mol, ΔH°<sub>f</sub>[NO₂(g)] = +33.2 kJ/mol</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-114.2 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[+57.1 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-28.6 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[+123.5 kJ]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 4.2: Calculate ΔH°rxn for CH₄ combustion -->
+      <item ident="g2b3c4d5e6f7g8h9i0j1k2l3m" title="Calculate ΔH°rxn for CH₄ combustion">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>g2b3c4d5e6f7g8h9i0j1k2l3m</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>For the reaction: CH₄(g) + 2O₂(g) → CO₂(g) + 2H₂O(l)</p><p>Given: ΔH°<sub>f</sub>[CH₄(g)] = -74.8 kJ/mol, ΔH°<sub>f</sub>[CO₂(g)] = -393.5 kJ/mol, ΔH°<sub>f</sub>[H₂O(l)] = -285.8 kJ/mol</p><p>Calculate ΔH°<sub>rxn</sub>:</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-890.3 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-445.2 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-667.5 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-1112.9 kJ]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 4.3: Calculate ΔH using bond energies -->
+      <item ident="g3c4d5e6f7g8h9i0j1k2l3m4n" title="Calculate ΔH using bond energies">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>g3c4d5e6f7g8h9i0j1k2l3m4n</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>Using bond energies, calculate ΔH for: H₂(g) + Cl₂(g) → 2HCl(g)</p><p>Bond energies: H-H = 436 kJ/mol, Cl-Cl = 243 kJ/mol, H-Cl = 432 kJ/mol</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-185 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[+247 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-92.5 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[+370 kJ]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 4.4: State function concept -->
+      <item ident="g4d5e6f7g8h9i0j1k2l3m4n5o" title="Why is enthalpy a state function">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>g4d5e6f7g8h9i0j1k2l3m4n5o</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>Why is enthalpy a state function?</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[It depends on the path taken]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[It depends only on initial and final states]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[It always increases]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[It cannot be measured]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_b</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 4.5: Calculate ΔH°f using Hess's Law -->
+      <item ident="g5e6f7g8h9i0j1k2l3m4n5o6p" title="Calculate ΔH°f using Hess's Law">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>g5e6f7g8h9i0j1k2l3m4n5o6p</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>Given these reactions:</p><p>C(s) + O₂(g) → CO₂(g), ΔH = -393.5 kJ</p><p>H₂(g) + ½O₂(g) → H₂O(l), ΔH = -285.8 kJ</p><p>C₂H₆(g) + 7/2O₂(g) → 2CO₂(g) + 3H₂O(l), ΔH = -1559.7 kJ</p><p>Calculate ΔH°<sub>f</sub> for C₂H₆(g):</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-84.7 kJ/mol]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[+84.7 kJ/mol]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-169.4 kJ/mol]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[+42.4 kJ/mol]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 4.6: Calculate work done by gas -->
+      <item ident="g6f7g8h9i0j1k2l3m4n5o6p7q" title="Calculate work done by gas expansion">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>g6f7g8h9i0j1k2l3m4n5o6p7q</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>A gas expands from 2.0 L to 6.0 L against a constant pressure of 1.5 atm. Calculate the work done by the gas in joules. (1 L·atm = 101.3 J)</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-608 J]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[+608 J]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-304 J]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[+304 J]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 4.7: Thermite reaction ΔH° -->
+      <item ident="g7g8h9i0j1k2l3m4n5o6p7q8r" title="Calculate ΔH° for thermite reaction">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>g7g8h9i0j1k2l3m4n5o6p7q8r</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>Calculate ΔH° for: 2Al(s) + Fe₂O₃(s) → Al₂O₃(s) + 2Fe(s)</p><p>Given: ΔH°<sub>f</sub>[Al₂O₃(s)] = -1675.7 kJ/mol, ΔH°<sub>f</sub>[Fe₂O₃(s)] = -824.2 kJ/mol</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-851.5 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[+851.5 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-2499.9 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[+2499.9 kJ]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 4.8: Path independence of state functions -->
+      <item ident="g8h9i0j1k2l3m4n5o6p7q8r9s" title="Path independence of state functions">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>g8h9i0j1k2l3m4n5o6p7q8r9s</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>Which statement about path independence is correct for state functions?</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[The value depends on how the change occurs]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[The value is the same regardless of the path]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Only temperature is path independent]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Work and heat are path independent]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_b</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 4.9: Apply Hess's Law to combine reactions -->
+      <item ident="g9i0j1k2l3m4n5o6p7q8r9s0t" title="Apply Hess's Law to combine reactions">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>g9i0j1k2l3m4n5o6p7q8r9s0t</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>Given: N₂(g) + O₂(g) → 2NO(g), ΔH = +180.6 kJ</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2NO(g) + O₂(g) → 2NO₂(g), ΔH = -114.2 kJ</p><p>Calculate ΔH for: N₂(g) + 2O₂(g) → 2NO₂(g)</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[+66.4 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-66.4 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[+294.8 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-294.8 kJ]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 4.10: Calculate ΔU from ΔH -->
+      <item ident="g0j1k2l3m4n5o6p7q8r9s0t1u" title="Calculate ΔU from ΔH and Δn">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>g0j1k2l3m4n5o6p7q8r9s0t1u</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>For a reaction at 298 K and 1 atm, ΔH = -250 kJ and the reaction produces 2 moles of gas from 3 moles of gas. Calculate ΔU.</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-247.5 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-252.5 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[+247.5 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-250.0 kJ]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 4.11: Bond energy calculation -->
+      <item ident="g1k2l3m4n5o6p7q8r9s0t1u2v" title="Estimate ΔH using bond energies">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>g1k2l3m4n5o6p7q8r9s0t1u2v</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>Using average bond energies, estimate ΔH for: CH₄(g) + Cl₂(g) → CH₃Cl(g) + HCl(g)</p><p>Bond energies (kJ/mol): C-H = 413, Cl-Cl = 243, C-Cl = 339, H-Cl = 432</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-115 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[+115 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-230 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[+57 kJ]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 4.12: Valid Hess's Law application -->
+      <item ident="g2l3m4n5o6p7q8r9s0t1u2v3w" title="Valid application of Hess's Law">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>g2l3m4n5o6p7q8r9s0t1u2v3w</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>Which combination represents a valid application of Hess's Law?</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[ΔH₁ + ΔH₂ = ΔH₃ if reactions 1 and 2 sum to reaction 3]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[ΔH₁ × ΔH₂ = ΔH₃]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[ΔH₁ - ΔH₂ = ΔH₃ always]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[ΔH values cannot be combined]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </resprocessing>
+      </item>
+
+      <!-- Question 4.14: Path independence principle -->
+      <item ident="g4n5o6p7q8r9s0t1u2v3w4x5y" title="Enthalpy changes for different paths">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>g4n5o6p7q8r9s0t1u2v3w4x5y</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>If a process can occur by two different paths, what must be true about the enthalpy changes?</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[They must be different]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[They must be identical]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[Path 1 is always larger]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[It depends on temperature]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_b</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 4.15: Calculate ΔU with volume change -->
+      <item ident="g5o6p7q8r9s0t1u2v3w4x5y6z" title="Calculate ΔU with volume decrease">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>g5o6p7q8r9s0t1u2v3w4x5y6z</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<div><p>A reaction has ΔH = -500 kJ and causes a volume decrease of 10.0 L at 2.00 atm. What is ΔU? (1 L·atm = 101.3 J)</p></div>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="choice_a">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-502.0 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_b">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-498.0 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_c">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-520.3 kJ]]></mattext>
+                </material>
+              </response_label>
+              <response_label ident="choice_d">
+                <material>
+                  <mattext texttype="text/plain"><![CDATA[-479.7 kJ]]></mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">choice_b</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+    </section>
+  </assessment>
+</questestinterop>
