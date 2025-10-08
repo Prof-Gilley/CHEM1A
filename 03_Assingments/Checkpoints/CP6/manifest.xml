@@ -6,15 +6,15 @@
     <lomimscc:lom>
       <lomimscc:general>
         <lomimscc:title>
-          <lomimscc:string language="en-US">Bank 4: Hess's Law, State Functions, and Complex Calculations</lomimscc:string>
+          <lomimscc:string language="en-US">CP6 Bank 4: Hess's Law, State Functions, and Complex Calculations</lomimscc:string>
         </lomimscc:title>
       </lomimscc:general>
     </lomimscc:lom>
   </metadata>
   <organizations/>
   <resources>
-    <resource identifier="res00001" type="imsqti_xmlv1p2/imscc_xmlv1p1/assessment">
-      <file href="Bank_4_Hess_Law_State_Functions.xml"/>
+    <resource identifier="g6c7e4e8f5a2d4b9c1e3f7a8b" type="imsqti_xmlv1p2/imscc_xmlv1p1/assessment">
+      <file href="CP6_B4.xml"/>
     </resource>
   </resources>
 </manifest>
