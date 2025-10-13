@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest identifier="CP9_B4_ELECTRON_CONFIGURATIONS_MANIFEST" 
+          xmlns="http://www.imsglobal.org/xsd/imsccv1p1/imscp_v1p1"
+          xmlns:lom="http://ltsc.ieee.org/xsd/imsccv1p1/LOM/resource"
+          xmlns:lomimscc="http://ltsc.ieee.org/xsd/imsccv1p1/LOM/manifest"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.imsglobal.org/xsd/imsccv1p1/imscp_v1p1 http://www.imsglobal.org/xsd/imscp_v1p1.xsd 
+                              http://ltsc.ieee.org/xsd/imsccv1p1/LOM/resource http://www.imsglobal.org/profile/cc/ccv1p1/LOM/ccv1p1_lomresource_v1p0.xsd 
+                              http://ltsc.ieee.org/xsd/imsccv1p1/LOM/manifest http://www.imsglobal.org/profile/cc/ccv1p1/LOM/ccv1p1_lommanifest_v1p0.xsd">
+  
+  <metadata>
+    <schema>IMS Common Cartridge</schema>
+    <schemaversion>1.1.0</schemaversion>
+    <lomimscc:lom>
+      <lomimscc:general>
+        <lomimscc:title>
+          <lomimscc:string language="en">Question Bank 4: Electron Configurations &amp; Chemical Behavior</lomimscc:string>
+        </lomimscc:title>
+        <lomimscc:description>
+          <lomimscc:string language="en">ACS-Style Practice Questions - OpenStax Chemistry 2e, Chapter 6, Section 6.4 - Moderate Difficulty</lomimscc:string>
+        </lomimscc:description>
+        <lomimscc:keyword>
+          <lomimscc:string language="en">electron configuration</lomimscc:string>
+        </lomimscc:keyword>
+        <lomimscc:keyword>
+          <lomimscc:string language="en">Aufbau principle</lomimscc:string>
+        </lomimscc:keyword>
+        <lomimscc:keyword>
+          <lomimscc:string language="en">Hund's rule</lomimscc:string>
+        </lomimscc:keyword>
+        <lomimscc:keyword>
+          <lomimscc:string language="en">Pauli exclusion</lomimscc:string>
+        </lomimscc:keyword>
+        <lomimscc:keyword>
+          <lomimscc:string language="en">valence electrons</lomimscc:string>
+        </lomimscc:keyword>
+      </lomimscc:general>
+      <lomimscc:lifeCycle>
+        <lomimscc:contribute>
+          <lomimscc:date>
+            <lomimscc:dateTime>2025-10-13</lomimscc:dateTime>
+          </lomimscc:date>
+        </lomimscc:contribute>
+      </lomimscc:lifeCycle>
+      <lomimscc:rights>
+        <lomimscc:copyrightAndOtherRestrictions>
+          <lomimscc:value>yes</lomimscc:value>
+        </lomimscc:copyrightAndOtherRestrictions>
+        <lomimscc:description>
+          <lomimscc:string language="en">All Rights Reserved</lomimscc:string>
+        </lomimscc:description>
+      </lomimscc:rights>
+    </lomimscc:lom>
+  </metadata>
+  
+  <organizations/>
+  
+  <resources>
+    <resource identifier="RES_CP9_B4_ELECTRON_CONFIGURATIONS" 
+              type="imsqti_xmlv1p2/imscc_xmlv1p1/assessment" 
+              href="CP9_B4_Electron_Configurations.xml">
+      <file href="CP9_B4_Electron_Configurations.xml"/>
+      <metadata>
+        <lom:lom>
+          <lom:general>
+            <lom:title>
+              <lom:string language="en">CP9_B4: Electron Configurations Question Bank</lom:string>
+            </lom:title>
+            <lom:description>
+              <lom:string language="en">15 multiple-choice questions covering electron configurations, Aufbau principle, Hund's rule, Pauli exclusion principle, valence electrons, orbital diagrams, ions, isoelectronic species, paramagnetism, and exceptions (Cr, Cu). Aligned with OpenStax Chemistry 2e Chapter 6.4 and COR Section 11.1.</lom:string>
+            </lom:description>
+          </lom:general>
+          <lom:educational>
+            <lom:learningResourceType>
+              <lom:value>assessment</lom:value>
+            </lom:learningResourceType>
+            <lom:intendedEndUserRole>
+              <lom:value>learner</lom:value>
+            </lom:intendedEndUserRole>
+          </lom:educational>
+        </lom:lom>
+      </metadata>
+    </resource>
+  </resources>
+  
+</manifest>
