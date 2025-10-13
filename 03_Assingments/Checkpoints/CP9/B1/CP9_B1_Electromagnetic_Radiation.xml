@@ -1,0 +1,906 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" 
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                 xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/xsd/ims_qtiasiv1p2p1.xsd">
+  
+  <assessment ident="CP9_B1_Electromagnetic_Radiation" title="Question Bank 1: Electromagnetic Radiation &amp; Biological Effects">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_absolutescore_max</fieldlabel>
+        <fieldentry>15</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>assessment_type</fieldlabel>
+        <fieldentry>practice</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>textbook_reference</fieldlabel>
+        <fieldentry>OpenStax Chemistry 2e, Chapter 6, Section 6.1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>difficulty_level</fieldlabel>
+        <fieldentry>Moderate</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    
+    <section ident="root_section">
+      
+      <!-- Question 1 -->
+      <item ident="q1_photon_energy" title="[OpenStax 6.1 | COR 10.1.2 | Objective 9] Photon Energy Calculation">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>A sodium vapor lamp emits light at 589 nm. What is the energy of a single photon of this yellow light?</p>
+<p><strong>Constants:</strong> c = 3.00 × 10⁸ m/s, h = 6.626 × 10⁻³⁴ J·s</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>1.99 × 10⁻¹⁹ J</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>3.37 × 10⁻¹⁹ J</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>5.09 × 10⁻¹⁹ J</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>3.37 × 10⁻²⁸ J</mattext></material>
+              </response_label>
+              <response_label ident="E">
+                <material><mattext>1.13 × 10⁻²⁷ J</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 2 -->
+      <item ident="q2_wavelength_frequency" title="[OpenStax 6.1 | COR 10.1.1 | Objective 1] Wavelength-Frequency Relationship">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Which electromagnetic wave has a frequency of 6.00 × 10¹⁴ Hz?</p>
+<p><strong>Constants:</strong> c = 3.00 × 10⁸ m/s</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>UV (λ = 300 nm)</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Red visible (λ = 700 nm)</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Green visible (λ = 500 nm)</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Blue visible (λ = 450 nm)</mattext></material>
+              </response_label>
+              <response_label ident="E">
+                <material><mattext>Infrared (λ = 1000 nm)</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">C</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 3 -->
+      <item ident="q3_energy_wavelength_ratio" title="[OpenStax 6.1 | COR 10.1.2 | Objective 1] Energy-Wavelength Inverse Relationship">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>If photon A has wavelength λ = 400 nm and photon B has wavelength λ = 800 nm, what is the ratio of their energies (E<sub>A</sub> / E<sub>B</sub>)?</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>0.5</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>1.0</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>2.0</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>4.0</mattext></material>
+              </response_label>
+              <response_label ident="E">
+                <material><mattext>0.25</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">C</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>E is inversely proportional to λ, so doubling wavelength halves energy</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 4 -->
+      <item ident="q4_uv_threshold" title="[OpenStax 6.1 | COR 10.1.2 | Objective 9] UV Radiation Threshold">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>DNA bonds require approximately 4.0 eV to break. What is the maximum wavelength (in nm) that can cause DNA damage?</p>
+<p><strong>Constants:</strong> c = 3.00 × 10⁸ m/s, h = 6.626 × 10⁻³⁴ J·s, 1 eV = 1.602 × 10⁻¹⁹ J</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>200</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>310</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>400</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>500</mattext></material>
+              </response_label>
+              <response_label ident="E">
+                <material><mattext>600</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>E = 4.0 eV × 1.602 × 10⁻¹⁹ J/eV = 6.41 × 10⁻¹⁹ J; λ = hc/E = 310 nm</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 5 -->
+      <item ident="q5_spectrum_order" title="[OpenStax 6.1 | COR 10.1.1 | Objective 2] Electromagnetic Spectrum Order">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Arrange these types of electromagnetic radiation in order of INCREASING energy per photon:</p>
+<p>I. Microwave<br/>
+II. X-ray<br/>
+III. Visible light<br/>
+IV. Infrared</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>I &lt; IV &lt; III &lt; II</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>II &lt; III &lt; IV &lt; I</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>IV &lt; I &lt; III &lt; II</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>I &lt; III &lt; IV &lt; II</mattext></material>
+              </response_label>
+              <response_label ident="E">
+                <material><mattext>II &lt; I &lt; IV &lt; III</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">A</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 6 -->
+      <item ident="q6_photoelectric_effect" title="[OpenStax 6.1 | COR 10.1.2 | Objective 9] Photoelectric Effect - Work Function">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>The work function of potassium is 2.30 eV. Light with wavelength 400 nm strikes the potassium surface. What is the kinetic energy of ejected electrons?</p>
+<p><strong>Constants:</strong> c = 3.00 × 10⁸ m/s, h = 6.626 × 10⁻³⁴ J·s, 1 eV = 1.602 × 10⁻¹⁹ J</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>0.00 eV (no electrons ejected)</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>0.80 eV</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>2.30 eV</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>3.10 eV</mattext></material>
+              </response_label>
+              <response_label ident="E">
+                <material><mattext>5.40 eV</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>E_photon = hc/λ = 3.10 eV; KE = 3.10 - 2.30 = 0.80 eV</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 7 -->
+      <item ident="q7_comparative_energy" title="[OpenStax 6.1 | COR 10.1.1 | Objective 1] Comparative Photon Energy">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>An X-ray photon (λ = 0.10 nm) has how many times more energy than a red photon (λ = 700 nm)?</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>70</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>700</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>7,000</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>70,000</mattext></material>
+              </response_label>
+              <response_label ident="E">
+                <material><mattext>7</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">C</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Energy ratio = λ_red / λ_X-ray = 700 / 0.10 = 7000</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 8 -->
+      <item ident="q8_wave_particle_duality" title="[OpenStax 6.1 | COR 10.1 | Objective 2] Wave-Particle Duality Evidence">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Which observation provides the STRONGEST evidence for the particle nature of light?</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Diffraction through a single slit</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>The photoelectric effect shows a threshold frequency</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Interference patterns in double-slit experiments</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Polarization of light</mattext></material>
+              </response_label>
+              <response_label ident="E">
+                <material><mattext>Refraction when entering water</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Threshold frequency shows energy comes in discrete packets</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 9 -->
+      <item ident="q9_laser_power" title="[OpenStax 6.1 | COR 10.1.1 | Objective 1] Laser Power Output">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>A laser emits 5.0 × 10¹⁸ photons per second at wavelength 650 nm. What is the power output?</p>
+<p><strong>Constants:</strong> c = 3.00 × 10⁸ m/s, h = 6.626 × 10⁻³⁴ J·s</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>1.5 mW</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>1.5 W</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>15 mW</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>15 W</mattext></material>
+              </response_label>
+              <response_label ident="E">
+                <material><mattext>0.15 W</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>E per photon = hc/λ = 3.06 × 10⁻¹⁹ J; Power = (3.06 × 10⁻¹⁹)(5.0 × 10¹⁸) = 1.53 W</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 10 -->
+      <item ident="q10_blackbody_quantization" title="[OpenStax 6.1 | COR 10.1.2 | Objective 2] Blackbody Radiation Quantization">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>According to Planck's quantum hypothesis, what are the allowed energies for electromagnetic radiation with frequency ν?</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Any value from 0 to infinity</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Only E = hν</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Only integer multiples of hν</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Only E = hν/n where n = 1, 2, 3...</mattext></material>
+              </response_label>
+              <response_label ident="E">
+                <material><mattext>Only values less than hν</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">C</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>E = nhν where n = 1, 2, 3... - energy is quantized</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 11 -->
+      <item ident="q11_medical_imaging" title="[OpenStax 6.1 | COR 10.1.2 | Objective 9] Medical Imaging Application">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Medical X-rays used for imaging have energies around 20 keV. What is the approximate wavelength?</p>
+<p><strong>Constants:</strong> c = 3.00 × 10⁸ m/s, h = 6.626 × 10⁻³⁴ J·s, 1 eV = 1.602 × 10⁻¹⁹ J</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>0.06 nm</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>0.6 nm</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>6 nm</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>60 nm</mattext></material>
+              </response_label>
+              <response_label ident="E">
+                <material><mattext>600 nm</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">A</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>20 keV = 3.2 × 10⁻¹⁵ J; λ = hc/E = 6.2 × 10⁻¹¹ m ≈ 0.062 nm</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 12 -->
+      <item ident="q12_spectroscopy" title="[OpenStax 6.1 | COR 10.1 | Objective 9] Spectroscopy Application">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Atomic absorption spectroscopy detects thallium at 535 nm. This wavelength corresponds to which type of electronic transition?</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Inner-shell ionization (X-ray region)</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Nuclear gamma decay</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Valence electron transition (visible region)</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Molecular rotational transition</mattext></material>
+              </response_label>
+              <response_label ident="E">
+                <material><mattext>Core electron excitation</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">C</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>535 nm is in visible range, characteristic of valence electron transitions</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 13 -->
+      <item ident="q13_frequency_calculation" title="[OpenStax 6.1 | COR 10.1.1 | Objective 1] Frequency Calculation">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>What is the frequency of electromagnetic radiation with wavelength 450 nm (blue light)?</p>
+<p><strong>Constants:</strong> c = 3.00 × 10⁸ m/s</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>6.67 × 10¹⁴ Hz</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>6.67 × 10¹⁵ Hz</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>1.35 × 10¹⁵ Hz</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>1.50 × 10⁻¹⁵ Hz</mattext></material>
+              </response_label>
+              <response_label ident="E">
+                <material><mattext>4.50 × 10¹⁴ Hz</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">A</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>ν = c/λ = 3.00 × 10⁸ / 450 × 10⁻⁹ = 6.67 × 10¹⁴ Hz</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 14 -->
+      <item ident="q14_radiation_penetration" title="[OpenStax 6.1 | COR 10.1.2 | Objective 9] Radiation Penetration">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Which statement correctly explains why X-rays penetrate tissue more effectively than UV radiation?</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>X-rays travel faster than UV</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>X-rays have longer wavelengths</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>X-rays have higher energy per photon</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>X-rays have lower frequency</mattext></material>
+              </response_label>
+              <response_label ident="E">
+                <material><mattext>X-rays are not electromagnetic waves</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">C</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Higher energy photons penetrate deeper; X-rays have much higher E than UV</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 15 -->
+      <item ident="q15_multi_source_comparison" title="[OpenStax 6.1 | COR 10.1 | Objectives 1, 9] Multi-Source Energy Comparison">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Three sources emit radiation: Source A (λ = 200 nm), Source B (λ = 500 nm), Source C (λ = 1000 nm). Which source emits photons with the LEAST energy?</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Source A</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Source B</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Source C</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>All three have equal energy</mattext></material>
+              </response_label>
+              <response_label ident="E">
+                <material><mattext>Cannot be determined</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">C</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Longest wavelength = lowest energy; 1000 nm is infrared, lowest E</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+    </section>
+  </assessment>
+</questestinterop>
