@@ -1,1 +1,874 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" 
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                 xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/xsd/ims_qtiasiv1p2p1.xsd">
+  
+  <assessment ident="CP9_B7_Ionization_Energy" title="Question Bank 7: Ionization Energy &amp; Metallic Character">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_absolutescore_max</fieldlabel>
+        <fieldentry>15</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>assessment_type</fieldlabel>
+        <fieldentry>practice</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>textbook_reference</fieldlabel>
+        <fieldentry>OpenStax Chemistry 2e, Chapter 6, Section 6.5</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>difficulty_level</fieldlabel>
+        <fieldentry>Moderate-High</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    
+    <section ident="root_section">
+      
+      <!-- Question 1 -->
+      <item ident="q1_ie_definition" title="[OpenStax 6.5 | COR 11.2.2 | Objective 2] IE Definition">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>First ionization energy (IE₁) is:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Energy released when an electron is added</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Energy required to remove the most loosely bound electron</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Energy required to remove all electrons</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Energy of chemical bond formation</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>IE₁: X(g) → X⁺(g) + e⁻</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
 
+      <!-- Question 2 -->
+      <item ident="q2_ie_across_period" title="[OpenStax 6.5 | COR 11.2.2 | Objective 2] IE Trend Across Period">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>As you move from left to right across a period, IE generally:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Decreases</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Increases</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Remains constant</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Decreases then increases</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Higher Z_eff → electrons held tighter → harder to remove</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 3 -->
+      <item ident="q3_ie_down_group" title="[OpenStax 6.5 | COR 11.2.2 | Objective 2] IE Trend Down Group">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>As you move down a group, IE generally:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Increases</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Decreases</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Remains constant</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Increases then decreases</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Electrons farther from nucleus → easier to remove</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 4 -->
+      <item ident="q4_highest_ie" title="[OpenStax 6.5 | COR 11.2.2 | Objective 2] Highest IE in Period 3">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Which element in Period 3 has the HIGHEST first ionization energy?</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Na</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Mg</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Cl</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Ar</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">D</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Noble gas; full octet; highest Z_eff in period</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 5 -->
+      <item ident="q5_al_mg_exception" title="[OpenStax 6.5 | COR 11.2.2 | Objective 2] Al vs Mg Exception">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Why is IE₁(Al) &lt; IE₁(Mg) even though Al has higher Z?</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Al has more electrons</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Removing p electron from Al is easier than removing paired s electron from Mg</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Mg is more metallic</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Al is larger</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Mg: 3s² → paired; Al: 3s² 3p¹ → single p electron easier to remove</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 6 -->
+      <item ident="q6_s_p_exception" title="[OpenStax 6.5 | COR 11.2.2 | Objective 2] S vs P Exception">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Why is IE₁(S) &lt; IE₁(P)?</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>S has more protons</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>P has half-filled p subshell; removing paired electron from S is easier</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>S is smaller</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>P is more metallic</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>P: 3p³ all unpaired; S: 3p⁴ has one pair → easier to remove paired electron</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 7 -->
+      <item ident="q7_successive_ie" title="[OpenStax 6.5 | COR 11.2.2 | Objective 2] Successive IEs">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>For any atom, IE₁, IE₂, IE₃... follow which pattern?</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>IE₁ &gt; IE₂ &gt; IE₃</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>IE₁ &lt; IE₂ &lt; IE₃</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>All equal</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>No predictable pattern</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Each successive electron harder to remove from increasingly positive ion</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 8 -->
+      <item ident="q8_core_valence_ie" title="[OpenStax 6.5 | COR 11.2.2 | Objective 2] Core vs Valence IE">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>For Na (configuration [Ne] 3s¹), there is a large jump between which ionization energies?</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>IE₁ and IE₂</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>IE₂ and IE₃</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>IE₅ and IE₆</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>IE₁₀ and IE₁₁</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">A</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>After removing 3s¹, next electron comes from stable [Ne] core</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 9 -->
+      <item ident="q9_low_ie_property" title="[OpenStax 6.5 | COR 11.2.2 | Objective 9] Low IE Property">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Elements with LOW ionization energy tend to be:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Nonmetals</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Metals</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Noble gases</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Halogens</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Metals easily lose electrons → low IE → form cations</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 10 -->
+      <item ident="q10_high_ie_property" title="[OpenStax 6.5 | COR 11.2.2 | Objective 9] High IE Property">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Elements with HIGH ionization energy tend to:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Form cations easily</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Be good conductors</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Form anions or remain unreactive</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Be shiny and malleable</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">C</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>High IE → hard to remove electrons → gain electrons (anions) or don't react (noble gases)</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 11 -->
+      <item ident="q11_na_cl_ie" title="[OpenStax 6.5 | COR 11.2.2 | Objective 2] Na vs Cl IE">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Which has higher first ionization energy?</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Na (496 kJ/mol)</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Cl (1251 kJ/mol)</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Both equal</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Cannot determine</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Same period; Cl has higher Z_eff → higher IE</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 12 -->
+      <item ident="q12_metallic_character" title="[OpenStax 6.5 | COR 11.2.2 | Objective 9] Metallic Character Trend">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Metallic character DECREASES:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Down a group and across a period left to right</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Up a group and across a period left to right</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Down a group and across a period right to left</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>In all directions</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Opposite of IE trend; metals on lower left, nonmetals on upper right</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 13 -->
+      <item ident="q13_chlorine_toxicity" title="[OpenStax 6.5 | COR 11.2.2 | Objective 9] Chlorine Gas Toxicity">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Chlorine gas (Cl₂) was deadly in WWI because Cl has:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Very low IE, readily loses electrons</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Very high IE and desperately wants to gain electrons</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Moderate IE</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Noble gas configuration</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Cl: [Ne] 3s² 3p⁵; IE = 1251 kJ/mol; wants 1 more electron → rips from tissue</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 14 -->
+      <item ident="q14_one_electron_diff" title="[OpenStax 6.5 | COR 11.2.2 | Objective 9] One Electron Difference">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>S (IE = 1000 kJ/mol), Cl (IE = 1251 kJ/mol), Ar (IE = 1521 kJ/mol) show that:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>All have similar reactivity</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>One electron difference dramatically changes properties</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>IE is unrelated to reactivity</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Halogens are unreactive</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>S: needs 2e⁻, moderate; Cl: needs 1e⁻, desperate; Ar: complete, inert</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 15 -->
+      <item ident="q15_ie_macroscopic" title="[OpenStax 6.5 | COR 11.2.2 | Objective 9] IE and Macroscopic Behavior">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Ionization energy (submicroscopic) determines:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Color of compounds</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Whether element forms cations or anions (macroscopic)</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Atomic mass</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Nuclear stability</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Low IE → metals → form cations; High IE → nonmetals → form anions or inert</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+    </section>
+  </assessment>
+</questestinterop>
