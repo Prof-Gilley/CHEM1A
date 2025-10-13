@@ -1,1 +1,874 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" 
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                 xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/xsd/ims_qtiasiv1p2p1.xsd">
+  
+  <assessment ident="CP9_B9_Multi_Trend_Synthesis" title="Question Bank 9: Multi-Trend Synthesis Questions">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_absolutescore_max</fieldlabel>
+        <fieldentry>15</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>assessment_type</fieldlabel>
+        <fieldentry>practice</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>textbook_reference</fieldlabel>
+        <fieldentry>OpenStax Chemistry 2e, Chapter 6, Section 6.5</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>difficulty_level</fieldlabel>
+        <fieldentry>Moderate-High</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    
+    <section ident="root_section">
+      
+      <!-- Question 1 -->
+      <item ident="q1_scl_ar_radius" title="[OpenStax 6.5 | COR 11.2 | Objective 2] S, Cl, Ar Comparison - Radius">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Rank atomic radii: S, Cl, Ar</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>S &gt; Cl &gt; Ar</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Ar &gt; Cl &gt; S</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Cl &gt; S &gt; Ar</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>All equal</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">A</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Same period; radius decreases left to right due to increasing Z_eff</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
 
+      <!-- Question 2 -->
+      <item ident="q2_scl_ar_ie" title="[OpenStax 6.5 | COR 11.2 | Objective 2] S, Cl, Ar Comparison - IE">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Rank first ionization energies: S, Cl, Ar</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>S &gt; Cl &gt; Ar</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Ar &gt; Cl &gt; S</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Cl &gt; Ar &gt; S</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>S &gt; Ar &gt; Cl</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Same period; IE increases left to right; Ar highest due to full octet</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 3 -->
+      <item ident="q3_scl_ar_ea" title="[OpenStax 6.5 | COR 11.2 | Objective 2] S, Cl, Ar Comparison - EA">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Which has the MOST negative (exothermic) electron affinity?</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>S</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Cl</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Ar</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>All equally negative</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Cl needs one electron; Ar is noble gas with positive EA</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 4 -->
+      <item ident="q4_one_electron_diff" title="[OpenStax 6.5 | COR 11.2 | Objective 9] One Electron Changes Everything">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>S, Cl, and Ar differ by only one electron each, yet:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>They have identical properties</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>They have dramatically different reactivities</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Only color changes</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Only density changes</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>S: moderate reactivity; Cl: highly reactive; Ar: completely inert</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 5 -->
+      <item ident="q5_na_vs_k" title="[OpenStax 6.5 | COR 11.2 | Objective 2] Na vs K - All Trends">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Comparing Na and K (both Group 1), which is TRUE?</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>K is smaller and has higher IE</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>K is larger and has lower IE</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Both have identical properties</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>K is smaller and has lower IE</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>K is below Na; larger radius, lower IE due to added shell</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 6 -->
+      <item ident="q6_isoelectronic_series" title="[OpenStax 6.5 | COR 11.2 | Objective 2] Isoelectronic Series Radius">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Rank ionic radii: N³⁻, O²⁻, F⁻, Na⁺, Mg²⁺ (all 10 e⁻)</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>N³⁻ &gt; O²⁻ &gt; F⁻ &gt; Na⁺ &gt; Mg²⁺</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Mg²⁺ &gt; Na⁺ &gt; F⁻ &gt; O²⁻ &gt; N³⁻</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>All equal (same electrons)</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>F⁻ &gt; O²⁻ &gt; N³⁻ &gt; Na⁺ &gt; Mg²⁺</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">A</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Same electrons; lower nuclear charge = larger size</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 7 -->
+      <item ident="q7_transition_exception" title="[OpenStax 6.5 | COR 11.2 | Objective 2] Transition Metal Exception">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Across the first transition series, atomic radii change:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Dramatically, decreasing by 50%</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Very little</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Dramatically, increasing</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Regularly, doubling</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>d electrons shield each other poorly; Z_eff and radius change little</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 8 -->
+      <item ident="q8_li_to_f_trends" title="[OpenStax 6.5 | COR 11.2 | Objective 2] Li to F Trends">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>From Li to F in Period 2, which trend is INCORRECT?</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Atomic radius decreases</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Ionization energy increases</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Metallic character increases</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Electronegativity increases</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">C</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Metallic character DECREASES left to right</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 9 -->
+      <item ident="q9_predicting_element" title="[OpenStax 6.5 | COR 11.2 | Objective 2] Predicting Unknown Element">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>An element has low IE, large radius, and negative EA. It is likely:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>A metal on the left side of periodic table</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>A nonmetal on the right side</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>A noble gas</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>A halogen</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">A</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Low IE + large radius = metal; negative EA less common for metals but some have slightly negative values</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 10 -->
+      <item ident="q10_ca_k_ions" title="[OpenStax 6.5 | COR 11.2 | Objective 2] Ca²⁺ vs K⁺">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Ca²⁺ and K⁺ are isoelectronic (both [Ar]). Which is smaller?</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>K⁺</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Ca²⁺</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Equal size</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Cannot determine</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Ca has more protons (20) than K (19); higher nuclear charge pulls tighter</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 11 -->
+      <item ident="q11_thallium_poisoning" title="[OpenStax 6.5 | COR 11.2 | Objective 9] Thallium Poisoning Mechanism">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Tl⁺ (164 pm) mimics K⁺ (152 pm) because:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>They are in the same group</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Lanthanide contraction makes Tl⁺ similar in size</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>They have the same electronic configuration</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Thallium is radioactive</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Poor shielding by 4f and 5d → high Z_eff → contracted Tl⁺ ≈ K⁺ size</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 12 -->
+      <item ident="q12_lead_calcium" title="[OpenStax 6.5 | COR 11.2 | Objective 9] Lead vs Calcium">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Pb²⁺ can substitute for Ca²⁺ in bones because:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>They have identical masses</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>They have similar ionic radii and charge</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Lead is essential</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>They are in the same period</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Similar size and charge → molecular mimicry → lead poisoning</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 13 -->
+      <item ident="q13_noble_gas_stability" title="[OpenStax 6.5 | COR 11.2 | Objective 2] Noble Gas Stability">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Noble gases are unreactive because they have:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Low IE and negative EA</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>High IE and positive or slightly negative EA</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Large atomic radius</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Low nuclear charge</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Hard to remove or add electrons due to complete octet</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 14 -->
+      <item ident="q14_causation_chain" title="[OpenStax 6.5 | COR 11.2 | Objective 9] Complete Chain of Causation">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>The chain Z → configuration → Z<sub>eff</sub> → trends → reactivity demonstrates:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Nuclear chemistry</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Objective 9: submicroscopic determines macroscopic</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Quantum mechanics only</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Chemical bonding theory</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Links atomic structure to observable chemical behavior</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 15 -->
+      <item ident="q15_diagonal_relationships" title="[OpenStax 6.5 | COR 11.2 | Objective 2] Diagonal Relationships">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Li (Period 2, Group 1) and Mg (Period 3, Group 2) have similar properties because:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>They are in the same group</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Diagonal elements have similar charge density and polarizing power</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>They have identical electron configurations</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>They are both noble gases</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Moving down increases size; moving right increases charge → similar ratio</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+    </section>
+  </assessment>
+</questestinterop>
