@@ -1,1 +1,113 @@
-
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest identifier="CP9_B11_BONDING_THEORY_MANIFEST" 
+          xmlns="http://www.imsglobal.org/xsd/imsccv1p1/imscp_v1p1"
+          xmlns:lom="http://www.imsglobal.org/xsd/imsccv1p1/LOM/resource"
+          xmlns:lomimscc="http://www.imsglobal.org/xsd/imsccv1p1/LOM/manifest"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.imsglobal.org/xsd/imsccv1p1/imscp_v1p1 http://www.imsglobal.org/xsd/imscp_v1p1.xsd 
+                              http://ltsc.ieee.org/xsd/imsccv1p1/LOM/resource http://www.imsglobal.org/profile/cc/ccv1p1/LOM/ccv1p1_lomresource_v1p0.xsd 
+                              http://ltsc.ieee.org/xsd/imsccv1p1/LOM/manifest http://www.imsglobal.org/profile/cc/ccv1p1/LOM/ccv1p1_lommanifest_v1p0.xsd">
+  
+  <metadata>
+    <schema>IMS Common Cartridge</schema>
+    <schemaversion>1.1.0</schemaversion>
+    <lomimscc:lom>
+      <lomimscc:general>
+        <lomimscc:title>
+          <lomimscc:string language="en">Question Bank 11: Bonding Theory &amp; Molecular Properties</lomimscc:string>
+        </lomimscc:title>
+        <lomimscc:description>
+          <lomimscc:string language="en">ACS-Style Practice Questions - OpenStax Chemistry 2e, Chapter 7, Sections 7.1-7.6 - Moderate-High Difficulty. Comprehensive coverage of Lewis structures, VSEPR theory, molecular geometry, bond polarity, and molecular polarity with real-world applications.</lomimscc:string>
+        </lomimscc:description>
+        <lomimscc:keyword>
+          <lomimscc:string language="en">Lewis structures</lomimscc:string>
+        </lomimscc:keyword>
+        <lomimscc:keyword>
+          <lomimscc:string language="en">VSEPR theory</lomimscc:string>
+        </lomimscc:keyword>
+        <lomimscc:keyword>
+          <lomimscc:string language="en">molecular geometry</lomimscc:string>
+        </lomimscc:keyword>
+        <lomimscc:keyword>
+          <lomimscc:string language="en">valence electrons</lomimscc:string>
+        </lomimscc:keyword>
+        <lomimscc:keyword>
+          <lomimscc:string language="en">formal charge</lomimscc:string>
+        </lomimscc:keyword>
+        <lomimscc:keyword>
+          <lomimscc:string language="en">octet rule</lomimscc:string>
+        </lomimscc:keyword>
+        <lomimscc:keyword>
+          <lomimscc:string language="en">bond polarity</lomimscc:string>
+        </lomimscc:keyword>
+        <lomimscc:keyword>
+          <lomimscc:string language="en">molecular polarity</lomimscc:string>
+        </lomimscc:keyword>
+        <lomimscc:keyword>
+          <lomimscc:string language="en">electronegativity</lomimscc:string>
+        </lomimscc:keyword>
+        <lomimscc:keyword>
+          <lomimscc:string language="en">bond order</lomimscc:string>
+        </lomimscc:keyword>
+        <lomimscc:keyword>
+          <lomimscc:string language="en">resonance structures</lomimscc:string>
+        </lomimscc:keyword>
+        <lomimscc:keyword>
+          <lomimscc:string language="en">carbon monoxide toxicity</lomimscc:string>
+        </lomimscc:keyword>
+      </lomimscc:general>
+      <lomimscc:lifeCycle>
+        <lomimscc:contribute>
+          <lomimscc:role>
+            <lomimscc:value>author</lomimscc:value>
+          </lomimscc:role>
+          <lomimscc:date>
+            <lomimscc:dateTime>2025-10-13</lomimscc:dateTime>
+          </lomimscc:date>
+        </lomimscc:contribute>
+      </lomimscc:lifeCycle>
+      <lomimscc:rights>
+        <lomimscc:copyrightAndOtherRestrictions>
+          <lomimscc:value>yes</lomimscc:value>
+        </lomimscc:copyrightAndOtherRestrictions>
+        <lomimscc:description>
+          <lomimscc:string language="en">All Rights Reserved</lomimscc:string>
+        </lomimscc:description>
+      </lomimscc:rights>
+    </lomimscc:lom>
+  </metadata>
+  
+  <organizations/>
+  
+  <resources>
+    <resource identifier="RES_CP9_B11_BONDING" 
+              type="imsqti_xmlv1p2/imscc_xmlv1p1/assessment" 
+              href="CP9_B11_Bonding_Theory.xml">
+      <file href="CP9_B11_Bonding_Theory.xml"/>
+      <metadata>
+        <lom:lom>
+          <lom:general>
+            <lom:title>
+              <lom:string language="en">CP9_B11: Bonding Theory &amp; Molecular Properties Question Bank</lom:string>
+            </lom:title>
+            <lom:description>
+              <lom:string language="en">15 multiple-choice questions covering valence electrons, Lewis structures (CO₂), formal charge calculations, octet rule exceptions (SF₆), VSEPR theory, molecular geometries (tetrahedral, bent, trigonal pyramidal), lone pair effects, bond and molecular polarity, bond order relationships, resonance structures, and real-world applications (CO toxicity). Aligned with OpenStax Chemistry 2e Chapter 7.1-7.6 and COR Section 12, Objectives 1, 2, and 9.</lom:string>
+            </lom:description>
+          </lom:general>
+          <lom:educational>
+            <lom:learningResourceType>
+              <lom:value>assessment</lom:value>
+            </lom:learningResourceType>
+            <lom:intendedEndUserRole>
+              <lom:value>learner</lom:value>
+            </lom:intendedEndUserRole>
+            <lom:difficulty>
+              <lom:value>medium</lom:value>
+            </lom:difficulty>
+          </lom:educational>
+        </lom:lom>
+      </metadata>
+    </resource>
+  </resources>
+  
+</manifest>
