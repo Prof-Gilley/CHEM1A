@@ -1,0 +1,923 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" 
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                 xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/xsd/ims_qtiasiv1p2p1.xsd">
+  
+  <assessment ident="CP9_B2_Bohr_Model" title="Question Bank 2: Bohr Model &amp; Electron Transitions">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_absolutescore_max</fieldlabel>
+        <fieldentry>15</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>assessment_type</fieldlabel>
+        <fieldentry>practice</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>textbook_reference</fieldlabel>
+        <fieldentry>OpenStax Chemistry 2e, Chapter 6, Section 6.2</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>difficulty_level</fieldlabel>
+        <fieldentry>Moderate</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    
+    <section ident="root_section">
+      
+      <!-- Question 1 -->
+      <item ident="q1_ground_state" title="[OpenStax 6.2 | COR 10.2 | Objective 1] Ground State Energy">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>What is the energy of an electron in the ground state (n = 1) of a hydrogen atom?</p>
+<p><strong>Constant:</strong> Bohr constant for hydrogen = -2.18 × 10⁻¹⁸ J</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>+2.18 × 10⁻¹⁸ J</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>-2.18 × 10⁻¹⁸ J</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>-5.45 × 10⁻¹⁹ J</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>0 J</mattext></material>
+              </response_label>
+              <response_label ident="E">
+                <material><mattext>-1.09 × 10⁻¹⁸ J</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>E₁ = -2.18 × 10⁻¹⁸ J × (1/1²) = -2.18 × 10⁻¹⁸ J</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 2 -->
+      <item ident="q2_transition_energy" title="[OpenStax 6.2 | COR 10.3 | Objective 1] Transition Energy Calculation">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Calculate the energy change when an electron in hydrogen transitions from n = 3 to n = 2.</p>
+<p><strong>Constant:</strong> Bohr constant for hydrogen = -2.18 × 10⁻¹⁸ J</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>-3.03 × 10⁻¹⁹ J</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>+3.03 × 10⁻¹⁹ J</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>-1.82 × 10⁻¹⁸ J</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>-6.06 × 10⁻¹⁹ J</mattext></material>
+              </response_label>
+              <response_label ident="E">
+                <material><mattext>-1.51 × 10⁻¹⁹ J</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">A</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>ΔE = -2.18 × 10⁻¹⁸ × (1/4 - 1/9) = -2.18 × 10⁻¹⁸ × 0.139 = -3.03 × 10⁻¹⁹ J</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 3 -->
+      <item ident="q3_emission_absorption" title="[OpenStax 6.2 | COR 10.3 | Objective 2] Emission vs Absorption">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>An electron in hydrogen moves from n = 2 to n = 4. This process:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Emits a photon in the visible region</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Emits a photon in the UV region</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Absorbs a photon in the visible region</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Absorbs a photon in the IR region</mattext></material>
+              </response_label>
+              <response_label ident="E">
+                <material><mattext>Requires no energy change</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">C</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Upward transition = absorption; ΔE = +4.09 × 10⁻¹⁹ J; λ = 486 nm = visible</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 4 -->
+      <item ident="q4_wavelength_transition" title="[OpenStax 6.2 | COR 10.3 | Objective 1] Wavelength from Transition">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>What is the wavelength of light emitted when an electron in hydrogen falls from n = 3 to n = 2?</p>
+<p><strong>Constant:</strong> Bohr constant for hydrogen = -2.18 × 10⁻¹⁸ J</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>486 nm</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>656 nm</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>410 nm</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>434 nm</mattext></material>
+              </response_label>
+              <response_label ident="E">
+                <material><mattext>122 nm</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>ΔE = -3.03 × 10⁻¹⁹ J; λ = hc/|ΔE| = 656 nm - Hα line</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 5 -->
+      <item ident="q5_ionization_energy" title="[OpenStax 6.2 | COR 10.2 | Objective 1] Ionization Energy">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>What is the minimum energy required to ionize a hydrogen atom in the ground state (remove electron completely)?</p>
+<p><strong>Constant:</strong> Bohr constant for hydrogen = -2.18 × 10⁻¹⁸ J</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>1.09 × 10⁻¹⁸ J</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>2.18 × 10⁻¹⁸ J</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>5.45 × 10⁻¹⁹ J</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>4.36 × 10⁻¹⁸ J</mattext></material>
+              </response_label>
+              <response_label ident="E">
+                <material><mattext>1.36 × 10⁻¹⁸ J</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>ΔE = E∞ - E₁ = 0 - (-2.18 × 10⁻¹⁸) = +2.18 × 10⁻¹⁸ J</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 6 -->
+      <item ident="q6_spectral_series" title="[OpenStax 6.2 | COR 10.3 | Objective 2] Spectral Series Identification">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>The Balmer series in hydrogen corresponds to transitions ending at:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>n = 1 (Lyman series)</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>n = 2 (Balmer series)</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>n = 3 (Paschen series)</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>n = 4</mattext></material>
+              </response_label>
+              <response_label ident="E">
+                <material><mattext>n = 5</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Balmer series: all transitions end at n = 2, producing visible light</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 7 -->
+      <item ident="q7_highest_energy" title="[OpenStax 6.2 | COR 10.3 | Objective 2] Highest Energy Transition">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Which transition in hydrogen releases the MOST energy?</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>n = 2 → n = 1</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>n = 3 → n = 2</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>n = 4 → n = 3</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>n = 5 → n = 4</mattext></material>
+              </response_label>
+              <response_label ident="E">
+                <material><mattext>n = 6 → n = 5</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">A</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Largest energy gap between levels; ΔE = -1.64 × 10⁻¹⁸ J</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 8 -->
+      <item ident="q8_energy_ratio" title="[OpenStax 6.2 | COR 10.2 | Objective 1] Energy Level Comparison">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>What is the ratio of energies E<sub>2</sub>/E<sub>1</sub> for hydrogen?</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>2</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>4</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>0.25</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>0.5</mattext></material>
+              </response_label>
+              <response_label ident="E">
+                <material><mattext>1</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">C</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>E ∝ 1/n²; E₂/E₁ = (1/4)/(1/1) = 1/4 = 0.25</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 9 -->
+      <item ident="q9_flame_test" title="[OpenStax 6.2 | COR 10.3 | Objective 9] Flame Test Application">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Sodium produces a characteristic yellow flame (589 nm) due to:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Nuclear decay</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Valence electron transitions between energy levels</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Molecular vibrations</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Ionization of inner electrons</mattext></material>
+              </response_label>
+              <response_label ident="E">
+                <material><mattext>Combustion reactions</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Flame test colors result from quantized electron transitions in valence shells</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 10 -->
+      <item ident="q10_multi_step" title="[OpenStax 6.2 | COR 10.3 | Objective 1] Multi-Step Transition">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>An electron falls from n = 4 to n = 1. How does the energy of the single photon emitted compare to the energy if the electron fell from n = 4 → n = 2 → n = 1 (two photons)?</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Single photon has more energy</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Two photons together have more energy</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Same total energy</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Cannot be determined</mattext></material>
+              </response_label>
+              <response_label ident="E">
+                <material><mattext>Depends on the temperature</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">C</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Energy is a state function; total ΔE is the same regardless of path</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 11 -->
+      <item ident="q11_uv_emission" title="[OpenStax 6.2 | COR 10.3 | Objective 2] UV Emission">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>The Lyman series (transitions to n = 1) produces photons in which region?</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Visible</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Infrared</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Ultraviolet</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Microwave</mattext></material>
+              </response_label>
+              <response_label ident="E">
+                <material><mattext>X-ray</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">C</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Transitions to n = 1 have largest ΔE, producing UV wavelengths</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 12 -->
+      <item ident="q12_quantization" title="[OpenStax 6.2 | COR 10.2 | Objective 2] Quantization Concept">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>The Bohr model resolved which classical physics problem?</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Atoms should continuously radiate energy and collapse</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Light behaves as a wave</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Electrons have mass</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Nucleus contains protons</mattext></material>
+              </response_label>
+              <response_label ident="E">
+                <material><mattext>Atoms have different masses</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">A</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Quantized orbits explain why electrons don't spiral into nucleus</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 13 -->
+      <item ident="q13_spectroscopic_detection" title="[OpenStax 6.2 | COR 10.3 | Objective 9] Spectroscopic Detection">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Carbon monoxide can be detected by IR absorption at 4.6 μm. This corresponds to:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Electronic transitions in the visible range</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Molecular vibrational transitions</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Nuclear decay</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Atomic electron transitions in UV</mattext></material>
+              </response_label>
+              <response_label ident="E">
+                <material><mattext>Rotational transitions in microwave</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>IR wavelengths correspond to molecular vibrations, not electronic transitions</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 14 -->
+      <item ident="q14_energy_spacing" title="[OpenStax 6.2 | COR 10.2 | Objective 2] Energy Level Spacing">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>As n increases in the Bohr model, the energy levels:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Become more widely spaced</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Become more closely spaced</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Remain equally spaced</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Alternate between close and wide spacing</mattext></material>
+              </response_label>
+              <response_label ident="E">
+                <material><mattext>Double in separation</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>E ∝ 1/n²; differences get smaller as n increases</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 15 -->
+      <item ident="q15_wavelength_comparison" title="[OpenStax 6.2 | COR 10.3 | Objectives 1, 9] Transition Wavelength Comparison">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>An electron transition from n = 5 to n = 2 produces light with wavelength λ. A transition from n = 4 to n = 2 will produce light with wavelength:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Less than λ</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Greater than λ</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Equal to λ</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Twice λ</mattext></material>
+              </response_label>
+              <response_label ident="E">
+                <material><mattext>Half λ</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>n=5→2 has larger ΔE than n=4→2; larger E = smaller λ, so n=4→2 has larger λ</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+    </section>
+  </assessment>
+</questestinterop>
