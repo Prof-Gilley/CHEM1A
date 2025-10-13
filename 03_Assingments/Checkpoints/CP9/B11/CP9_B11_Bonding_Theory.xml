@@ -1,1 +1,874 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" 
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                 xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/xsd/ims_qtiasiv1p2p1.xsd">
+  
+  <assessment ident="CP9_B11_Bonding_Theory" title="Question Bank 11: Bonding Theory &amp; Molecular Properties">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_absolutescore_max</fieldlabel>
+        <fieldentry>15</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>assessment_type</fieldlabel>
+        <fieldentry>practice</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>textbook_reference</fieldlabel>
+        <fieldentry>OpenStax Chemistry 2e, Chapter 7, Sections 7.1-7.6</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>difficulty_level</fieldlabel>
+        <fieldentry>Moderate-High</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    
+    <section ident="root_section">
+      
+      <!-- Question 1 -->
+      <item ident="q1_valence_carbon" title="[OpenStax 7.3 | COR 12 | Objective 1] Valence Electrons - Carbon">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>How many valence electrons does carbon have?</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>2</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>4</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>6</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>12</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>C: [He] 2s² 2p² → 4 valence electrons</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
 
+      <!-- Question 2 -->
+      <item ident="q2_lewis_co2" title="[OpenStax 7.3 | COR 12 | Objective 1] Lewis Structure - CO₂">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>What is the correct Lewis structure for CO₂?</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>C with single bonds to each O</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>C with double bonds to each O</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>C with triple bond to one O, single to other</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>C with one double, one quadruple bond</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>O=C=O; linear, satisfies octet rule</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 3 -->
+      <item ident="q3_formal_charge" title="[OpenStax 7.4 | COR 12 | Objective 1] Formal Charge Calculation">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Formal charge =</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Valence e⁻ - (lone pair e⁻ + bonding e⁻)</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Valence e⁻ - (lone pair e⁻ + ½ bonding e⁻)</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Valence e⁻ - bonding e⁻</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Nuclear charge - total electrons</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>FC = V - L - ½B</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 4 -->
+      <item ident="q4_octet_exception" title="[OpenStax 7.3 | COR 12 | Objective 2] Octet Rule Exception">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Which molecule is an exception to the octet rule?</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>H₂O</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>NH₃</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>SF₆</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>CH₄</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">C</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>SF₆ has 12 electrons around S; expanded octet</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 5 -->
+      <item ident="q5_vsepr_tetrahedral" title="[OpenStax 7.6 | COR 12 | Objective 1] VSEPR - Electron Group Geometry">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>A molecule with 4 electron groups (no lone pairs on central atom) has:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Linear geometry</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Trigonal planar geometry</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Tetrahedral geometry</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Octahedral geometry</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">C</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>4 bonding groups → tetrahedral, 109.5° angles</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 6 -->
+      <item ident="q6_vsepr_h2o" title="[OpenStax 7.6 | COR 12 | Objective 1] VSEPR - H₂O">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Water (H₂O) has 4 electron groups (2 bonding, 2 lone pairs). Its molecular geometry is:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Tetrahedral</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Bent</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Linear</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Trigonal planar</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Electron geometry = tetrahedral; molecular geometry = bent ~104.5°</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 7 -->
+      <item ident="q7_vsepr_nh3" title="[OpenStax 7.6 | COR 12 | Objective 1] VSEPR - NH₃">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Ammonia (NH₃) has 4 electron groups (3 bonding, 1 lone pair). Its molecular geometry is:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Tetrahedral</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Trigonal planar</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Trigonal pyramidal</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Bent</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">C</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>3 bonding groups + 1 lone pair → trigonal pyramidal ~107°</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 8 -->
+      <item ident="q8_lone_pair_effect" title="[OpenStax 7.6 | COR 12 | Objective 2] Lone Pair Effect">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Lone pairs on the central atom:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Have no effect on molecular shape</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Compress bond angles</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Expand bond angles</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Only affect color</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Lone pairs repel more strongly; compress bonding angles</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 9 -->
+      <item ident="q9_bond_polarity" title="[OpenStax 7.6 | COR 12 | Objective 2] Bond Polarity - Electronegativity">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>A bond is polar if:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Atoms are identical</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Electronegativity difference is significant</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Molecule is symmetrical</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Both atoms are nonmetals</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>ΔEN > ~0.5 → polar bond; electrons unevenly shared</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 10 -->
+      <item ident="q10_polarity_co2" title="[OpenStax 7.6 | COR 12 | Objective 9] Molecular Polarity - CO₂">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>CO₂ has polar C=O bonds but is nonpolar overall because:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Carbon is nonpolar</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>It is linear; bond dipoles cancel</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Oxygen is more electronegative</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>It has no lone pairs</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>O=C=O linear; dipoles equal and opposite → cancel</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 11 -->
+      <item ident="q11_polarity_h2o" title="[OpenStax 7.6 | COR 12 | Objective 9] Molecular Polarity - H₂O">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Water (H₂O) is polar because:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>It has ionic bonds</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>It is bent; bond dipoles don't cancel</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Hydrogen is more electronegative</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>It is linear</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Bent geometry → dipoles add → net dipole moment</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 12 -->
+      <item ident="q12_co_toxicity" title="[OpenStax 7.6 | COR 12 | Objective 9] CO vs CO₂ Toxicity">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>CO is toxic while CO₂ is not because:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>CO is larger</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>CO has a lone pair and can bond strongly to Fe in hemoglobin</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>CO₂ is acidic</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>CO is ionic</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>CO: C≡O with lone pair on C → strong σ-donor to Fe → 200× stronger than O₂</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 13 -->
+      <item ident="q13_bond_order" title="[OpenStax 7.5 | COR 12 | Objective 2] Bond Order and Strength">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>As bond order increases (single → double → triple):</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Bond length increases, strength decreases</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Bond length decreases, strength increases</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Bond length increases, strength increases</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>No change in length or strength</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>More bonds → shorter, stronger</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 14 -->
+      <item ident="q14_resonance" title="[OpenStax 7.4 | COR 12 | Objective 2] Resonance Structures">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Resonance structures:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Represent molecules that rapidly interconvert</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Show different atoms in different positions</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Show different electron distributions; actual structure is average</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Are completely different molecules</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">C</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Resonance = electron delocalization; actual structure is hybrid</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+      <!-- Question 15 -->
+      <item ident="q15_structure_property" title="[OpenStax 7.6 | COR 12 | Objective 9] Structure-Property Connection">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[<p>Molecular geometry (submicroscopic) determines:</p>]]></mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material><mattext>Atomic mass</mattext></material>
+              </response_label>
+              <response_label ident="B">
+                <material><mattext>Polarity, affecting solubility and boiling point (macroscopic)</mattext></material>
+              </response_label>
+              <response_label ident="C">
+                <material><mattext>Nuclear charge</mattext></material>
+              </response_label>
+              <response_label ident="D">
+                <material><mattext>Number of protons</mattext></material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">1</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext>Geometry → polarity → intermolecular forces → physical properties</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+
+    </section>
+  </assessment>
+</questestinterop>
