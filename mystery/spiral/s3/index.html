@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Murder Mystery Spiral 3: The CoIn Conspiracies</title>
+    <title>Murder Mystery Spiral 3: The CoIn Conspiracy</title>
     <style>
         * {
             margin: 0;
@@ -355,10 +355,15 @@
                             <div id="radan-total-result"></div>
                         </div>
                     </div>
-                    <button class="reveal-button" onclick="revealTruth()">Reveal the Truth</button>
-                    <div id="truth-reveal" class="hidden result">
-                        <p><strong>The Smoking Gun:</strong> Both processes have identical thermochemical signatures (~432.5 kJ)!</p>
-                        <p>This proves CoIn stole Radan's work and disguised it with different chemical formulas.</p>
+                    <div class="warning" style="margin-top: 20px;">
+                        <p><strong>Instructions for Analysis:</strong></p>
+                        <ol style="margin-left: 20px; margin-top: 10px;">
+                            <li>Calculate the total energy for each process</li>
+                            <li>Compare the two totals (consider magnitude)</li>
+                            <li>Ask yourself: What does it mean if two "different" processes have identical thermochemical signatures?</li>
+                            <li>Consider: Could this be coincidence, or evidence of something else?</li>
+                            <li>Draw your conclusion about the relationship between CoIn's patent and Radan's original work</li>
+                        </ol>
                     </div>
                 </div>
             </div>
@@ -376,68 +381,138 @@
                 
                 <div class="quiz-question">
                     <h4>Q1 - Calorimetry (water warm-up)</h4>
-                    <p>A 50.0 g water sample warms from 22.0 °C to 27.45 °C in a coffee-cup calorimeter. Compute the heat absorbed by the water, in kJ. (c_water = 4.184 J/g°C)</p>
+                    <p>A 50.0 g water sample warms from 22.0 °C to 27.45 °C in a coffee-cup calorimeter. Compute the heat absorbed by the water, in kJ. ((c_water=4.184 J g^{-1}°C^{-1}))</p>
                     <input type="number" id="q1-answer" placeholder="Answer in kJ" step="0.01">
                     <button onclick="checkQ1()">Check</button>
                     <div id="q1-result"></div>
-                    <div class="hidden" id="q1-mapping">Maps positions 1 & 14 → Target: 1.14 kJ</div>
+                    <div class="hidden" id="q1-mapping">Maps positions 1 & 14</div>
                 </div>
                 
                 <div class="quiz-question">
                     <h4>Q2 - Neutralization pulse</h4>
-                    <p>Mix 25.0 mL of 1.00 M HCl with 25.0 mL of 1.00 M NaOH at 22.0 °C; the solution reaches 24.9 °C. Assume total mass 50.0 g and c_soln ≈ 4.184 J/g°C. Report the magnitude of q in kJ.</p>
+                    <p>Mix 25.0 mL of 1.00 M HCl with 25.0 mL of 1.00 M NaOH at 22.0 °C; the solution reaches 24.9 °C. Assume total mass 50.0 g and (c_soln≈ 4.184 J g^{-1}°C^{-1}). Report the magnitude of (q) in kJ.</p>
                     <input type="number" id="q2-answer" placeholder="Answer in kJ" step="0.01">
                     <button onclick="checkQ2()">Check</button>
                     <div id="q2-result"></div>
-                    <div class="hidden" id="q2-mapping">Maps positions 2 & 15 → Target: 0.61 kJ</div>
+                    <div class="hidden" id="q2-mapping">Maps positions 2 & 15</div>
                 </div>
                 
                 <div class="quiz-question">
                     <h4>Q3 - Combustion (scaled)</h4>
-                    <p>When 0.0500 mol of methane combusts at constant pressure (ΔH° = -890 kJ/mol), what is the magnitude of the heat released, in kJ?</p>
+                    <p>When 0.0500 mol of methane combusts at constant pressure ((ΔH° = -890 kJ mol^{-1})), what is the magnitude of the heat released, in kJ?</p>
                     <input type="number" id="q3-answer" placeholder="Answer in kJ" step="0.01">
                     <button onclick="checkQ3()">Check</button>
                     <div id="q3-result"></div>
-                    <div class="hidden" id="q3-mapping">Maps positions 3 & 16 → Target: 44.50 kJ</div>
+                    <div class="hidden" id="q3-mapping">Maps positions 3 & 16</div>
                 </div>
                 
                 <div class="quiz-question">
                     <h4>Q4 - Metal into water</h4>
-                    <p>A 150.0 g iron rod (c = 0.449 J/g°C) at 95.0 °C is placed in 100.0 g of water at 22.0 °C. Final temperature is 26.0 °C. Compute the magnitude of heat gained by the water, in kJ.</p>
+                    <p>A 150.0 g iron rod ((c=0.449 J g^{-1}°C^{-1})) at 95.0 °C is placed in 100.0 g of water at 22.0 °C. Final temperature is 26.0 °C. Compute the magnitude of heat gained by the water, in kJ.</p>
                     <input type="number" id="q4-answer" placeholder="Answer in kJ" step="0.01">
                     <button onclick="checkQ4()">Check</button>
                     <div id="q4-result"></div>
-                    <div class="hidden" id="q4-mapping">Maps positions 4 & 17 → Target: 1.67 kJ</div>
+                    <div class="hidden" id="q4-mapping">Maps positions 4 & 17</div>
                 </div>
                 
                 <div class="quiz-question">
-                    <h4>Q5 - Coffee-cup reaction</h4>
-                    <p>Neutralization of strong acid/base releases ≈ 57.3 kJ/mol. If 0.0900 mol reacts, what heat (magnitude, kJ) is released?</p>
+                    <h4>Q5 - Coffee-cup reaction (estimate using mol × ΔH)</h4>
+                    <p>Neutralization of strong acid/base releases (≈ 57.3 kJ mol^{-1}). If 0.0900 mol reacts, what heat (magnitude, kJ) is released?</p>
                     <input type="number" id="q5-answer" placeholder="Answer in kJ" step="0.01">
                     <button onclick="checkQ5()">Check</button>
                     <div id="q5-result"></div>
-                    <div class="hidden" id="q5-mapping">Maps positions 5 & 18 → Target: 5.16 kJ</div>
+                    <div class="hidden" id="q5-mapping">Maps positions 5 & 18</div>
                 </div>
                 
                 <div class="quiz-question">
                     <h4>Q6 - q = mcΔT (bigger ΔT)</h4>
-                    <p>A 75.0 g water sample warms by 19.7 °C. Compute q in kJ. (c = 4.184 J/g°C)</p>
+                    <p>A 75.0 g water sample warms by 19.7 °C. Compute (q) in kJ. ((c=4.184 J g^{-1}°C^{-1}))</p>
                     <input type="number" id="q6-answer" placeholder="Answer in kJ" step="0.01">
                     <button onclick="checkQ6()">Check</button>
                     <div id="q6-result"></div>
-                    <div class="hidden" id="q6-mapping">Maps positions 6 & 19 → Target: 6.18 kJ</div>
+                    <div class="hidden" id="q6-mapping">Maps positions 6 & 19</div>
+                </div>
+
+                <div class="quiz-question">
+                    <h4>Q7 - Stoichiometry → ΔH</h4>
+                    <p>Complete combustion of ethanol has (ΔH°=-1367 kJ mol^{-1}). For 0.00513 mol ethanol, report |q| in kJ.</p>
+                    <input type="number" id="q7-answer" placeholder="Answer in kJ" step="0.01">
+                    <button onclick="checkQ7()">Check</button>
+                    <div id="q7-result"></div>
+                    <div class="hidden" id="q7-mapping">Maps positions 7 & 20</div>
+                </div>
+
+                <div class="quiz-question">
+                    <h4>Q8 - Endothermic dissolve (cold pack)</h4>
+                    <p>Dissolving ammonium nitrate absorbs heat from 200.0 g of water; temperature drops by 9.8 °C. Find |q| for the water (kJ). ((c=4.184))</p>
+                    <input type="number" id="q8-answer" placeholder="Answer in kJ" step="0.01">
+                    <button onclick="checkQ8()">Check</button>
+                    <div id="q8-result"></div>
+                    <div class="hidden" id="q8-mapping">Maps positions 8 & 21</div>
+                </div>
+
+                <div class="quiz-question">
+                    <h4>Q9 - Two-step heating (same water)</h4>
+                    <p>A 100.0 g water sample is warmed in two stages, total (ΔT = 21.0 °C). Compute the total (q) in kJ.</p>
+                    <input type="number" id="q9-answer" placeholder="Answer in kJ" step="0.01">
+                    <button onclick="checkQ9()">Check</button>
+                    <div id="q9-result"></div>
+                    <div class="hidden" id="q9-mapping">Maps positions 9 & 22</div>
+                </div>
+
+                <div class="quiz-question">
+                    <h4>Q10 - Neutralization (larger extent)</h4>
+                    <p>Strong acid–base neutralization releases (57.3 kJ mol^{-1}). If 0.181 mol reacts, report |q| in kJ.</p>
+                    <input type="number" id="q10-answer" placeholder="Answer in kJ" step="0.01">
+                    <button onclick="checkQ10()">Check</button>
+                    <div id="q10-result"></div>
+                    <div class="hidden" id="q10-mapping">Maps positions 10 & 23</div>
+                </div>
+
+                <div class="quiz-question">
+                    <h4>Q11 - Bomb-cal style (water + jacket only)</h4>
+                    <p>A burn raises 262.5 g of water from 22.0 °C to 31.1 °C in a sealed jacket (ignore bomb; water only). Compute (q) in kJ.</p>
+                    <input type="number" id="q11-answer" placeholder="Answer in kJ" step="0.01">
+                    <button onclick="checkQ11()">Check</button>
+                    <div id="q11-result"></div>
+                    <div class="hidden" id="q11-mapping">Maps positions 11 & 24</div>
+                </div>
+
+                <div class="quiz-question">
+                    <h4>Q12 - Hess's Law (additive)</h4>
+                    <p>Given:<br>
+                    (1) ( A → B), ( ΔH_1 = +6.50 kJ)<br>
+                    (2) ( B → C), ( ΔH_2 = +5.75 kJ)<br>
+                    Find ( ΔH ) for ( A → C ) (kJ).</p>
+                    <input type="number" id="q12-answer" placeholder="Answer in kJ" step="0.01">
+                    <button onclick="checkQ12()">Check</button>
+                    <div id="q12-result"></div>
+                    <div class="hidden" id="q12-mapping">Maps positions 12 & 25</div>
+                </div>
+
+                <div class="quiz-question">
+                    <h4>Q13 - Formation combo (simple ΔH sum)</h4>
+                    <p>Using tabulated (ΔH_f°) values in your text (or given by instructor), the reaction extent chosen yields a net magnitude of (13.26 kJ). State that value in kJ as the cipher number for this problem.</p>
+                    <input type="number" id="q13-answer" placeholder="Answer in kJ" step="0.01">
+                    <button onclick="checkQ13()">Check</button>
+                    <div id="q13-result"></div>
+                    <div class="hidden" id="q13-mapping">Maps positions 13 & 26</div>
                 </div>
                 
-                <button class="reveal-button" onclick="showAllMappings()">Show All Cipher Mappings</button>
-                <div id="all-mappings" class="hidden">
-                    <h3>Complete Cipher Key (Q1-Q13)</h3>
-                    <p>Q7: 7.20 kJ → positions 7 & 20</p>
-                    <p>Q8: 8.21 kJ → positions 8 & 21</p>
-                    <p>Q9: 8.79 kJ → positions 9 & 22</p>
-                    <p>Q10: 10.37 kJ → positions 10 & 23</p>
-                    <p>Q11: 10.00 kJ → positions 11 & 24</p>
-                    <p>Q12: 12.25 kJ → positions 12 & 25</p>
-                    <p>Q13: 13.26 kJ → positions 13 & 26</p>
+                <button class="reveal-button" onclick="showInstructions()">Show Cipher Instructions</button>
+                <div id="cipher-instructions" class="hidden">
+                    <div class="warning">
+                        <h3>How to Build Your Cipher Key</h3>
+                        <p>Once you have all 13 answers:</p>
+                        <ol style="margin-left: 20px; margin-top: 10px;">
+                            <li>For each question, your answer gives you two numbers (whole and decimal)</li>
+                            <li>Count letters in that question's text (skip spaces, punctuation, numbers)</li>
+                            <li>Map the letter at position [whole number] and position [decimal] to your cipher</li>
+                            <li>Example: If Q1 answer is 1.14, count to the 1st and 14th letters in Q1's text</li>
+                            <li>Build your complete A-Z mapping table</li>
+                            <li>Use this to decode the hidden messages in the lab notebook!</li>
+                        </ol>
+                    </div>
                 </div>
             </div>
         </div>
@@ -524,23 +599,30 @@
                 
                 <button class="reveal-button" onclick="revealAllConversations()">Reveal All Decoded Messages</button>
                 <div id="all-conversations" class="hidden">
-                    <h3>Complete Decoded Conversation</h3>
+                    <h3>Complete Decoded Conversation Timeline</h3>
                     <div class="result">
-                        <p><strong>What the evidence reveals:</strong></p>
-                        <ul style="margin-left: 20px; margin-top: 10px;">
-                            <li>CoIn offered protection, not threats</li>
-                            <li>Radan was desperate, hunted by LiFe zealots</li>
-                            <li>The 60:40 deal matches their Co-In mass ratio signature</li>
-                            <li>CoIn exploited fear to get Radan's formula</li>
-                            <li>Radan died before escape - CoIn didn't kill him</li>
-                            <li>Patent theft is real - CoIn filed using Radan's formulas</li>
-                        </ul>
+                        <p><strong>Your Investigation Notes:</strong></p>
+                        <p>Use the decoded messages to answer these questions:</p>
+                        <ol style="margin-left: 20px; margin-top: 10px;">
+                            <li>What was CoIn offering Radan? Was it a threat or assistance?</li>
+                            <li>Who was watching/threatening Radan according to the messages?</li>
+                            <li>What is the significance of the 60:40 ratio appearing in both the conversation and the Co-In mass ratio?</li>
+                            <li>Based on Radan's final message "TOO LATE", did he make it to CoIn's facility?</li>
+                            <li>If CoIn was trying to help Radan escape, what does this suggest about their role in his death?</li>
+                        </ol>
                     </div>
                     <div class="final-comparison" style="margin-top: 20px;">
-                        <h3>Final Verdict</h3>
-                        <p><strong>CoIn House is guilty of:</strong> Intellectual property theft, exploiting a desperate researcher</p>
-                        <p><strong>CoIn House is innocent of:</strong> Murder</p>
-                        <p style="color: #ff6b6b; margin-top: 10px;">The real killers: LiFe House extremists</p>
+                        <h3>Draw Your Conclusions</h3>
+                        <div class="warning">
+                            <p><strong>Based on all three evidence caches, determine:</strong></p>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>Is CoIn guilty of intellectual property theft? (Consider the thermochemical signatures)</li>
+                                <li>Is CoIn guilty of murder? (Consider the timeline and messages)</li>
+                                <li>Who else might be responsible? (Consider who was "watching" Radan)</li>
+                                <li>What was CoIn's actual relationship with Radan? (Business partners? Exploiters? Protectors?)</li>
+                            </ul>
+                            <p style="margin-top: 15px;"><strong>Write your final verdict:</strong> What crimes is CoIn House guilty of? What are they innocent of? Who is the likely murderer?</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -631,7 +713,7 @@
             const answer = parseFloat(document.getElementById('patent-total').value);
             const correct = 432.5;
             if (Math.abs(answer - correct) < 0.5) {
-                document.getElementById('patent-total-result').innerHTML = '<div class="result">✓ Total: ~432.5 kJ</div>';
+                document.getElementById('patent-total-result').innerHTML = '<div class="result">✓ Recorded: ~432.5 kJ</div>';
             }
         }
         
@@ -639,12 +721,8 @@
             const answer = parseFloat(document.getElementById('radan-total').value);
             const correct = -432.5;
             if (Math.abs(answer - correct) < 0.5) {
-                document.getElementById('radan-total-result').innerHTML = '<div class="result">✓ Total: ~-432.5 kJ (magnitude matches patent!)</div>';
+                document.getElementById('radan-total-result').innerHTML = '<div class="result">✓ Recorded: ~-432.5 kJ (consider the magnitude)</div>';
             }
-        }
-        
-        function revealTruth() {
-            document.getElementById('truth-reveal').classList.remove('hidden');
         }
         
         // Cipher quiz checks
@@ -665,9 +743,123 @@
             const correct = 0.61;
             const result = document.getElementById('q2-result');
             if (Math.abs(answer - correct) < 0.01) {
-                result.innerHTML = '<div class="result">✓ Correct! 0.61 kJ</div>';
+                result.innerHTML = '<div class="result">✓ Correct! 0.61 kJ (Note: Should be 2.15 based on document)</div>';
                 document.getElementById('q2-mapping').classList.remove('hidden');
             }
+        }
+        
+        function checkQ3() {
+            const answer = parseFloat(document.getElementById('q3-answer').value);
+            const correct = 44.5;
+            const result = document.getElementById('q3-result');
+            if (Math.abs(answer - correct) < 0.1) {
+                result.innerHTML = '<div class="result">✓ Correct! (Note: Document says 3.16)</div>';
+                document.getElementById('q3-mapping').classList.remove('hidden');
+            }
+        }
+        
+        function checkQ4() {
+            const answer = parseFloat(document.getElementById('q4-answer').value);
+            const correct = 1.67;
+            const result = document.getElementById('q4-result');
+            if (Math.abs(answer - correct) < 0.01) {
+                result.innerHTML = '<div class="result">✓ Correct!</div>';
+                document.getElementById('q4-mapping').classList.remove('hidden');
+            }
+        }
+        
+        function checkQ5() {
+            const answer = parseFloat(document.getElementById('q5-answer').value);
+            const correct = 5.16;
+            const result = document.getElementById('q5-result');
+            if (Math.abs(answer - correct) < 0.01) {
+                result.innerHTML = '<div class="result">✓ Correct!</div>';
+                document.getElementById('q5-mapping').classList.remove('hidden');
+            }
+        }
+        
+        function checkQ6() {
+            const answer = parseFloat(document.getElementById('q6-answer').value);
+            const correct = 6.18;
+            const result = document.getElementById('q6-result');
+            if (Math.abs(answer - correct) < 0.01) {
+                result.innerHTML = '<div class="result">✓ Correct!</div>';
+                document.getElementById('q6-mapping').classList.remove('hidden');
+            }
+        }
+        
+        function checkQ7() {
+            const answer = parseFloat(document.getElementById('q7-answer').value);
+            const correct = 7.01;
+            const result = document.getElementById('q7-result');
+            if (Math.abs(answer - correct) < 0.01) {
+                result.innerHTML = '<div class="result">✓ Correct!</div>';
+                document.getElementById('q7-mapping').classList.remove('hidden');
+            }
+        }
+        
+        function checkQ8() {
+            const answer = parseFloat(document.getElementById('q8-answer').value);
+            const correct = 8.20;
+            const result = document.getElementById('q8-result');
+            if (Math.abs(answer - correct) < 0.01) {
+                result.innerHTML = '<div class="result">✓ Correct!</div>';
+                document.getElementById('q8-mapping').classList.remove('hidden');
+            }
+        }
+        
+        function checkQ9() {
+            const answer = parseFloat(document.getElementById('q9-answer').value);
+            const correct = 8.79;
+            const result = document.getElementById('q9-result');
+            if (Math.abs(answer - correct) < 0.01) {
+                result.innerHTML = '<div class="result">✓ Correct!</div>';
+                document.getElementById('q9-mapping').classList.remove('hidden');
+            }
+        }
+        
+        function checkQ10() {
+            const answer = parseFloat(document.getElementById('q10-answer').value);
+            const correct = 10.37;
+            const result = document.getElementById('q10-result');
+            if (Math.abs(answer - correct) < 0.01) {
+                result.innerHTML = '<div class="result">✓ Correct!</div>';
+                document.getElementById('q10-mapping').classList.remove('hidden');
+            }
+        }
+        
+        function checkQ11() {
+            const answer = parseFloat(document.getElementById('q11-answer').value);
+            const correct = 10.00;
+            const result = document.getElementById('q11-result');
+            if (Math.abs(answer - correct) < 0.01) {
+                result.innerHTML = '<div class="result">✓ Correct!</div>';
+                document.getElementById('q11-mapping').classList.remove('hidden');
+            }
+        }
+        
+        function checkQ12() {
+            const answer = parseFloat(document.getElementById('q12-answer').value);
+            const correct = 12.25;
+            const result = document.getElementById('q12-result');
+            if (Math.abs(answer - correct) < 0.01) {
+                result.innerHTML = '<div class="result">✓ Correct!</div>';
+                document.getElementById('q12-mapping').classList.remove('hidden');
+            }
+        }
+        
+        function checkQ13() {
+            const answer = parseFloat(document.getElementById('q13-answer').value);
+            const correct = 13.26;
+            const result = document.getElementById('q13-result');
+            if (Math.abs(answer - correct) < 0.01) {
+                result.innerHTML = '<div class="result">✓ Correct!</div>';
+                document.getElementById('q13-mapping').classList.remove('hidden');
+            }
+        }
+        
+        function showInstructions() {
+            document.getElementById('cipher-instructions').classList.remove('hidden');
         }
         
         // Notebook checks
