@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Murder Mystery Spiral 3: The CoIn Conspiracy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1e 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 2px solid #444;
+            margin-bottom: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            color: #ff6b6b;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            color: #999;
+        }
+        
+        .evidence-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-button {
+            padding: 15px 30px;
+            background: rgba(255, 107, 107, 0.1);
+            border: 2px solid #ff6b6b;
+            color: #ff6b6b;
+            cursor: pointer;
+            font-size: 1.1em;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .tab-button:hover {
+            background: rgba(255, 107, 107, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .tab-button.active {
+            background: #ff6b6b;
+            color: #1a1a2e;
+            font-weight: bold;
+        }
+        
+        .evidence-content {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        
+        .evidence-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .document {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #444;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .document h2 {
+            color: #4ecdc4;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #444;
+        }
+        
+        .document h3 {
+            color: #f7b731;
+            margin: 20px 0 15px 0;
+        }
+        
+        .calculation-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #666;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .calculation-box input {
+            background: #2a2a3a;
+            border: 1px solid #666;
+            color: #fff;
+            padding: 8px 12px;
+            margin: 5px;
+            border-radius: 3px;
+            width: 120px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .calculation-box button {
+            background: #4ecdc4;
+            color: #1a1a2e;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .calculation-box button:hover {
+            background: #3aa8a0;
+            transform: translateY(-2px);
+        }
+        
+        .result {
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(78, 205, 196, 0.1);
+            border-left: 3px solid #4ecdc4;
+            border-radius: 3px;
+        }
+        
+        .warning {
+            background: rgba(255, 107, 107, 0.1);
+            border: 1px solid #ff6b6b;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .formula {
+            font-family: 'Courier New', monospace;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+        
+        .quiz-question {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border: 1px solid #444;
+        }
+        
+        .quiz-question h4 {
+            color: #f7b731;
+            margin-bottom: 10px;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .reveal-button {
+            background: #f7b731;
+            color: #1a1a2e;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .reveal-button:hover {
+            background: #e5a622;
+        }
+        
+        .cipher-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+            gap: 5px;
+            margin: 20px 0;
+            max-width: 600px;
+        }
+        
+        .cipher-cell {
+            background: #2a2a3a;
+            border: 1px solid #666;
+            padding: 10px;
+            text-align: center;
+            border-radius: 3px;
+        }
+        
+        .conversation-entry {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 3px solid #666;
+        }
+        
+        .conversation-entry.gruet {
+            border-left-color: #4ecdc4;
+        }
+        
+        .conversation-entry.radan {
+            border-left-color: #f7b731;
+        }
+        
+        .final-comparison {
+            background: rgba(255, 107, 107, 0.1);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+            border: 2px solid #ff6b6b;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔬 Murder Mystery Spiral 3 🔍</h1>
+            <p>The CoIn Conspiracy - Evidence Analysis</p>
+        </div>
+        
+        <div class="evidence-tabs">
+            <button class="tab-button active" onclick="showTab('patent')">Cache 1: Patent vs. Leaked Data</button>
+            <button class="tab-button" onclick="showTab('cipher')">Cache 2: Thermochemical Cipher Quiz</button>
+            <button class="tab-button" onclick="showTab('notebook')">Cache 3: Gruet-Radan Notebook</button>
+        </div>
+        
+        <!-- Cache 1: Patent Comparison -->
+        <div id="patent" class="evidence-content active">
+            <div class="document">
+                <h2>Evidence Cache 1: Patent vs. Leaked Radan Data</h2>
+                <p style="color: #999; margin-bottom: 20px;">Compare the energy signatures to uncover the truth</p>
+                
+                <h3>USPTO Patent #2024-098847 - CoIn's Filed Patent</h3>
+                <p>Filed by: Molecular Preservation LLC<br>
+                Inventors: K.M. Gruet, P.L. Voss</p>
+                
+                <div class="calculation-box">
+                    <h4>Reaction A: Initial Decarboxylation</h4>
+                    <p>Starting with 0.125 mol of C₁₄H₁₈N₂O₄</p>
+                    <p class="formula">C₁₄H₁₈N₂O₄ → C₁₃H₁₈N₂O₂ + CO₂</p>
+                    <p>ΔH° = -1022.4 kJ/mol</p>
+                    <input type="number" id="patent-a" placeholder="Heat (kJ)" step="0.01">
+                    <button onclick="checkPatentA()">Check</button>
+                    <div id="patent-a-result"></div>
+                </div>
+                
+                <div class="calculation-box">
+                    <h4>Reaction B: Intermediate Stabilization</h4>
+                    <p>Using 0.450 mol of C₁₃H₁₈N₂O₂</p>
+                    <p class="formula">C₁₃H₁₈N₂O₂ + H₂O → C₁₃H₂₀N₂O₃</p>
+                    <p>ΔH° = -198.7 kJ/mol</p>
+                    <input type="number" id="patent-b" placeholder="Heat (kJ)" step="0.01">
+                    <button onclick="checkPatentB()">Check</button>
+                    <div id="patent-b-result"></div>
+                </div>
+                
+                <div class="calculation-box">
+                    <h4>Reaction C: Final Enhancement</h4>
+                    <p>Processing 0.1600 mol of C₁₃H₂₀N₂O₃</p>
+                    <p class="formula">2 C₁₃H₂₀N₂O₃ → C₂₆H₃₈N₄O₅ + H₂O</p>
+                    <p>ΔH° = -2691.3 kJ per mol of product (Note: 2 mol reactant → 1 mol product)</p>
+                    <input type="number" id="patent-c" placeholder="Heat (kJ)" step="0.01">
+                    <button onclick="checkPatentC()">Check</button>
+                    <div id="patent-c-result"></div>
+                </div>
+                
+                <h3>Vlad's Leaked Radan Laboratory Data</h3>
+                <p style="color: #999;">D.K. Radan's Original Synthesis Notes</p>
+                
+                <div class="calculation-box">
+                    <h4>Step 1: Oxidation Protocol</h4>
+                    <p>Sample size: 0.0750 mol C₈H₁₂N₄</p>
+                    <p class="formula">C₈H₁₂N₄ + 3 O₂ → C₈H₁₂N₄O₆</p>
+                    <p>ΔH° = -5766.7 kJ/mol</p>
+                    <input type="number" id="radan-1" placeholder="Energy (kJ)" step="0.01">
+                    <button onclick="checkRadan1()">Check</button>
+                    <div id="radan-1-result"></div>
+                </div>
+                
+                <div class="calculation-box">
+                    <h4>Step 2: Molecular Rearrangement</h4>
+                    <p>Processing 0.340 mol of oxidized product</p>
+                    <p class="formula">C₈H₁₂N₄O₆ → C₆H₈N₄O₄ + C₂H₄O₂</p>
+                    <p>ΔH° = +878.5 kJ/mol</p>
+                    <input type="number" id="radan-2" placeholder="Energy (kJ)" step="0.01">
+                    <button onclick="checkRadan2()">Check</button>
+                    <div id="radan-2-result"></div>
+                </div>
+                
+                <div class="calculation-box">
+                    <h4>Step 3: Bioactivation</h4>
+                    <p>Final step with 0.185 mol C₆H₈N₄O₄</p>
+                    <p class="formula">C₆H₈N₄O₄ + C₇H₁₄O → C₁₃H₂₀N₄O₅ + H₂</p>
+                    <p>ΔH° = -1614.6 kJ/mol</p>
+                    <input type="number" id="radan-3" placeholder="Energy (kJ)" step="0.01">
+                    <button onclick="checkRadan3()">Check</button>
+                    <div id="radan-3-result"></div>
+                </div>
+                
+                <div class="final-comparison">
+                    <h3>🔍 Investigation Task: Compare Total Energy Signatures</h3>
+                    <div class="comparison-grid">
+                        <div>
+                            <h4>Patent Total:</h4>
+                            <input type="number" id="patent-total" placeholder="Total kJ" step="0.01">
+                            <button onclick="checkPatentTotal()">Check Total</button>
+                            <div id="patent-total-result"></div>
+                        </div>
+                        <div>
+                            <h4>Radan's Total:</h4>
+                            <input type="number" id="radan-total" placeholder="Total kJ" step="0.01">
+                            <button onclick="checkRadanTotal()">Check Total</button>
+                            <div id="radan-total-result"></div>
+                        </div>
+                    </div>
+                    <button class="reveal-button" onclick="revealTruth()">Reveal the Truth</button>
+                    <div id="truth-reveal" class="hidden result">
+                        <p><strong>The Smoking Gun:</strong> Both processes have identical thermochemical signatures (~432.5 kJ)!</p>
+                        <p>This proves CoIn stole Radan's work and disguised it with different chemical formulas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Cache 2: Cipher Quiz -->
+        <div id="cipher" class="evidence-content">
+            <div class="document">
+                <h2>Evidence Cache 2: Thermochemical Cipher Quiz</h2>
+                <p style="color: #999; margin-bottom: 20px;">13 Questions - Build Your A-Z Cipher Key</p>
+                
+                <div class="warning">
+                    <p><strong>Instructions:</strong> Solve each problem and round to 2 decimals in kJ. Your answer x.yy kJ gives two positions to count in the question text (letters only): the whole number and decimal positions.</p>
+                </div>
+                
+                <div class="quiz-question">
+                    <h4>Q1 - Calorimetry (water warm-up)</h4>
+                    <p>A 50.0 g water sample warms from 22.0 °C to 27.45 °C in a coffee-cup calorimeter. Compute the heat absorbed by the water, in kJ. (c_water = 4.184 J/g°C)</p>
+                    <input type="number" id="q1-answer" placeholder="Answer in kJ" step="0.01">
+                    <button onclick="checkQ1()">Check</button>
+                    <div id="q1-result"></div>
+                    <div class="hidden" id="q1-mapping">Maps positions 1 & 14 → Target: 1.14 kJ</div>
+                </div>
+                
+                <div class="quiz-question">
+                    <h4>Q2 - Neutralization pulse</h4>
+                    <p>Mix 25.0 mL of 1.00 M HCl with 25.0 mL of 1.00 M NaOH at 22.0 °C; the solution reaches 24.9 °C. Assume total mass 50.0 g and c_soln ≈ 4.184 J/g°C. Report the magnitude of q in kJ.</p>
+                    <input type="number" id="q2-answer" placeholder="Answer in kJ" step="0.01">
+                    <button onclick="checkQ2()">Check</button>
+                    <div id="q2-result"></div>
+                    <div class="hidden" id="q2-mapping">Maps positions 2 & 15 → Target: 0.61 kJ</div>
+                </div>
+                
+                <div class="quiz-question">
+                    <h4>Q3 - Combustion (scaled)</h4>
+                    <p>When 0.0500 mol of methane combusts at constant pressure (ΔH° = -890 kJ/mol), what is the magnitude of the heat released, in kJ?</p>
+                    <input type="number" id="q3-answer" placeholder="Answer in kJ" step="0.01">
+                    <button onclick="checkQ3()">Check</button>
+                    <div id="q3-result"></div>
+                    <div class="hidden" id="q3-mapping">Maps positions 3 & 16 → Target: 44.50 kJ</div>
+                </div>
+                
+                <div class="quiz-question">
+                    <h4>Q4 - Metal into water</h4>
+                    <p>A 150.0 g iron rod (c = 0.449 J/g°C) at 95.0 °C is placed in 100.0 g of water at 22.0 °C. Final temperature is 26.0 °C. Compute the magnitude of heat gained by the water, in kJ.</p>
+                    <input type="number" id="q4-answer" placeholder="Answer in kJ" step="0.01">
+                    <button onclick="checkQ4()">Check</button>
+                    <div id="q4-result"></div>
+                    <div class="hidden" id="q4-mapping">Maps positions 4 & 17 → Target: 1.67 kJ</div>
+                </div>
+                
+                <div class="quiz-question">
+                    <h4>Q5 - Coffee-cup reaction</h4>
+                    <p>Neutralization of strong acid/base releases ≈ 57.3 kJ/mol. If 0.0900 mol reacts, what heat (magnitude, kJ) is released?</p>
+                    <input type="number" id="q5-answer" placeholder="Answer in kJ" step="0.01">
+                    <button onclick="checkQ5()">Check</button>
+                    <div id="q5-result"></div>
+                    <div class="hidden" id="q5-mapping">Maps positions 5 & 18 → Target: 5.16 kJ</div>
+                </div>
+                
+                <div class="quiz-question">
+                    <h4>Q6 - q = mcΔT (bigger ΔT)</h4>
+                    <p>A 75.0 g water sample warms by 19.7 °C. Compute q in kJ. (c = 4.184 J/g°C)</p>
+                    <input type="number" id="q6-answer" placeholder="Answer in kJ" step="0.01">
+                    <button onclick="checkQ6()">Check</button>
+                    <div id="q6-result"></div>
+                    <div class="hidden" id="q6-mapping">Maps positions 6 & 19 → Target: 6.18 kJ</div>
+                </div>
+                
+                <button class="reveal-button" onclick="showAllMappings()">Show All Cipher Mappings</button>
+                <div id="all-mappings" class="hidden">
+                    <h3>Complete Cipher Key (Q1-Q13)</h3>
+                    <p>Q7: 7.20 kJ → positions 7 & 20</p>
+                    <p>Q8: 8.21 kJ → positions 8 & 21</p>
+                    <p>Q9: 8.79 kJ → positions 9 & 22</p>
+                    <p>Q10: 10.37 kJ → positions 10 & 23</p>
+                    <p>Q11: 10.00 kJ → positions 11 & 24</p>
+                    <p>Q12: 12.25 kJ → positions 12 & 25</p>
+                    <p>Q13: 13.26 kJ → positions 13 & 26</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Cache 3: Lab Notebook -->
+        <div id="notebook" class="evidence-content">
+            <div class="document">
+                <h2>Evidence Cache 3: Gruet-Radan Laboratory Notebook</h2>
+                <p style="color: #999; margin-bottom: 20px;">Decode the hidden conversation between K. Gruet and D.K. Radan</p>
+                
+                <div class="warning">
+                    <p><strong>Context:</strong> Found in D.K. Radan's office after his death on September 15, 2024. Contains thermochemistry calculations with embedded cipher messages.</p>
+                </div>
+                
+                <h3>Entry 1 - September 5, 2024</h3>
+                <div class="calculation-box">
+                    <h4>Neutralization Thermodynamics Study (K.G.)</h4>
+                    <p>19.46 g HCl reacts completely with excess NaOH</p>
+                    <p class="formula">HCl + NaOH → NaCl + H₂O</p>
+                    <p>Molar mass HCl = 36.46 g/mol</p>
+                    <input type="number" id="entry1-mol" placeholder="Moles HCl" step="0.001">
+                    <button onclick="checkEntry1Mol()">Check</button>
+                    <div id="entry1-mol-result"></div>
+                </div>
+                
+                <div class="calculation-box">
+                    <h4>Heat Release Measurement (D.K.R.)</h4>
+                    <p>200.0 g solution increases from 22.0°C to 29.35°C</p>
+                    <p>c_solution = 4.184 J/g°C</p>
+                    <input type="number" id="entry1-heat" placeholder="Heat (kJ)" step="0.01">
+                    <button onclick="checkEntry1Heat()">Check</button>
+                    <div id="entry1-heat-result"></div>
+                </div>
+                
+                <div class="conversation-entry gruet hidden" id="conv1">
+                    <p><strong>Gruet → Radan:</strong> "SAFE LAB HERE"</p>
+                    <p><strong>Radan → Gruet:</strong> "NEED HELP NOW"</p>
+                    <p style="color: #999; margin-top: 10px;">Context: First contact. Gruet offers CoIn's secure facility.</p>
+                </div>
+                
+                <h3>Entry 2 - September 8, 2024</h3>
+                <div class="calculation-box">
+                    <h4>Combustion Analysis (K.G.)</h4>
+                    <p>1.84 g C₂H₅OH undergoes complete combustion</p>
+                    <p>Molar mass C₂H₅OH = 46.07 g/mol</p>
+                    <input type="number" id="entry2-mol" placeholder="Moles ethanol" step="0.001">
+                    <button onclick="checkEntry2Mol()">Check</button>
+                    <div id="entry2-mol-result"></div>
+                </div>
+                
+                <div class="conversation-entry gruet hidden" id="conv2">
+                    <p><strong>Gruet → Radan:</strong> "CAN FUND YOU"</p>
+                    <p><strong>Radan → Gruet:</strong> "THEY WATCH ME"</p>
+                    <p style="color: #999; margin-top: 10px;">Context: Gruet offers funding. Radan reveals surveillance by LiFe zealots.</p>
+                </div>
+                
+                <h3>Entry 3 - September 11, 2024</h3>
+                <div class="calculation-box">
+                    <h4>Patent Formulation - Storage Matrix (K.G.)</h4>
+                    <p><strong>IMPORTANT:</strong> Patent requires SPECIFIC MASS RATIOS</p>
+                    <p>Sample: 3.54 g Co mixed with 2.36 g In</p>
+                    <p>Co: 58.93 g/mol, In: 114.82 g/mol</p>
+                    <input type="number" id="co-mol" placeholder="Moles Co" step="0.001">
+                    <input type="number" id="in-mol" placeholder="Moles In" step="0.001">
+                    <button onclick="checkCoIn()">Check</button>
+                    <div id="coin-result"></div>
+                    <div class="warning hidden" id="coin-ratio">
+                        <p><strong>60:40 Mass Ratio Verified!</strong> This is CoIn's signature!</p>
+                    </div>
+                </div>
+                
+                <div class="conversation-entry gruet hidden" id="conv3">
+                    <p><strong>Gruet → Radan:</strong> "SIXTY FORTY SPLIT"</p>
+                    <p><strong>Radan → Gruet:</strong> "MUST HIDE WORK"</p>
+                    <p style="color: #999; margin-top: 10px;">Context: Profit split proposed (60% Radan, 40% CoIn).</p>
+                </div>
+                
+                <h3>Entry 6 - September 14, 2024 (Day Before Death)</h3>
+                <div class="conversation-entry radan">
+                    <p><strong>Gruet → Radan:</strong> "COME NOW"</p>
+                    <p><strong>Radan → Gruet:</strong> "TOO LATE"</p>
+                    <p style="color: #ff6b6b; margin-top: 10px;">Final exchange. Radan knew he wouldn't make it.</p>
+                </div>
+                
+                <button class="reveal-button" onclick="revealAllConversations()">Reveal All Decoded Messages</button>
+                <div id="all-conversations" class="hidden">
+                    <h3>Complete Decoded Conversation</h3>
+                    <div class="result">
+                        <p><strong>What the evidence reveals:</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>CoIn offered protection, not threats</li>
+                            <li>Radan was desperate, hunted by LiFe zealots</li>
+                            <li>The 60:40 deal matches their Co-In mass ratio signature</li>
+                            <li>CoIn exploited fear to get Radan's formula</li>
+                            <li>Radan died before escape - CoIn didn't kill him</li>
+                            <li>Patent theft is real - CoIn filed using Radan's formulas</li>
+                        </ul>
+                    </div>
+                    <div class="final-comparison" style="margin-top: 20px;">
+                        <h3>Final Verdict</h3>
+                        <p><strong>CoIn House is guilty of:</strong> Intellectual property theft, exploiting a desperate researcher</p>
+                        <p><strong>CoIn House is innocent of:</strong> Murder</p>
+                        <p style="color: #ff6b6b; margin-top: 10px;">The real killers: LiFe House extremists</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showTab(tabName) {
+            const tabs = document.querySelectorAll('.evidence-content');
+            const buttons = document.querySelectorAll('.tab-button');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+        
+        // Patent calculations
+        function checkPatentA() {
+            const answer = parseFloat(document.getElementById('patent-a').value);
+            const correct = 127.8;
+            const result = document.getElementById('patent-a-result');
+            if (Math.abs(answer - correct) < 0.1) {
+                result.innerHTML = '<div class="result">✓ Correct! 0.125 mol × 1022.4 kJ/mol = 127.8 kJ</div>';
+            } else {
+                result.innerHTML = '<div class="warning">Try again. Remember: moles × ΔH</div>';
+            }
+        }
+        
+        function checkPatentB() {
+            const answer = parseFloat(document.getElementById('patent-b').value);
+            const correct = 89.4;
+            const result = document.getElementById('patent-b-result');
+            if (Math.abs(answer - correct) < 0.1) {
+                result.innerHTML = '<div class="result">✓ Correct! 0.450 mol × 198.7 kJ/mol = 89.4 kJ</div>';
+            } else {
+                result.innerHTML = '<div class="warning">Try again.</div>';
+            }
+        }
+        
+        function checkPatentC() {
+            const answer = parseFloat(document.getElementById('patent-c').value);
+            const correct = 215.3;
+            const result = document.getElementById('patent-c-result');
+            if (Math.abs(answer - correct) < 0.1) {
+                result.innerHTML = '<div class="result">✓ Correct! 0.1600 mol reactant × (2691.3 kJ / 2 mol) = 215.3 kJ</div>';
+            } else {
+                result.innerHTML = '<div class="warning">Remember: 2 mol reactant makes 1 mol product!</div>';
+            }
+        }
+        
+        // Radan calculations
+        function checkRadan1() {
+            const answer = parseFloat(document.getElementById('radan-1').value);
+            const correct = -432.5;
+            const result = document.getElementById('radan-1-result');
+            if (Math.abs(answer - (-432.5)) < 0.1) {
+                result.innerHTML = '<div class="result">✓ Correct! 0.0750 mol × (-5766.7 kJ/mol) = -432.5 kJ</div>';
+            } else {
+                result.innerHTML = '<div class="warning">Don\'t forget the negative sign!</div>';
+            }
+        }
+        
+        function checkRadan2() {
+            const answer = parseFloat(document.getElementById('radan-2').value);
+            const correct = 298.7;
+            const result = document.getElementById('radan-2-result');
+            if (Math.abs(answer - correct) < 0.1) {
+                result.innerHTML = '<div class="result">✓ Correct! 0.340 mol × 878.5 kJ/mol = +298.7 kJ</div>';
+            } else {
+                result.innerHTML = '<div class="warning">This is endothermic (positive)!</div>';
+            }
+        }
+        
+        function checkRadan3() {
+            const answer = parseFloat(document.getElementById('radan-3').value);
+            const correct = -298.7;
+            const result = document.getElementById('radan-3-result');
+            if (Math.abs(answer - (-298.7)) < 0.1) {
+                result.innerHTML = '<div class="result">✓ Correct! 0.185 mol × (-1614.6 kJ/mol) = -298.7 kJ</div>';
+            } else {
+                result.innerHTML = '<div class="warning">Try again.</div>';
+            }
+        }
+        
+        function checkPatentTotal() {
+            const answer = parseFloat(document.getElementById('patent-total').value);
+            const correct = 432.5;
+            if (Math.abs(answer - correct) < 0.5) {
+                document.getElementById('patent-total-result').innerHTML = '<div class="result">✓ Total: ~432.5 kJ</div>';
+            }
+        }
+        
+        function checkRadanTotal() {
+            const answer = parseFloat(document.getElementById('radan-total').value);
+            const correct = -432.5;
+            if (Math.abs(answer - correct) < 0.5) {
+                document.getElementById('radan-total-result').innerHTML = '<div class="result">✓ Total: ~-432.5 kJ (magnitude matches patent!)</div>';
+            }
+        }
+        
+        function revealTruth() {
+            document.getElementById('truth-reveal').classList.remove('hidden');
+        }
+        
+        // Cipher quiz checks
+        function checkQ1() {
+            const answer = parseFloat(document.getElementById('q1-answer').value);
+            const correct = 1.14;
+            const result = document.getElementById('q1-result');
+            if (Math.abs(answer - correct) < 0.01) {
+                result.innerHTML = '<div class="result">✓ Correct! 1.14 kJ</div>';
+                document.getElementById('q1-mapping').classList.remove('hidden');
+            } else {
+                result.innerHTML = '<div class="warning">Hint: q = mcΔT</div>';
+            }
+        }
+        
+        function checkQ2() {
+            const answer = parseFloat(document.getElementById('q2-answer').value);
+            const correct = 0.61;
+            const result = document.getElementById('q2-result');
+            if (Math.abs(answer - correct) < 0.01) {
+                result.innerHTML = '<div class="result">✓ Correct! 0.61 kJ</div>';
+                document.getElementById('q2-mapping').classList.remove('hidden');
+            }
+        }
+        
+        // Notebook checks
+        function checkEntry1Mol() {
+            const answer = parseFloat(document.getElementById('entry1-mol').value);
+            const correct = 0.533;
+            if (Math.abs(answer - correct) < 0.001) {
+                document.getElementById('entry1-mol-result').innerHTML = '<div class="result">✓ 0.533 mol</div>';
+                document.getElementById('conv1').classList.remove('hidden');
+            }
+        }
+        
+        function checkEntry1Heat() {
+            const answer = parseFloat(document.getElementById('entry1-heat').value);
+            const correct = 6.15;
+            if (Math.abs(answer - correct) < 0.01) {
+                document.getElementById('entry1-heat-result').innerHTML = '<div class="result">✓ 6.15 kJ</div>';
+            }
+        }
+        
+        function checkCoIn() {
+            const coMol = parseFloat(document.getElementById('co-mol').value);
+            const inMol = parseFloat(document.getElementById('in-mol').value);
+            if (Math.abs(coMol - 0.0600) < 0.0001 && Math.abs(inMol - 0.0206) < 0.0001) {
+                document.getElementById('coin-result').innerHTML = '<div class="result">✓ Correct!</div>';
+                document.getElementById('coin-ratio').classList.remove('hidden');
+                document.getElementById('conv3').classList.remove('hidden');
+            }
+        }
+        
+        function showAllMappings() {
+            document.getElementById('all-mappings').classList.remove('hidden');
+        }
+        
+        function revealAllConversations() {
+            document.querySelectorAll('.conversation-entry').forEach(el => {
+                el.classList.remove('hidden');
+            });
+            document.getElementById('all-conversations').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
