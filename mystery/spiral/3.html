@@ -534,7 +534,7 @@
                     <p class="formula">HCl + NaOH → NaCl + H₂O</p>
                     <p>Molar mass HCl = 36.46 g/mol</p>
                     <input type="number" id="entry1-mol" placeholder="Moles HCl" step="0.001">
-                    <button onclick="checkEntry1Mol()">Check</button>
+                    <button onclick="checkEntry1Mol()">Check Moles</button>
                     <div id="entry1-mol-result"></div>
                 </div>
                 
@@ -543,30 +543,43 @@
                     <p>200.0 g solution increases from 22.0°C to 29.35°C</p>
                     <p>c_solution = 4.184 J/g°C</p>
                     <input type="number" id="entry1-heat" placeholder="Heat (kJ)" step="0.01">
-                    <button onclick="checkEntry1Heat()">Check</button>
+                    <button onclick="checkEntry1Heat()">Check Heat</button>
                     <div id="entry1-heat-result"></div>
                 </div>
                 
                 <div class="conversation-entry gruet hidden" id="conv1">
                     <p><strong>Gruet → Radan:</strong> "SAFE LAB HERE"</p>
                     <p><strong>Radan → Gruet:</strong> "NEED HELP NOW"</p>
-                    <p style="color: #999; margin-top: 10px;">Context: First contact. Gruet offers CoIn's secure facility.</p>
+                    <p style="color: #999; margin-top: 10px;">Context: First contact. Gruet offers CoIn's secure facility. Radan admits he's in trouble.</p>
                 </div>
                 
                 <h3>Entry 2 - September 8, 2024</h3>
                 <div class="calculation-box">
                     <h4>Combustion Analysis (K.G.)</h4>
                     <p>1.84 g C₂H₅OH undergoes complete combustion</p>
+                    <p class="formula">C₂H₅OH + 3O₂ → 2CO₂ + 3H₂O</p>
                     <p>Molar mass C₂H₅OH = 46.07 g/mol</p>
                     <input type="number" id="entry2-mol" placeholder="Moles ethanol" step="0.001">
-                    <button onclick="checkEntry2Mol()">Check</button>
+                    <button onclick="checkEntry2Mol()">Check Moles</button>
                     <div id="entry2-mol-result"></div>
+                </div>
+                
+                <div class="calculation-box">
+                    <h4>Hess's Law Application (D.K.R.)</h4>
+                    <p>Alternative pathway analysis:</p>
+                    <p>Step 1: C₂H₅OH → CH₃CHO + H₂  ΔH₁ = +84.2 kJ</p>
+                    <p>Step 2: CH₃CHO + O₂ → products  ΔH₂ = -197.3 kJ</p>
+                    <p>Step 3: H₂ + ½O₂ → H₂O  ΔH₃ = -285.8 kJ</p>
+                    <p>Calculate net ΔH for complete combustion. Report magnitude in kJ.</p>
+                    <input type="number" id="entry2-hess" placeholder="Net ΔH (kJ)" step="0.1">
+                    <button onclick="checkEntry2Hess()">Check</button>
+                    <div id="entry2-hess-result"></div>
                 </div>
                 
                 <div class="conversation-entry gruet hidden" id="conv2">
                     <p><strong>Gruet → Radan:</strong> "CAN FUND YOU"</p>
                     <p><strong>Radan → Gruet:</strong> "THEY WATCH ME"</p>
-                    <p style="color: #999; margin-top: 10px;">Context: Gruet offers funding. Radan reveals surveillance by LiFe zealots.</p>
+                    <p style="color: #999; margin-top: 10px;">Context: Gruet offers financial backing. Radan reveals he's under surveillance by LiFe zealots.</p>
                 </div>
                 
                 <h3>Entry 3 - September 11, 2024</h3>
@@ -575,26 +588,109 @@
                     <p><strong>IMPORTANT:</strong> Patent requires SPECIFIC MASS RATIOS</p>
                     <p>Sample: 3.54 g Co mixed with 2.36 g In</p>
                     <p>Co: 58.93 g/mol, In: 114.82 g/mol</p>
-                    <input type="number" id="co-mol" placeholder="Moles Co" step="0.001">
-                    <input type="number" id="in-mol" placeholder="Moles In" step="0.001">
-                    <button onclick="checkCoIn()">Check</button>
+                    <p>Calculate: a) Moles of each metal  b) Mass percentage of each metal</p>
+                    <input type="number" id="co-mol" placeholder="Moles Co" step="0.0001">
+                    <input type="number" id="in-mol" placeholder="Moles In" step="0.0001">
+                    <button onclick="checkCoIn()">Check Moles</button>
                     <div id="coin-result"></div>
                     <div class="warning hidden" id="coin-ratio">
-                        <p><strong>60:40 Mass Ratio Verified!</strong> This is CoIn's signature!</p>
+                        <p><strong>Note the 60:40 Mass Ratio!</strong> This is CoIn's signature - appears in all documents</p>
                     </div>
                 </div>
                 
                 <div class="conversation-entry gruet hidden" id="conv3">
                     <p><strong>Gruet → Radan:</strong> "SIXTY FORTY SPLIT"</p>
                     <p><strong>Radan → Gruet:</strong> "MUST HIDE WORK"</p>
-                    <p style="color: #999; margin-top: 10px;">Context: Profit split proposed (60% Radan, 40% CoIn).</p>
+                    <p style="color: #999; margin-top: 10px;">Context: Gruet proposes the profit split (60% Radan, 40% CoIn). Radan agrees he needs to secure his research.</p>
+                </div>
+                
+                <h3>Entry 4 - September 12, 2024</h3>
+                <div class="calculation-box">
+                    <h4>Yield Optimization (K.G.)</h4>
+                    <p>Enhanced extraction protocol:</p>
+                    <p>Starting material: 8.43 g organic precursor (MW = 281 g/mol)</p>
+                    <input type="number" id="entry4-mol" placeholder="Moles precursor" step="0.0001">
+                    <button onclick="checkEntry4Mol()">Check</button>
+                    <div id="entry4-mol-result"></div>
+                </div>
+                
+                <div class="calculation-box">
+                    <h4>Multi-step Energy Analysis (D.K.R.)</h4>
+                    <p>Three-stage process:</p>
+                    <p>1. Heating 150 g water from 22°C to 85°C</p>
+                    <p>2. Phase change: vaporize 25.0 g water (ΔHvap = 40.66 kJ/mol)</p>
+                    <p>3. Combustion of 0.750 g C₆H₆ (ΔHcomb = -3267 kJ/mol, MW = 78.11 g/mol)</p>
+                    <p>Calculate total energy change (report magnitude in kJ).</p>
+                    <input type="number" id="entry4-energy" placeholder="Total energy (kJ)" step="0.1">
+                    <button onclick="checkEntry4Energy()">Check</button>
+                    <div id="entry4-energy-result"></div>
+                </div>
+                
+                <div class="conversation-entry gruet hidden" id="conv4">
+                    <p><strong>Gruet → Radan:</strong> "BRING FORMULA"</p>
+                    <p><strong>Radan → Gruet:</strong> "ZEALOTS CLOSE"</p>
+                    <p style="color: #999; margin-top: 10px;">Context: Gruet wants the formula transferred. Radan warns that LiFe extremists are nearby.</p>
+                </div>
+                
+                <h3>Entry 5 - September 13, 2024</h3>
+                <div class="calculation-box">
+                    <h4>Contract Specifications (K.G.)</h4>
+                    <p>Final product requirements:</p>
+                    <p>12.67 g sample contains active compound (MW = 423 g/mol)</p>
+                    <input type="number" id="entry5-mol" placeholder="Moles compound" step="0.0001">
+                    <button onclick="checkEntry5Mol()">Check</button>
+                    <div id="entry5-mol-result"></div>
+                </div>
+                
+                <div class="calculation-box">
+                    <h4>Thermal Stability Test (D.K.R.)</h4>
+                    <p>Decomposition prevention analysis:</p>
+                    <p>Sample in bomb calorimeter shows:</p>
+                    <p>- Heat capacity: 4.82 kJ/°C</p>
+                    <p>- Temperature rise: 2.45°C</p>
+                    <input type="number" id="entry5-heat" placeholder="Heat released (kJ)" step="0.01">
+                    <button onclick="checkEntry5Heat()">Check</button>
+                    <div id="entry5-heat-result"></div>
+                </div>
+                
+                <div class="conversation-entry gruet hidden" id="conv5">
+                    <p><strong>Gruet → Radan:</strong> "CONTRACT READY"</p>
+                    <p><strong>Radan → Gruet:</strong> "THEY KNOW"</p>
+                    <p style="color: #999; margin-top: 10px;">Context: CoIn has legal documents prepared. Radan realizes the zealots know about his work.</p>
                 </div>
                 
                 <h3>Entry 6 - September 14, 2024 (Day Before Death)</h3>
+                <div class="calculation-box">
+                    <h4>URGENT - Transport Protocol (K.G.)</h4>
+                    <p>Immediate transfer required:</p>
+                    <p>3.92 g priority sample (MW = 392 g/mol)</p>
+                    <input type="number" id="entry6-mol" placeholder="Moles for transport" step="0.0001">
+                    <button onclick="checkEntry6Mol()">Check</button>
+                    <div id="entry6-mol-result"></div>
+                </div>
+                
+                <div class="calculation-box">
+                    <h4>Final Measurement (D.K.R.)</h4>
+                    <p>Bomb calorimeter - last reading:</p>
+                    <p>- Calorimeter heat capacity: 5.73 kJ/°C</p>
+                    <p>- Temperature rise: 3.24°C</p>
+                    <p>- Water present: 775 g (also rises 3.24°C)</p>
+                    <p>Calculate total heat released (kJ).</p>
+                    <input type="number" id="entry6-heat" placeholder="Total heat (kJ)" step="0.01">
+                    <button onclick="checkEntry6Heat()">Check</button>
+                    <div id="entry6-heat-result"></div>
+                </div>
+                
                 <div class="conversation-entry radan">
                     <p><strong>Gruet → Radan:</strong> "COME NOW"</p>
                     <p><strong>Radan → Gruet:</strong> "TOO LATE"</p>
-                    <p style="color: #ff6b6b; margin-top: 10px;">Final exchange. Radan knew he wouldn't make it.</p>
+                    <p style="color: #ff6b6b; margin-top: 10px;">Context: Final exchange. Gruet urgently summons him to safety. Radan knows he won't make it.</p>
+                </div>
+                
+                <div class="warning" style="margin-top: 20px;">
+                    <p>[End of notebook. No entries after September 14. D.K. Radan found deceased September 15, 2024]</p>
+                    <p>Evidence Tag: FCC-2024-1847</p>
+                    <p>Status: Key evidence in ongoing investigation</p>
                 </div>
                 
                 <button class="reveal-button" onclick="revealAllConversations()">Reveal All Decoded Messages</button>
@@ -867,8 +963,10 @@
             const answer = parseFloat(document.getElementById('entry1-mol').value);
             const correct = 0.533;
             if (Math.abs(answer - correct) < 0.001) {
-                document.getElementById('entry1-mol-result').innerHTML = '<div class="result">✓ 0.533 mol</div>';
+                document.getElementById('entry1-mol-result').innerHTML = '<div class="result">✓ Correct!</div>';
                 document.getElementById('conv1').classList.remove('hidden');
+            } else {
+                document.getElementById('entry1-mol-result').innerHTML = '<div class="warning">Check your calculation</div>';
             }
         }
         
@@ -876,7 +974,30 @@
             const answer = parseFloat(document.getElementById('entry1-heat').value);
             const correct = 6.15;
             if (Math.abs(answer - correct) < 0.01) {
-                document.getElementById('entry1-heat-result').innerHTML = '<div class="result">✓ 6.15 kJ</div>';
+                document.getElementById('entry1-heat-result').innerHTML = '<div class="result">✓ Correct!</div>';
+            } else {
+                document.getElementById('entry1-heat-result').innerHTML = '<div class="warning">Remember: q = mcΔT</div>';
+            }
+        }
+        
+        function checkEntry2Mol() {
+            const answer = parseFloat(document.getElementById('entry2-mol').value);
+            const correct = 0.0400;
+            if (Math.abs(answer - correct) < 0.0001) {
+                document.getElementById('entry2-mol-result').innerHTML = '<div class="result">✓ Correct!</div>';
+                document.getElementById('conv2').classList.remove('hidden');
+            } else {
+                document.getElementById('entry2-mol-result').innerHTML = '<div class="warning">Check your calculation</div>';
+            }
+        }
+        
+        function checkEntry2Hess() {
+            const answer = parseFloat(document.getElementById('entry2-hess').value);
+            const correct = 398.9;
+            if (Math.abs(answer - correct) < 0.5) {
+                document.getElementById('entry2-hess-result').innerHTML = '<div class="result">✓ Correct!</div>';
+            } else {
+                document.getElementById('entry2-hess-result').innerHTML = '<div class="warning">Add all ΔH values</div>';
             }
         }
         
@@ -887,6 +1008,70 @@
                 document.getElementById('coin-result').innerHTML = '<div class="result">✓ Correct!</div>';
                 document.getElementById('coin-ratio').classList.remove('hidden');
                 document.getElementById('conv3').classList.remove('hidden');
+            } else {
+                document.getElementById('coin-result').innerHTML = '<div class="warning">Check your mole calculations</div>';
+            }
+        }
+        
+        function checkEntry4Mol() {
+            const answer = parseFloat(document.getElementById('entry4-mol').value);
+            const correct = 0.0300;
+            if (Math.abs(answer - correct) < 0.0001) {
+                document.getElementById('entry4-mol-result').innerHTML = '<div class="result">✓ Correct!</div>';
+                document.getElementById('conv4').classList.remove('hidden');
+            } else {
+                document.getElementById('entry4-mol-result').innerHTML = '<div class="warning">Check your calculation</div>';
+            }
+        }
+        
+        function checkEntry4Energy() {
+            const answer = parseFloat(document.getElementById('entry4-energy').value);
+            const correct = 31.4;
+            if (Math.abs(answer - correct) < 0.5) {
+                document.getElementById('entry4-energy-result').innerHTML = '<div class="result">✓ Correct!</div>';
+            } else {
+                document.getElementById('entry4-energy-result').innerHTML = '<div class="warning">Add all three energy changes</div>';
+            }
+        }
+        
+        function checkEntry5Mol() {
+            const answer = parseFloat(document.getElementById('entry5-mol').value);
+            const correct = 0.0300;
+            if (Math.abs(answer - correct) < 0.0001) {
+                document.getElementById('entry5-mol-result').innerHTML = '<div class="result">✓ Correct!</div>';
+                document.getElementById('conv5').classList.remove('hidden');
+            } else {
+                document.getElementById('entry5-mol-result').innerHTML = '<div class="warning">Check your calculation</div>';
+            }
+        }
+        
+        function checkEntry5Heat() {
+            const answer = parseFloat(document.getElementById('entry5-heat').value);
+            const correct = 11.81;
+            if (Math.abs(answer - correct) < 0.01) {
+                document.getElementById('entry5-heat-result').innerHTML = '<div class="result">✓ Correct!</div>';
+            } else {
+                document.getElementById('entry5-heat-result').innerHTML = '<div class="warning">q = C × ΔT</div>';
+            }
+        }
+        
+        function checkEntry6Mol() {
+            const answer = parseFloat(document.getElementById('entry6-mol').value);
+            const correct = 0.0100;
+            if (Math.abs(answer - correct) < 0.0001) {
+                document.getElementById('entry6-mol-result').innerHTML = '<div class="result">✓ Correct!</div>';
+            } else {
+                document.getElementById('entry6-mol-result').innerHTML = '<div class="warning">Check your calculation</div>';
+            }
+        }
+        
+        function checkEntry6Heat() {
+            const answer = parseFloat(document.getElementById('entry6-heat').value);
+            const correct = 29.10;
+            if (Math.abs(answer - correct) < 0.1) {
+                document.getElementById('entry6-heat-result').innerHTML = '<div class="result">✓ Correct!</div>';
+            } else {
+                document.getElementById('entry6-heat-result').innerHTML = '<div class="warning">Add calorimeter and water heat</div>';
             }
         }
         
