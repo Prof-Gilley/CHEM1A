@@ -1,1 +1,150 @@
-Test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemistry 1A - Prof. Gilley</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1b5e5e 0%, #2e8b8b 100%);
+            color: #2a2a2a;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            max-width: 800px;
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            padding: 50px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #1b5e5e;
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #e76f51;
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .info-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .info-section h3 {
+            color: #1b5e5e;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            text-align: center;
+        }
+
+        .info-item {
+            display: flex;
+            padding: 12px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #1b5e5e;
+            min-width: 180px;
+        }
+
+        .info-value {
+            color: #555;
+        }
+
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.3em;
+            }
+
+            .info-item {
+                flex-direction: column;
+            }
+
+            .info-label {
+                margin-bottom: 5px;
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chemistry 1A</h1>
+        <h2>General Chemistry</h2>
+
+        <div class="info-section">
+            <h3>Course Information</h3>
+            <div class="info-item">
+                <div class="info-label">Instructor:</div>
+                <div class="info-value">Prof. Gilley</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Institution:</div>
+                <div class="info-value">Fresno City College</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Semester:</div>
+                <div class="info-value">Fall 2024</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Course Number:</div>
+                <div class="info-value">CHEM 1A</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Textbook:</div>
+                <div class="info-value">OpenStax Chemistry 2e</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Welcome to Chemistry 1A!</p>
+            <p>More course materials coming soon.</p>
+        </div>
+    </div>
+</body>
+</html>
