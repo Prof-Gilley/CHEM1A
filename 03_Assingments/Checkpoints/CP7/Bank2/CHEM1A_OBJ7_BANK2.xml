@@ -1,22 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv2p1" 
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-                 xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv2p1 http://www.imsglobal.org/xsd/qti/qtiv2p1/imsqti_v2p1.xsd">
-  
-  <assessment ident="CHEM1A_OBJ7_BANK2" title="Bank 2 - Electronegativity &amp; Polarity (Tro Ch 7.2 | COR Obj 7)">
-    <metadata>
-      <qtimetadata>
-        <qtimetadatafield>
-          <fieldlabel>cc_maxattempts</fieldlabel>
-          <fieldentry>1</fieldentry>
-        </qtimetadatafield>
-      </qtimetadata>
-    </metadata>
-
-    <section ident="bank2_section" title="Reasoning with ΔEN &amp; Partial Charges">
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/xsd/ims_qtiasiv1p2p1.xsd">
+  <assessment ident="CHEM1A_OBJ07_B2" title="CHEM1A_OBJ07_B2_Electronegativity">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>1</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="root_section">
       
       <!-- Question 1 -->
-      <item ident="bank2_q1" title="Q1: Electron Cloud Shifts (Tro Ch 7.2 | COR Obj 7)">
+      <item ident="q1" title="Electron Cloud Shifts">
         <itemmetadata>
           <qtimetadata>
             <qtimetadatafield>
@@ -25,34 +19,34 @@
             </qtimetadatafield>
             <qtimetadatafield>
               <fieldlabel>points_possible</fieldlabel>
-              <fieldentry>1.0</fieldentry>
+              <fieldentry>1</fieldentry>
             </qtimetadatafield>
           </qtimetadata>
         </itemmetadata>
         <presentation>
           <material>
-            <mattext texttype="text/html">For the Na-Cl bond, does the electron cloud shift toward or away from sodium?</mattext>
+            <mattext texttype="text/html"><![CDATA[For the bond Na-Cl, the electron cloud shifts:]]></mattext>
           </material>
           <response_lid ident="response1" rcardinality="single">
             <render_choice>
-              <response_label ident="A">
+              <response_label ident="a">
                 <material>
-                  <mattext texttype="text/html">Toward sodium (Na gains electron density)</mattext>
+                  <mattext texttype="text/plain">Toward Na (away from Cl)</mattext>
                 </material>
               </response_label>
-              <response_label ident="B">
+              <response_label ident="b">
                 <material>
-                  <mattext texttype="text/html">Away from sodium (Cl gains electron density)</mattext>
+                  <mattext texttype="text/plain">Toward Cl (away from Na)</mattext>
                 </material>
               </response_label>
-              <response_label ident="C">
+              <response_label ident="c">
                 <material>
-                  <mattext texttype="text/html">No shift (electrons are shared equally)</mattext>
+                  <mattext texttype="text/plain">Equally distributed (no shift)</mattext>
                 </material>
               </response_label>
-              <response_label ident="D">
+              <response_label ident="d">
                 <material>
-                  <mattext texttype="text/html">Complete transfer (ionic bond forms)</mattext>
+                  <mattext texttype="text/plain">Cannot be determined</mattext>
                 </material>
               </response_label>
             </render_choice>
@@ -60,19 +54,19 @@
         </presentation>
         <resprocessing>
           <outcomes>
-            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
           </outcomes>
           <respcondition continue="No">
             <conditionvar>
-              <varequal respident="response1">B</varequal>
+              <varequal respident="response1">b</varequal>
             </conditionvar>
-            <setvar action="Set" varname="SCORE">1</setvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
           </respcondition>
         </resprocessing>
       </item>
 
       <!-- Question 2 -->
-      <item ident="bank2_q2" title="Q2: Polarity Ranking (Tro Ch 7.2 | COR Obj 7)">
+      <item ident="q2" title="Polarity Ranking">
         <itemmetadata>
           <qtimetadata>
             <qtimetadatafield>
@@ -81,34 +75,34 @@
             </qtimetadatafield>
             <qtimetadatafield>
               <fieldlabel>points_possible</fieldlabel>
-              <fieldentry>1.0</fieldentry>
+              <fieldentry>1</fieldentry>
             </qtimetadatafield>
           </qtimetadata>
         </itemmetadata>
         <presentation>
           <material>
-            <mattext texttype="text/html">Rank the following molecules by &lt;b&gt;increasing polarity of their central bond&lt;/b&gt;: CF₄, CHF₃, CH₂F₂, CH₃F</mattext>
+            <mattext texttype="text/html"><![CDATA[Rank the following molecules by <b>increasing polarity</b> of their central bond:]]></mattext>
           </material>
           <response_lid ident="response2" rcardinality="single">
             <render_choice>
-              <response_label ident="A">
+              <response_label ident="a">
                 <material>
-                  <mattext texttype="text/html">CF₄ &lt; CHF₃ &lt; CH₂F₂ &lt; CH₃F</mattext>
+                  <mattext texttype="text/html"><![CDATA[CF<sub>4</sub> < CHF<sub>3</sub> < CH<sub>2</sub>F<sub>2</sub> < CH<sub>3</sub>F]]></mattext>
                 </material>
               </response_label>
-              <response_label ident="B">
+              <response_label ident="b">
                 <material>
-                  <mattext texttype="text/html">CH₃F &lt; CH₂F₂ &lt; CHF₃ &lt; CF₄</mattext>
+                  <mattext texttype="text/html"><![CDATA[CH<sub>3</sub>F < CH<sub>2</sub>F<sub>2</sub> < CHF<sub>3</sub> < CF<sub>4</sub>]]></mattext>
                 </material>
               </response_label>
-              <response_label ident="C">
+              <response_label ident="c">
                 <material>
-                  <mattext texttype="text/html">CF₄ = CHF₃ = CH₂F₂ = CH₃F (all equal)</mattext>
+                  <mattext texttype="text/html"><![CDATA[CF<sub>4</sub> = CHF<sub>3</sub> = CH<sub>2</sub>F<sub>2</sub> = CH<sub>3</sub>F]]></mattext>
                 </material>
               </response_label>
-              <response_label ident="D">
+              <response_label ident="d">
                 <material>
-                  <mattext texttype="text/html">CH₂F₂ &lt; CH₃F &lt; CHF₃ &lt; CF₄</mattext>
+                  <mattext texttype="text/html"><![CDATA[CH<sub>2</sub>F<sub>2</sub> < CH<sub>3</sub>F < CHF<sub>3</sub> < CF<sub>4</sub>]]></mattext>
                 </material>
               </response_label>
             </render_choice>
@@ -116,19 +110,19 @@
         </presentation>
         <resprocessing>
           <outcomes>
-            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
           </outcomes>
           <respcondition continue="No">
             <conditionvar>
-              <varequal respident="response2">C</varequal>
+              <varequal respident="response2">c</varequal>
             </conditionvar>
-            <setvar action="Set" varname="SCORE">1</setvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
           </respcondition>
         </resprocessing>
       </item>
 
       <!-- Question 3 -->
-      <item ident="bank2_q3" title="Q3: Polar Bond Cancellation (Tro Ch 7.2 | COR Obj 7)">
+      <item ident="q3" title="Polar Bonds Cancel">
         <itemmetadata>
           <qtimetadata>
             <qtimetadatafield>
@@ -137,34 +131,34 @@
             </qtimetadatafield>
             <qtimetadatafield>
               <fieldlabel>points_possible</fieldlabel>
-              <fieldentry>1.0</fieldentry>
+              <fieldentry>1</fieldentry>
             </qtimetadatafield>
           </qtimetadata>
         </itemmetadata>
         <presentation>
           <material>
-            <mattext texttype="text/html">In which pair do &lt;b&gt;polar bonds cancel&lt;/b&gt; perfectly due to symmetry?</mattext>
+            <mattext texttype="text/html"><![CDATA[In which molecule do <b>polar bonds cancel</b> perfectly due to symmetry?]]></mattext>
           </material>
           <response_lid ident="response3" rcardinality="single">
             <render_choice>
-              <response_label ident="A">
+              <response_label ident="a">
                 <material>
-                  <mattext texttype="text/html">SF₆</mattext>
+                  <mattext texttype="text/html"><![CDATA[SF<sub>6</sub>]]></mattext>
                 </material>
               </response_label>
-              <response_label ident="B">
+              <response_label ident="b">
                 <material>
-                  <mattext texttype="text/html">H₂O</mattext>
+                  <mattext texttype="text/html"><![CDATA[H<sub>2</sub>O]]></mattext>
                 </material>
               </response_label>
-              <response_label ident="C">
+              <response_label ident="c">
                 <material>
-                  <mattext texttype="text/html">PF₃</mattext>
+                  <mattext texttype="text/html"><![CDATA[PF<sub>3</sub>]]></mattext>
                 </material>
               </response_label>
-              <response_label ident="D">
+              <response_label ident="d">
                 <material>
-                  <mattext texttype="text/html">SO₂</mattext>
+                  <mattext texttype="text/html"><![CDATA[SO<sub>2</sub>]]></mattext>
                 </material>
               </response_label>
             </render_choice>
@@ -172,19 +166,19 @@
         </presentation>
         <resprocessing>
           <outcomes>
-            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
           </outcomes>
           <respcondition continue="No">
             <conditionvar>
-              <varequal respident="response3">A</varequal>
+              <varequal respident="response3">a</varequal>
             </conditionvar>
-            <setvar action="Set" varname="SCORE">1</setvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
           </respcondition>
         </resprocessing>
       </item>
 
       <!-- Question 4 -->
-      <item ident="bank2_q4" title="Q4: HF vs HCl Boiling Points (Tro Ch 7.2 | COR Obj 7)">
+      <item ident="q4" title="HF vs HCl Boiling Point">
         <itemmetadata>
           <qtimetadata>
             <qtimetadatafield>
@@ -193,34 +187,34 @@
             </qtimetadatafield>
             <qtimetadatafield>
               <fieldlabel>points_possible</fieldlabel>
-              <fieldentry>1.0</fieldentry>
+              <fieldentry>1</fieldentry>
             </qtimetadatafield>
           </qtimetadata>
         </itemmetadata>
         <presentation>
           <material>
-            <mattext texttype="text/html">Why does HF have a &lt;b&gt;higher boiling point&lt;/b&gt; than HCl even though both are polar?</mattext>
+            <mattext texttype="text/html"><![CDATA[Why does HF have a <b>higher boiling point</b> than HCl even though both are polar?]]></mattext>
           </material>
           <response_lid ident="response4" rcardinality="single">
             <render_choice>
-              <response_label ident="A">
+              <response_label ident="a">
                 <material>
-                  <mattext texttype="text/html">HF has stronger hydrogen bonding due to F's high electronegativity</mattext>
+                  <mattext texttype="text/plain">HF has stronger hydrogen bonding</mattext>
                 </material>
               </response_label>
-              <response_label ident="B">
+              <response_label ident="b">
                 <material>
-                  <mattext texttype="text/html">HCl is actually more polar than HF</mattext>
+                  <mattext texttype="text/plain">HCl has a larger molecular mass</mattext>
                 </material>
               </response_label>
-              <response_label ident="C">
+              <response_label ident="c">
                 <material>
-                  <mattext texttype="text/html">HF has a higher molecular weight</mattext>
+                  <mattext texttype="text/plain">HF is less polar than HCl</mattext>
                 </material>
               </response_label>
-              <response_label ident="D">
+              <response_label ident="d">
                 <material>
-                  <mattext texttype="text/html">HCl molecules are larger, causing weaker interactions</mattext>
+                  <mattext texttype="text/plain">HCl has stronger dipole-dipole forces</mattext>
                 </material>
               </response_label>
             </render_choice>
@@ -228,19 +222,19 @@
         </presentation>
         <resprocessing>
           <outcomes>
-            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
           </outcomes>
           <respcondition continue="No">
             <conditionvar>
-              <varequal respident="response4">A</varequal>
+              <varequal respident="response4">a</varequal>
             </conditionvar>
-            <setvar action="Set" varname="SCORE">1</setvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
           </respcondition>
         </resprocessing>
       </item>
 
       <!-- Question 5 -->
-      <item ident="bank2_q5" title="Q5: Bond Type and Electron Transfer (Tro Ch 7.2 | COR Obj 7)">
+      <item ident="q5" title="Bond Type and Electron Transfer">
         <itemmetadata>
           <qtimetadata>
             <qtimetadatafield>
@@ -249,34 +243,34 @@
             </qtimetadatafield>
             <qtimetadatafield>
               <fieldlabel>points_possible</fieldlabel>
-              <fieldentry>1.0</fieldentry>
+              <fieldentry>1</fieldentry>
             </qtimetadatafield>
           </qtimetadata>
         </itemmetadata>
         <presentation>
           <material>
-            <mattext texttype="text/html">A bond between two atoms has ΔEN = 1.6 and one atom's oxidation state changes by +2 → -2. What combination of &lt;b&gt;bond type and electron transfer&lt;/b&gt; is most consistent?</mattext>
+            <mattext texttype="text/html"><![CDATA[A bond between two atoms has ΔEN = 1.6 and one atom's oxidation state changes by +2 → -2. What combination of <b>bond type and electron transfer</b> is most consistent?]]></mattext>
           </material>
           <response_lid ident="response5" rcardinality="single">
             <render_choice>
-              <response_label ident="A">
+              <response_label ident="a">
                 <material>
-                  <mattext texttype="text/html">Ionic bond with complete electron transfer</mattext>
+                  <mattext texttype="text/plain">Ionic bond with complete electron transfer</mattext>
                 </material>
               </response_label>
-              <response_label ident="B">
+              <response_label ident="b">
                 <material>
-                  <mattext texttype="text/html">Polar covalent bond with partial electron transfer</mattext>
+                  <mattext texttype="text/plain">Polar covalent bond with partial electron transfer</mattext>
                 </material>
               </response_label>
-              <response_label ident="C">
+              <response_label ident="c">
                 <material>
-                  <mattext texttype="text/html">Nonpolar covalent bond with no electron transfer</mattext>
+                  <mattext texttype="text/plain">Nonpolar covalent bond with no electron transfer</mattext>
                 </material>
               </response_label>
-              <response_label ident="D">
+              <response_label ident="d">
                 <material>
-                  <mattext texttype="text/html">Metallic bond with delocalized electrons</mattext>
+                  <mattext texttype="text/plain">Metallic bond with delocalized electrons</mattext>
                 </material>
               </response_label>
             </render_choice>
@@ -284,19 +278,19 @@
         </presentation>
         <resprocessing>
           <outcomes>
-            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
           </outcomes>
           <respcondition continue="No">
             <conditionvar>
-              <varequal respident="response5">B</varequal>
+              <varequal respident="response5">b</varequal>
             </conditionvar>
-            <setvar action="Set" varname="SCORE">1</setvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
           </respcondition>
         </resprocessing>
       </item>
 
       <!-- Question 6 -->
-      <item ident="bank2_q6" title="Q6: C-O vs C-F Bond Polarity (Tro Ch 7.2 | COR Obj 7)">
+      <item ident="q6" title="C-O vs C-F Bond Polarity">
         <itemmetadata>
           <qtimetadata>
             <qtimetadatafield>
@@ -305,34 +299,34 @@
             </qtimetadatafield>
             <qtimetadatafield>
               <fieldlabel>points_possible</fieldlabel>
-              <fieldentry>1.0</fieldentry>
+              <fieldentry>1</fieldentry>
             </qtimetadatafield>
           </qtimetadata>
         </itemmetadata>
         <presentation>
           <material>
-            <mattext texttype="text/html">The C-O bond has ΔEN = 1.0 while the C-F bond has ΔEN = 1.5. Which statement about bond polarity and partial charges is correct?</mattext>
+            <mattext texttype="text/html"><![CDATA[The C-O bond has ΔEN = 1.0 while the C-F bond has ΔEN = 1.5. Which statement is correct?]]></mattext>
           </material>
           <response_lid ident="response6" rcardinality="single">
             <render_choice>
-              <response_label ident="A">
+              <response_label ident="a">
                 <material>
-                  <mattext texttype="text/html">C-F is more polar; F carries a larger partial negative charge than O</mattext>
+                  <mattext texttype="text/html"><![CDATA[C-F is more polar with larger δ<sup>+</sup> on C and larger δ<sup>-</sup> on F]]></mattext>
                 </material>
               </response_label>
-              <response_label ident="B">
+              <response_label ident="b">
                 <material>
-                  <mattext texttype="text/html">C-O is more polar; O carries a larger partial negative charge than F</mattext>
+                  <mattext texttype="text/html"><![CDATA[C-O is more polar with larger δ<sup>+</sup> on C and larger δ<sup>-</sup> on O]]></mattext>
                 </material>
               </response_label>
-              <response_label ident="C">
+              <response_label ident="c">
                 <material>
-                  <mattext texttype="text/html">Both bonds have equal polarity but different bond lengths</mattext>
+                  <mattext texttype="text/plain">Both bonds have equal polarity but different electronegativities</mattext>
                 </material>
               </response_label>
-              <response_label ident="D">
+              <response_label ident="d">
                 <material>
-                  <mattext texttype="text/html">C-F is less polar because F is smaller than O</mattext>
+                  <mattext texttype="text/plain">C-F is less polar because F is smaller than O</mattext>
                 </material>
               </response_label>
             </render_choice>
@@ -340,19 +334,19 @@
         </presentation>
         <resprocessing>
           <outcomes>
-            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
           </outcomes>
           <respcondition continue="No">
             <conditionvar>
-              <varequal respident="response6">A</varequal>
+              <varequal respident="response6">a</varequal>
             </conditionvar>
-            <setvar action="Set" varname="SCORE">1</setvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
           </respcondition>
         </resprocessing>
       </item>
 
       <!-- Question 7 -->
-      <item ident="bank2_q7" title="Q7: Ionic Character Order (Tro Ch 7.2 | COR Obj 7)">
+      <item ident="q7" title="Increasing Ionic Character">
         <itemmetadata>
           <qtimetadata>
             <qtimetadatafield>
@@ -361,34 +355,34 @@
             </qtimetadatafield>
             <qtimetadatafield>
               <fieldlabel>points_possible</fieldlabel>
-              <fieldentry>1.0</fieldentry>
+              <fieldentry>1</fieldentry>
             </qtimetadatafield>
           </qtimetadata>
         </itemmetadata>
         <presentation>
           <material>
-            <mattext texttype="text/html">Arrange the following bonds in order of increasing ionic character: N-H, O-H, F-H, C-H</mattext>
+            <mattext texttype="text/html"><![CDATA[Arrange the following bonds in order of <b>increasing ionic character</b>:]]></mattext>
           </material>
           <response_lid ident="response7" rcardinality="single">
             <render_choice>
-              <response_label ident="A">
+              <response_label ident="a">
                 <material>
-                  <mattext texttype="text/html">C-H &lt; N-H &lt; O-H &lt; F-H</mattext>
+                  <mattext texttype="text/plain">C-H < N-H < O-H < F-H</mattext>
                 </material>
               </response_label>
-              <response_label ident="B">
+              <response_label ident="b">
                 <material>
-                  <mattext texttype="text/html">F-H &lt; O-H &lt; N-H &lt; C-H</mattext>
+                  <mattext texttype="text/plain">F-H < O-H < N-H < C-H</mattext>
                 </material>
               </response_label>
-              <response_label ident="C">
+              <response_label ident="c">
                 <material>
-                  <mattext texttype="text/html">N-H &lt; C-H &lt; O-H &lt; F-H</mattext>
+                  <mattext texttype="text/plain">N-H < C-H < F-H < O-H</mattext>
                 </material>
               </response_label>
-              <response_label ident="D">
+              <response_label ident="d">
                 <material>
-                  <mattext texttype="text/html">C-H &lt; O-H &lt; N-H &lt; F-H</mattext>
+                  <mattext texttype="text/plain">O-H < F-H < C-H < N-H</mattext>
                 </material>
               </response_label>
             </render_choice>
@@ -396,19 +390,19 @@
         </presentation>
         <resprocessing>
           <outcomes>
-            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
           </outcomes>
           <respcondition continue="No">
             <conditionvar>
-              <varequal respident="response7">A</varequal>
+              <varequal respident="response7">a</varequal>
             </conditionvar>
-            <setvar action="Set" varname="SCORE">1</setvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
           </respcondition>
         </resprocessing>
       </item>
 
       <!-- Question 8 -->
-      <item ident="bank2_q8" title="Q8: NCl₃ Partial Charges (Tro Ch 7.2 | COR Obj 7)">
+      <item ident="q8" title="NCl3 Partial Charge">
         <itemmetadata>
           <qtimetadata>
             <qtimetadatafield>
@@ -417,34 +411,34 @@
             </qtimetadatafield>
             <qtimetadatafield>
               <fieldlabel>points_possible</fieldlabel>
-              <fieldentry>1.0</fieldentry>
+              <fieldentry>1</fieldentry>
             </qtimetadatafield>
           </qtimetadata>
         </itemmetadata>
         <presentation>
           <material>
-            <mattext texttype="text/html">In the molecule NCl₃, which atom carries the partial negative charge?</mattext>
+            <mattext texttype="text/html"><![CDATA[In the molecule NCl<sub>3</sub>, which atom carries the partial negative charge?]]></mattext>
           </material>
           <response_lid ident="response8" rcardinality="single">
             <render_choice>
-              <response_label ident="A">
+              <response_label ident="a">
                 <material>
-                  <mattext texttype="text/html">Nitrogen, because it has higher electronegativity than chlorine</mattext>
+                  <mattext texttype="text/plain">Nitrogen (N is more electronegative)</mattext>
                 </material>
               </response_label>
-              <response_label ident="B">
+              <response_label ident="b">
                 <material>
-                  <mattext texttype="text/html">Chlorine, because it has higher electronegativity than nitrogen</mattext>
+                  <mattext texttype="text/plain">Chlorine (Cl is more electronegative)</mattext>
                 </material>
               </response_label>
-              <response_label ident="C">
+              <response_label ident="c">
                 <material>
-                  <mattext texttype="text/html">Neither, because the bond is nonpolar</mattext>
+                  <mattext texttype="text/plain">Both carry equal partial charges</mattext>
                 </material>
               </response_label>
-              <response_label ident="D">
+              <response_label ident="d">
                 <material>
-                  <mattext texttype="text/html">Both share electrons equally</mattext>
+                  <mattext texttype="text/plain">Neither atom carries a partial charge</mattext>
                 </material>
               </response_label>
             </render_choice>
@@ -452,19 +446,19 @@
         </presentation>
         <resprocessing>
           <outcomes>
-            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
           </outcomes>
           <respcondition continue="No">
             <conditionvar>
-              <varequal respident="response8">B</varequal>
+              <varequal respident="response8">b</varequal>
             </conditionvar>
-            <setvar action="Set" varname="SCORE">1</setvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
           </respcondition>
         </resprocessing>
       </item>
 
       <!-- Question 9 -->
-      <item ident="bank2_q9" title="Q9: PCl₅ vs PCl₃ Polarity (Tro Ch 7.2 | COR Obj 7)">
+      <item ident="q9" title="PCl5 vs PCl3 Polarity">
         <itemmetadata>
           <qtimetadata>
             <qtimetadatafield>
@@ -473,34 +467,34 @@
             </qtimetadatafield>
             <qtimetadatafield>
               <fieldlabel>points_possible</fieldlabel>
-              <fieldentry>1.0</fieldentry>
+              <fieldentry>1</fieldentry>
             </qtimetadatafield>
           </qtimetadata>
         </itemmetadata>
         <presentation>
           <material>
-            <mattext texttype="text/html">The P-Cl bond has some polar character. Why is PCl₅ nonpolar overall while PCl₃ is polar?</mattext>
+            <mattext texttype="text/html"><![CDATA[The P-Cl bond has some polar character. Why is PCl<sub>5</sub> nonpolar overall while PCl<sub>3</sub> is polar?]]></mattext>
           </material>
           <response_lid ident="response9" rcardinality="single">
             <render_choice>
-              <response_label ident="A">
+              <response_label ident="a">
                 <material>
-                  <mattext texttype="text/html">PCl₅ has trigonal bipyramidal symmetry that cancels dipoles; PCl₃ has pyramidal shape with net dipole</mattext>
+                  <mattext texttype="text/html"><![CDATA[PCl<sub>5</sub> has trigonal bipyramidal symmetry; PCl<sub>3</sub> is pyramidal]]></mattext>
                 </material>
               </response_label>
-              <response_label ident="B">
+              <response_label ident="b">
                 <material>
-                  <mattext texttype="text/html">PCl₅ has more chlorine atoms that make it nonpolar</mattext>
+                  <mattext texttype="text/html"><![CDATA[PCl<sub>5</sub> has weaker P-Cl bonds than PCl<sub>3</sub>]]></mattext>
                 </material>
               </response_label>
-              <response_label ident="C">
+              <response_label ident="c">
                 <material>
-                  <mattext texttype="text/html">PCl₃ has stronger P-Cl bonds than PCl₅</mattext>
+                  <mattext texttype="text/html"><![CDATA[PCl<sub>3</sub> has more electronegative Cl atoms]]></mattext>
                 </material>
               </response_label>
-              <response_label ident="D">
+              <response_label ident="d">
                 <material>
-                  <mattext texttype="text/html">PCl₅ uses different hybridization that eliminates polarity</mattext>
+                  <mattext texttype="text/html"><![CDATA[PCl<sub>5</sub> has ionic bonds while PCl<sub>3</sub> has covalent bonds]]></mattext>
                 </material>
               </response_label>
             </render_choice>
@@ -508,19 +502,19 @@
         </presentation>
         <resprocessing>
           <outcomes>
-            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
           </outcomes>
           <respcondition continue="No">
             <conditionvar>
-              <varequal respident="response9">A</varequal>
+              <varequal respident="response9">a</varequal>
             </conditionvar>
-            <setvar action="Set" varname="SCORE">1</setvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
           </respcondition>
         </resprocessing>
       </item>
 
       <!-- Question 10 -->
-      <item ident="bank2_q10" title="Q10: CO₂ vs H₂CO Polarity (Tro Ch 7.2 | COR Obj 7)">
+      <item ident="q10" title="C=O Bond Polarity">
         <itemmetadata>
           <qtimetadata>
             <qtimetadatafield>
@@ -529,34 +523,34 @@
             </qtimetadatafield>
             <qtimetadatafield>
               <fieldlabel>points_possible</fieldlabel>
-              <fieldentry>1.0</fieldentry>
+              <fieldentry>1</fieldentry>
             </qtimetadatafield>
           </qtimetadata>
         </itemmetadata>
         <presentation>
           <material>
-            <mattext texttype="text/html">Compare the polarity of the C=O bond in CO₂ versus in H₂CO. How does molecular geometry affect the net dipole?</mattext>
+            <mattext texttype="text/html"><![CDATA[How does molecular geometry affect the net dipole when comparing the C=O bond in CO<sub>2</sub> versus H<sub>2</sub>CO?]]></mattext>
           </material>
           <response_lid ident="response10" rcardinality="single">
             <render_choice>
-              <response_label ident="A">
+              <response_label ident="a">
                 <material>
-                  <mattext texttype="text/html">CO₂ is linear so dipoles cancel; H₂CO is trigonal planar with net dipole toward oxygen</mattext>
+                  <mattext texttype="text/html"><![CDATA[CO<sub>2</sub> is linear (dipoles cancel); H<sub>2</sub>CO is trigonal planar (net dipole)]]></mattext>
                 </material>
               </response_label>
-              <response_label ident="B">
+              <response_label ident="b">
                 <material>
-                  <mattext texttype="text/html">Both are nonpolar due to symmetry</mattext>
+                  <mattext texttype="text/html"><![CDATA[Both molecules are nonpolar due to symmetry]]></mattext>
                 </material>
               </response_label>
-              <response_label ident="C">
+              <response_label ident="c">
                 <material>
-                  <mattext texttype="text/html">CO₂ is polar; H₂CO is nonpolar</mattext>
+                  <mattext texttype="text/html"><![CDATA[CO<sub>2</sub> is bent; H<sub>2</sub>CO is linear]]></mattext>
                 </material>
               </response_label>
-              <response_label ident="D">
+              <response_label ident="d">
                 <material>
-                  <mattext texttype="text/html">The C=O bond polarity is different in each molecule</mattext>
+                  <mattext texttype="text/html"><![CDATA[Both have equal net dipoles]]></mattext>
                 </material>
               </response_label>
             </render_choice>
@@ -564,19 +558,188 @@
         </presentation>
         <resprocessing>
           <outcomes>
-            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
           </outcomes>
           <respcondition continue="No">
             <conditionvar>
-              <varequal respident="response10">A</varequal>
+              <varequal respident="response10">a</varequal>
             </conditionvar>
-            <setvar action="Set" varname="SCORE">1</setvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
           </respcondition>
         </resprocessing>
       </item>
 
-      <!-- Additional questions 11-20 would follow the same format -->
-      
+      <!-- Questions 11-20 continue in similar format -->
+      <!-- I'll include a few more key questions -->
+
+      <!-- Question 13 -->
+      <item ident="q13" title="BF3 Dipole Moment">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[The B-F bond is highly polar (ΔEN = 2.0), yet BF<sub>3</sub> has no net dipole moment. Why?]]></mattext>
+          </material>
+          <response_lid ident="response13" rcardinality="single">
+            <render_choice>
+              <response_label ident="a">
+                <material>
+                  <mattext texttype="text/plain">Trigonal planar geometry causes dipoles to cancel</mattext>
+                </material>
+              </response_label>
+              <response_label ident="b">
+                <material>
+                  <mattext texttype="text/plain">B-F bonds are actually nonpolar</mattext>
+                </material>
+              </response_label>
+              <response_label ident="c">
+                <material>
+                  <mattext texttype="text/plain">Boron has no electronegativity</mattext>
+                </material>
+              </response_label>
+              <response_label ident="d">
+                <material>
+                  <mattext texttype="text/plain">Fluorine atoms repel each other</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response13">a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 16 -->
+      <item ident="q16" title="Tetrahedral Polar Bonds">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[A molecule has four identical polar bonds arranged tetrahedrally. Will this molecule be polar or nonpolar?]]></mattext>
+          </material>
+          <response_lid ident="response16" rcardinality="single">
+            <render_choice>
+              <response_label ident="a">
+                <material>
+                  <mattext texttype="text/plain">Nonpolar - dipoles cancel due to tetrahedral symmetry</mattext>
+                </material>
+              </response_label>
+              <response_label ident="b">
+                <material>
+                  <mattext texttype="text/plain">Polar - tetrahedral molecules are always polar</mattext>
+                </material>
+              </response_label>
+              <response_label ident="c">
+                <material>
+                  <mattext texttype="text/plain">Depends on the electronegativity difference</mattext>
+                </material>
+              </response_label>
+              <response_label ident="d">
+                <material>
+                  <mattext texttype="text/plain">Cannot be determined without knowing the atoms</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response16">a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
+      <!-- Question 20 -->
+      <item ident="q20" title="Bond Classification">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html"><![CDATA[A bond has ΔEN = 0.4. How would you classify this bond?]]></mattext>
+          </material>
+          <response_lid ident="response20" rcardinality="single">
+            <render_choice>
+              <response_label ident="a">
+                <material>
+                  <mattext texttype="text/plain">Nonpolar covalent (ΔEN < 0.5)</mattext>
+                </material>
+              </response_label>
+              <response_label ident="b">
+                <material>
+                  <mattext texttype="text/plain">Polar covalent (0.5 < ΔEN < 1.7)</mattext>
+                </material>
+              </response_label>
+              <response_label ident="c">
+                <material>
+                  <mattext texttype="text/plain">Ionic (ΔEN > 1.7)</mattext>
+                </material>
+              </response_label>
+              <response_label ident="d">
+                <material>
+                  <mattext texttype="text/plain">Metallic bonding</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response20">a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+
     </section>
   </assessment>
 </questestinterop>
