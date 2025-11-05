@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/xsd/ims_qtiasiv1p2p1.xsd">
-  <assessment ident="CHEM1A_OBJ07_B5" title="CHEM1A_OBJ07_B5_Resonance">
+<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/xsd/ims_qtiasiv1p2p1.xsd">
+  <assessment ident="chem1a_obj7_bank5" title="CHEM 1A Obj 7 - Bank 5: Resonance &amp; Bond Order">
     <qtimetadata>
       <qtimetadatafield>
         <fieldlabel>cc_maxattempts</fieldlabel>
@@ -8,9 +8,7 @@
       </qtimetadatafield>
     </qtimetadata>
     <section ident="root_section">
-      
-      <!-- Question 1 -->
-      <item ident="q1" title="CO3 2- Bond Order">
+      <item ident="bank5_q1" title="Question 1">
         <itemmetadata>
           <qtimetadata>
             <qtimetadatafield>
@@ -25,28 +23,28 @@
         </itemmetadata>
         <presentation>
           <material>
-            <mattext texttype="text/html"><![CDATA[The experimental C-O bond length in CO<sub>3</sub><sup>2-</sup> is 1.28 Å. Given that single bonds are 1.43 Å and double bonds are 1.21 Å, what is the bond order?]]></mattext>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;The experimental C–O bond length in CO&lt;sub&gt;3&lt;/sub&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;sup&gt;-&lt;/sup&gt; is 1.28 Å. Single C–O bonds are 1.43 Å and double C=O bonds are 1.21 Å. What is the bond order?&lt;/p&gt;&lt;/div&gt;</mattext>
           </material>
-          <response_lid ident="response1" rcardinality="single">
+          <response_lid ident="response1" rcardinality="Single">
             <render_choice>
-              <response_label ident="a">
+              <response_label ident="A">
                 <material>
-                  <mattext texttype="text/plain">1.0</mattext>
+                  <mattext texttype="text/plain">1.0 (single bond)</mattext>
                 </material>
               </response_label>
-              <response_label ident="b">
+              <response_label ident="B">
                 <material>
-                  <mattext texttype="text/plain">1.33</mattext>
+                  <mattext texttype="text/plain">1.33 (between single and double)</mattext>
                 </material>
               </response_label>
-              <response_label ident="c">
+              <response_label ident="C">
                 <material>
-                  <mattext texttype="text/plain">1.5</mattext>
+                  <mattext texttype="text/plain">2.0 (double bond)</mattext>
                 </material>
               </response_label>
-              <response_label ident="d">
+              <response_label ident="D">
                 <material>
-                  <mattext texttype="text/plain">2.0</mattext>
+                  <mattext texttype="text/plain">1.5 (halfway between single and double)</mattext>
                 </material>
               </response_label>
             </render_choice>
@@ -58,15 +56,13 @@
           </outcomes>
           <respcondition continue="No">
             <conditionvar>
-              <varequal respident="response1">b</varequal>
+              <varequal respident="response1">B</varequal>
             </conditionvar>
             <setvar action="Set" varname="SCORE">100</setvar>
           </respcondition>
         </resprocessing>
       </item>
-
-      <!-- Question 2 -->
-      <item ident="q2" title="NO3- Geometry">
+      <item ident="bank5_q2" title="Question 2">
         <itemmetadata>
           <qtimetadata>
             <qtimetadatafield>
@@ -81,28 +77,28 @@
         </itemmetadata>
         <presentation>
           <material>
-            <mattext texttype="text/html"><![CDATA[How does resonance affect the molecular geometry of NO<sub>3</sub><sup>-</sup>?]]></mattext>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;How does resonance affect the molecular geometry of NO&lt;sub&gt;3&lt;/sub&gt;&lt;sup&gt;-&lt;/sup&gt;?&lt;/p&gt;&lt;/div&gt;</mattext>
           </material>
-          <response_lid ident="response2" rcardinality="single">
+          <response_lid ident="response1" rcardinality="Single">
             <render_choice>
-              <response_label ident="a">
+              <response_label ident="A">
                 <material>
-                  <mattext texttype="text/plain">Makes it trigonal planar with equal bond lengths</mattext>
+                  <mattext texttype="text/plain">Resonance changes the geometry from trigonal planar to bent</mattext>
                 </material>
               </response_label>
-              <response_label ident="b">
+              <response_label ident="B">
                 <material>
-                  <mattext texttype="text/plain">Makes it bent with unequal bond lengths</mattext>
+                  <mattext texttype="text/plain">Resonance doesn&amp;#x27;t affect geometry; all N–O bonds remain equivalent with trigonal planar shape</mattext>
                 </material>
               </response_label>
-              <response_label ident="c">
+              <response_label ident="C">
                 <material>
-                  <mattext texttype="text/plain">Makes it pyramidal</mattext>
+                  <mattext texttype="text/plain">Resonance creates tetrahedral geometry</mattext>
                 </material>
               </response_label>
-              <response_label ident="d">
+              <response_label ident="D">
                 <material>
-                  <mattext texttype="text/plain">Has no effect on geometry</mattext>
+                  <mattext texttype="text/plain">Resonance causes one N–O bond to be longer than the others</mattext>
                 </material>
               </response_label>
             </render_choice>
@@ -114,15 +110,13 @@
           </outcomes>
           <respcondition continue="No">
             <conditionvar>
-              <varequal respident="response2">a</varequal>
+              <varequal respident="response1">B</varequal>
             </conditionvar>
             <setvar action="Set" varname="SCORE">100</setvar>
           </respcondition>
         </resprocessing>
       </item>
-
-      <!-- Question 3 -->
-      <item ident="q3" title="Greatest Delocalization Energy">
+      <item ident="bank5_q3" title="Question 3">
         <itemmetadata>
           <qtimetadata>
             <qtimetadatafield>
@@ -137,28 +131,28 @@
         </itemmetadata>
         <presentation>
           <material>
-            <mattext texttype="text/html"><![CDATA[Which compound would show the <b>greatest delocalization energy</b>?]]></mattext>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Which compound would show the greatest delocalization energy?&lt;/p&gt;&lt;/div&gt;</mattext>
           </material>
-          <response_lid ident="response3" rcardinality="single">
+          <response_lid ident="response1" rcardinality="Single">
             <render_choice>
-              <response_label ident="a">
+              <response_label ident="A">
                 <material>
-                  <mattext texttype="text/html"><![CDATA[NO<sub>2</sub>]]></mattext>
+                  <mattext texttype="text/plain">NO&lt;sub&gt;2&lt;/sub&gt;</mattext>
                 </material>
               </response_label>
-              <response_label ident="b">
+              <response_label ident="B">
                 <material>
-                  <mattext texttype="text/html"><![CDATA[NO<sub>3</sub><sup>-</sup>]]></mattext>
+                  <mattext texttype="text/plain">NO&lt;sub&gt;3&lt;/sub&gt;&lt;sup&gt;-&lt;/sup&gt;</mattext>
                 </material>
               </response_label>
-              <response_label ident="c">
+              <response_label ident="C">
                 <material>
-                  <mattext texttype="text/html"><![CDATA[O<sub>3</sub>]]></mattext>
+                  <mattext texttype="text/plain">O&lt;sub&gt;3&lt;/sub&gt;</mattext>
                 </material>
               </response_label>
-              <response_label ident="d">
+              <response_label ident="D">
                 <material>
-                  <mattext texttype="text/html"><![CDATA[CO<sub>2</sub>]]></mattext>
+                  <mattext texttype="text/plain">CO&lt;sub&gt;2&lt;/sub&gt;</mattext>
                 </material>
               </response_label>
             </render_choice>
@@ -170,15 +164,13 @@
           </outcomes>
           <respcondition continue="No">
             <conditionvar>
-              <varequal respident="response3">b</varequal>
+              <varequal respident="response1">B</varequal>
             </conditionvar>
             <setvar action="Set" varname="SCORE">100</setvar>
           </respcondition>
         </resprocessing>
       </item>
-
-      <!-- Question 4 -->
-      <item ident="q4" title="Benzene Stability">
+      <item ident="bank5_q4" title="Question 4">
         <itemmetadata>
           <qtimetadata>
             <qtimetadatafield>
@@ -193,28 +185,28 @@
         </itemmetadata>
         <presentation>
           <material>
-            <mattext texttype="text/html"><![CDATA[Why can't <b>benzene's</b> stability be represented by alternating single and double bonds?]]></mattext>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Why can&amp;#x27;t benzene&amp;#x27;s stability be represented by alternating single and double bonds?&lt;/p&gt;&lt;/div&gt;</mattext>
           </material>
-          <response_lid ident="response4" rcardinality="single">
+          <response_lid ident="response1" rcardinality="Single">
             <render_choice>
-              <response_label ident="a">
+              <response_label ident="A">
                 <material>
-                  <mattext texttype="text/plain">All C-C bonds are equivalent with bond order 1.5 due to resonance</mattext>
+                  <mattext texttype="text/plain">Benzene has ionic bonds</mattext>
                 </material>
               </response_label>
-              <response_label ident="b">
+              <response_label ident="B">
                 <material>
-                  <mattext texttype="text/plain">It has only single bonds</mattext>
+                  <mattext texttype="text/plain">All C–C bonds in benzene are equivalent with bond order 1.5 due to resonance</mattext>
                 </material>
               </response_label>
-              <response_label ident="c">
+              <response_label ident="C">
                 <material>
-                  <mattext texttype="text/plain">It has only double bonds</mattext>
+                  <mattext texttype="text/plain">Benzene has no &amp;pi; bonds</mattext>
                 </material>
               </response_label>
-              <response_label ident="d">
+              <response_label ident="D">
                 <material>
-                  <mattext texttype="text/plain">It has no resonance structures</mattext>
+                  <mattext texttype="text/plain">Benzene actually does have alternating single and double bonds</mattext>
                 </material>
               </response_label>
             </render_choice>
@@ -226,15 +218,13 @@
           </outcomes>
           <respcondition continue="No">
             <conditionvar>
-              <varequal respident="response4">a</varequal>
+              <varequal respident="response1">B</varequal>
             </conditionvar>
             <setvar action="Set" varname="SCORE">100</setvar>
           </respcondition>
         </resprocessing>
       </item>
-
-      <!-- Question 5 -->
-      <item ident="q5" title="CO Bond Order Comparison">
+      <item ident="bank5_q5" title="Question 5">
         <itemmetadata>
           <qtimetadata>
             <qtimetadatafield>
@@ -249,28 +239,28 @@
         </itemmetadata>
         <presentation>
           <material>
-            <mattext texttype="text/html"><![CDATA[What is the <b>average bond order</b> of C-O in CO<sub>3</sub><sup>2-</sup> compared to CO<sub>2</sub>?]]></mattext>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;What is the average C–O bond order in CO&lt;sub&gt;3&lt;/sub&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;sup&gt;-&lt;/sup&gt; compared to CO&lt;sub&gt;2&lt;/sub&gt;?&lt;/p&gt;&lt;/div&gt;</mattext>
           </material>
-          <response_lid ident="response5" rcardinality="single">
+          <response_lid ident="response1" rcardinality="Single">
             <render_choice>
-              <response_label ident="a">
+              <response_label ident="A">
                 <material>
-                  <mattext texttype="text/html"><![CDATA[CO<sub>3</sub><sup>2-</sup>: 1.33, CO<sub>2</sub>: 2.0]]></mattext>
+                  <mattext texttype="text/plain">CO&lt;sub&gt;3&lt;/sub&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;sup&gt;-&lt;/sup&gt;: bond order 1.33; CO&lt;sub&gt;2&lt;/sub&gt;: bond order 2.0</mattext>
                 </material>
               </response_label>
-              <response_label ident="b">
+              <response_label ident="B">
                 <material>
-                  <mattext texttype="text/html"><![CDATA[CO<sub>3</sub><sup>2-</sup>: 2.0, CO<sub>2</sub>: 1.33]]></mattext>
+                  <mattext texttype="text/plain">CO&lt;sub&gt;3&lt;/sub&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;sup&gt;-&lt;/sup&gt;: bond order 2.0; CO&lt;sub&gt;2&lt;/sub&gt;: bond order 1.33</mattext>
                 </material>
               </response_label>
-              <response_label ident="c">
+              <response_label ident="C">
                 <material>
                   <mattext texttype="text/plain">Both have bond order 1.5</mattext>
                 </material>
               </response_label>
-              <response_label ident="d">
+              <response_label ident="D">
                 <material>
-                  <mattext texttype="text/html"><![CDATA[CO<sub>3</sub><sup>2-</sup>: 1.0, CO<sub>2</sub>: 3.0]]></mattext>
+                  <mattext texttype="text/plain">CO&lt;sub&gt;3&lt;/sub&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;sup&gt;-&lt;/sup&gt;: bond order 1.0; CO&lt;sub&gt;2&lt;/sub&gt;: bond order 3.0</mattext>
                 </material>
               </response_label>
             </render_choice>
@@ -282,15 +272,13 @@
           </outcomes>
           <respcondition continue="No">
             <conditionvar>
-              <varequal respident="response5">a</varequal>
+              <varequal respident="response1">A</varequal>
             </conditionvar>
             <setvar action="Set" varname="SCORE">100</setvar>
           </respcondition>
         </resprocessing>
       </item>
-
-      <!-- Question 6 -->
-      <item ident="q6" title="SO2 Bond Order">
+      <item ident="bank5_q6" title="Question 6">
         <itemmetadata>
           <qtimetadata>
             <qtimetadatafield>
@@ -305,28 +293,28 @@
         </itemmetadata>
         <presentation>
           <material>
-            <mattext texttype="text/html"><![CDATA[For SO<sub>2</sub> with resonance structures, what is the average S-O bond order?]]></mattext>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;For SO&lt;sub&gt;2&lt;/sub&gt;, what is the average S–O bond order considering all resonance structures?&lt;/p&gt;&lt;/div&gt;</mattext>
           </material>
-          <response_lid ident="response6" rcardinality="single">
+          <response_lid ident="response1" rcardinality="Single">
             <render_choice>
-              <response_label ident="a">
+              <response_label ident="A">
                 <material>
                   <mattext texttype="text/plain">1.0</mattext>
                 </material>
               </response_label>
-              <response_label ident="b">
+              <response_label ident="B">
                 <material>
                   <mattext texttype="text/plain">1.5</mattext>
                 </material>
               </response_label>
-              <response_label ident="c">
+              <response_label ident="C">
                 <material>
                   <mattext texttype="text/plain">2.0</mattext>
                 </material>
               </response_label>
-              <response_label ident="d">
+              <response_label ident="D">
                 <material>
-                  <mattext texttype="text/plain">1.33</mattext>
+                  <mattext texttype="text/plain">2.5</mattext>
                 </material>
               </response_label>
             </render_choice>
@@ -338,15 +326,13 @@
           </outcomes>
           <respcondition continue="No">
             <conditionvar>
-              <varequal respident="response6">b</varequal>
+              <varequal respident="response1">B</varequal>
             </conditionvar>
             <setvar action="Set" varname="SCORE">100</setvar>
           </respcondition>
         </resprocessing>
       </item>
-
-      <!-- Question 7 -->
-      <item ident="q7" title="NO2- Bond Equivalence">
+      <item ident="bank5_q7" title="Question 7">
         <itemmetadata>
           <qtimetadata>
             <qtimetadatafield>
@@ -361,28 +347,28 @@
         </itemmetadata>
         <presentation>
           <material>
-            <mattext texttype="text/html"><![CDATA[Why do both N-O bonds in NO<sub>2</sub><sup>-</sup> have equal length?]]></mattext>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;The nitrite ion NO&lt;sub&gt;2&lt;/sub&gt;&lt;sup&gt;-&lt;/sup&gt; has two equivalent N–O bonds. What explains why both bonds have equal length?&lt;/p&gt;&lt;/div&gt;</mattext>
           </material>
-          <response_lid ident="response7" rcardinality="single">
+          <response_lid ident="response1" rcardinality="Single">
             <render_choice>
-              <response_label ident="a">
+              <response_label ident="A">
                 <material>
-                  <mattext texttype="text/plain">Resonance averages the bond order to 1.5 for both bonds</mattext>
+                  <mattext texttype="text/plain">Both N–O bonds are single bonds</mattext>
                 </material>
               </response_label>
-              <response_label ident="b">
+              <response_label ident="B">
                 <material>
-                  <mattext texttype="text/plain">Both are single bonds</mattext>
+                  <mattext texttype="text/plain">Resonance delocalizes electrons, making both bonds equivalent with bond order 1.5</mattext>
                 </material>
               </response_label>
-              <response_label ident="c">
+              <response_label ident="C">
                 <material>
-                  <mattext texttype="text/plain">Both are double bonds</mattext>
+                  <mattext texttype="text/plain">Both N–O bonds are double bonds</mattext>
                 </material>
               </response_label>
-              <response_label ident="d">
+              <response_label ident="D">
                 <material>
-                  <mattext texttype="text/plain">Nitrogen forms special bonds with oxygen</mattext>
+                  <mattext texttype="text/plain">The bonds alternate between single and double</mattext>
                 </material>
               </response_label>
             </render_choice>
@@ -394,15 +380,13 @@
           </outcomes>
           <respcondition continue="No">
             <conditionvar>
-              <varequal respident="response7">a</varequal>
+              <varequal respident="response1">B</varequal>
             </conditionvar>
             <setvar action="Set" varname="SCORE">100</setvar>
           </respcondition>
         </resprocessing>
       </item>
-
-      <!-- Question 8 -->
-      <item ident="q8" title="O2 vs O3 Bond Strength">
+      <item ident="bank5_q8" title="Question 8">
         <itemmetadata>
           <qtimetadata>
             <qtimetadatafield>
@@ -417,28 +401,28 @@
         </itemmetadata>
         <presentation>
           <material>
-            <mattext texttype="text/html"><![CDATA[Compare the bond order in O<sub>2</sub> (no resonance) to O<sub>3</sub> (with resonance). Which has stronger bonds?]]></mattext>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Compare the bond order in O&lt;sub&gt;2&lt;/sub&gt; (no resonance) to O&lt;sub&gt;3&lt;/sub&gt; (with resonance). Which has stronger bonds?&lt;/p&gt;&lt;/div&gt;</mattext>
           </material>
-          <response_lid ident="response8" rcardinality="single">
+          <response_lid ident="response1" rcardinality="Single">
             <render_choice>
-              <response_label ident="a">
+              <response_label ident="A">
                 <material>
-                  <mattext texttype="text/html"><![CDATA[O<sub>2</sub> (bond order = 2) has stronger bonds than O<sub>3</sub> (bond order = 1.5)]]></mattext>
+                  <mattext texttype="text/plain">O&lt;sub&gt;3&lt;/sub&gt; has stronger bonds with higher bond order</mattext>
                 </material>
               </response_label>
-              <response_label ident="b">
+              <response_label ident="B">
                 <material>
-                  <mattext texttype="text/html"><![CDATA[O<sub>3</sub> has stronger bonds than O<sub>2</sub>]]></mattext>
+                  <mattext texttype="text/plain">O&lt;sub&gt;2&lt;/sub&gt; has stronger bonds with bond order 2 compared to O&lt;sub&gt;3&lt;/sub&gt; with bond order 1.5</mattext>
                 </material>
               </response_label>
-              <response_label ident="c">
+              <response_label ident="C">
                 <material>
-                  <mattext texttype="text/plain">Both have equal bond strength</mattext>
+                  <mattext texttype="text/plain">Both have equal bond orders</mattext>
                 </material>
               </response_label>
-              <response_label ident="d">
+              <response_label ident="D">
                 <material>
-                  <mattext texttype="text/plain">Cannot be determined</mattext>
+                  <mattext texttype="text/plain">O&lt;sub&gt;3&lt;/sub&gt; has weaker bonds due to delocalization</mattext>
                 </material>
               </response_label>
             </render_choice>
@@ -450,15 +434,13 @@
           </outcomes>
           <respcondition continue="No">
             <conditionvar>
-              <varequal respident="response8">a</varequal>
+              <varequal respident="response1">B</varequal>
             </conditionvar>
             <setvar action="Set" varname="SCORE">100</setvar>
           </respcondition>
         </resprocessing>
       </item>
-
-      <!-- Question 9 -->
-      <item ident="q9" title="SO3 vs SO2 Bond Order">
+      <item ident="bank5_q9" title="Question 9">
         <itemmetadata>
           <qtimetadata>
             <qtimetadatafield>
@@ -473,28 +455,28 @@
         </itemmetadata>
         <presentation>
           <material>
-            <mattext texttype="text/html"><![CDATA[How does the average S-O bond order in SO<sub>3</sub> compare to the S=O double bond in SO<sub>2</sub>?]]></mattext>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;For SO&lt;sub&gt;3&lt;/sub&gt;, what is the average S–O bond order and how does it compare to SO&lt;sub&gt;2&lt;/sub&gt;?&lt;/p&gt;&lt;/div&gt;</mattext>
           </material>
-          <response_lid ident="response9" rcardinality="single">
+          <response_lid ident="response1" rcardinality="Single">
             <render_choice>
-              <response_label ident="a">
+              <response_label ident="A">
                 <material>
-                  <mattext texttype="text/html"><![CDATA[SO<sub>3</sub>: 1.33, SO<sub>2</sub>: 1.5]]></mattext>
+                  <mattext texttype="text/plain">SO&lt;sub&gt;3&lt;/sub&gt;: bond order 1.33; SO&lt;sub&gt;2&lt;/sub&gt;: bond order 1.5; SO&lt;sub&gt;2&lt;/sub&gt; has stronger bonds</mattext>
                 </material>
               </response_label>
-              <response_label ident="b">
+              <response_label ident="B">
                 <material>
-                  <mattext texttype="text/html"><![CDATA[SO<sub>3</sub>: 1.5, SO<sub>2</sub>: 1.33]]></mattext>
+                  <mattext texttype="text/plain">SO&lt;sub&gt;3&lt;/sub&gt;: bond order 1.5; SO&lt;sub&gt;2&lt;/sub&gt;: bond order 1.33; SO&lt;sub&gt;3&lt;/sub&gt; has stronger bonds</mattext>
                 </material>
               </response_label>
-              <response_label ident="c">
+              <response_label ident="C">
                 <material>
-                  <mattext texttype="text/plain">Both have bond order 2.0</mattext>
+                  <mattext texttype="text/plain">Both have equal bond orders of 2.0</mattext>
                 </material>
               </response_label>
-              <response_label ident="d">
+              <response_label ident="D">
                 <material>
-                  <mattext texttype="text/html"><![CDATA[SO<sub>3</sub>: 2.0, SO<sub>2</sub>: 1.0]]></mattext>
+                  <mattext texttype="text/plain">SO&lt;sub&gt;3&lt;/sub&gt;: bond order 2.0; SO&lt;sub&gt;2&lt;/sub&gt;: bond order 1.0</mattext>
                 </material>
               </response_label>
             </render_choice>
@@ -506,15 +488,13 @@
           </outcomes>
           <respcondition continue="No">
             <conditionvar>
-              <varequal respident="response9">a</varequal>
+              <varequal respident="response1">A</varequal>
             </conditionvar>
             <setvar action="Set" varname="SCORE">100</setvar>
           </respcondition>
         </resprocessing>
       </item>
-
-      <!-- Question 10 -->
-      <item ident="q10" title="HCO2- Bond Order">
+      <item ident="bank5_q10" title="Question 10">
         <itemmetadata>
           <qtimetadata>
             <qtimetadatafield>
@@ -529,28 +509,28 @@
         </itemmetadata>
         <presentation>
           <material>
-            <mattext texttype="text/html"><![CDATA[The formate ion HCO<sub>2</sub><sup>-</sup> shows resonance. What is the C-O bond order?]]></mattext>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;For the formate ion HCO&lt;sub&gt;2&lt;/sub&gt;&lt;sup&gt;-&lt;/sup&gt;, what is the C–O bond order?&lt;/p&gt;&lt;/div&gt;</mattext>
           </material>
-          <response_lid ident="response10" rcardinality="single">
+          <response_lid ident="response1" rcardinality="Single">
             <render_choice>
-              <response_label ident="a">
+              <response_label ident="A">
                 <material>
                   <mattext texttype="text/plain">1.0</mattext>
                 </material>
               </response_label>
-              <response_label ident="b">
+              <response_label ident="B">
                 <material>
                   <mattext texttype="text/plain">1.5</mattext>
                 </material>
               </response_label>
-              <response_label ident="c">
+              <response_label ident="C">
                 <material>
                   <mattext texttype="text/plain">2.0</mattext>
                 </material>
               </response_label>
-              <response_label ident="d">
+              <response_label ident="D">
                 <material>
-                  <mattext texttype="text/plain">1.33</mattext>
+                  <mattext texttype="text/plain">2.5</mattext>
                 </material>
               </response_label>
             </render_choice>
@@ -562,15 +542,13 @@
           </outcomes>
           <respcondition continue="No">
             <conditionvar>
-              <varequal respident="response10">b</varequal>
+              <varequal respident="response1">B</varequal>
             </conditionvar>
             <setvar action="Set" varname="SCORE">100</setvar>
           </respcondition>
         </resprocessing>
       </item>
-
-      <!-- Question 11 -->
-      <item ident="q11" title="NO2- vs NO2 Bond Length">
+      <item ident="bank5_q11" title="Question 11">
         <itemmetadata>
           <qtimetadata>
             <qtimetadatafield>
@@ -585,28 +563,28 @@
         </itemmetadata>
         <presentation>
           <material>
-            <mattext texttype="text/html"><![CDATA[Why is the N-O bond in NO<sub>2</sub><sup>-</sup> longer than the N=O bond in NO<sub>2</sub>?]]></mattext>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Why is the N–O bond in NO&lt;sub&gt;2&lt;/sub&gt;&lt;sup&gt;-&lt;/sup&gt; longer than the N=O bond in NO&lt;sub&gt;2&lt;/sub&gt;?&lt;/p&gt;&lt;/div&gt;</mattext>
           </material>
-          <response_lid ident="response11" rcardinality="single">
+          <response_lid ident="response1" rcardinality="Single">
             <render_choice>
-              <response_label ident="a">
+              <response_label ident="A">
                 <material>
-                  <mattext texttype="text/html"><![CDATA[NO<sub>2</sub><sup>-</sup> has bond order 1.5, NO<sub>2</sub> has bond order 2.0]]></mattext>
+                  <mattext texttype="text/plain">NO&lt;sub&gt;2&lt;/sub&gt;&lt;sup&gt;-&lt;/sup&gt; has bond order 1.5 while NO&lt;sub&gt;2&lt;/sub&gt; has bond order 2.0; higher bond order means shorter bond</mattext>
                 </material>
               </response_label>
-              <response_label ident="b">
+              <response_label ident="B">
                 <material>
-                  <mattext texttype="text/html"><![CDATA[NO<sub>2</sub><sup>-</sup> has bond order 2.0, NO<sub>2</sub> has bond order 1.5]]></mattext>
+                  <mattext texttype="text/plain">NO&lt;sub&gt;2&lt;/sub&gt;&lt;sup&gt;-&lt;/sup&gt; has a positive charge that lengthens bonds</mattext>
                 </material>
               </response_label>
-              <response_label ident="c">
+              <response_label ident="C">
                 <material>
-                  <mattext texttype="text/plain">The negative charge weakens all bonds</mattext>
+                  <mattext texttype="text/plain">NO&lt;sub&gt;2&lt;/sub&gt; has more resonance structures</mattext>
                 </material>
               </response_label>
-              <response_label ident="d">
+              <response_label ident="D">
                 <material>
-                  <mattext texttype="text/plain">Both have the same bond order</mattext>
+                  <mattext texttype="text/plain">The bonds are actually equal in length</mattext>
                 </material>
               </response_label>
             </render_choice>
@@ -618,13 +596,498 @@
           </outcomes>
           <respcondition continue="No">
             <conditionvar>
-              <varequal respident="response11">a</varequal>
+              <varequal respident="response1">A</varequal>
             </conditionvar>
             <setvar action="Set" varname="SCORE">100</setvar>
           </respcondition>
         </resprocessing>
       </item>
-
+      <item ident="bank5_q12" title="Question 12">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;The acetate ion CH&lt;sub&gt;3&lt;/sub&gt;COO&lt;sup&gt;-&lt;/sup&gt; has two equivalent C–O bonds. What is the C–O bond order in this ion?&lt;/p&gt;&lt;/div&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material>
+                  <mattext texttype="text/plain">1.0</mattext>
+                </material>
+              </response_label>
+              <response_label ident="B">
+                <material>
+                  <mattext texttype="text/plain">1.5</mattext>
+                </material>
+              </response_label>
+              <response_label ident="C">
+                <material>
+                  <mattext texttype="text/plain">2.0</mattext>
+                </material>
+              </response_label>
+              <response_label ident="D">
+                <material>
+                  <mattext texttype="text/plain">2.5</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="bank5_q13" title="Question 13">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;In benzene (C&lt;sub&gt;6&lt;/sub&gt;H&lt;sub&gt;6&lt;/sub&gt;), how many total σ and &amp;pi; bonds are present?&lt;/p&gt;&lt;/div&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material>
+                  <mattext texttype="text/plain">12σ + 3&amp;pi;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="B">
+                <material>
+                  <mattext texttype="text/plain">6σ + 6&amp;pi;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="C">
+                <material>
+                  <mattext texttype="text/plain">9σ + 3&amp;pi;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="D">
+                <material>
+                  <mattext texttype="text/plain">12σ + 6&amp;pi;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">A</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="bank5_q14" title="Question 14">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Which molecule has the shortest N–O bond: NO, NO&lt;sub&gt;2&lt;/sub&gt;, or NO&lt;sub&gt;3&lt;/sub&gt;&lt;sup&gt;-&lt;/sup&gt;?&lt;/p&gt;&lt;/div&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material>
+                  <mattext texttype="text/plain">NO&lt;sub&gt;3&lt;/sub&gt;&lt;sup&gt;-&lt;/sup&gt;, because it has the most resonance structures</mattext>
+                </material>
+              </response_label>
+              <response_label ident="B">
+                <material>
+                  <mattext texttype="text/plain">NO, because it has the highest N–O bond order</mattext>
+                </material>
+              </response_label>
+              <response_label ident="C">
+                <material>
+                  <mattext texttype="text/plain">NO&lt;sub&gt;2&lt;/sub&gt;, because it is a radical</mattext>
+                </material>
+              </response_label>
+              <response_label ident="D">
+                <material>
+                  <mattext texttype="text/plain">All three have equal N–O bond lengths</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="bank5_q15" title="Question 15">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;For the molecule CO&lt;sub&gt;2&lt;/sub&gt; (O=C=O), what are the total number of σ and &amp;pi; bonds?&lt;/p&gt;&lt;/div&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material>
+                  <mattext texttype="text/plain">2σ + 0&amp;pi;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="B">
+                <material>
+                  <mattext texttype="text/plain">2σ + 2&amp;pi;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="C">
+                <material>
+                  <mattext texttype="text/plain">4σ + 0&amp;pi;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="D">
+                <material>
+                  <mattext texttype="text/plain">2σ + 4&amp;pi;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="bank5_q16" title="Question 16">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;The carbonate ion CO&lt;sub&gt;3&lt;/sub&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;sup&gt;-&lt;/sup&gt; has three resonance structures. How does this affect the stability of the ion?&lt;/p&gt;&lt;/div&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material>
+                  <mattext texttype="text/plain">Resonance decreases stability by spreading electrons</mattext>
+                </material>
+              </response_label>
+              <response_label ident="B">
+                <material>
+                  <mattext texttype="text/plain">Resonance increases stability through electron delocalization</mattext>
+                </material>
+              </response_label>
+              <response_label ident="C">
+                <material>
+                  <mattext texttype="text/plain">Resonance has no effect on stability</mattext>
+                </material>
+              </response_label>
+              <response_label ident="D">
+                <material>
+                  <mattext texttype="text/plain">Resonance only affects the geometry, not stability</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="bank5_q17" title="Question 17">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;In the molecule N&lt;sub&gt;2&lt;/sub&gt;, what is the N–N bond order?&lt;/p&gt;&lt;/div&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material>
+                  <mattext texttype="text/plain">1</mattext>
+                </material>
+              </response_label>
+              <response_label ident="B">
+                <material>
+                  <mattext texttype="text/plain">2</mattext>
+                </material>
+              </response_label>
+              <response_label ident="C">
+                <material>
+                  <mattext texttype="text/plain">3</mattext>
+                </material>
+              </response_label>
+              <response_label ident="D">
+                <material>
+                  <mattext texttype="text/plain">1.5</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">C</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="bank5_q18" title="Question 18">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Compare the C–O bond lengths in methanol (CH&lt;sub&gt;3&lt;/sub&gt;OH), formaldehyde (H&lt;sub&gt;2&lt;/sub&gt;CO), and carbon dioxide (CO&lt;sub&gt;2&lt;/sub&gt;). Which has the shortest C–O bond?&lt;/p&gt;&lt;/div&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material>
+                  <mattext texttype="text/plain">CH&lt;sub&gt;3&lt;/sub&gt;OH, because single bonds are shortest</mattext>
+                </material>
+              </response_label>
+              <response_label ident="B">
+                <material>
+                  <mattext texttype="text/plain">H&lt;sub&gt;2&lt;/sub&gt;CO, because it has a C=O double bond</mattext>
+                </material>
+              </response_label>
+              <response_label ident="C">
+                <material>
+                  <mattext texttype="text/plain">CO&lt;sub&gt;2&lt;/sub&gt;, because it has the highest C–O bond order</mattext>
+                </material>
+              </response_label>
+              <response_label ident="D">
+                <material>
+                  <mattext texttype="text/plain">All three have equal C–O bond lengths</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">C</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="bank5_q19" title="Question 19">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;For the sulfate ion SO&lt;sub&gt;4&lt;/sub&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;sup&gt;-&lt;/sup&gt;, if sulfur forms two S=O double bonds and two S–O single bonds, what is the average S–O bond order considering all resonance structures?&lt;/p&gt;&lt;/div&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material>
+                  <mattext texttype="text/plain">1.0</mattext>
+                </material>
+              </response_label>
+              <response_label ident="B">
+                <material>
+                  <mattext texttype="text/plain">1.5</mattext>
+                </material>
+              </response_label>
+              <response_label ident="C">
+                <material>
+                  <mattext texttype="text/plain">2.0</mattext>
+                </material>
+              </response_label>
+              <response_label ident="D">
+                <material>
+                  <mattext texttype="text/plain">2.5</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">B</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="bank5_q20" title="Question 20">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Which statement correctly describes the relationship between resonance and bond properties?&lt;/p&gt;&lt;/div&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="A">
+                <material>
+                  <mattext texttype="text/plain">Resonance increases bond length and decreases bond energy</mattext>
+                </material>
+              </response_label>
+              <response_label ident="B">
+                <material>
+                  <mattext texttype="text/plain">Resonance causes bonds to alternate between single and double</mattext>
+                </material>
+              </response_label>
+              <response_label ident="C">
+                <material>
+                  <mattext texttype="text/plain">Resonance creates equivalent bonds with properties intermediate between single and double</mattext>
+                </material>
+              </response_label>
+              <response_label ident="D">
+                <material>
+                  <mattext texttype="text/plain">Resonance only occurs in molecules with triple bonds</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">C</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
     </section>
   </assessment>
 </questestinterop>
