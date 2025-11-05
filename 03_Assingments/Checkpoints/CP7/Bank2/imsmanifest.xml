@@ -1,28 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<manifest xmlns="http://www.imsglobal.org/xsd/imsccv1p1/imscp_v1p1" 
-         xmlns:lom="http://ltsc.ieee.org/xsd/imsccv1p1/LOM/resource" 
-         xmlns:imsmd="http://www.imsglobal.org/xsd/imsmd_v1p2" 
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-         identifier="chem1a_obj7_bank2" 
-         xsi:schemaLocation="http://www.imsglobal.org/xsd/imsccv1p1/imscp_v1p1 http://www.imsglobal.org/profile/cc/ccv1p1/ccv1p1_imscp_v1p2_v1p0.xsd http://ltsc.ieee.org/xsd/imsccv1p1/LOM/resource http://www.imsglobal.org/profile/cc/ccv1p1/LOM/ccv1p1_lomresource_v1p0.xsd http://www.imsglobal.org/xsd/imsmd_v1p2 http://www.imsglobal.org/xsd/imsmd_v1p2p2.xsd">
+<manifest identifier="CHEM1A_OBJ07_B2" xmlns="http://www.imsglobal.org/xsd/imsccv1p1/imscp_v1p1" xmlns:lom="http://ltsc.ieee.org/xsd/imsccv1p1/LOM/resource" xmlns:imsmd="http://www.imsglobal.org/xsd/imsmd_v1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsccv1p1/imscp_v1p1 http://www.imsglobal.org/profile/cc/ccv1p1/ccv1p1_imscp_v1p2_v1p0.xsd http://ltsc.ieee.org/xsd/imsccv1p1/LOM/resource http://www.imsglobal.org/profile/cc/ccv1p1/LOM/ccv1p1_lomresource_v1p0.xsd http://www.imsglobal.org/xsd/imsmd_v1p2 http://www.imsglobal.org/xsd/imsmd_v1p2p2.xsd">
   <metadata>
     <schema>IMS Content</schema>
     <schemaversion>1.1.3</schemaversion>
     <imsmd:lom>
       <imsmd:general>
         <imsmd:title>
-          <imsmd:string>CHEM 1A - Bank 2 - Electronegativity &amp; Polarity</imsmd:string>
+          <imsmd:string>CHEM1A_OBJ07_B2_Electronegativity</imsmd:string>
         </imsmd:title>
-        <imsmd:description>
-          <imsmd:string>Question bank for COR Objective 7: Electronegativity &amp; Polarity (Tro Ch 7.2) - Reasoning with ΔEN &amp; Partial Charges</imsmd:string>
-        </imsmd:description>
       </imsmd:general>
     </imsmd:lom>
   </metadata>
   <organizations/>
   <resources>
-    <resource identifier="CHEM1A_OBJ7_BANK2" type="imsqti_xmlv2p1">
-      <file href="bank2_electronegativity_polarity.xml"/>
+    <resource identifier="CHEM1A_OBJ07_B2" type="imsqti_xmlv1p2" href="CHEM1A_OBJ07_B2_Electronegativity.xml">
+      <file href="CHEM1A_OBJ07_B2_Electronegativity.xml"/>
     </resource>
   </resources>
 </manifest>
