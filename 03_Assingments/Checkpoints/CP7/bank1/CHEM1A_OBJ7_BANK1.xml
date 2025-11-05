@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv2p1" 
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-                 xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv2p1 http://www.imsglobal.org/xsd/qti/qtiv2p1/imsqti_v2p1.xsd">
-  
-  <assessment ident="CHEM1A_OBJ7_BANK1" title="Bank 1 - Bond Type &amp; Naming (Tro Ch 7.1-7.2 | COR Obj 7)">
-    <metadata>
-      <qtimetadata>
-        <qtimetadatafield>
-          <fieldlabel>cc_maxattempts</fieldlabel>
-          <fieldentry>1</fieldentry>
-        </qtimetadatafield>
-      </qtimetadata>
-    </metadata>
-
-    <!-- Question 1 -->
-    <section ident="bank1_section" title="Conceptual Classification &amp; Bonding Properties">
-      <item ident="bank1_q1" title="Q1: Bond Type - Aluminum Sulfide (Tro Ch 7.1-7.2 | COR Obj 7)">
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/xsd/ims_qtiasiv1p2p1.xsd">
+  <assessment ident="chem1a_obj7_bank1" title="Bank 1 - Bond Type and Naming">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>1</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="root_section">
+      <item ident="q1" title="Aluminum Sulfide Bonding">
         <itemmetadata>
           <qtimetadata>
             <qtimetadatafield>
@@ -24,34 +17,34 @@
             </qtimetadatafield>
             <qtimetadatafield>
               <fieldlabel>points_possible</fieldlabel>
-              <fieldentry>1.0</fieldentry>
+              <fieldentry>1</fieldentry>
             </qtimetadatafield>
           </qtimetadata>
         </itemmetadata>
         <presentation>
           <material>
-            <mattext texttype="text/html">Aluminum reacts with sulfur to form a solid with high melting point that conducts only when molten. What type of bonding best explains this?</mattext>
+            <mattext texttype="text/html"><![CDATA[Aluminum reacts with sulfur to form a solid with high melting point that conducts only when molten. What type of bonding best explains this?]]></mattext>
           </material>
           <response_lid ident="response1" rcardinality="single">
             <render_choice>
-              <response_label ident="A">
+              <response_label ident="a">
                 <material>
-                  <mattext texttype="text/html">Metallic bonding</mattext>
+                  <mattext texttype="text/html"><![CDATA[Metallic bonding]]></mattext>
                 </material>
               </response_label>
-              <response_label ident="B">
+              <response_label ident="b">
                 <material>
-                  <mattext texttype="text/html">Ionic bonding</mattext>
+                  <mattext texttype="text/html"><![CDATA[Ionic bonding]]></mattext>
                 </material>
               </response_label>
-              <response_label ident="C">
+              <response_label ident="c">
                 <material>
-                  <mattext texttype="text/html">Covalent network bonding</mattext>
+                  <mattext texttype="text/html"><![CDATA[Covalent network bonding]]></mattext>
                 </material>
               </response_label>
-              <response_label ident="D">
+              <response_label ident="d">
                 <material>
-                  <mattext texttype="text/html">Hydrogen bonding</mattext>
+                  <mattext texttype="text/html"><![CDATA[Hydrogen bonding]]></mattext>
                 </material>
               </response_label>
             </render_choice>
@@ -59,19 +52,18 @@
         </presentation>
         <resprocessing>
           <outcomes>
-            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
           </outcomes>
           <respcondition continue="No">
             <conditionvar>
-              <varequal respident="response1">B</varequal>
+              <varequal respident="response1">b</varequal>
             </conditionvar>
-            <setvar action="Set" varname="SCORE">1</setvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
           </respcondition>
         </resprocessing>
       </item>
-
-      <!-- Question 2 -->
-      <item ident="bank1_q2" title="Q2: Mixed Bonding Types (Tro Ch 7.1-7.2 | COR Obj 7)">
+      
+      <item ident="q2" title="Mixed Bonding Types">
         <itemmetadata>
           <qtimetadata>
             <qtimetadatafield>
@@ -80,34 +72,34 @@
             </qtimetadatafield>
             <qtimetadatafield>
               <fieldlabel>points_possible</fieldlabel>
-              <fieldentry>1.0</fieldentry>
+              <fieldentry>1</fieldentry>
             </qtimetadatafield>
           </qtimetadata>
         </itemmetadata>
         <presentation>
           <material>
-            <mattext texttype="text/html">Which compound below shows &lt;b&gt;both ionic and covalent&lt;/b&gt; bonding?</mattext>
+            <mattext texttype="text/html"><![CDATA[Which compound below shows <b>both ionic and covalent</b> bonding?]]></mattext>
           </material>
           <response_lid ident="response2" rcardinality="single">
             <render_choice>
-              <response_label ident="A">
+              <response_label ident="a">
                 <material>
-                  <mattext texttype="text/html">NH₄Cl</mattext>
+                  <mattext texttype="text/html"><![CDATA[NH₄Cl]]></mattext>
                 </material>
               </response_label>
-              <response_label ident="B">
+              <response_label ident="b">
                 <material>
-                  <mattext texttype="text/html">Cu(s)</mattext>
+                  <mattext texttype="text/html"><![CDATA[Cu(s)]]></mattext>
                 </material>
               </response_label>
-              <response_label ident="C">
+              <response_label ident="c">
                 <material>
-                  <mattext texttype="text/html">CO₂</mattext>
+                  <mattext texttype="text/html"><![CDATA[CO₂]]></mattext>
                 </material>
               </response_label>
-              <response_label ident="D">
+              <response_label ident="d">
                 <material>
-                  <mattext texttype="text/html">H₂S</mattext>
+                  <mattext texttype="text/html"><![CDATA[H₂S]]></mattext>
                 </material>
               </response_label>
             </render_choice>
@@ -115,19 +107,18 @@
         </presentation>
         <resprocessing>
           <outcomes>
-            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
           </outcomes>
           <respcondition continue="No">
             <conditionvar>
-              <varequal respident="response2">A</varequal>
+              <varequal respident="response2">a</varequal>
             </conditionvar>
-            <setvar action="Set" varname="SCORE">1</setvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
           </respcondition>
         </resprocessing>
       </item>
 
-      <!-- Question 3 -->
-      <item ident="bank1_q3" title="Q3: Lattice Energy Prediction (Tro Ch 7.1-7.2 | COR Obj 7)">
+      <item ident="q3" title="Lattice Energy">
         <itemmetadata>
           <qtimetadata>
             <qtimetadatafield>
@@ -136,34 +127,34 @@
             </qtimetadatafield>
             <qtimetadatafield>
               <fieldlabel>points_possible</fieldlabel>
-              <fieldentry>1.0</fieldentry>
+              <fieldentry>1</fieldentry>
             </qtimetadatafield>
           </qtimetadata>
         </itemmetadata>
         <presentation>
           <material>
-            <mattext texttype="text/html">Predict which of these solids will have the &lt;b&gt;greatest lattice energy&lt;/b&gt;.</mattext>
+            <mattext texttype="text/html"><![CDATA[Predict which of these solids will have the <b>greatest lattice energy</b>.]]></mattext>
           </material>
           <response_lid ident="response3" rcardinality="single">
             <render_choice>
-              <response_label ident="A">
+              <response_label ident="a">
                 <material>
-                  <mattext texttype="text/html">MgO</mattext>
+                  <mattext texttype="text/html"><![CDATA[MgO]]></mattext>
                 </material>
               </response_label>
-              <response_label ident="B">
+              <response_label ident="b">
                 <material>
-                  <mattext texttype="text/html">Na₂O</mattext>
+                  <mattext texttype="text/html"><![CDATA[Na₂O]]></mattext>
                 </material>
               </response_label>
-              <response_label ident="C">
+              <response_label ident="c">
                 <material>
-                  <mattext texttype="text/html">CaCl₂</mattext>
+                  <mattext texttype="text/html"><![CDATA[CaCl₂]]></mattext>
                 </material>
               </response_label>
-              <response_label ident="D">
+              <response_label ident="d">
                 <material>
-                  <mattext texttype="text/html">SrBr₂</mattext>
+                  <mattext texttype="text/html"><![CDATA[SrBr₂]]></mattext>
                 </material>
               </response_label>
             </render_choice>
@@ -171,19 +162,18 @@
         </presentation>
         <resprocessing>
           <outcomes>
-            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
           </outcomes>
           <respcondition continue="No">
             <conditionvar>
-              <varequal respident="response3">A</varequal>
+              <varequal respident="response3">a</varequal>
             </conditionvar>
-            <setvar action="Set" varname="SCORE">1</setvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
           </respcondition>
         </resprocessing>
       </item>
 
-      <!-- Question 4 -->
-      <item ident="bank1_q4" title="Q4: Metallic Bonding Properties (Tro Ch 7.1-7.2 | COR Obj 7)">
+      <item ident="q4" title="Metallic Bonding">
         <itemmetadata>
           <qtimetadata>
             <qtimetadatafield>
@@ -192,34 +182,34 @@
             </qtimetadatafield>
             <qtimetadatafield>
               <fieldlabel>points_possible</fieldlabel>
-              <fieldentry>1.0</fieldentry>
+              <fieldentry>1</fieldentry>
             </qtimetadatafield>
           </qtimetadata>
         </itemmetadata>
         <presentation>
           <material>
-            <mattext texttype="text/html">A shiny, malleable metal alloy bends easily yet conducts electricity. What happens to its valence electrons when a force is applied?</mattext>
+            <mattext texttype="text/html"><![CDATA[A shiny, malleable metal alloy bends easily yet conducts electricity. What happens to its valence electrons when a force is applied?]]></mattext>
           </material>
           <response_lid ident="response4" rcardinality="single">
             <render_choice>
-              <response_label ident="A">
+              <response_label ident="a">
                 <material>
-                  <mattext texttype="text/html">They transfer permanently to neighboring atoms</mattext>
+                  <mattext texttype="text/html"><![CDATA[They transfer permanently to neighboring atoms]]></mattext>
                 </material>
               </response_label>
-              <response_label ident="B">
+              <response_label ident="b">
                 <material>
-                  <mattext texttype="text/html">They remain localized on individual atoms</mattext>
+                  <mattext texttype="text/html"><![CDATA[They remain localized on individual atoms]]></mattext>
                 </material>
               </response_label>
-              <response_label ident="C">
+              <response_label ident="c">
                 <material>
-                  <mattext texttype="text/html">They move freely through the delocalized electron sea</mattext>
+                  <mattext texttype="text/html"><![CDATA[They move freely through the delocalized electron sea]]></mattext>
                 </material>
               </response_label>
-              <response_label ident="D">
+              <response_label ident="d">
                 <material>
-                  <mattext texttype="text/html">They form covalent bonds between metal atoms</mattext>
+                  <mattext texttype="text/html"><![CDATA[They form covalent bonds between metal atoms]]></mattext>
                 </material>
               </response_label>
             </render_choice>
@@ -227,19 +217,18 @@
         </presentation>
         <resprocessing>
           <outcomes>
-            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
           </outcomes>
           <respcondition continue="No">
             <conditionvar>
-              <varequal respident="response4">C</varequal>
+              <varequal respident="response4">c</varequal>
             </conditionvar>
-            <setvar action="Set" varname="SCORE">1</setvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
           </respcondition>
         </resprocessing>
       </item>
 
-      <!-- Question 5 -->
-      <item ident="bank1_q5" title="Q5: Conductivity and Bond Type (Tro Ch 7.1-7.2 | COR Obj 7)">
+      <item ident="q5" title="Conductivity and Bonding">
         <itemmetadata>
           <qtimetadata>
             <qtimetadatafield>
@@ -248,34 +237,34 @@
             </qtimetadatafield>
             <qtimetadatafield>
               <fieldlabel>points_possible</fieldlabel>
-              <fieldentry>1.0</fieldentry>
+              <fieldentry>1</fieldentry>
             </qtimetadatafield>
           </qtimetadata>
         </itemmetadata>
         <presentation>
           <material>
-            <mattext texttype="text/html">An unknown solid dissolves in water and the solution conducts electricity strongly. Which conclusion about bond type and structure is most justified?</mattext>
+            <mattext texttype="text/html"><![CDATA[An unknown solid dissolves in water and the solution conducts electricity strongly. Which conclusion about bond type and structure is most justified?]]></mattext>
           </material>
           <response_lid ident="response5" rcardinality="single">
             <render_choice>
-              <response_label ident="A">
+              <response_label ident="a">
                 <material>
-                  <mattext texttype="text/html">The solid contains metallic bonds and free electrons</mattext>
+                  <mattext texttype="text/html"><![CDATA[The solid contains metallic bonds and free electrons]]></mattext>
                 </material>
               </response_label>
-              <response_label ident="B">
+              <response_label ident="b">
                 <material>
-                  <mattext texttype="text/html">The solid contains ionic bonds that dissociate into mobile ions</mattext>
+                  <mattext texttype="text/html"><![CDATA[The solid contains ionic bonds that dissociate into mobile ions]]></mattext>
                 </material>
               </response_label>
-              <response_label ident="C">
+              <response_label ident="c">
                 <material>
-                  <mattext texttype="text/html">The solid contains polar covalent bonds that ionize in water</mattext>
+                  <mattext texttype="text/html"><![CDATA[The solid contains polar covalent bonds that ionize in water]]></mattext>
                 </material>
               </response_label>
-              <response_label ident="D">
+              <response_label ident="d">
                 <material>
-                  <mattext texttype="text/html">The solid contains network covalent bonds that break apart</mattext>
+                  <mattext texttype="text/html"><![CDATA[The solid contains network covalent bonds that break apart]]></mattext>
                 </material>
               </response_label>
             </render_choice>
@@ -283,856 +272,17 @@
         </presentation>
         <resprocessing>
           <outcomes>
-            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
           </outcomes>
           <respcondition continue="No">
             <conditionvar>
-              <varequal respident="response5">B</varequal>
+              <varequal respident="response5">b</varequal>
             </conditionvar>
-            <setvar action="Set" varname="SCORE">1</setvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
           </respcondition>
         </resprocessing>
       </item>
 
-      <!-- Question 6 -->
-      <item ident="bank1_q6" title="Q6: Lattice Energy Comparison (Tro Ch 7.1-7.2 | COR Obj 7)">
-        <itemmetadata>
-          <qtimetadata>
-            <qtimetadatafield>
-              <fieldlabel>question_type</fieldlabel>
-              <fieldentry>multiple_choice_question</fieldentry>
-            </qtimetadatafield>
-            <qtimetadatafield>
-              <fieldlabel>points_possible</fieldlabel>
-              <fieldentry>1.0</fieldentry>
-            </qtimetadatafield>
-          </qtimetadata>
-        </itemmetadata>
-        <presentation>
-          <material>
-            <mattext texttype="text/html">Magnesium oxide has a melting point of 2852°C while sodium chloride melts at 801°C. Both are ionic compounds. What best explains this difference?</mattext>
-          </material>
-          <response_lid ident="response6" rcardinality="single">
-            <render_choice>
-              <response_label ident="A">
-                <material>
-                  <mattext texttype="text/html">MgO has larger ions than NaCl</mattext>
-                </material>
-              </response_label>
-              <response_label ident="B">
-                <material>
-                  <mattext texttype="text/html">MgO has higher charge ions (+2/-2 vs +1/-1), increasing lattice energy</mattext>
-                </material>
-              </response_label>
-              <response_label ident="C">
-                <material>
-                  <mattext texttype="text/html">MgO is more covalent in character than NaCl</mattext>
-                </material>
-              </response_label>
-              <response_label ident="D">
-                <material>
-                  <mattext texttype="text/html">MgO has weaker electrostatic attractions than NaCl</mattext>
-                </material>
-              </response_label>
-            </render_choice>
-          </response_lid>
-        </presentation>
-        <resprocessing>
-          <outcomes>
-            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
-          </outcomes>
-          <respcondition continue="No">
-            <conditionvar>
-              <varequal respident="response6">B</varequal>
-            </conditionvar>
-            <setvar action="Set" varname="SCORE">1</setvar>
-          </respcondition>
-        </resprocessing>
-      </item>
-
-      <!-- Question 7 -->
-      <item ident="bank1_q7" title="Q7: Bond Type from Properties (Tro Ch 7.1-7.2 | COR Obj 7)">
-        <itemmetadata>
-          <qtimetadata>
-            <qtimetadatafield>
-              <fieldlabel>question_type</fieldlabel>
-              <fieldentry>multiple_choice_question</fieldentry>
-            </qtimetadatafield>
-            <qtimetadatafield>
-              <fieldlabel>points_possible</fieldlabel>
-              <fieldentry>1.0</fieldentry>
-            </qtimetadatafield>
-          </qtimetadata>
-        </itemmetadata>
-        <presentation>
-          <material>
-            <mattext texttype="text/html">A compound forms between nitrogen and hydrogen that is a gas at room temperature with a pungent odor. What type of bonding is most likely present?</mattext>
-          </material>
-          <response_lid ident="response7" rcardinality="single">
-            <render_choice>
-              <response_label ident="A">
-                <material>
-                  <mattext texttype="text/html">Ionic bonding</mattext>
-                </material>
-              </response_label>
-              <response_label ident="B">
-                <material>
-                  <mattext texttype="text/html">Metallic bonding</mattext>
-                </material>
-              </response_label>
-              <response_label ident="C">
-                <material>
-                  <mattext texttype="text/html">Polar covalent bonding</mattext>
-                </material>
-              </response_label>
-              <response_label ident="D">
-                <material>
-                  <mattext texttype="text/html">Network covalent bonding</mattext>
-                </material>
-              </response_label>
-            </render_choice>
-          </response_lid>
-        </presentation>
-        <resprocessing>
-          <outcomes>
-            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
-          </outcomes>
-          <respcondition continue="No">
-            <conditionvar>
-              <varequal respident="response7">C</varequal>
-            </conditionvar>
-            <setvar action="Set" varname="SCORE">1</setvar>
-          </respcondition>
-        </resprocessing>
-      </item>
-
-      <!-- Question 8 -->
-      <item ident="bank1_q8" title="Q8: Network Covalent Properties (Tro Ch 7.1-7.2 | COR Obj 7)">
-        <itemmetadata>
-          <qtimetadata>
-            <qtimetadatafield>
-              <fieldlabel>question_type</fieldlabel>
-              <fieldentry>multiple_choice_question</fieldentry>
-            </qtimetadatafield>
-            <qtimetadatafield>
-              <fieldlabel>points_possible</fieldlabel>
-              <fieldentry>1.0</fieldentry>
-            </qtimetadatafield>
-          </qtimetadata>
-        </itemmetadata>
-        <presentation>
-          <material>
-            <mattext texttype="text/html">Which property would you expect for a network covalent solid like silicon dioxide?</mattext>
-          </material>
-          <response_lid ident="response8" rcardinality="single">
-            <render_choice>
-              <response_label ident="A">
-                <material>
-                  <mattext texttype="text/html">Low melting point</mattext>
-                </material>
-              </response_label>
-              <response_label ident="B">
-                <material>
-                  <mattext texttype="text/html">Conducts electricity when solid</mattext>
-                </material>
-              </response_label>
-              <response_label ident="C">
-                <material>
-                  <mattext texttype="text/html">Very hard</mattext>
-                </material>
-              </response_label>
-              <response_label ident="D">
-                <material>
-                  <mattext texttype="text/html">Dissolves easily in water</mattext>
-                </material>
-              </response_label>
-            </render_choice>
-          </response_lid>
-        </presentation>
-        <resprocessing>
-          <outcomes>
-            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
-          </outcomes>
-          <respcondition continue="No">
-            <conditionvar>
-              <varequal respident="response8">C</varequal>
-            </conditionvar>
-            <setvar action="Set" varname="SCORE">1</setvar>
-          </respcondition>
-        </resprocessing>
-      </item>
-
-      <!-- Question 9 -->
-      <item ident="bank1_q9" title="Q9: Lattice Energy and Ion Size (Tro Ch 7.1-7.2 | COR Obj 7)">
-        <itemmetadata>
-          <qtimetadata>
-            <qtimetadatafield>
-              <fieldlabel>question_type</fieldlabel>
-              <fieldentry>multiple_choice_question</fieldentry>
-            </qtimetadatafield>
-            <qtimetadatafield>
-              <fieldlabel>points_possible</fieldlabel>
-              <fieldentry>1.0</fieldentry>
-            </qtimetadatafield>
-          </qtimetadata>
-        </itemmetadata>
-        <presentation>
-          <material>
-            <mattext texttype="text/html">Calcium fluoride (CaF₂) has a lattice energy of -2630 kJ/mol. How would the lattice energy of calcium chloride (CaCl₂) compare?</mattext>
-          </material>
-          <response_lid ident="response9" rcardinality="single">
-            <render_choice>
-              <response_label ident="A">
-                <material>
-                  <mattext texttype="text/html">Higher, because Cl⁻ has a larger radius than F⁻</mattext>
-                </material>
-              </response_label>
-              <response_label ident="B">
-                <material>
-                  <mattext texttype="text/html">Lower, because Cl⁻ has a larger radius than F⁻</mattext>
-                </material>
-              </response_label>
-              <response_label ident="C">
-                <material>
-                  <mattext texttype="text/html">Equal, because both have Ca²⁺ cations</mattext>
-                </material>
-              </response_label>
-              <response_label ident="D">
-                <material>
-                  <mattext texttype="text/html">Lower, because Cl⁻ has lower electronegativity than F⁻</mattext>
-                </material>
-              </response_label>
-            </render_choice>
-          </response_lid>
-        </presentation>
-        <resprocessing>
-          <outcomes>
-            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
-          </outcomes>
-          <respcondition continue="No">
-            <conditionvar>
-              <varequal respident="response9">B</varequal>
-            </conditionvar>
-            <setvar action="Set" varname="SCORE">1</setvar>
-          </respcondition>
-        </resprocessing>
-      </item>
-
-      <!-- Question 10 -->
-      <item ident="bank1_q10" title="Q10: Molecular Bonding Properties (Tro Ch 7.1-7.2 | COR Obj 7)">
-        <itemmetadata>
-          <qtimetadata>
-            <qtimetadatafield>
-              <fieldlabel>question_type</fieldlabel>
-              <fieldentry>multiple_choice_question</fieldentry>
-            </qtimetadatafield>
-            <qtimetadatafield>
-              <fieldlabel>points_possible</fieldlabel>
-              <fieldentry>1.0</fieldentry>
-            </qtimetadatafield>
-          </qtimetadata>
-        </itemmetadata>
-        <presentation>
-          <material>
-            <mattext texttype="text/html">A substance is soft, has a low melting point, and does not conduct electricity in any state. What type of bonding is present?</mattext>
-          </material>
-          <response_lid ident="response10" rcardinality="single">
-            <render_choice>
-              <response_label ident="A">
-                <material>
-                  <mattext texttype="text/html">Ionic bonding</mattext>
-                </material>
-              </response_label>
-              <response_label ident="B">
-                <material>
-                  <mattext texttype="text/html">Metallic bonding</mattext>
-                </material>
-              </response_label>
-              <response_label ident="C">
-                <material>
-                  <mattext texttype="text/html">Molecular (covalent) bonding with weak intermolecular forces</mattext>
-                </material>
-              </response_label>
-              <response_label ident="D">
-                <material>
-                  <mattext texttype="text/html">Network covalent bonding</mattext>
-                </material>
-              </response_label>
-            </render_choice>
-          </response_lid>
-        </presentation>
-        <resprocessing>
-          <outcomes>
-            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
-          </outcomes>
-          <respcondition continue="No">
-            <conditionvar>
-              <varequal respident="response10">C</varequal>
-            </conditionvar>
-            <setvar action="Set" varname="SCORE">1</setvar>
-          </respcondition>
-        </resprocessing>
-      </item>
-
-      <!-- Question 11 -->
-      <item ident="bank1_q11" title="Q11: Ionic Conductivity States (Tro Ch 7.1-7.2 | COR Obj 7)">
-        <itemmetadata>
-          <qtimetadata>
-            <qtimetadatafield>
-              <fieldlabel>question_type</fieldlabel>
-              <fieldentry>multiple_choice_question</fieldentry>
-            </qtimetadatafield>
-            <qtimetadatafield>
-              <fieldlabel>points_possible</fieldlabel>
-              <fieldentry>1.0</fieldentry>
-            </qtimetadatafield>
-          </qtimetadata>
-        </itemmetadata>
-        <presentation>
-          <material>
-            <mattext texttype="text/html">Which statement best explains the electrical conductivity differences between solid NaCl, molten NaCl, and aqueous NaCl?</mattext>
-          </material>
-          <response_lid ident="response11" rcardinality="single">
-            <render_choice>
-              <response_label ident="A">
-                <material>
-                  <mattext texttype="text/html">All three conduct equally because ions are always mobile</mattext>
-                </material>
-              </response_label>
-              <response_label ident="B">
-                <material>
-                  <mattext texttype="text/html">Only molten and aqueous conduct because ions become mobile</mattext>
-                </material>
-              </response_label>
-              <response_label ident="C">
-                <material>
-                  <mattext texttype="text/html">Only solid conducts because the crystal structure allows electron flow</mattext>
-                </material>
-              </response_label>
-              <response_label ident="D">
-                <material>
-                  <mattext texttype="text/html">None conduct because NaCl is covalent</mattext>
-                </material>
-              </response_label>
-            </render_choice>
-          </response_lid>
-        </presentation>
-        <resprocessing>
-          <outcomes>
-            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
-          </outcomes>
-          <respcondition continue="No">
-            <conditionvar>
-              <varequal respident="response11">B</varequal>
-            </conditionvar>
-            <setvar action="Set" varname="SCORE">1</setvar>
-          </respcondition>
-        </resprocessing>
-      </item>
-
-      <!-- Question 12 -->
-      <item ident="bank1_q12" title="Q12: Metallic Conductivity (Tro Ch 7.1-7.2 | COR Obj 7)">
-        <itemmetadata>
-          <qtimetadata>
-            <qtimetadatafield>
-              <fieldlabel>question_type</fieldlabel>
-              <fieldentry>multiple_choice_question</fieldentry>
-            </qtimetadatafield>
-            <qtimetadatafield>
-              <fieldlabel>points_possible</fieldlabel>
-              <fieldentry>1.0</fieldentry>
-            </qtimetadatafield>
-          </qtimetadata>
-        </itemmetadata>
-        <presentation>
-          <material>
-            <mattext texttype="text/html">Silver crystallizes in a face-centered cubic structure where atoms share delocalized electrons. What explains silver's high electrical and thermal conductivity?</mattext>
-          </material>
-          <response_lid ident="response12" rcardinality="single">
-            <render_choice>
-              <response_label ident="A">
-                <material>
-                  <mattext texttype="text/html">Silver atoms form strong covalent bonds</mattext>
-                </material>
-              </response_label>
-              <response_label ident="B">
-                <material>
-                  <mattext texttype="text/html">Silver ions can move freely through the crystal</mattext>
-                </material>
-              </response_label>
-              <response_label ident="C">
-                <material>
-                  <mattext texttype="text/html">Delocalized electrons can move freely throughout the structure</mattext>
-                </material>
-              </response_label>
-              <response_label ident="D">
-                <material>
-                  <mattext texttype="text/html">Silver has high electronegativity</mattext>
-                </material>
-              </response_label>
-            </render_choice>
-          </response_lid>
-        </presentation>
-        <resprocessing>
-          <outcomes>
-            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
-          </outcomes>
-          <respcondition continue="No">
-            <conditionvar>
-              <varequal respident="response12">C</varequal>
-            </conditionvar>
-            <setvar action="Set" varname="SCORE">1</setvar>
-          </respcondition>
-        </resprocessing>
-      </item>
-
-      <!-- Question 13 -->
-      <item ident="bank1_q13" title="Q13: Most Ionic Bond (Tro Ch 7.1-7.2 | COR Obj 7)">
-        <itemmetadata>
-          <qtimetadata>
-            <qtimetadatafield>
-              <fieldlabel>question_type</fieldlabel>
-              <fieldentry>multiple_choice_question</fieldentry>
-            </qtimetadatafield>
-            <qtimetadatafield>
-              <fieldlabel>points_possible</fieldlabel>
-              <fieldentry>1.0</fieldentry>
-            </qtimetadatafield>
-          </qtimetadata>
-        </itemmetadata>
-        <presentation>
-          <material>
-            <mattext texttype="text/html">Which pair of elements would form the most ionic bond?</mattext>
-          </material>
-          <response_lid ident="response13" rcardinality="single">
-            <render_choice>
-              <response_label ident="A">
-                <material>
-                  <mattext texttype="text/html">C and O</mattext>
-                </material>
-              </response_label>
-              <response_label ident="B">
-                <material>
-                  <mattext texttype="text/html">Na and Cl</mattext>
-                </material>
-              </response_label>
-              <response_label ident="C">
-                <material>
-                  <mattext texttype="text/html">Cs and F</mattext>
-                </material>
-              </response_label>
-              <response_label ident="D">
-                <material>
-                  <mattext texttype="text/html">H and Cl</mattext>
-                </material>
-              </response_label>
-            </render_choice>
-          </response_lid>
-        </presentation>
-        <resprocessing>
-          <outcomes>
-            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
-          </outcomes>
-          <respcondition continue="No">
-            <conditionvar>
-              <varequal respident="response13">C</varequal>
-            </conditionvar>
-            <setvar action="Set" varname="SCORE">1</setvar>
-          </respcondition>
-        </resprocessing>
-      </item>
-
-      <!-- Question 14 -->
-      <item ident="bank1_q14" title="Q14: Gas Phase Bonding (Tro Ch 7.1-7.2 | COR Obj 7)">
-        <itemmetadata>
-          <qtimetadata>
-            <qtimetadatafield>
-              <fieldlabel>question_type</fieldlabel>
-              <fieldentry>multiple_choice_question</fieldentry>
-            </qtimetadatafield>
-            <qtimetadatafield>
-              <fieldlabel>points_possible</fieldlabel>
-              <fieldentry>1.0</fieldentry>
-            </qtimetadatafield>
-          </qtimetadata>
-        </itemmetadata>
-        <presentation>
-          <material>
-            <mattext texttype="text/html">A binary compound has the formula XY₂ and is a gas at room temperature with a boiling point of -10°C. What type of bonding is most likely?</mattext>
-          </material>
-          <response_lid ident="response14" rcardinality="single">
-            <render_choice>
-              <response_label ident="A">
-                <material>
-                  <mattext texttype="text/html">Ionic, because the formula shows charged species</mattext>
-                </material>
-              </response_label>
-              <response_label ident="B">
-                <material>
-                  <mattext texttype="text/html">Covalent, because gases have low intermolecular forces</mattext>
-                </material>
-              </response_label>
-              <response_label ident="C">
-                <material>
-                  <mattext texttype="text/html">Metallic, because the low boiling point indicates weak bonding</mattext>
-                </material>
-              </response_label>
-              <response_label ident="D">
-                <material>
-                  <mattext texttype="text/html">Ionic, because XY₂ suggests high lattice energy</mattext>
-                </material>
-              </response_label>
-            </render_choice>
-          </response_lid>
-        </presentation>
-        <resprocessing>
-          <outcomes>
-            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
-          </outcomes>
-          <respcondition continue="No">
-            <conditionvar>
-              <varequal respident="response14">B</varequal>
-            </conditionvar>
-            <setvar action="Set" varname="SCORE">1</setvar>
-          </respcondition>
-        </resprocessing>
-      </item>
-
-      <!-- Question 15 -->
-      <item ident="bank1_q15" title="Q15: Diamond vs Graphite (Tro Ch 7.1-7.2 | COR Obj 7)">
-        <itemmetadata>
-          <qtimetadata>
-            <qtimetadatafield>
-              <fieldlabel>question_type</fieldlabel>
-              <fieldentry>multiple_choice_question</fieldentry>
-            </qtimetadatafield>
-            <qtimetadatafield>
-              <fieldlabel>points_possible</fieldlabel>
-              <fieldentry>1.0</fieldentry>
-            </qtimetadatafield>
-          </qtimetadata>
-        </itemmetadata>
-        <presentation>
-          <material>
-            <mattext texttype="text/html">Diamond and graphite are both composed of carbon atoms. Why is diamond an insulator while graphite conducts electricity?</mattext>
-          </material>
-          <response_lid ident="response15" rcardinality="single">
-            <render_choice>
-              <response_label ident="A">
-                <material>
-                  <mattext texttype="text/html">Diamond has ionic bonds while graphite has covalent bonds</mattext>
-                </material>
-              </response_label>
-              <response_label ident="B">
-                <material>
-                  <mattext texttype="text/html">Diamond has all electrons localized in C-C bonds; graphite has delocalized π electrons</mattext>
-                </material>
-              </response_label>
-              <response_label ident="C">
-                <material>
-                  <mattext texttype="text/html">Diamond is molecular while graphite is network covalent</mattext>
-                </material>
-              </response_label>
-              <response_label ident="D">
-                <material>
-                  <mattext texttype="text/html">Diamond has metallic bonding while graphite has covalent bonding</mattext>
-                </material>
-              </response_label>
-            </render_choice>
-          </response_lid>
-        </presentation>
-        <resprocessing>
-          <outcomes>
-            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
-          </outcomes>
-          <respcondition continue="No">
-            <conditionvar>
-              <varequal respident="response15">B</varequal>
-            </conditionvar>
-            <setvar action="Set" varname="SCORE">1</setvar>
-          </respcondition>
-        </resprocessing>
-      </item>
-
-      <!-- Question 16 -->
-      <item ident="bank1_q16" title="Q16: Ionic Character Comparison (Tro Ch 7.1-7.2 | COR Obj 7)">
-        <itemmetadata>
-          <qtimetadata>
-            <qtimetadatafield>
-              <fieldlabel>question_type</fieldlabel>
-              <fieldentry>multiple_choice_question</fieldentry>
-            </qtimetadatafield>
-            <qtimetadatafield>
-              <fieldlabel>points_possible</fieldlabel>
-              <fieldentry>1.0</fieldentry>
-            </qtimetadatafield>
-          </qtimetadata>
-        </itemmetadata>
-        <presentation>
-          <material>
-            <mattext texttype="text/html">Which compound will have stronger ionic character: BeO or BaO?</mattext>
-          </material>
-          <response_lid ident="response16" rcardinality="single">
-            <render_choice>
-              <response_label ident="A">
-                <material>
-                  <mattext texttype="text/html">BeO, because Be is smaller and more electronegative</mattext>
-                </material>
-              </response_label>
-              <response_label ident="B">
-                <material>
-                  <mattext texttype="text/html">BeO, because smaller ions have stronger electrostatic attraction</mattext>
-                </material>
-              </response_label>
-              <response_label ident="C">
-                <material>
-                  <mattext texttype="text/html">BaO, because Ba is larger and forms weaker bonds</mattext>
-                </material>
-              </response_label>
-              <response_label ident="D">
-                <material>
-                  <mattext texttype="text/html">BaO, because Ba has lower electronegativity, increasing ΔEN</mattext>
-                </material>
-              </response_label>
-            </render_choice>
-          </response_lid>
-        </presentation>
-        <resprocessing>
-          <outcomes>
-            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
-          </outcomes>
-          <respcondition continue="No">
-            <conditionvar>
-              <varequal respident="response16">D</varequal>
-            </conditionvar>
-            <setvar action="Set" varname="SCORE">1</setvar>
-          </respcondition>
-        </resprocessing>
-      </item>
-
-      <!-- Question 17 -->
-      <item ident="bank1_q17" title="Q17: Brittle Crystalline Solid (Tro Ch 7.1-7.2 | COR Obj 7)">
-        <itemmetadata>
-          <qtimetadata>
-            <qtimetadatafield>
-              <fieldlabel>question_type</fieldlabel>
-              <fieldentry>multiple_choice_question</fieldentry>
-            </qtimetadatafield>
-            <qtimetadatafield>
-              <fieldlabel>points_possible</fieldlabel>
-              <fieldentry>1.0</fieldentry>
-            </qtimetadatafield>
-          </qtimetadata>
-        </itemmetadata>
-        <presentation>
-          <material>
-            <mattext texttype="text/html">A substance forms a brittle crystalline solid that shatters when struck. When dissolved in water, it conducts electricity. What type of bonding is present?</mattext>
-          </material>
-          <response_lid ident="response17" rcardinality="single">
-            <render_choice>
-              <response_label ident="A">
-                <material>
-                  <mattext texttype="text/html">Metallic bonding</mattext>
-                </material>
-              </response_label>
-              <response_label ident="B">
-                <material>
-                  <mattext texttype="text/html">Ionic bonding</mattext>
-                </material>
-              </response_label>
-              <response_label ident="C">
-                <material>
-                  <mattext texttype="text/html">Network covalent bonding</mattext>
-                </material>
-              </response_label>
-              <response_label ident="D">
-                <material>
-                  <mattext texttype="text/html">Nonpolar covalent bonding</mattext>
-                </material>
-              </response_label>
-            </render_choice>
-          </response_lid>
-        </presentation>
-        <resprocessing>
-          <outcomes>
-            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
-          </outcomes>
-          <respcondition continue="No">
-            <conditionvar>
-              <varequal respident="response17">B</varequal>
-            </conditionvar>
-            <setvar action="Set" varname="SCORE">1</setvar>
-          </respcondition>
-        </resprocessing>
-      </item>
-
-      <!-- Question 18 -->
-      <item ident="bank1_q18" title="Q18: Metal Malleability (Tro Ch 7.1-7.2 | COR Obj 7)">
-        <itemmetadata>
-          <qtimetadata>
-            <qtimetadatafield>
-              <fieldlabel>question_type</fieldlabel>
-              <fieldentry>multiple_choice_question</fieldentry>
-            </qtimetadatafield>
-            <qtimetadatafield>
-              <fieldlabel>points_possible</fieldlabel>
-              <fieldentry>1.0</fieldentry>
-            </qtimetadatafield>
-          </qtimetadata>
-        </itemmetadata>
-        <presentation>
-          <material>
-            <mattext texttype="text/html">Why can copper be drawn into wires without breaking, unlike ionic compounds which shatter?</mattext>
-          </material>
-          <response_lid ident="response18" rcardinality="single">
-            <render_choice>
-              <response_label ident="A">
-                <material>
-                  <mattext texttype="text/html">Copper atoms are held by weak van der Waals forces</mattext>
-                </material>
-              </response_label>
-              <response_label ident="B">
-                <material>
-                  <mattext texttype="text/html">Copper has covalent bonds that can stretch</mattext>
-                </material>
-              </response_label>
-              <response_label ident="C">
-                <material>
-                  <mattext texttype="text/html">Delocalized electrons allow metal atoms to slide past each other</mattext>
-                </material>
-              </response_label>
-              <response_label ident="D">
-                <material>
-                  <mattext texttype="text/html">Copper forms ionic bonds that are flexible</mattext>
-                </material>
-              </response_label>
-            </render_choice>
-          </response_lid>
-        </presentation>
-        <resprocessing>
-          <outcomes>
-            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
-          </outcomes>
-          <respcondition continue="No">
-            <conditionvar>
-              <varequal respident="response18">C</varequal>
-            </conditionvar>
-            <setvar action="Set" varname="SCORE">1</setvar>
-          </respcondition>
-        </resprocessing>
-      </item>
-
-      <!-- Question 19 -->
-      <item ident="bank1_q19" title="Q19: CsF vs IF₇ (Tro Ch 7.1-7.2 | COR Obj 7)">
-        <itemmetadata>
-          <qtimetadata>
-            <qtimetadatafield>
-              <fieldlabel>question_type</fieldlabel>
-              <fieldentry>multiple_choice_question</fieldentry>
-            </qtimetadatafield>
-            <qtimetadatafield>
-              <fieldlabel>points_possible</fieldlabel>
-              <fieldentry>1.0</fieldentry>
-            </qtimetadatafield>
-          </qtimetadata>
-        </itemmetadata>
-        <presentation>
-          <material>
-            <mattext texttype="text/html">Why is CsF ionic while IF₇ is covalent despite both containing Group 17 elements?</mattext>
-          </material>
-          <response_lid ident="response19" rcardinality="single">
-            <render_choice>
-              <response_label ident="A">
-                <material>
-                  <mattext texttype="text/html">Cs is a metal with low electronegativity; I is a nonmetal bonding with another nonmetal</mattext>
-                </material>
-              </response_label>
-              <response_label ident="B">
-                <material>
-                  <mattext texttype="text/html">Cs forms covalent bonds while I forms ionic bonds</mattext>
-                </material>
-              </response_label>
-              <response_label ident="C">
-                <material>
-                  <mattext texttype="text/html">F is more electronegative with I than with Cs</mattext>
-                </material>
-              </response_label>
-              <response_label ident="D">
-                <material>
-                  <mattext texttype="text/html">IF₇ has coordinate covalent bonds while CsF has metallic bonds</mattext>
-                </material>
-              </response_label>
-            </render_choice>
-          </response_lid>
-        </presentation>
-        <resprocessing>
-          <outcomes>
-            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
-          </outcomes>
-          <respcondition continue="No">
-            <conditionvar>
-              <varequal respident="response19">A</varequal>
-            </conditionvar>
-            <setvar action="Set" varname="SCORE">1</setvar>
-          </respcondition>
-        </resprocessing>
-      </item>
-
-      <!-- Question 20 -->
-      <item ident="bank1_q20" title="Q20: High Melting Hard Non-Conductor (Tro Ch 7.1-7.2 | COR Obj 7)">
-        <itemmetadata>
-          <qtimetadata>
-            <qtimetadatafield>
-              <fieldlabel>question_type</fieldlabel>
-              <fieldentry>multiple_choice_question</fieldentry>
-            </qtimetadatafield>
-            <qtimetadatafield>
-              <fieldlabel>points_possible</fieldlabel>
-              <fieldentry>1.0</fieldentry>
-            </qtimetadatafield>
-          </qtimetadata>
-        </itemmetadata>
-        <presentation>
-          <material>
-            <mattext texttype="text/html">A compound has high melting point (1200°C), is hard, and does not conduct electricity even when molten. What type of bonding is most consistent?</mattext>
-          </material>
-          <response_lid ident="response20" rcardinality="single">
-            <render_choice>
-              <response_label ident="A">
-                <material>
-                  <mattext texttype="text/html">Ionic bonding</mattext>
-                </material>
-              </response_label>
-              <response_label ident="B">
-                <material>
-                  <mattext texttype="text/html">Metallic bonding</mattext>
-                </material>
-              </response_label>
-              <response_label ident="C">
-                <material>
-                  <mattext texttype="text/html">Network covalent bonding</mattext>
-                </material>
-              </response_label>
-              <response_label ident="D">
-                <material>
-                  <mattext texttype="text/html">Molecular covalent bonding</mattext>
-                </material>
-              </response_label>
-            </render_choice>
-          </response_lid>
-        </presentation>
-        <resprocessing>
-          <outcomes>
-            <decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/>
-          </outcomes>
-          <respcondition continue="No">
-            <conditionvar>
-              <varequal respident="response20">C</varequal>
-            </conditionvar>
-            <setvar action="Set" varname="SCORE">1</setvar>
-          </respcondition>
-        </resprocessing>
-      </item>
     </section>
   </assessment>
 </questestinterop>
