@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPIRAL 5: The AuRa House Investigation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #0d1b3d 0%, #1a2f5c 50%, #0d1b3d 100%);
+            color: #e3f2fd;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(192, 192, 192, 0.1));
+            border: 2px solid #2196f3;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 30px rgba(33, 150, 243, 0.4), 0 0 15px rgba(192, 192, 192, 0.2);
+        }
+
+        h1 {
+            color: #2196f3;
+            font-size: 2.5em;
+            text-shadow: 0 0 10px rgba(33, 150, 243, 0.7), 0 0 20px rgba(192, 192, 192, 0.4);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #64b5f6;
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        .briefing {
+            background: rgba(255, 255, 255, 0.08);
+            border-left: 4px solid #2196f3;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+
+        .briefing h3 {
+            color: #2196f3;
+            margin-bottom: 15px;
+        }
+
+        .evidence-against {
+            background: rgba(244, 67, 54, 0.1);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            border-left: 3px solid #ff5252;
+        }
+
+        .cache-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #2196f3;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .tab:hover:not(.locked) {
+            background: rgba(33, 150, 243, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 0 10px rgba(192, 192, 192, 0.3);
+        }
+
+        .tab.active {
+            background: linear-gradient(135deg, #2196f3, #42a5f5);
+            color: #1a237e;
+            box-shadow: 0 0 20px rgba(33, 150, 243, 0.6), 0 0 10px rgba(192, 192, 192, 0.4);
+        }
+
+        .tab.locked {
+            opacity: 0.4;
+            cursor: not-allowed;
+            border-color: #666;
+        }
+
+        .tab.completed {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.3), rgba(192, 192, 192, 0.2));
+            border-color: #64b5f6;
+        }
+
+        .cache-content {
+            display: none;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 10px;
+            border: 2px solid #2196f3;
+        }
+
+        .cache-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .context-box {
+            background: rgba(33, 150, 243, 0.1);
+            border: 2px solid #2196f3;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+
+        .context-box h3 {
+            color: #2196f3;
+            margin-bottom: 10px;
+        }
+
+        .problem {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #42a5f5;
+        }
+
+        .problem h4 {
+            color: #2196f3;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .question {
+            margin: 15px 0;
+            padding-left: 15px;
+        }
+
+        .input-group {
+            margin: 15px 0;
+        }
+
+        label {
+            display: block;
+            color: #90caf9;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            max-width: 300px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #2196f3;
+            border-radius: 5px;
+            color: #e3f2fd;
+            font-family: 'Courier New', monospace;
+            font-size: 1em;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #64b5f6;
+            box-shadow: 0 0 10px rgba(33, 150, 243, 0.3);
+        }
+
+        .check-button {
+            background: linear-gradient(135deg, #2196f3, #42a5f5);
+            color: #ffffff;
+            border: 1px solid rgba(192, 192, 192, 0.3);
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1em;
+            margin-top: 10px;
+            transition: all 0.3s;
+            font-family: 'Courier New', monospace;
+            box-shadow: 0 0 10px rgba(192, 192, 192, 0.2);
+        }
+
+        .check-button:hover {
+            background: linear-gradient(135deg, #42a5f5, #64b5f6);
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(33, 150, 243, 0.6), 0 0 10px rgba(192, 192, 192, 0.4);
+        }
+
+        .check-button:disabled {
+            background: #666;
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        .feedback {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .feedback.correct {
+            background: rgba(33, 150, 243, 0.2);
+            border: 2px solid #2196f3;
+            color: #2196f3;
+            display: block;
+        }
+
+        .feedback.incorrect {
+            background: rgba(244, 67, 54, 0.2);
+            border: 2px solid #ff5252;
+            color: #ff5252;
+            display: block;
+        }
+
+        .cipher-reveal {
+            background: rgba(33, 150, 243, 0.15);
+            border: 3px solid #2196f3;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .cipher-reveal h3 {
+            color: #2196f3;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .decoded-message {
+            font-size: 2em;
+            color: #2196f3;
+            letter-spacing: 8px;
+            font-weight: bold;
+            margin: 20px 0;
+            text-shadow: 0 0 10px rgba(33, 150, 243, 0.7), 0 0 5px rgba(192, 192, 192, 0.5);
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .letter-slot {
+            display: inline-block;
+            width: 40px;
+            height: 50px;
+            line-height: 50px;
+            margin: 0 5px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(192, 192, 192, 0.15));
+            border: 2px solid #2196f3;
+            border-radius: 5px;
+            box-shadow: inset 0 0 10px rgba(192, 192, 192, 0.2);
+        }
+
+        .letter-slot.revealed {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.3), rgba(192, 192, 192, 0.2));
+            box-shadow: 0 0 15px rgba(33, 150, 243, 0.5), 0 0 10px rgba(192, 192, 192, 0.3);
+            animation: revealLetter 0.5s;
+        }
+
+        @keyframes revealLetter {
+            0% { transform: rotateY(90deg); opacity: 0; }
+            100% { transform: rotateY(0); opacity: 1; }
+        }
+
+        .verdict-screen {
+            display: none;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 10px;
+            border: 3px solid #2196f3;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .verdict-screen.active {
+            display: block;
+            animation: fadeIn 0.8s;
+        }
+
+        .verdict-screen h2 {
+            color: #2196f3;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(33, 150, 243, 0.5);
+        }
+
+        .final-message {
+            font-size: 1.5em;
+            color: #64b5f6;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(33, 150, 243, 0.1);
+            border-radius: 8px;
+        }
+
+        .verdict-box {
+            background: rgba(33, 150, 243, 0.2);
+            border: 3px solid #2196f3;
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        .verdict-box h3 {
+            color: #2196f3;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .progress-indicator {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+        }
+
+        .progress-item {
+            color: #90caf9;
+        }
+
+        .progress-item.complete {
+            color: #2196f3;
+            font-weight: bold;
+        }
+
+        .hint {
+            background: rgba(255, 235, 59, 0.1);
+            border-left: 3px solid #ffeb3b;
+            padding: 10px;
+            margin: 10px 0;
+            color: #fff9c4;
+            font-size: 0.9em;
+        }
+
+        .warning {
+            background: rgba(255, 152, 0, 0.1);
+            border-left: 3px solid #ff9800;
+            padding: 10px;
+            margin: 10px 0;
+            color: #ffe0b2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔬 SPIRAL 5: THE AuRa HOUSE INVESTIGATION 🔬</h1>
+            <div class="subtitle">"The Molecular Deception"</div>
+            <div class="subtitle" style="font-size: 0.9em; margin-top: 10px;">Week 15 | Objective 7: Molecular Structure & Bonding</div>
+        </header>
+
+        <div class="briefing">
+            <h3>🔍 INVESTIGATION BRIEFING</h3>
+            <p>Four houses cleared. One remains: <strong style="color: #2196f3;">AuRa House</strong> - your own house.</p>
+            
+            <div class="evidence-against">
+                <strong>⚠️ THE EVIDENCE AGAINST AuRa:</strong>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>6-month failed investigation of LiFe House ($287,000 wasted)</li>
+                    <li>Internal documents discussing need for "catalytic event"</li>
+                    <li>ChemDraw files on AuRa computers modified 9 hours before Radan's death</li>
+                    <li>Molecular expertise to stage evidence</li>
+                    <li>Radan "knew too much" about the failed investigation</li>
+                </ul>
+            </div>
+
+            <div class="hint">
+                <strong>💡 YOUR MISSION:</strong> Three encrypted documents recovered. Use molecular structure analysis to decode them. Calculate valence electrons for each molecule - these are your cipher keys. The chemistry will reveal whether AuRa orchestrated Radan's death or was framed.
+            </div>
+        </div>
+
+        <div class="cache-tabs">
+            <div class="tab active" data-cache="A">
+                CACHE A<br>
+                <small>The ChemDraw Files</small>
+            </div>
+            <div class="tab locked" data-cache="B">
+                CACHE B<br>
+                <small>The Network Logs</small>
+            </div>
+            <div class="tab locked" data-cache="C">
+                CACHE C<br>
+                <small>The Forensic Analysis</small>
+            </div>
+        </div>
+
+        <!-- CACHE A -->
+        <div class="cache-content active" id="cacheA">
+            <div class="context-box">
+                <h3>📁 EVIDENCE CACHE A: "The ChemDraw Files"</h3>
+                <p><strong>Context:</strong> Forensic analysis recovered molecular structure files from an AuRa House computer, last modified September 18, 2024 at 11:47 PM - nine hours before Radan's body was discovered.</p>
+                <p style="margin-top: 10px;"><strong>Task:</strong> Analyze these Lewis structures and calculate total valence electrons. Each answer is a cipher key.</p>
+            </div>
+
+            <!-- Problem A1 -->
+            <div class="problem" id="problemA1">
+                <h4>Problem A1: BeCl₂ (Beryllium dichloride)</h4>
+                <div class="question">
+                    <p><strong>Draw the Lewis structure and answer:</strong></p>
+                    <div class="input-group">
+                        <label>What is the hybridization of the central Be atom?</label>
+                        <input type="text" id="a1-hybrid" placeholder="e.g., sp, sp2, sp3">
+                    </div>
+                    <div class="input-group">
+                        <label>How many electron domains around Be?</label>
+                        <input type="number" id="a1-domains" placeholder="Enter number">
+                    </div>
+                    <div class="input-group">
+                        <label>How many lone pairs on Be?</label>
+                        <input type="number" id="a1-lone" placeholder="Enter number">
+                    </div>
+                    <div class="input-group">
+                        <label><strong>🔑 CIPHER KEY: Total valence electrons in BeCl₂?</strong></label>
+                        <input type="number" id="a1-valence" placeholder="Enter total valence electrons">
+                    </div>
+                    <button class="check-button" onclick="checkA1()">CHECK ANSWER</button>
+                    <div class="feedback" id="feedbackA1"></div>
+                </div>
+            </div>
+
+            <!-- Problem A2 -->
+            <div class="problem" id="problemA2">
+                <h4>Problem A2: HCN (Hydrogen cyanide)</h4>
+                <div class="question">
+                    <p><strong>Draw the Lewis structure and answer:</strong></p>
+                    <div class="input-group">
+                        <label>What is the hybridization of the central C atom?</label>
+                        <input type="text" id="a2-hybrid" placeholder="e.g., sp, sp2, sp3">
+                    </div>
+                    <div class="input-group">
+                        <label>How many electron domains around C?</label>
+                        <input type="number" id="a2-domains" placeholder="Enter number">
+                    </div>
+                    <div class="input-group">
+                        <label>How many lone pairs on C?</label>
+                        <input type="number" id="a2-lone" placeholder="Enter number">
+                    </div>
+                    <div class="input-group">
+                        <label><strong>🔑 CIPHER KEY: Total valence electrons in HCN?</strong></label>
+                        <input type="number" id="a2-valence" placeholder="Enter total valence electrons">
+                    </div>
+                    <button class="check-button" onclick="checkA2()">CHECK ANSWER</button>
+                    <div class="feedback" id="feedbackA2"></div>
+                </div>
+            </div>
+
+            <!-- Problem A3 -->
+            <div class="problem" id="problemA3">
+                <h4>Problem A3: CO₂ (Carbon dioxide)</h4>
+                <div class="question">
+                    <p><strong>Draw the Lewis structure and answer:</strong></p>
+                    <div class="input-group">
+                        <label>What is the hybridization of the central C atom?</label>
+                        <input type="text" id="a3-hybrid" placeholder="e.g., sp, sp2, sp3">
+                    </div>
+                    <div class="input-group">
+                        <label>How many electron domains around C?</label>
+                        <input type="number" id="a3-domains" placeholder="Enter number">
+                    </div>
+                    <div class="input-group">
+                        <label>How many lone pairs on C?</label>
+                        <input type="number" id="a3-lone" placeholder="Enter number">
+                    </div>
+                    <div class="input-group">
+                        <label><strong>🔑 CIPHER KEY: Total valence electrons in CO₂?</strong></label>
+                        <input type="number" id="a3-valence" placeholder="Enter total valence electrons">
+                    </div>
+                    <button class="check-button" onclick="checkA3()">CHECK ANSWER</button>
+                    <div class="feedback" id="feedbackA3"></div>
+                </div>
+            </div>
+
+            <!-- Problem A4 -->
+            <div class="problem" id="problemA4">
+                <h4>Problem A4: N₂ (Nitrogen gas)</h4>
+                <div class="question">
+                    <p><strong>Draw the Lewis structure and answer:</strong></p>
+                    <div class="input-group">
+                        <label>What is the hybridization of either N atom?</label>
+                        <input type="text" id="a4-hybrid" placeholder="e.g., sp, sp2, sp3">
+                    </div>
+                    <div class="input-group">
+                        <label>How many electron domains around each N?</label>
+                        <input type="number" id="a4-domains" placeholder="Enter number">
+                    </div>
+                    <div class="input-group">
+                        <label>How many lone pairs on each N?</label>
+                        <input type="number" id="a4-lone" placeholder="Enter number">
+                    </div>
+                    <div class="input-group">
+                        <label><strong>🔑 CIPHER KEY: Total valence electrons in N₂?</strong></label>
+                        <input type="number" id="a4-valence" placeholder="Enter total valence electrons">
+                    </div>
+                    <button class="check-button" onclick="checkA4()">CHECK ANSWER</button>
+                    <div class="feedback" id="feedbackA4"></div>
+                </div>
+            </div>
+
+            <!-- Problem A5 -->
+            <div class="problem" id="problemA5">
+                <h4>Problem A5: CS₂ (Carbon disulfide)</h4>
+                <div class="question">
+                    <p><strong>Draw the Lewis structure and answer:</strong></p>
+                    <div class="input-group">
+                        <label>What is the hybridization of the central C atom?</label>
+                        <input type="text" id="a5-hybrid" placeholder="e.g., sp, sp2, sp3">
+                    </div>
+                    <div class="input-group">
+                        <label>How many electron domains around C?</label>
+                        <input type="number" id="a5-domains" placeholder="Enter number">
+                    </div>
+                    <div class="input-group">
+                        <label>How many lone pairs on C?</label>
+                        <input type="number" id="a5-lone" placeholder="Enter number">
+                    </div>
+                    <div class="input-group">
+                        <label><strong>🔑 CIPHER KEY: Total valence electrons in CS₂?</strong></label>
+                        <input type="number" id="a5-valence" placeholder="Enter total valence electrons">
+                    </div>
+                    <button class="check-button" onclick="checkA5()">CHECK ANSWER</button>
+                    <div class="feedback" id="feedbackA5"></div>
+                </div>
+            </div>
+
+            <div class="cipher-reveal">
+                <h3>🔓 DECRYPTING DOCUMENT A...</h3>
+                <p>Complete all problems to reveal the message</p>
+                <div class="decoded-message" id="messageA">
+                    <span class="letter-slot" id="letterA1">_</span>
+                    <span class="letter-slot" id="letterA2">_</span>
+                    <span class="letter-slot" id="letterA3">_</span>
+                    <span class="letter-slot" id="letterA4">_</span>
+                    <span class="letter-slot" id="letterA5">_</span>
+                </div>
+                <div class="warning" id="cacheAWarning" style="display: none;">
+                    <strong>⚠️ Document A suggests AuRa's involvement...</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- CACHE B -->
+        <div class="cache-content" id="cacheB">
+            <div class="context-box">
+                <h3>📁 EVIDENCE CACHE B: "The Network Logs"</h3>
+                <p><strong>Context:</strong> Network security logs show remote access to AuRa's ChemDraw software from an external IP address on September 18, 2024. Someone may have been using AuRa's software remotely to create false evidence.</p>
+                <p style="margin-top: 10px;"><strong>Task:</strong> Analyze VSEPR geometries and calculate valence electrons.</p>
+            </div>
+
+            <!-- Problem B1 -->
+            <div class="problem" id="problemB1">
+                <h4>Problem B1: SO₂ (Sulfur dioxide)</h4>
+                <div class="question">
+                    <div class="input-group">
+                        <label>What is the hybridization of the central S atom?</label>
+                        <input type="text" id="b1-hybrid" placeholder="e.g., sp, sp2, sp3">
+                    </div>
+                    <div class="input-group">
+                        <label>How many electron domains around S?</label>
+                        <input type="number" id="b1-domains" placeholder="Enter number">
+                    </div>
+                    <div class="input-group">
+                        <label>How many lone pairs on S?</label>
+                        <input type="number" id="b1-lone" placeholder="Enter number">
+                    </div>
+                    <div class="input-group">
+                        <label>What is the molecular geometry?</label>
+                        <input type="text" id="b1-geometry" placeholder="e.g., linear, bent, trigonal planar">
+                    </div>
+                    <div class="input-group">
+                        <label><strong>🔑 CIPHER KEY: Total valence electrons in SO₂?</strong></label>
+                        <input type="number" id="b1-valence" placeholder="Enter total valence electrons">
+                    </div>
+                    <button class="check-button" onclick="checkB1()">CHECK ANSWER</button>
+                    <div class="feedback" id="feedbackB1"></div>
+                </div>
+            </div>
+
+            <!-- Problem B2 -->
+            <div class="problem" id="problemB2">
+                <h4>Problem B2: O₃ (Ozone)</h4>
+                <div class="question">
+                    <div class="input-group">
+                        <label>What is the hybridization of the central O atom?</label>
+                        <input type="text" id="b2-hybrid" placeholder="e.g., sp, sp2, sp3">
+                    </div>
+                    <div class="input-group">
+                        <label>How many electron domains around central O?</label>
+                        <input type="number" id="b2-domains" placeholder="Enter number">
+                    </div>
+                    <div class="input-group">
+                        <label>How many lone pairs on central O?</label>
+                        <input type="number" id="b2-lone" placeholder="Enter number">
+                    </div>
+                    <div class="input-group">
+                        <label>What is the molecular geometry?</label>
+                        <input type="text" id="b2-geometry" placeholder="e.g., linear, bent, trigonal planar">
+                    </div>
+                    <div class="input-group">
+                        <label><strong>🔑 CIPHER KEY: Total valence electrons in O₃?</strong></label>
+                        <input type="number" id="b2-valence" placeholder="Enter total valence electrons">
+                    </div>
+                    <button class="check-button" onclick="checkB2()">CHECK ANSWER</button>
+                    <div class="feedback" id="feedbackB2"></div>
+                </div>
+            </div>
+
+            <!-- Problem B3 -->
+            <div class="problem" id="problemB3">
+                <h4>Problem B3: NO₂⁻ (Nitrite ion)</h4>
+                <div class="question">
+                    <div class="input-group">
+                        <label>What is the hybridization of the central N atom?</label>
+                        <input type="text" id="b3-hybrid" placeholder="e.g., sp, sp2, sp3">
+                    </div>
+                    <div class="input-group">
+                        <label>How many electron domains around N?</label>
+                        <input type="number" id="b3-domains" placeholder="Enter number">
+                    </div>
+                    <div class="input-group">
+                        <label>How many lone pairs on N?</label>
+                        <input type="number" id="b3-lone" placeholder="Enter number">
+                    </div>
+                    <div class="input-group">
+                        <label>What is the molecular geometry?</label>
+                        <input type="text" id="b3-geometry" placeholder="e.g., linear, bent, trigonal planar">
+                    </div>
+                    <div class="input-group">
+                        <label><strong>🔑 CIPHER KEY: Total valence electrons in NO₂⁻?</strong></label>
+                        <input type="number" id="b3-valence" placeholder="Enter total valence electrons">
+                    </div>
+                    <button class="check-button" onclick="checkB3()">CHECK ANSWER</button>
+                    <div class="feedback" id="feedbackB3"></div>
+                </div>
+            </div>
+
+            <!-- Problem B4 -->
+            <div class="problem" id="problemB4">
+                <h4>Problem B4: CO₃²⁻ (Carbonate ion)</h4>
+                <div class="question">
+                    <div class="input-group">
+                        <label>What is the hybridization of the central C atom?</label>
+                        <input type="text" id="b4-hybrid" placeholder="e.g., sp, sp2, sp3">
+                    </div>
+                    <div class="input-group">
+                        <label>How many electron domains around C?</label>
+                        <input type="number" id="b4-domains" placeholder="Enter number">
+                    </div>
+                    <div class="input-group">
+                        <label>How many lone pairs on C?</label>
+                        <input type="number" id="b4-lone" placeholder="Enter number">
+                    </div>
+                    <div class="input-group">
+                        <label>What is the molecular geometry?</label>
+                        <input type="text" id="b4-geometry" placeholder="e.g., linear, bent, trigonal planar">
+                    </div>
+                    <div class="input-group">
+                        <label><strong>🔑 CIPHER KEY: Total valence electrons in CO₃²⁻?</strong></label>
+                        <input type="number" id="b4-valence" placeholder="Enter total valence electrons">
+                    </div>
+                    <button class="check-button" onclick="checkB4()">CHECK ANSWER</button>
+                    <div class="feedback" id="feedbackB4"></div>
+                </div>
+            </div>
+
+            <!-- Problem B5 -->
+            <div class="problem" id="problemB5">
+                <h4>Problem B5: NO₃⁻ (Nitrate ion)</h4>
+                <div class="question">
+                    <div class="input-group">
+                        <label>What is the hybridization of the central N atom?</label>
+                        <input type="text" id="b5-hybrid" placeholder="e.g., sp, sp2, sp3">
+                    </div>
+                    <div class="input-group">
+                        <label>How many electron domains around N?</label>
+                        <input type="number" id="b5-domains" placeholder="Enter number">
+                    </div>
+                    <div class="input-group">
+                        <label>How many lone pairs on N?</label>
+                        <input type="number" id="b5-lone" placeholder="Enter number">
+                    </div>
+                    <div class="input-group">
+                        <label>What is the molecular geometry?</label>
+                        <input type="text" id="b5-geometry" placeholder="e.g., linear, bent, trigonal planar">
+                    </div>
+                    <div class="input-group">
+                        <label><strong>🔑 CIPHER KEY: Total valence electrons in NO₃⁻?</strong></label>
+                        <input type="number" id="b5-valence" placeholder="Enter total valence electrons">
+                    </div>
+                    <button class="check-button" onclick="checkB5()">CHECK ANSWER</button>
+                    <div class="feedback" id="feedbackB5"></div>
+                </div>
+            </div>
+
+            <div class="cipher-reveal">
+                <h3>🔓 DECRYPTING DOCUMENT B...</h3>
+                <p>Complete all problems to reveal the message</p>
+                <div class="decoded-message" id="messageB">
+                    <span class="letter-slot" id="letterB1">_</span>
+                    <span class="letter-slot" id="letterB2">_</span>
+                    <span class="letter-slot" id="letterB3">_</span>
+                    <span class="letter-slot" id="letterB4">_</span>
+                    <span class="letter-slot" id="letterB5">_</span>
+                </div>
+                <div class="warning" id="cacheBWarning" style="display: none;">
+                    <strong>🤔 Wait... this contradicts Cache A's evidence...</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- CACHE C -->
+        <div class="cache-content" id="cacheC">
+            <div class="context-box">
+                <h3>📁 EVIDENCE CACHE C: "The Forensic Analysis"</h3>
+                <p><strong>Context:</strong> Independent forensic analysis traced the IP address to <span style="color: #ff5252; font-weight: bold;">AsH House servers</span>. The remote access used AsH credentials. Forum posts previously attributed to AuRa were posted from AsH House locations.</p>
+                <p style="margin-top: 10px;"><strong>Task:</strong> Final molecular analysis to confirm the truth.</p>
+            </div>
+
+            <!-- Problem C1 -->
+            <div class="problem" id="problemC1">
+                <h4>Problem C1: NH₃ (Ammonia)</h4>
+                <div class="question">
+                    <div class="input-group">
+                        <label>What is the hybridization of the central N atom?</label>
+                        <input type="text" id="c1-hybrid" placeholder="e.g., sp, sp2, sp3">
+                    </div>
+                    <div class="input-group">
+                        <label>How many electron domains around N?</label>
+                        <input type="number" id="c1-domains" placeholder="Enter number">
+                    </div>
+                    <div class="input-group">
+                        <label>How many lone pairs on N?</label>
+                        <input type="number" id="c1-lone" placeholder="Enter number">
+                    </div>
+                    <div class="input-group">
+                        <label>What is the molecular geometry?</label>
+                        <input type="text" id="c1-geometry" placeholder="e.g., tetrahedral, trigonal pyramidal">
+                    </div>
+                    <div class="input-group">
+                        <label><strong>🔑 CIPHER KEY: Total valence electrons in NH₃?</strong></label>
+                        <input type="number" id="c1-valence" placeholder="Enter total valence electrons">
+                    </div>
+                    <button class="check-button" onclick="checkC1()">CHECK ANSWER</button>
+                    <div class="feedback" id="feedbackC1"></div>
+                </div>
+            </div>
+
+            <!-- Problem C2 -->
+            <div class="problem" id="problemC2">
+                <h4>Problem C2: H₂O (Water)</h4>
+                <div class="question">
+                    <div class="input-group">
+                        <label>What is the hybridization of the central O atom?</label>
+                        <input type="text" id="c2-hybrid" placeholder="e.g., sp, sp2, sp3">
+                    </div>
+                    <div class="input-group">
+                        <label>How many electron domains around O?</label>
+                        <input type="number" id="c2-domains" placeholder="Enter number">
+                    </div>
+                    <div class="input-group">
+                        <label>How many lone pairs on O?</label>
+                        <input type="number" id="c2-lone" placeholder="Enter number">
+                    </div>
+                    <div class="input-group">
+                        <label>What is the molecular geometry?</label>
+                        <input type="text" id="c2-geometry" placeholder="e.g., tetrahedral, bent">
+                    </div>
+                    <div class="input-group">
+                        <label><strong>🔑 CIPHER KEY: Total valence electrons in H₂O?</strong></label>
+                        <input type="number" id="c2-valence" placeholder="Enter total valence electrons">
+                    </div>
+                    <button class="check-button" onclick="checkC2()">CHECK ANSWER</button>
+                    <div class="feedback" id="feedbackC2"></div>
+                </div>
+            </div>
+
+            <!-- Problem C3 -->
+            <div class="problem" id="problemC3">
+                <h4>Problem C3: CH₄ (Methane)</h4>
+                <div class="question">
+                    <div class="input-group">
+                        <label>What is the hybridization of the central C atom?</label>
+                        <input type="text" id="c3-hybrid" placeholder="e.g., sp, sp2, sp3">
+                    </div>
+                    <div class="input-group">
+                        <label>How many electron domains around C?</label>
+                        <input type="number" id="c3-domains" placeholder="Enter number">
+                    </div>
+                    <div class="input-group">
+                        <label>How many lone pairs on C?</label>
+                        <input type="number" id="c3-lone" placeholder="Enter number">
+                    </div>
+                    <div class="input-group">
+                        <label>What is the molecular geometry?</label>
+                        <input type="text" id="c3-geometry" placeholder="e.g., tetrahedral, bent">
+                    </div>
+                    <div class="input-group">
+                        <label><strong>🔑 CIPHER KEY: Total valence electrons in CH₄?</strong></label>
+                        <input type="number" id="c3-valence" placeholder="Enter total valence electrons">
+                    </div>
+                    <button class="check-button" onclick="checkC3()">CHECK ANSWER</button>
+                    <div class="feedback" id="feedbackC3"></div>
+                </div>
+            </div>
+
+            <!-- Problem C4 -->
+            <div class="problem" id="problemC4">
+                <h4>Problem C4: H₃O⁺ (Hydronium ion)</h4>
+                <div class="question">
+                    <div class="input-group">
+                        <label>What is the hybridization of the central O atom?</label>
+                        <input type="text" id="c4-hybrid" placeholder="e.g., sp, sp2, sp3">
+                    </div>
+                    <div class="input-group">
+                        <label>How many electron domains around O?</label>
+                        <input type="number" id="c4-domains" placeholder="Enter number">
+                    </div>
+                    <div class="input-group">
+                        <label>How many lone pairs on O?</label>
+                        <input type="number" id="c4-lone" placeholder="Enter number">
+                    </div>
+                    <div class="input-group">
+                        <label>What is the molecular geometry?</label>
+                        <input type="text" id="c4-geometry" placeholder="e.g., trigonal pyramidal, bent">
+                    </div>
+                    <div class="input-group">
+                        <label><strong>🔑 CIPHER KEY: Total valence electrons in H₃O⁺?</strong></label>
+                        <input type="number" id="c4-valence" placeholder="Enter total valence electrons">
+                    </div>
+                    <button class="check-button" onclick="checkC4()">CHECK ANSWER</button>
+                    <div class="feedback" id="feedbackC4"></div>
+                </div>
+            </div>
+
+            <!-- Problem C5 -->
+            <div class="problem" id="problemC5">
+                <h4>Problem C5: NH₄⁺ (Ammonium ion)</h4>
+                <div class="question">
+                    <div class="input-group">
+                        <label>What is the hybridization of the central N atom?</label>
+                        <input type="text" id="c5-hybrid" placeholder="e.g., sp, sp2, sp3">
+                    </div>
+                    <div class="input-group">
+                        <label>How many electron domains around N?</label>
+                        <input type="number" id="c5-domains" placeholder="Enter number">
+                    </div>
+                    <div class="input-group">
+                        <label>How many lone pairs on N?</label>
+                        <input type="number" id="c5-lone" placeholder="Enter number">
+                    </div>
+                    <div class="input-group">
+                        <label>What is the molecular geometry?</label>
+                        <input type="text" id="c5-geometry" placeholder="e.g., tetrahedral, trigonal pyramidal">
+                    </div>
+                    <div class="input-group">
+                        <label><strong>🔑 CIPHER KEY: Total valence electrons in NH₄⁺?</strong></label>
+                        <input type="number" id="c5-valence" placeholder="Enter total valence electrons">
+                    </div>
+                    <button class="check-button" onclick="checkC5()">CHECK ANSWER</button>
+                    <div class="feedback" id="feedbackC5"></div>
+                </div>
+            </div>
+
+            <!-- Problem C6 -->
+            <div class="problem" id="problemC6">
+                <h4>Problem C6: PCl₃ (Phosphorus trichloride)</h4>
+                <div class="question">
+                    <div class="input-group">
+                        <label>What is the hybridization of the central P atom?</label>
+                        <input type="text" id="c6-hybrid" placeholder="e.g., sp, sp2, sp3">
+                    </div>
+                    <div class="input-group">
+                        <label>How many electron domains around P?</label>
+                        <input type="number" id="c6-domains" placeholder="Enter number">
+                    </div>
+                    <div class="input-group">
+                        <label>How many lone pairs on P?</label>
+                        <input type="number" id="c6-lone" placeholder="Enter number">
+                    </div>
+                    <div class="input-group">
+                        <label>What is the molecular geometry?</label>
+                        <input type="text" id="c6-geometry" placeholder="e.g., trigonal pyramidal, bent">
+                    </div>
+                    <div class="input-group">
+                        <label><strong>🔑 CIPHER KEY: Total valence electrons in PCl₃?</strong></label>
+                        <input type="number" id="c6-valence" placeholder="Enter total valence electrons">
+                    </div>
+                    <button class="check-button" onclick="checkC6()">CHECK ANSWER</button>
+                    <div class="feedback" id="feedbackC6"></div>
+                </div>
+            </div>
+
+            <div class="cipher-reveal">
+                <h3>🔓 DECRYPTING DOCUMENT C...</h3>
+                <p>Complete all problems to reveal the final truth</p>
+                <div class="decoded-message" id="messageC">
+                    <span class="letter-slot" id="letterC1">_</span>
+                    <span class="letter-slot" id="letterC2">_</span>
+                    <span class="letter-slot" id="letterC3">_</span>
+                    <span class="letter-slot" id="letterC4">_</span>
+                    <span class="letter-slot" id="letterC5">_</span>
+                    <span class="letter-slot" id="letterC6">_</span>
+                </div>
+                <div class="hint" id="cacheCWarning" style="display: none;">
+                    <strong>💡 The truth is revealed through chemistry...</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- VERDICT SCREEN -->
+        <div class="verdict-screen" id="verdictScreen">
+            <h2>⚖️ INVESTIGATION COMPLETE ⚖️</h2>
+            
+            <div class="verdict-box">
+                <h3>📊 DECODED MESSAGES</h3>
+                <p style="margin: 10px 0;"><strong>Document A:</strong> <span id="finalMessageA" style="color: #2196f3; font-size: 1.3em;"></span></p>
+                <p style="margin: 10px 0;"><strong>Document B:</strong> <span id="finalMessageB" style="color: #2196f3; font-size: 1.3em;"></span></p>
+                <p style="margin: 10px 0;"><strong>Document C:</strong> <span id="finalMessageC" style="color: #2196f3; font-size: 1.3em;"></span></p>
+            </div>
+
+            <div class="final-message">
+                <p style="font-size: 1.8em; color: #2196f3; font-weight: bold; margin-bottom: 20px;">
+                    "FAKED • NOT US • FRAMED"
+                </p>
+                <p style="font-size: 1.2em; margin-top: 15px;">
+                    The molecular evidence was fabricated. AuRa House didn't create these files - someone remotely accessed their systems. The ChemDraw software was used from AsH House servers using stolen credentials.
+                </p>
+            </div>
+
+            <div class="verdict-box" style="background: rgba(33, 150, 243, 0.3);">
+                <h3 style="font-size: 2.5em;">✅ VERDICT: INNOCENT</h3>
+                <p style="font-size: 1.3em; margin-top: 15px;">
+                    <strong>AuRa House is CLEARED of all charges.</strong>
+                </p>
+                <p style="margin-top: 20px; font-size: 1.1em;">
+                    They were investigating LiFe House legitimately. When they found nothing, they didn't fabricate evidence or kill Radan. Instead, <strong style="color: #ff5252;">AsH House</strong> - masters of disinformation - framed them using remote access to AuRa's own molecular modeling software.
+                </p>
+            </div>
+
+            <div class="context-box" style="margin-top: 30px; border-color: #ff5252;">
+                <h3 style="color: #ff5252;">🔴 THE CIRCLE CLOSES</h3>
+                <p style="font-size: 1.1em; line-height: 1.6;">
+                    <strong>Spiral 1:</strong> AsH House cleared → pointed to BeAr<br>
+                    <strong>Spiral 2:</strong> BeAr House cleared → pointed to LiFe<br>
+                    <strong>Spiral 3:</strong> LiFe House cleared → pointed to CoIn<br>
+                    <strong>Spiral 4:</strong> CoIn House cleared → pointed to AuRa<br>
+                    <strong>Spiral 5:</strong> AuRa House cleared → points BACK to AsH<br><br>
+                    
+                    <span style="color: #ffeb3b; font-size: 1.2em;">
+                        ⚠️ THE TRAIL LEADS BACK TO WHERE IT STARTED.
+                    </span><br><br>
+                    
+                    But if all five houses are innocent... what really happened to D.K. Radan?
+                </p>
+            </div>
+
+            <div class="warning" style="margin-top: 30px; font-size: 1.2em; text-align: center;">
+                <strong>Continue to Spiral 6 for the FINAL REVELATION...</strong>
+            </div>
+        </div>
+
+        <div class="progress-indicator">
+            <div class="progress-item" id="progressA">Cache A: Pending</div>
+            <div class="progress-item" id="progressB">Cache B: Locked</div>
+            <div class="progress-item" id="progressC">Cache C: Locked</div>
+        </div>
+    </div>
+
+    <script>
+        // State tracking
+        let state = {
+            cacheAComplete: false,
+            cacheBComplete: false,
+            cacheCComplete: false,
+            problemsCompleted: {
+                a1: false, a2: false, a3: false, a4: false, a5: false,
+                b1: false, b2: false, b3: false, b4: false, b5: false,
+                c1: false, c2: false, c3: false, c4: false, c5: false, c6: false
+            },
+            messages: {
+                a: ['F', 'A', 'K', 'E', 'D'],
+                b: ['N', 'O', 'T', 'U', 'S'],
+                c: ['F', 'R', 'A', 'M', 'E', 'D']
+            }
+        };
+
+        // Helper function to normalize input
+        function normalize(str) {
+            return str.toLowerCase().replace(/[\s\-_]/g, '');
+        }
+
+        // Cache A Problems
+        function checkA1() {
+            const hybrid = normalize(document.getElementById('a1-hybrid').value);
+            const domains = parseInt(document.getElementById('a1-domains').value);
+            const lone = parseInt(document.getElementById('a1-lone').value);
+            const valence = parseInt(document.getElementById('a1-valence').value);
+            
+            const correct = hybrid === 'sp' && domains === 2 && lone === 0 && valence === 16;
+            
+            showFeedback('feedbackA1', correct, 'Correct! BeCl₂ is sp hybridized with 2 domains, 0 lone pairs, 16 valence e⁻', 'Check your Lewis structure. Be: 2e⁻, each Cl: 7e⁻');
+            
+            if (correct && !state.problemsCompleted.a1) {
+                state.problemsCompleted.a1 = true;
+                revealLetter('letterA1', 'F');
+                checkCacheAComplete();
+            }
+        }
+
+        function checkA2() {
+            const hybrid = normalize(document.getElementById('a2-hybrid').value);
+            const domains = parseInt(document.getElementById('a2-domains').value);
+            const lone = parseInt(document.getElementById('a2-lone').value);
+            const valence = parseInt(document.getElementById('a2-valence').value);
+            
+            const correct = hybrid === 'sp' && domains === 2 && lone === 0 && valence === 10;
+            
+            showFeedback('feedbackA2', correct, 'Correct! HCN has sp hybridized C, 2 domains, 0 lone pairs, 10 valence e⁻', 'H: 1e⁻, C: 4e⁻, N: 5e⁻. Triple bond between C and N.');
+            
+            if (correct && !state.problemsCompleted.a2) {
+                state.problemsCompleted.a2 = true;
+                revealLetter('letterA2', 'A');
+                checkCacheAComplete();
+            }
+        }
+
+        function checkA3() {
+            const hybrid = normalize(document.getElementById('a3-hybrid').value);
+            const domains = parseInt(document.getElementById('a3-domains').value);
+            const lone = parseInt(document.getElementById('a3-lone').value);
+            const valence = parseInt(document.getElementById('a3-valence').value);
+            
+            const correct = hybrid === 'sp' && domains === 2 && lone === 0 && valence === 16;
+            
+            showFeedback('feedbackA3', correct, 'Correct! CO₂ is sp hybridized, 2 domains, 0 lone pairs, 16 valence e⁻', 'C: 4e⁻, each O: 6e⁻. Double bonds on each side.');
+            
+            if (correct && !state.problemsCompleted.a3) {
+                state.problemsCompleted.a3 = true;
+                revealLetter('letterA3', 'K');
+                checkCacheAComplete();
+            }
+        }
+
+        function checkA4() {
+            const hybrid = normalize(document.getElementById('a4-hybrid').value);
+            const domains = parseInt(document.getElementById('a4-domains').value);
+            const lone = parseInt(document.getElementById('a4-lone').value);
+            const valence = parseInt(document.getElementById('a4-valence').value);
+            
+            const correct = hybrid === 'sp' && domains === 2 && lone === 1 && valence === 10;
+            
+            showFeedback('feedbackA4', correct, 'Correct! N₂ has sp hybridized N atoms, 2 domains, 1 lone pair each, 10 valence e⁻', 'Each N: 5e⁻. Triple bond between N atoms, 1 lone pair per N.');
+            
+            if (correct && !state.problemsCompleted.a4) {
+                state.problemsCompleted.a4 = true;
+                revealLetter('letterA4', 'E');
+                checkCacheAComplete();
+            }
+        }
+
+        function checkA5() {
+            const hybrid = normalize(document.getElementById('a5-hybrid').value);
+            const domains = parseInt(document.getElementById('a5-domains').value);
+            const lone = parseInt(document.getElementById('a5-lone').value);
+            const valence = parseInt(document.getElementById('a5-valence').value);
+            
+            const correct = hybrid === 'sp' && domains === 2 && lone === 0 && valence === 16;
+            
+            showFeedback('feedbackA5', correct, 'Correct! CS₂ is sp hybridized, 2 domains, 0 lone pairs, 16 valence e⁻', 'C: 4e⁻, each S: 6e⁻. Double bonds on each side.');
+            
+            if (correct && !state.problemsCompleted.a5) {
+                state.problemsCompleted.a5 = true;
+                revealLetter('letterA5', 'D');
+                checkCacheAComplete();
+            }
+        }
+
+        // Cache B Problems
+        function checkB1() {
+            const hybrid = normalize(document.getElementById('b1-hybrid').value);
+            const domains = parseInt(document.getElementById('b1-domains').value);
+            const lone = parseInt(document.getElementById('b1-lone').value);
+            const geometry = normalize(document.getElementById('b1-geometry').value);
+            const valence = parseInt(document.getElementById('b1-valence').value);
+            
+            const correct = hybrid === 'sp2' && domains === 3 && lone === 1 && geometry === 'bent' && valence === 18;
+            
+            showFeedback('feedbackB1', correct, 'Correct! SO₂ is sp² hybridized, bent geometry, 3 domains, 1 lone pair, 18 valence e⁻', 'S: 6e⁻, each O: 6e⁻. 3 electron domains (2 bonds + 1 lone pair) = bent.');
+            
+            if (correct && !state.problemsCompleted.b1) {
+                state.problemsCompleted.b1 = true;
+                revealLetter('letterB1', 'N');
+                checkCacheBComplete();
+            }
+        }
+
+        function checkB2() {
+            const hybrid = normalize(document.getElementById('b2-hybrid').value);
+            const domains = parseInt(document.getElementById('b2-domains').value);
+            const lone = parseInt(document.getElementById('b2-lone').value);
+            const geometry = normalize(document.getElementById('b2-geometry').value);
+            const valence = parseInt(document.getElementById('b2-valence').value);
+            
+            const correct = hybrid === 'sp2' && domains === 3 && lone === 1 && geometry === 'bent' && valence === 18;
+            
+            showFeedback('feedbackB2', correct, 'Correct! O₃ (central O) is sp² hybridized, bent geometry, 18 valence e⁻', 'Each O: 6e⁻. Central O has 3 domains (2 bonds + 1 lone pair) = bent.');
+            
+            if (correct && !state.problemsCompleted.b2) {
+                state.problemsCompleted.b2 = true;
+                revealLetter('letterB2', 'O');
+                checkCacheBComplete();
+            }
+        }
+
+        function checkB3() {
+            const hybrid = normalize(document.getElementById('b3-hybrid').value);
+            const domains = parseInt(document.getElementById('b3-domains').value);
+            const lone = parseInt(document.getElementById('b3-lone').value);
+            const geometry = normalize(document.getElementById('b3-geometry').value);
+            const valence = parseInt(document.getElementById('b3-valence').value);
+            
+            const correct = hybrid === 'sp2' && domains === 3 && lone === 1 && geometry === 'bent' && valence === 18;
+            
+            showFeedback('feedbackB3', correct, 'Correct! NO₂⁻ is sp² hybridized, bent geometry, 18 valence e⁻', 'N: 5e⁻, each O: 6e⁻, +1 extra = 18e⁻. 3 domains (2 bonds + 1 lone pair) = bent.');
+            
+            if (correct && !state.problemsCompleted.b3) {
+                state.problemsCompleted.b3 = true;
+                revealLetter('letterB3', 'T');
+                checkCacheBComplete();
+            }
+        }
+
+        function checkB4() {
+            const hybrid = normalize(document.getElementById('b4-hybrid').value);
+            const domains = parseInt(document.getElementById('b4-domains').value);
+            const lone = parseInt(document.getElementById('b4-lone').value);
+            const geometry = normalize(document.getElementById('b4-geometry').value);
+            const valence = parseInt(document.getElementById('b4-valence').value);
+            
+            const correctGeom = geometry === 'trigonalplanar' || geometry === 'planar';
+            const correct = hybrid === 'sp2' && domains === 3 && lone === 0 && correctGeom && valence === 24;
+            
+            showFeedback('feedbackB4', correct, 'Correct! CO₃²⁻ is sp² hybridized, trigonal planar, 24 valence e⁻', 'C: 4e⁻, each O: 6e⁻, +2 extra = 24e⁻. 3 domains = trigonal planar.');
+            
+            if (correct && !state.problemsCompleted.b4) {
+                state.problemsCompleted.b4 = true;
+                revealLetter('letterB4', 'U');
+                checkCacheBComplete();
+            }
+        }
+
+        function checkB5() {
+            const hybrid = normalize(document.getElementById('b5-hybrid').value);
+            const domains = parseInt(document.getElementById('b5-domains').value);
+            const lone = parseInt(document.getElementById('b5-lone').value);
+            const geometry = normalize(document.getElementById('b5-geometry').value);
+            const valence = parseInt(document.getElementById('b5-valence').value);
+            
+            const correctGeom = geometry === 'trigonalplanar' || geometry === 'planar';
+            const correct = hybrid === 'sp2' && domains === 3 && lone === 0 && correctGeom && valence === 24;
+            
+            showFeedback('feedbackB5', correct, 'Correct! NO₃⁻ is sp² hybridized, trigonal planar, 24 valence e⁻', 'N: 5e⁻, each O: 6e⁻, +1 extra = 24e⁻. 3 domains = trigonal planar.');
+            
+            if (correct && !state.problemsCompleted.b5) {
+                state.problemsCompleted.b5 = true;
+                revealLetter('letterB5', 'S');
+                checkCacheBComplete();
+            }
+        }
+
+        // Cache C Problems
+        function checkC1() {
+            const hybrid = normalize(document.getElementById('c1-hybrid').value);
+            const domains = parseInt(document.getElementById('c1-domains').value);
+            const lone = parseInt(document.getElementById('c1-lone').value);
+            const geometry = normalize(document.getElementById('c1-geometry').value);
+            const valence = parseInt(document.getElementById('c1-valence').value);
+            
+            const correctGeom = geometry === 'trigonalpyramidal' || geometry === 'pyramidal';
+            const correct = hybrid === 'sp3' && domains === 4 && lone === 1 && correctGeom && valence === 8;
+            
+            showFeedback('feedbackC1', correct, 'Correct! NH₃ is sp³ hybridized, trigonal pyramidal, 8 valence e⁻', 'N: 5e⁻, each H: 1e⁻ = 8e⁻. 4 domains (3 bonds + 1 lone pair) = pyramidal.');
+            
+            if (correct && !state.problemsCompleted.c1) {
+                state.problemsCompleted.c1 = true;
+                revealLetter('letterC1', 'F');
+                checkCacheCComplete();
+            }
+        }
+
+        function checkC2() {
+            const hybrid = normalize(document.getElementById('c2-hybrid').value);
+            const domains = parseInt(document.getElementById('c2-domains').value);
+            const lone = parseInt(document.getElementById('c2-lone').value);
+            const geometry = normalize(document.getElementById('c2-geometry').value);
+            const valence = parseInt(document.getElementById('c2-valence').value);
+            
+            const correct = hybrid === 'sp3' && domains === 4 && lone === 2 && geometry === 'bent' && valence === 8;
+            
+            showFeedback('feedbackC2', correct, 'Correct! H₂O is sp³ hybridized, bent geometry, 8 valence e⁻', 'O: 6e⁻, each H: 1e⁻ = 8e⁻. 4 domains (2 bonds + 2 lone pairs) = bent.');
+            
+            if (correct && !state.problemsCompleted.c2) {
+                state.problemsCompleted.c2 = true;
+                revealLetter('letterC2', 'R');
+                checkCacheCComplete();
+            }
+        }
+
+        function checkC3() {
+            const hybrid = normalize(document.getElementById('c3-hybrid').value);
+            const domains = parseInt(document.getElementById('c3-domains').value);
+            const lone = parseInt(document.getElementById('c3-lone').value);
+            const geometry = normalize(document.getElementById('c3-geometry').value);
+            const valence = parseInt(document.getElementById('c3-valence').value);
+            
+            const correct = hybrid === 'sp3' && domains === 4 && lone === 0 && geometry === 'tetrahedral' && valence === 8;
+            
+            showFeedback('feedbackC3', correct, 'Correct! CH₄ is sp³ hybridized, tetrahedral, 8 valence e⁻', 'C: 4e⁻, each H: 1e⁻ = 8e⁻. 4 domains (all bonds) = tetrahedral.');
+            
+            if (correct && !state.problemsCompleted.c3) {
+                state.problemsCompleted.c3 = true;
+                revealLetter('letterC3', 'A');
+                checkCacheCComplete();
+            }
+        }
+
+        function checkC4() {
+            const hybrid = normalize(document.getElementById('c4-hybrid').value);
+            const domains = parseInt(document.getElementById('c4-domains').value);
+            const lone = parseInt(document.getElementById('c4-lone').value);
+            const geometry = normalize(document.getElementById('c4-geometry').value);
+            const valence = parseInt(document.getElementById('c4-valence').value);
+            
+            const correctGeom = geometry === 'trigonalpyramidal' || geometry === 'pyramidal';
+            const correct = hybrid === 'sp3' && domains === 4 && lone === 1 && correctGeom && valence === 8;
+            
+            showFeedback('feedbackC4', correct, 'Correct! H₃O⁺ is sp³ hybridized, trigonal pyramidal, 8 valence e⁻', 'O: 6e⁻, each H: 1e⁻, -1 for charge = 8e⁻. 4 domains = pyramidal.');
+            
+            if (correct && !state.problemsCompleted.c4) {
+                state.problemsCompleted.c4 = true;
+                revealLetter('letterC4', 'M');
+                checkCacheCComplete();
+            }
+        }
+
+        function checkC5() {
+            const hybrid = normalize(document.getElementById('c5-hybrid').value);
+            const domains = parseInt(document.getElementById('c5-domains').value);
+            const lone = parseInt(document.getElementById('c5-lone').value);
+            const geometry = normalize(document.getElementById('c5-geometry').value);
+            const valence = parseInt(document.getElementById('c5-valence').value);
+            
+            const correct = hybrid === 'sp3' && domains === 4 && lone === 0 && geometry === 'tetrahedral' && valence === 8;
+            
+            showFeedback('feedbackC5', correct, 'Correct! NH₄⁺ is sp³ hybridized, tetrahedral, 8 valence e⁻', 'N: 5e⁻, each H: 1e⁻, -1 for charge = 8e⁻. 4 domains = tetrahedral.');
+            
+            if (correct && !state.problemsCompleted.c5) {
+                state.problemsCompleted.c5 = true;
+                revealLetter('letterC5', 'E');
+                checkCacheCComplete();
+            }
+        }
+
+        function checkC6() {
+            const hybrid = normalize(document.getElementById('c6-hybrid').value);
+            const domains = parseInt(document.getElementById('c6-domains').value);
+            const lone = parseInt(document.getElementById('c6-lone').value);
+            const geometry = normalize(document.getElementById('c6-geometry').value);
+            const valence = parseInt(document.getElementById('c6-valence').value);
+            
+            const correctGeom = geometry === 'trigonalpyramidal' || geometry === 'pyramidal';
+            const correct = hybrid === 'sp3' && domains === 4 && lone === 1 && correctGeom && valence === 26;
+            
+            showFeedback('feedbackC6', correct, 'Correct! PCl₃ is sp³ hybridized, trigonal pyramidal, 26 valence e⁻', 'P: 5e⁻, each Cl: 7e⁻ = 26e⁻. 4 domains = pyramidal.');
+            
+            if (correct && !state.problemsCompleted.c6) {
+                state.problemsCompleted.c6 = true;
+                revealLetter('letterC6', 'D');
+                checkCacheCComplete();
+            }
+        }
+
+        // Feedback functions
+        function showFeedback(id, correct, correctMsg, incorrectMsg) {
+            const feedback = document.getElementById(id);
+            feedback.className = 'feedback ' + (correct ? 'correct' : 'incorrect');
+            feedback.textContent = correct ? '✓ ' + correctMsg : '✗ ' + incorrectMsg;
+        }
+
+        function revealLetter(id, letter) {
+            const slot = document.getElementById(id);
+            slot.textContent = letter;
+            slot.classList.add('revealed');
+        }
+
+        // Cache completion checks
+        function checkCacheAComplete() {
+            if (state.problemsCompleted.a1 && state.problemsCompleted.a2 && 
+                state.problemsCompleted.a3 && state.problemsCompleted.a4 && 
+                state.problemsCompleted.a5) {
+                state.cacheAComplete = true;
+                document.getElementById('cacheAWarning').style.display = 'block';
+                document.getElementById('progressA').textContent = 'Cache A: Complete ✓';
+                document.getElementById('progressA').classList.add('complete');
+                
+                // Unlock Cache B
+                const tabB = document.querySelector('[data-cache="B"]');
+                tabB.classList.remove('locked');
+                document.getElementById('progressB').textContent = 'Cache B: Unlocked';
+            }
+        }
+
+        function checkCacheBComplete() {
+            if (state.problemsCompleted.b1 && state.problemsCompleted.b2 && 
+                state.problemsCompleted.b3 && state.problemsCompleted.b4 && 
+                state.problemsCompleted.b5) {
+                state.cacheBComplete = true;
+                document.getElementById('cacheBWarning').style.display = 'block';
+                document.getElementById('progressB').textContent = 'Cache B: Complete ✓';
+                document.getElementById('progressB').classList.add('complete');
+                
+                // Unlock Cache C
+                const tabC = document.querySelector('[data-cache="C"]');
+                tabC.classList.remove('locked');
+                document.getElementById('progressC').textContent = 'Cache C: Unlocked';
+            }
+        }
+
+        function checkCacheCComplete() {
+            if (state.problemsCompleted.c1 && state.problemsCompleted.c2 && 
+                state.problemsCompleted.c3 && state.problemsCompleted.c4 && 
+                state.problemsCompleted.c5 && state.problemsCompleted.c6) {
+                state.cacheCComplete = true;
+                document.getElementById('cacheCWarning').style.display = 'block';
+                document.getElementById('progressC').textContent = 'Cache C: Complete ✓';
+                document.getElementById('progressC').classList.add('complete');
+                
+                // Show verdict
+                showVerdict();
+            }
+        }
+
+        function showVerdict() {
+            document.getElementById('finalMessageA').textContent = 'FAKED';
+            document.getElementById('finalMessageB').textContent = 'NOT US';
+            document.getElementById('finalMessageC').textContent = 'FRAMED';
+            document.getElementById('verdictScreen').classList.add('active');
+            document.getElementById('verdictScreen').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Tab switching
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                if (this.classList.contains('locked')) return;
+                
+                const cache = this.dataset.cache;
+                
+                // Update tabs
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Update content
+                document.querySelectorAll('.cache-content').forEach(c => c.classList.remove('active'));
+                document.getElementById('cache' + cache).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
