@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CACHE 1: The Damning Evidence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0033 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #e0e0e0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #FFD700;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .subtitle {
+            color: #ff6b6b;
+            font-style: italic;
+            font-size: 1.2em;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .nav-btn {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid #FFD700;
+            color: #FFD700;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 215, 0, 0.3);
+        }
+
+        .evidence-box {
+            background: rgba(100, 0, 0, 0.2);
+            border: 2px solid #ff6b6b;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .formula-display {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #00ffff;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 1.2em;
+            color: #00ffff;
+        }
+
+        .problem {
+            background: rgba(50, 50, 50, 0.5);
+            border: 1px solid #666;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .problem h3 {
+            color: #00ffff;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .problem em {
+            color: #ffa500;
+            font-size: 0.95em;
+        }
+
+        input[type="number"] {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #666;
+            color: #fff;
+            padding: 10px;
+            margin: 8px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            width: 100px;
+            font-size: 1.1em;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #FFD700;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+
+        .key-display {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.2);
+            border: 1px solid #FFD700;
+            border-radius: 5px;
+            padding: 8px 15px;
+            margin-left: 10px;
+            font-weight: bold;
+            color: #FFD700;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .verify-btn {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 30px auto;
+            display: block;
+            transition: all 0.3s;
+        }
+
+        .verify-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+        }
+
+        .message-box {
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            display: none;
+            animation: slideIn 0.5s;
+        }
+
+        .message-box.success {
+            background: rgba(0, 100, 0, 0.3);
+            border: 2px solid #00ff00;
+        }
+
+        .message-box.error {
+            background: rgba(100, 0, 0, 0.3);
+            border: 2px solid #ff0000;
+        }
+
+        .message-box.show {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .decoded-message {
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+            font-size: 1.4em;
+            text-align: center;
+            color: #FFD700;
+            letter-spacing: 3px;
+            display: none;
+        }
+
+        .decoded-message.show {
+            display: block;
+            animation: revealMessage 2s;
+        }
+
+        @keyframes revealMessage {
+            0% {
+                opacity: 0;
+                letter-spacing: 20px;
+                filter: blur(10px);
+            }
+            100% {
+                opacity: 1;
+                letter-spacing: 3px;
+                filter: blur(0);
+            }
+        }
+
+        .document-display {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid #444;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Georgia', serif;
+            color: #ddd;
+        }
+
+        .word-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .word-cell {
+            text-align: center;
+            padding: 8px;
+            background: rgba(50, 50, 50, 0.5);
+            border: 1px solid #333;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+
+        .word-cell.highlight {
+            background: rgba(255, 215, 0, 0.3);
+            border-color: #FFD700;
+            color: #FFD700;
+            font-weight: bold;
+        }
+
+        .hint-box {
+            background: rgba(255, 165, 0, 0.1);
+            border-left: 3px solid orange;
+            padding: 15px;
+            margin: 20px 0;
+            color: #ffa500;
+        }
+
+        .calculation-row {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            flex-wrap: wrap;
+        }
+
+        .calculation-row label {
+            min-width: 250px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>CACHE 1: THE DAMNING EVIDENCE</h1>
+            <div class="subtitle">"Bonds, Orbitals, and Deception"</div>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="aura_main.html" class="nav-btn">← Back to Hub</a>
+            <a href="cache2.html" class="nav-btn">Cache 2 →</a>
+        </div>
+
+        <div class="evidence-box">
+            <h2 style="color: #ff6b6b; margin-bottom: 15px;">📋 THE ANONYMOUS LEAK</h2>
+            <p><strong>FROM:</strong> [ANONYMOUS]</p>
+            <p><strong>TO:</strong> All_Houses</p>
+            <p><strong>TIME:</strong> September 11, 2024, 07:47 AM</p>
+            <p><strong>SUBJECT:</strong> AuRa's Guilt Confirmed</p>
+            <br>
+            <p style="font-style: italic; color: #ffa500;">
+                "Every bond tells a story. Every orbital holds a secret.<br>
+                Calculate precisely: π bonds + unhybridized p orbitals + resonance bonus<br>
+                The chemistry will reveal their crime."
+            </p>
+            <p style="margin-top: 15px;"><strong>ATTACHMENT:</strong> Termination_Authorization_247.doc</p>
+        </div>
+
+        <div class="formula-display">
+            <strong>Cipher Key = (π bonds × 5) + (unhybridized p orbitals × 2) + (Resonance bonus)</strong><br>
+            <span style="font-size: 0.9em; color: #aaa;">Resonance bonus = +10 if resonance structures exist</span>
+        </div>
+
+        <div class="hint-box">
+            <strong>💡 Hint:</strong> When your cipher key equals 0, use position 20 in the document.
+        </div>
+
+        <!-- Problem 1 -->
+        <div class="problem">
+            <h3>1. BF₃ (Boron Trifluoride)</h3>
+            <em>Electron deficient molecule - trigonal planar</em>
+            <div style="margin-top: 15px;">
+                <div class="calculation-row">
+                    <label>Number of π bonds:</label>
+                    <input type="number" id="c1p1-pi" min="0" max="10">
+                </div>
+                <div class="calculation-row">
+                    <label>Unhybridized p orbitals on B:</label>
+                    <input type="number" id="c1p1-p" min="0" max="10">
+                </div>
+                <div class="calculation-row">
+                    <label>Resonance? (0=No, 10=Yes):</label>
+                    <input type="number" id="c1p1-res" min="0" max="10" step="10">
+                </div>
+                <div class="calculation-row">
+                    <label><strong>Cipher Key:</strong></label>
+                    <span class="key-display" id="c1p1-key">?</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Problem 2 -->
+        <div class="problem">
+            <h3>2. CO₂ (Carbon Dioxide)</h3>
+            <em>Linear molecule with two double bonds (O=C=O)</em>
+            <div style="margin-top: 15px;">
+                <div class="calculation-row">
+                    <label>Number of π bonds:</label>
+                    <input type="number" id="c1p2-pi" min="0" max="10">
+                </div>
+                <div class="calculation-row">
+                    <label>Unhybridized p orbitals on C:</label>
+                    <input type="number" id="c1p2-p" min="0" max="10">
+                </div>
+                <div class="calculation-row">
+                    <label>Resonance? (0=No, 10=Yes):</label>
+                    <input type="number" id="c1p2-res" min="0" max="10" step="10">
+                </div>
+                <div class="calculation-row">
+                    <label><strong>Cipher Key:</strong></label>
+                    <span class="key-display" id="c1p2-key">?</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Problem 3 -->
+        <div class="problem">
+            <h3>3. PO₄³⁻ (Phosphate Ion)</h3>
+            <em>Hypervalent phosphorus compound - one P=O and three P-O⁻ bonds</em>
+            <div style="margin-top: 15px;">
+                <div class="calculation-row">
+                    <label>Number of π bonds:</label>
+                    <input type="number" id="c1p3-pi" min="0" max="10">
+                </div>
+                <div class="calculation-row">
+                    <label>Unhybridized p orbitals on P:</label>
+                    <input type="number" id="c1p3-p" min="0" max="10">
+                </div>
+                <div class="calculation-row">
+                    <label>Resonance? (0=No, 10=Yes):</label>
+                    <input type="number" id="c1p3-res" min="0" max="10" step="10">
+                </div>
+                <div class="calculation-row">
+                    <label><strong>Cipher Key:</strong></label>
+                    <span class="key-display" id="c1p3-key">?</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Problem 4 -->
+        <div class="problem">
+            <h3>4. NH₃ (Ammonia)</h3>
+            <em>Trigonal pyramidal molecule</em>
+            <div style="margin-top: 15px;">
+                <div class="calculation-row">
+                    <label>Number of π bonds:</label>
+                    <input type="number" id="c1p4-pi" min="0" max="10">
+                </div>
+                <div class="calculation-row">
+                    <label>Unhybridized p orbitals on N:</label>
+                    <input type="number" id="c1p4-p" min="0" max="10">
+                </div>
+                <div class="calculation-row">
+                    <label>Resonance? (0=No, 10=Yes):</label>
+                    <input type="number" id="c1p4-res" min="0" max="10" step="10">
+                </div>
+                <div class="calculation-row">
+                    <label><strong>Cipher Key:</strong></label>
+                    <span class="key-display" id="c1p4-key">?</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Problem 5 -->
+        <div class="problem">
+            <h3>5. SO₃ (Sulfur Trioxide)</h3>
+            <em>Trigonal planar with resonance - three S=O bonds</em>
+            <div style="margin-top: 15px;">
+                <div class="calculation-row">
+                    <label>Number of π bonds:</label>
+                    <input type="number" id="c1p5-pi" min="0" max="10">
+                </div>
+                <div class="calculation-row">
+                    <label>Unhybridized p orbitals on S:</label>
+                    <input type="number" id="c1p5-p" min="0" max="10">
+                </div>
+                <div class="calculation-row">
+                    <label>Resonance? (0=No, 10=Yes):</label>
+                    <input type="number" id="c1p5-res" min="0" max="10" step="10">
+                </div>
+                <div class="calculation-row">
+                    <label><strong>Cipher Key:</strong></label>
+                    <span class="key-display" id="c1p5-key">?</span>
+                </div>
+            </div>
+        </div>
+
+        <button class="verify-btn" onclick="checkCache1()">DECODE CIPHER</button>
+
+        <div class="message-box" id="message-box"></div>
+        <div class="decoded-message" id="decoded-message"></div>
+
+        <!-- Document Display -->
+        <div class="document-display">
+            <h3 style="color: #FFD700; margin-bottom: 15px;">📄 TERMINATION AUTHORIZATION 247 - EYES ONLY</h3>
+            <div class="word-grid" id="word-grid"></div>
+        </div>
+    </div>
+
+    <script>
+        // Cipher document words
+        const cipherDocument = [
+            '', 'House', 'AuRa', 'leadership', 'confirms', 'authorization', 'given', 'for',
+            'immediate', 'action', 'regarding', 'target', 'termination', 'before', 'exposure', 'of',
+            'classified', 'protocols', 'Documentation', 'shows', 'Radan', 'represented', 'critical',
+            'threat', 'requiring', 'permanent', 'solution', 'implemented', 'last', 'night',
+            'Evidence', 'confirms', 'premeditated', 'elimination', 'successfully', 'executed',
+            'All', 'witnesses', 'silenced', 'Secrets', 'remain', 'protected'
+        ];
+
+        // Initialize word grid
+        function initializeWordGrid() {
+            const grid = document.getElementById('word-grid');
+            for (let i = 1; i < cipherDocument.length; i++) {
+                const cell = document.createElement('div');
+                cell.className = 'word-cell';
+                cell.id = `word-${i}`;
+                cell.innerHTML = `<small style="color: #666;">${i}</small><br>${cipherDocument[i]}`;
+                grid.appendChild(cell);
+            }
+        }
+
+        // Auto-calculate cipher keys
+        function updateKeys() {
+            for (let i = 1; i <= 5; i++) {
+                const pi = parseInt(document.getElementById(`c1p${i}-pi`).value) || 0;
+                const p = parseInt(document.getElementById(`c1p${i}-p`).value) || 0;
+                const res = parseInt(document.getElementById(`c1p${i}-res`).value) || 0;
+                const key = (pi * 5) + (p * 2) + res;
+                document.getElementById(`c1p${i}-key`).textContent = key;
+            }
+        }
+
+        // Add event listeners
+        for (let i = 1; i <= 5; i++) {
+            document.getElementById(`c1p${i}-pi`).addEventListener('input', updateKeys);
+            document.getElementById(`c1p${i}-p`).addEventListener('input', updateKeys);
+            document.getElementById(`c1p${i}-res`).addEventListener('input', updateKeys);
+        }
+
+        function checkCache1() {
+            const answers = {
+                1: { pi: 0, p: 1, res: 0, key: 2 },   // BF3
+                2: { pi: 2, p: 0, res: 0, key: 10 },  // CO2
+                3: { pi: 1, p: 0, res: 10, key: 15 }, // PO4^3-
+                4: { pi: 0, p: 0, res: 0, key: 0 },   // NH3 (special: 0→20)
+                5: { pi: 3, p: 0, res: 10, key: 25 }  // SO3
+            };
+
+            let correct = true;
+            let decodedWords = [];
+            let positions = [];
+
+            // Clear previous highlights
+            document.querySelectorAll('.word-cell').forEach(cell => {
+                cell.classList.remove('highlight');
+            });
+
+            for (let i = 1; i <= 5; i++) {
+                const pi = parseInt(document.getElementById(`c1p${i}-pi`).value) || 0;
+                const p = parseInt(document.getElementById(`c1p${i}-p`).value) || 0;
+                const res = parseInt(document.getElementById(`c1p${i}-res`).value) || 0;
+                
+                if (pi === answers[i].pi && p === answers[i].p && res === answers[i].res) {
+                    let position = answers[i].key;
+                    if (position === 0) position = 20; // Special case for NH3
+                    positions.push(position);
+                    decodedWords.push(cipherDocument[position]);
+                    
+                    // Highlight the word
+                    const wordCell = document.getElementById(`word-${position}`);
+                    if (wordCell) wordCell.classList.add('highlight');
+                } else {
+                    correct = false;
+                    break;
+                }
+            }
+
+            const messageBox = document.getElementById('message-box');
+            const decodedBox = document.getElementById('decoded-message');
+
+            if (correct) {
+                messageBox.className = 'message-box success show';
+                messageBox.innerHTML = '<strong>✅ CIPHER DECODED!</strong><br>The leaked document reveals...';
+                
+                decodedBox.className = 'decoded-message show';
+                decodedBox.innerHTML = `"${decodedWords.join(' ').toUpperCase()}"<br><br>
+                    <em style="color: #ff6b6b;">Direct evidence of premeditated murder by AuRa House?<br>
+                    But who leaked this classified document?</em>`;
+            } else {
+                messageBox.className = 'message-box error show';
+                messageBox.innerHTML = '<strong>❌ INCORRECT</strong><br>Review your Lewis structures and orbital counting.';
+                decodedBox.classList.remove('show');
+            }
+        }
+
+        // Initialize on load
+        initializeWordGrid();
+    </script>
+</body>
+</html>
