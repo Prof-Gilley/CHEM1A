@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CACHE 2: The Molecular Angles</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #001a33 0%, #1a0011 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #e0e0e0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #00ffff;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #00ffff;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+        }
+
+        .subtitle {
+            color: #ffa500;
+            font-style: italic;
+            font-size: 1.2em;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .nav-btn {
+            background: rgba(0, 255, 255, 0.1);
+            border: 1px solid #00ffff;
+            color: #00ffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: rgba(0, 255, 255, 0.3);
+        }
+
+        .comm-log {
+            background: rgba(0, 50, 100, 0.2);
+            border: 2px solid #00ffff;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .timeline {
+            background: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #00ffff;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .timeline-entry {
+            margin: 20px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .timeline-entry::before {
+            content: '▪';
+            position: absolute;
+            left: 0;
+            color: #00ffff;
+            font-size: 1.2em;
+        }
+
+        .time-stamp {
+            color: #FFD700;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .heart-rate {
+            display: inline-block;
+            margin-left: 15px;
+            color: #ff6b6b;
+            font-size: 0.9em;
+            padding: 3px 10px;
+            background: rgba(255, 0, 0, 0.1);
+            border-radius: 15px;
+        }
+
+        .interference {
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 0, 0, 0.1) 10px,
+                rgba(255, 0, 0, 0.1) 20px
+            );
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-family: monospace;
+        }
+
+        .corrupted {
+            color: #ff0000;
+            text-decoration: line-through;
+            animation: glitch 2s infinite;
+        }
+
+        @keyframes glitch {
+            0%, 100% { text-shadow: 2px 0 red, -2px 0 cyan; }
+            50% { text-shadow: -2px 0 red, 2px 0 cyan; }
+        }
+
+        .problem {
+            background: rgba(50, 50, 50, 0.5);
+            border: 1px solid #666;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .problem h3 {
+            color: #00ffff;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        input[type="number"] {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #666;
+            color: #fff;
+            padding: 10px;
+            margin: 8px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            width: 120px;
+            font-size: 1.1em;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #00ffff;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+
+        .verify-btn {
+            background: linear-gradient(135deg, #00ffff, #0088ff);
+            color: #000;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 30px auto;
+            display: block;
+            transition: all 0.3s;
+        }
+
+        .verify-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+        }
+
+        .message-box {
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            display: none;
+            animation: slideIn 0.5s;
+        }
+
+        .message-box.success {
+            background: rgba(0, 100, 0, 0.3);
+            border: 2px solid #00ff00;
+        }
+
+        .message-box.error {
+            background: rgba(100, 0, 0, 0.3);
+            border: 2px solid #ff0000;
+        }
+
+        .message-box.show {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .decoded-timeline {
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+            display: none;
+        }
+
+        .decoded-timeline.show {
+            display: block;
+            animation: revealTimeline 2s;
+        }
+
+        @keyframes revealTimeline {
+            0% { opacity: 0; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .message-reveal {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid #00ffff;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #00ffff;
+            font-size: 1.1em;
+        }
+
+        .hint-box {
+            background: rgba(255, 165, 0, 0.1);
+            border-left: 3px solid orange;
+            padding: 15px;
+            margin: 20px 0;
+            color: #ffa500;
+        }
+
+        .lewis-hint {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #333;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #aaa;
+        }
+
+        .radan-message {
+            color: #ff6b6b;
+            font-style: italic;
+            background: rgba(100, 0, 0, 0.2);
+            padding: 10px;
+            border-radius: 5px;
+            margin: 5px 0;
+        }
+
+        .signal-status {
+            display: inline-block;
+            padding: 5px 15px;
+            background: rgba(255, 0, 0, 0.2);
+            border: 1px solid #ff0000;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-left: 10px;
+            color: #ff6b6b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>CACHE 2: THE MOLECULAR ANGLES</h1>
+            <div class="subtitle">"Every Bond Tells a Story"</div>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="cache1.html" class="nav-btn">← Cache 1</a>
+            <a href="aura_main.html" class="nav-btn">Back to Hub</a>
+            <a href="cache3.html" class="nav-btn">Cache 3 →</a>
+        </div>
+
+        <div class="comm-log">
+            <h2 style="color: #00ffff; margin-bottom: 15px;">📡 INTERCEPTED COMMUNICATION</h2>
+            <p><strong>AURA EMERGENCY COMMUNICATION PROTOCOL</strong></p>
+            <p>Status: ACTIVATED</p>
+            <p>Date: September 10-11, 2024</p>
+            <p>Time: 23:00 - 03:47</p>
+            <p>Encryption: Molecular Geometry Cipher Active</p>
+            <div style="margin-top: 15px; color: #ff6b6b;">
+                <p>⚠️ WARNING: Multiple unauthorized access attempts detected</p>
+                <p>⚠️ WARNING: External interference detected on primary channels</p>
+                <p>⚠️ WARNING: Biometric anomalies detected in all transmissions</p>
+            </div>
+        </div>
+
+        <div class="hint-box">
+            <strong>🔑 Decryption Key:</strong> Each molecular bond angle corresponds to a specific line number in the emergency communication log. Calculate the angles to reveal what AuRa was desperately trying to communicate that night.
+        </div>
+
+        <div class="timeline">
+            <h3 style="color: #00ffff; margin-bottom: 20px;">Timeline of Events (Partial - Decode to Complete)</h3>
+            
+            <div class="timeline-entry">
+                <span class="time-stamp">23:15</span> - AuRa sends warning to Radan
+                <span class="heart-rate">♥ BPM: 95 - ANXIOUS</span>
+            </div>
+            
+            <div class="timeline-entry">
+                <span class="time-stamp">23:16</span>
+                <span class="radan-message">Radan: "Wrong about who. Meeting them now. -D.R."</span>
+            </div>
+            
+            <div class="timeline-entry interference">
+                <span class="time-stamp">23:18</span> - <span class="corrupted">B̸a̷c̴k̶u̷p̴ ̵m̸e̴s̷s̷a̶g̷e̸ ̷d̴i̵s̸p̷▓̴t̸c̶h̷e̴d̷</span>
+                <span class="signal-status">SIGNAL INTERFERENCE</span>
+            </div>
+            
+            <div class="timeline-entry">
+                <span class="time-stamp">23:47</span> - AuRa racing to location
+                <span class="heart-rate">♥ BPM: 140 - EXTREME STRESS</span>
+            </div>
+            
+            <div class="timeline-entry">
+                <span class="time-stamp">23:48</span>
+                <span class="radan-message">Radan: "Too late. They're here. Not who we thought. -D.R."</span>
+            </div>
+            
+            <div class="timeline-entry">
+                <span class="time-stamp">00:30</span> - [ENCRYPTED - Decode to reveal]
+                <span class="heart-rate">♥ BPM: 155 - PANIC</span>
+            </div>
+            
+            <div class="timeline-entry">
+                <span class="time-stamp">00:31</span>
+                <span class="radan-message">Radan: "You were right. AsH. Always AsH. Tell every—" [MESSAGE TERMINATED]</span>
+            </div>
+            
+            <div class="timeline-entry interference">
+                <span class="time-stamp">00:35</span> - <span class="corrupted">E̷x̸t̶r̴a̸c̴t̷i̴o̸n̶ ̴t̶e̴▓̸▓̴ ̷d̴e̸p̴l̶o̸y̷e̴d̸ ̴t̷o̶ ̴l̶a̸b̴▓̷r̴a̶t̷o̶r̸▓̴</span>
+                <span class="signal-status">HEAVY INTERFERENCE</span>
+            </div>
+        </div>
+
+        <!-- Problems -->
+        <div class="problem">
+            <h3>1. H₂O (Water)</h3>
+            <div class="lewis-hint">2 bonding pairs, 2 lone pairs on oxygen. Bent molecular geometry.</div>
+            <div style="margin-top: 15px;">
+                Bond angle: <input type="number" id="c2p1" step="0.5" placeholder="Enter degrees"> degrees
+                <div id="c2p1-result" style="margin-top: 10px; color: #aaa;"></div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <h3>2. NH₃ (Ammonia)</h3>
+            <div class="lewis-hint">3 bonding pairs, 1 lone pair on nitrogen. Trigonal pyramidal geometry.</div>
+            <div style="margin-top: 15px;">
+                Bond angle: <input type="number" id="c2p2" step="0.5" placeholder="Enter degrees"> degrees
+                <div id="c2p2-result" style="margin-top: 10px; color: #aaa;"></div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <h3>3. CH₄ (Methane)</h3>
+            <div class="lewis-hint">4 bonding pairs, 0 lone pairs. Perfect tetrahedral geometry.</div>
+            <div style="margin-top: 15px;">
+                Bond angle: <input type="number" id="c2p3" step="0.5" placeholder="Enter degrees"> degrees
+                <div id="c2p3-result" style="margin-top: 10px; color: #aaa;"></div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <h3>4. BF₃ (Boron Trifluoride)</h3>
+            <div class="lewis-hint">3 bonding pairs, 0 lone pairs. Trigonal planar geometry.</div>
+            <div style="margin-top: 15px;">
+                Bond angle: <input type="number" id="c2p4" step="0.5" placeholder="Enter degrees"> degrees
+                <div id="c2p4-result" style="margin-top: 10px; color: #aaa;"></div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <h3>5. CO₂ (Carbon Dioxide)</h3>
+            <div class="lewis-hint">2 double bonds, 0 lone pairs on carbon. Linear geometry.</div>
+            <div style="margin-top: 15px;">
+                Bond angle: <input type="number" id="c2p5" step="0.5" placeholder="Enter degrees"> degrees
+                <div id="c2p5-result" style="margin-top: 10px; color: #aaa;"></div>
+            </div>
+        </div>
+
+        <button class="verify-btn" onclick="checkCache2()">DECODE TIMELINE</button>
+
+        <div class="message-box" id="message-box"></div>
+        <div class="decoded-timeline" id="decoded-timeline"></div>
+    </div>
+
+    <script>
+        const messages = {
+            104: "Warning sent to Radan - danger imminent",
+            107: "AuRa racing to safe house location",
+            109: "Evidence secured - Radan must be protected",
+            120: "LiFe compounds weaponized - all houses at risk",
+            180: "Conspiracy deeper than expected - trust no one"
+        };
+
+        function checkCache2() {
+            const answers = {
+                1: { angle: 104.5, tolerance: 1, line: 104 },  // H2O
+                2: { angle: 107, tolerance: 1, line: 107 },    // NH3
+                3: { angle: 109.5, tolerance: 1, line: 109 },  // CH4
+                4: { angle: 120, tolerance: 1, line: 120 },    // BF3
+                5: { angle: 180, tolerance: 1, line: 180 }     // CO2
+            };
+
+            let correct = true;
+            let decodedMessages = [];
+
+            for (let i = 1; i <= 5; i++) {
+                const input = parseFloat(document.getElementById(`c2p${i}`).value) || 0;
+                const expected = answers[i].angle;
+                const tolerance = answers[i].tolerance;
+                
+                if (Math.abs(input - expected) <= tolerance) {
+                    const line = answers[i].line;
+                    decodedMessages.push({ line, message: messages[line] });
+                    document.getElementById(`c2p${i}-result`).innerHTML = 
+                        `<span style="color: #00ff00;">✓ Line ${line} decoded</span>`;
+                } else {
+                    correct = false;
+                    document.getElementById(`c2p${i}-result`).innerHTML = 
+                        `<span style="color: #ff0000;">✗ Incorrect angle</span>`;
+                }
+            }
+
+            const messageBox = document.getElementById('message-box');
+            const decodedBox = document.getElementById('decoded-timeline');
+
+            if (correct) {
+                messageBox.className = 'message-box success show';
+                messageBox.innerHTML = '<strong>✅ TIMELINE RECONSTRUCTED!</strong><br>The truth emerges from the chaos...';
+                
+                decodedBox.className = 'decoded-timeline show';
+                decodedBox.innerHTML = `
+                    <h3 style="color: #FFD700; margin-bottom: 20px;">📝 COMPLETE TIMELINE REVEALED</h3>
+                    <div class="message-reveal">
+                        <strong style="color: #FFD700;">23:15</strong> - AuRa: "${messages[104]}"<br>
+                        <em>→ Radan: "Wrong about who. Meeting them now."</em><br><br>
+                        
+                        <strong style="color: #FFD700;">23:47</strong> - AuRa: "${messages[107]}"<br>
+                        <em>→ Radan: "Too late. They're here. Not who we thought."</em><br><br>
+                        
+                        <strong style="color: #FFD700;">00:30</strong> - AuRa: "${messages[109]}"<br>
+                        <em>→ Radan: "You were right. AsH. Always AsH. Tell every—" [TERMINATED]</em><br><br>
+                        
+                        <strong style="color: #FFD700;">02:15</strong> - AuRa: "${messages[120]}"<br><br>
+                        
+                        <strong style="color: #FFD700;">03:00</strong> - AuRa: "${messages[180]}"
+                    </div>
+                    <div style="margin-top: 25px; text-align: center; color: #ff6b6b; font-size: 1.2em;">
+                        <strong>The devastating truth:</strong><br>
+                        AuRa tried desperately to SAVE Radan, not kill him.<br>
+                        AsH House was monitoring everything, jamming communications, hunting him down.<br>
+                        <em>But why leave evidence that could expose them?</em>
+                    </div>`;
+            } else {
+                messageBox.className = 'message-box error show';
+                messageBox.innerHTML = '<strong>❌ INCORRECT</strong><br>Remember VSEPR theory. Lone pairs compress bond angles!';
+                decodedBox.classList.remove('show');
+            }
+        }
+    </script>
+</body>
+</html>
