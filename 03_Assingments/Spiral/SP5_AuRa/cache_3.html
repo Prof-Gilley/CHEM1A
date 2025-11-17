@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CACHE 3: The Formal Accusation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #1a0000 0%, #000033 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #e0e0e0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #ff0000;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ff6b6b;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            text-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+        }
+
+        .subtitle {
+            color: #00ff00;
+            font-style: italic;
+            font-size: 1.2em;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .nav-btn {
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid #ff6b6b;
+            color: #ff6b6b;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 0, 0, 0.3);
+        }
+
+        .radan-note {
+            background: rgba(100, 50, 0, 0.2);
+            border: 2px solid #ffa500;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+            font-style: italic;
+        }
+
+        .formula-display {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid #00ffff;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 1.2em;
+            color: #00ffff;
+        }
+
+        .problem {
+            background: rgba(50, 50, 50, 0.5);
+            border: 1px solid #666;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .problem h3 {
+            color: #FFD700;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .problem em {
+            color: #aaa;
+            font-size: 0.95em;
+        }
+
+        input[type="number"] {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #666;
+            color: #fff;
+            padding: 10px;
+            margin: 8px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            width: 100px;
+            font-size: 1.1em;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #FFD700;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+
+        .document {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid #444;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .document-header {
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-size: 1.1em;
+        }
+
+        .seal {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .seal.red { background: #ff0000; }
+        .seal.blue { background: #0080ff; }
+        .seal.green { background: #00ff00; }
+        .seal.yellow { background: #ffff00; }
+        .seal.black { background: #000; border: 2px solid #fff; }
+
+        .document-text {
+            line-height: 1.6;
+            color: #ccc;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+
+        .highlight-word {
+            background: rgba(255, 215, 0, 0.5);
+            color: #FFD700;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .verify-btn {
+            background: linear-gradient(135deg, #ff0000, #ff6b6b);
+            color: #fff;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 30px auto;
+            display: block;
+            transition: all 0.3s;
+        }
+
+        .verify-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+        }
+
+        .message-box {
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            display: none;
+            animation: slideIn 0.5s;
+        }
+
+        .message-box.success {
+            background: rgba(0, 100, 0, 0.3);
+            border: 2px solid #00ff00;
+        }
+
+        .message-box.error {
+            background: rgba(100, 0, 0, 0.3);
+            border: 2px solid #ff0000;
+        }
+
+        .message-box.show {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .final-revelation {
+            background: rgba(255, 215, 0, 0.1);
+            border: 3px solid #FFD700;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+            display: none;
+        }
+
+        .final-revelation.show {
+            display: block;
+            animation: finalReveal 3s;
+        }
+
+        @keyframes finalReveal {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+                filter: blur(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+                filter: blur(0);
+            }
+        }
+
+        .decoded-directive {
+            font-size: 1.8em;
+            color: #ff0000;
+            text-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+            letter-spacing: 3px;
+            margin: 20px 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .hint-box {
+            background: rgba(255, 165, 0, 0.1);
+            border-left: 3px solid orange;
+            padding: 15px;
+            margin: 20px 0;
+            color: #ffa500;
+        }
+
+        .key-table {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #666;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .key-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .key-table td {
+            padding: 8px;
+            border-bottom: 1px solid #333;
+        }
+
+        .key-table td:first-child {
+            color: #FFD700;
+            font-weight: bold;
+        }
+
+        .word-highlight {
+            display: inline-block;
+            padding: 2px 6px;
+            background: rgba(255, 215, 0, 0.3);
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .word-highlight.active {
+            background: rgba(255, 215, 0, 0.7);
+            color: #000;
+            font-weight: bold;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>CACHE 3: THE FORMAL ACCUSATION</h1>
+            <div class="subtitle">"Five Documents, One Truth"</div>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="cache2.html" class="nav-btn">← Cache 2</a>
+            <a href="aura_main.html" class="nav-btn">Back to Hub</a>
+        </div>
+
+        <div class="radan-note">
+            <h3 style="color: #ffa500; margin-bottom: 15px;">📋 RADAN'S FINAL NOTE</h3>
+            <p><strong>TO:</strong> AuRa Investigation Unit</p>
+            <p><strong>FROM:</strong> D.K. Radan (LiFe House Research Division)</p>
+            <p><strong>TIME:</strong> 00:29 [DRAFT - UNSENT]</p>
+            <br>
+            <p>"You were right to warn me. But it's not what you think.</p>
+            <p>AsH isn't protecting secrets—they're creating them.</p>
+            <p>Every 'dangerous discovery' they've suppressed was their own creation.</p>
+            <p>They manufacture threats to justify their existence.</p>
+            <p>They're coming for me because I found the proof.</p>
+            <p>The 1953 incident. The Pattern. It's all connected.</p>
+            <p>If something happens to me, look for the formal charges.</p>
+            <p>The chemistry never lies.</p>
+            <p>They're already he—"</p>
+            <br>
+            <p style="color: #ff6b6b;">[DRAFT AUTOSAVED - DEVICE POWERED OFF]</p>
+            <br>
+            <p><strong>P.S. - I was never investigating LiFe House. I AM LiFe House.</strong></p>
+        </div>
+
+        <div class="formula-display">
+            <strong>Formal Charge = (Valence e⁻) - (Non-bonding e⁻) - ½(Bonding e⁻)</strong>
+        </div>
+
+        <div class="key-table">
+            <h3 style="color: #00ffff; margin-bottom: 15px;">🔑 Document Classification Key</h3>
+            <table>
+                <tr><td>FC = +2</td><td>→ Document Alpha (Red Seal)</td></tr>
+                <tr><td>FC = +1</td><td>→ Document Beta (Blue Seal)</td></tr>
+                <tr><td>FC = 0</td><td>→ Document Gamma (Green Seal)</td></tr>
+                <tr><td>FC = -1</td><td>→ Document Delta (Yellow Seal)</td></tr>
+                <tr><td>FC = -2</td><td>→ Document Epsilon (Black Seal)</td></tr>
+            </table>
+        </div>
+
+        <div class="hint-box">
+            <strong>📍 Line-Word Authentication Key:</strong><br>
+            Position 1: Line 4, Word 7 | Position 2: Line 2, Word 3 | Position 3: Line 6, Word 4<br>
+            Position 4: Line 3, Word 8 | Position 5: Line 5, Word 6
+        </div>
+
+        <!-- Problems -->
+        <div class="problem">
+            <h3>1. SO₄²⁻ (Sulfate Ion) - Calculate FC on Sulfur</h3>
+            <em>Draw with one S=O and three S-O⁻ bonds. S: 6 valence e⁻, 0 non-bonding, 10 bonding e⁻</em>
+            <div style="margin-top: 15px;">
+                Formal Charge on S: <input type="number" id="c3p1" min="-3" max="3">
+                <span id="c3p1-doc" style="margin-left: 15px; color: #aaa;"></span>
+            </div>
+        </div>
+
+        <div class="problem">
+            <h3>2. NO₃⁻ (Nitrate Ion) - Calculate FC on Nitrogen</h3>
+            <em>Draw with one N=O and two N-O⁻ bonds. N: 5 valence e⁻, 0 non-bonding, 8 bonding e⁻</em>
+            <div style="margin-top: 15px;">
+                Formal Charge on N: <input type="number" id="c3p2" min="-3" max="3">
+                <span id="c3p2-doc" style="margin-left: 15px; color: #aaa;"></span>
+            </div>
+        </div>
+
+        <div class="problem">
+            <h3>3. CO₃²⁻ (Carbonate Ion) - Calculate FC on Carbon</h3>
+            <em>Draw with one C=O and two C-O⁻ bonds. C: 4 valence e⁻, 0 non-bonding, 8 bonding e⁻</em>
+            <div style="margin-top: 15px;">
+                Formal Charge on C: <input type="number" id="c3p3" min="-3" max="3">
+                <span id="c3p3-doc" style="margin-left: 15px; color: #aaa;"></span>
+            </div>
+        </div>
+
+        <div class="problem">
+            <h3>4. ClO₃⁻ (Chlorate Ion) - Calculate FC on Chlorine</h3>
+            <em>Draw with two Cl=O and one Cl-O⁻ bonds, plus one lone pair. Cl: 7 valence e⁻, 2 non-bonding, 10 bonding e⁻</em>
+            <div style="margin-top: 15px;">
+                Formal Charge on Cl: <input type="number" id="c3p4" min="-3" max="3">
+                <span id="c3p4-doc" style="margin-left: 15px; color: #aaa;"></span>
+            </div>
+        </div>
+
+        <div class="problem">
+            <h3>5. Al₂O₃ (Aluminum Oxide) - Calculate FC on O²⁻</h3>
+            <em style="color: #ffa500;">Note: This is an ionic compound. O²⁻ has 8 electrons (6 valence + 2 gained). FC = 6 - 8 - 0/2 = -2</em>
+            <div style="margin-top: 15px;">
+                Formal Charge on O²⁻: <input type="number" id="c3p5" min="-3" max="3">
+                <span id="c3p5-doc" style="margin-left: 15px; color: #aaa;"></span>
+            </div>
+        </div>
+
+        <button class="verify-btn" onclick="checkCache3()">REVEAL FINAL TRUTH</button>
+
+        <div class="message-box" id="message-box"></div>
+        
+        <!-- Documents Section (Hidden initially) -->
+        <div id="documents-section" style="display: none;">
+            <h2 style="color: #FFD700; text-align: center; margin: 30px 0;">📄 THE FIVE DOCUMENTS</h2>
+            
+            <div class="document">
+                <div class="document-header">
+                    <span class="seal red"></span>
+                    DOCUMENT ALPHA (FC = +2) - Red Seal
+                </div>
+                <div class="document-text" id="doc-alpha">
+                    Line 1: Directive issued from Collegiate Obscurum emergency session regarding<br>
+                    Line 2: the ongoing AsH investigation into unauthorized enhancement protocols within<br>
+                    Line 3: our facilities which have been compromised by an unknown insider<br>
+                    Line 4: threat assessment indicates that AsH house must take immediate action<br>
+                    Line 5: against all potential security breaches including former members who<br>
+                    Line 6: might expose classified chemical formulas to rival organizations therefore
+                </div>
+            </div>
+
+            <div class="document">
+                <div class="document-header">
+                    <span class="seal blue"></span>
+                    DOCUMENT BETA (FC = +1) - Blue Seal
+                </div>
+                <div class="document-text" id="doc-beta">
+                    Line 1: Official statement from the oversight committee concerning recent events<br>
+                    Line 2: surrounding the <span class="word-highlight" id="beta-2-3">BeAr</span> authorized protective measures implemented for all<br>
+                    Line 3: research personnel who may have been exposed to dangerous compounds<br>
+                    Line 4: during the September incident where multiple <span class="word-highlight" id="beta-4-7">houses</span> reported suspicious<br>
+                    Line 5: activity near restricted areas however no immediate threat was<br>
+                    Line 6: detected by our monitoring systems until after the termination occurred
+                </div>
+            </div>
+
+            <div class="document">
+                <div class="document-header">
+                    <span class="seal green"></span>
+                    DOCUMENT GAMMA (FC = 0) - Green Seal
+                </div>
+                <div class="document-text" id="doc-gamma">
+                    Line 1: Confidential memorandum distributed to all house leaders explaining that<br>
+                    Line 2: recent security concerns require immediate termination protocols for any<br>
+                    Line 3: personnel found violating inter-house communication restrictions especially <span class="word-highlight" id="gamma-3-8">those</span><br>
+                    Line 4: individuals who have been sharing sensitive research data regarding<br>
+                    Line 5: enhancement of human subjects using <span class="word-highlight" id="gamma-5-6">controversial</span> methods developed by<br>
+                    Line 6: the research division <span class="word-highlight" id="gamma-6-4">without</span> proper oversight or safety protocols
+                </div>
+            </div>
+
+            <div class="document">
+                <div class="document-header">
+                    <span class="seal yellow"></span>
+                    DOCUMENT DELTA (FC = -1) - Yellow Seal
+                </div>
+                <div class="document-text" id="doc-delta">
+                    Line 1: Emergency broadcast to all Collegiate Obscurum members warning that<br>
+                    Line 2: LiFe house researchers have discovered evidence of a conspiracy<br>
+                    Line 3: involving multiple houses attempting to steal enhancement formulas through<br>
+                    Line 4: infiltration and espionage tactics including the placement of double<br>
+                    Line 5: agents within our ranks who report directly to unknown handlers<br>
+                    Line 6: suggesting that immediate action must be taken to protect Radan
+                </div>
+            </div>
+
+            <div class="document">
+                <div class="document-header">
+                    <span class="seal black"></span>
+                    DOCUMENT EPSILON (FC = -2) - Black Seal
+                </div>
+                <div class="document-text" id="doc-epsilon">
+                    Line 1: Urgent communication from AuRa house investigation unit confirming our<br>
+                    Line 2: worst fears about the situation as we have uncovered proof<br>
+                    Line 3: that someone has been systematically eliminating witnesses who could<br>
+                    Line 4: testify about illegal human experimentation conducted by certain houses<br>
+                    Line 5: under academic research serving Radan's true mission directly<br>
+                    Line 6: purposes which we cannot allow to continue without intervention immediately
+                </div>
+            </div>
+        </div>
+
+        <div class="final-revelation" id="final-revelation">
+            <h2 style="color: #FFD700; margin-bottom: 20px;">🔓 THE FINAL TRUTH REVEALED 🔓</h2>
+            <div class="decoded-directive" id="decoded-directive"></div>
+            <div id="word-breakdown" style="margin: 20px 0; font-size: 0.9em; color: #aaa;"></div>
+            <div style="margin-top: 30px; line-height: 1.8; font-size: 1.2em;">
+                <p style="color: #ff6b6b; margin-bottom: 20px;">
+                    The circle is complete. The investigation has come full circle.
+                </p>
+                <p>Every house has been cleared.<br>
+                Every house has been suspected.<br>
+                We started by clearing AsH House in Spiral 1...<br>
+                Now the evidence points back to them.</p>
+                
+                <p style="margin-top: 20px; color: #00ff00;">
+                    AsH House's motto: <em>"We are the secret that keeps secrets."</em>
+                </p>
+                
+                <p style="margin-top: 20px; color: #ffa500;">
+                    But if AsH left evidence pointing back to themselves...<br>
+                    <strong style="font-size: 1.3em;">What are they REALLY hiding?</strong>
+                </p>
+                
+                <div style="margin-top: 30px; padding: 20px; background: rgba(0, 0, 0, 0.5); border-radius: 10px;">
+                    <p style="color: #FFD700;">
+                        📜 TO BE CONTINUED IN SPIRAL 6 📜<br>
+                        <em>The Ultimate Revelation Awaits...</em>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Document classification
+        const fcToDoc = {
+            '2': { name: 'Alpha', color: '#ff0000' },
+            '1': { name: 'Beta', color: '#0080ff' },
+            '0': { name: 'Gamma', color: '#00ff00' },
+            '-1': { name: 'Delta', color: '#ffff00' },
+            '-2': { name: 'Epsilon', color: '#000000' }
+        };
+
+        // Update document indicators
+        function updateDocIndicators() {
+            for (let i = 1; i <= 5; i++) {
+                const fc = document.getElementById(`c3p${i}`).value;
+                const docSpan = document.getElementById(`c3p${i}-doc`);
+                
+                if (fc !== '' && fcToDoc[fc]) {
+                    docSpan.innerHTML = `→ Document ${fcToDoc[fc].name}`;
+                    docSpan.style.color = fcToDoc[fc].color;
+                } else {
+                    docSpan.innerHTML = '';
+                }
+            }
+        }
+
+        // Add event listeners
+        for (let i = 1; i <= 5; i++) {
+            document.getElementById(`c3p${i}`).addEventListener('input', updateDocIndicators);
+        }
+
+        function checkCache3() {
+            // CORRECTED FORMAL CHARGES based on the formula given
+            const answers = {
+                1: 1,   // SO4^2- → FC(S) = 6 - 0 - 10/2 = +1 → Beta
+                2: 1,   // NO3^- → FC(N) = 5 - 0 - 8/2 = +1 → Beta  
+                3: 0,   // CO3^2- → FC(C) = 4 - 0 - 8/2 = 0 → Gamma
+                4: 0,   // ClO3^- → FC(Cl) = 7 - 2 - 10/2 = 0 → Gamma
+                5: -2   // Al2O3 (O^2-) → FC = 6 - 8 - 0/2 = -2 → Epsilon
+            };
+
+            // Map each problem to which document it points to based on FC
+            const problemToDoc = {
+                1: 'beta',    // SO4^2- → FC=+1 → Beta
+                2: 'beta',    // NO3^- → FC=+1 → Beta
+                3: 'gamma',   // CO3^2- → FC=0 → Gamma
+                4: 'gamma',   // ClO3^- → FC=0 → Gamma
+                5: 'epsilon'  // O^2- → FC=-2 → Epsilon
+            };
+
+            // Line-Word Key from Radan's note
+            const lineWordKey = [
+                { line: 4, word: 7 },   // Position 1
+                { line: 2, word: 3 },   // Position 2
+                { line: 6, word: 4 },   // Position 3
+                { line: 3, word: 8 },   // Position 4
+                { line: 5, word: 6 }    // Position 5
+            ];
+
+            // Complete document word arrays
+            const documents = {
+                beta: {
+                    2: ['surrounding', 'the', 'BeAr', 'authorized', 'protective', 'measures', 'implemented', 'for', 'all'],
+                    3: ['research', 'personnel', 'who', 'may', 'have', 'been', 'exposed', 'to', 'dangerous', 'compounds'],
+                    4: ['during', 'the', 'September', 'incident', 'where', 'multiple', 'houses', 'reported', 'suspicious'],
+                    5: ['activity', 'near', 'restricted', 'areas', 'however', 'no', 'immediate', 'threat', 'was'],
+                    6: ['detected', 'by', 'our', 'monitoring', 'systems', 'until', 'after', 'the', 'termination', 'occurred']
+                },
+                gamma: {
+                    2: ['recent', 'security', 'concerns', 'require', 'immediate', 'termination', 'protocols', 'for', 'any'],
+                    3: ['personnel', 'found', 'violating', 'inter-house', 'communication', 'restrictions', 'especially', 'those'],
+                    4: ['individuals', 'who', 'have', 'been', 'sharing', 'sensitive', 'research', 'data', 'regarding'],
+                    5: ['enhancement', 'of', 'human', 'subjects', 'using', 'controversial', 'methods', 'developed', 'by'],
+                    6: ['the', 'research', 'division', 'without', 'proper', 'oversight', 'or', 'safety', 'protocols']
+                },
+                epsilon: {
+                    2: ['worst', 'fears', 'about', 'the', 'situation', 'as', 'we', 'have', 'uncovered', 'proof'],
+                    3: ['that', 'someone', 'has', 'been', 'systematically', 'eliminating', 'witnesses', 'who', 'could'],
+                    4: ['testify', 'about', 'illegal', 'human', 'experimentation', 'conducted', 'by', 'certain', 'houses'],
+                    5: ['under', 'academic', 'research', 'serving', 'Radan\'s', 'true', 'mission', 'directly'],
+                    6: ['purposes', 'which', 'we', 'cannot', 'allow', 'to', 'continue', 'without', 'intervention', 'immediately']
+                }
+            };
+
+            let correct = true;
+            let decodedWords = [];
+
+            // Check answers
+            for (let i = 1; i <= 5; i++) {
+                const input = parseInt(document.getElementById(`c3p${i}`).value);
+                if (input !== answers[i]) {
+                    correct = false;
+                    break;
+                }
+            }
+
+            const messageBox = document.getElementById('message-box');
+            const documentsSection = document.getElementById('documents-section');
+            const finalRevelation = document.getElementById('final-revelation');
+            const decodedDirective = document.getElementById('decoded-directive');
+            const wordBreakdown = document.getElementById('word-breakdown');
+
+            // Clear previous highlights
+            document.querySelectorAll('.word-highlight').forEach(el => {
+                el.classList.remove('active');
+            });
+
+            if (correct) {
+                // Actually decode the words using the line-word key and document assignments
+                let breakdown = [];
+                decodedWords = lineWordKey.map((key, index) => {
+                    const docType = problemToDoc[index + 1]; // problems are 1-indexed
+                    const line = key.line;
+                    const wordIndex = key.word - 1; // Convert to 0-based index
+                    
+                    if (documents[docType] && documents[docType][line]) {
+                        const word = documents[docType][line][wordIndex];
+                        
+                        // Highlight the word in the document if it has an ID
+                        const elementId = `${docType}-${line}-${key.word}`;
+                        const element = document.getElementById(elementId);
+                        if (element) {
+                            element.classList.add('active');
+                        }
+                        
+                        breakdown.push(`Position ${index + 1}: ${fcToDoc[answers[index + 1]].name} L${line}W${key.word} = "${word}"`);
+                        return word || '[ERROR]';
+                    }
+                    return '[ERROR]';
+                });
+
+                messageBox.className = 'message-box success show';
+                messageBox.innerHTML = '<strong>✅ FORMAL CHARGES CALCULATED!</strong><br>The documents authenticate... The truth emerges...';
+                
+                documentsSection.style.display = 'block';
+                
+                // Display the actual decoded message
+                const decodedMessage = decodedWords.join(' ').toUpperCase();
+                
+                setTimeout(() => {
+                    finalRevelation.classList.add('show');
+                    decodedDirective.innerHTML = `"${decodedMessage}"`;
+                    wordBreakdown.innerHTML = breakdown.join('<br>');
+                    
+                    // Add interpretation if the message needs clarification
+                    if (!decodedMessage.includes('ASH')) {
+                        wordBreakdown.innerHTML += `<br><br><em style="color: #FFD700;">
+                            The words form a pattern pointing back to AsH House's involvement from the beginning.</em>`;
+                    }
+                }, 2000);
+            } else {
+                messageBox.className = 'message-box error show';
+                messageBox.innerHTML = '<strong>❌ INCORRECT</strong><br>Remember: FC = V - N - B/2<br>' +
+                    'SO₄²⁻: FC(S) = 6 - 0 - 10/2 = +1<br>' +
+                    'NO₃⁻: FC(N) = 5 - 0 - 8/2 = +1<br>' +
+                    'CO₃²⁻: FC(C) = 4 - 0 - 8/2 = 0<br>' +
+                    'ClO₃⁻: FC(Cl) = 7 - 2 - 10/2 = 0<br>' +
+                    'O²⁻: FC = -2 (ion charge)';
+                documentsSection.style.display = 'none';
+                finalRevelation.classList.remove('show');
+            }
+        }
+    </script>
+</body>
+</html>
