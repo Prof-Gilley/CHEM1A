@@ -99,6 +99,16 @@
             margin: 40px 0;
         }
 
+        .cache-link-wrapper {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .cache-link-wrapper:hover {
+            text-decoration: none;
+        }
+
         .cache-card {
             background: rgba(0, 0, 0, 0.9);
             border: 2px solid #666;
@@ -188,7 +198,6 @@
             display: inline-block;
             background: linear-gradient(135deg, #FFD700, #FFA500);
             color: #000;
-            text-decoration: none;
             padding: 15px 40px;
             font-size: 1.2em;
             font-weight: bold;
@@ -198,9 +207,10 @@
             width: 100%;
             border: none;
             cursor: pointer;
+            pointer-events: none; /* Prevent button from capturing clicks */
         }
 
-        .enter-btn:hover {
+        .cache-link-wrapper:hover .enter-btn {
             transform: scale(1.05);
             box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
         }
@@ -294,62 +304,78 @@
         </div>
 
         <div class="cache-grid">
-            <div class="cache-card">
-                <div class="cache-number">1</div>
-                <h3 class="cache-title">CACHE 1: THE DAMNING EVIDENCE</h3>
-                <p class="cache-subtitle">"Bonds, Orbitals, and Deception"</p>
-                <p class="cache-description">
-                    An anonymous leak contains an encrypted termination authorization. Use molecular cipher keys to decode the message that allegedly proves AuRa's guilt.
-                </p>
-                <div class="cache-topics">
-                    <ul class="topic-list">
-                        <li>π bonds and σ bonds</li>
-                        <li>Unhybridized p orbitals</li>
-                        <li>Resonance structures</li>
-                        <li>Hybridization states</li>
-                    </ul>
+            <!-- CACHE 1 -->
+            <a href="https://prof-gilley.github.io/CHEM1A/03_Assingments/Spiral/SP5_AuRa/cache_1.html" 
+               class="cache-link-wrapper">
+                <div class="cache-card">
+                    <div class="cache-number">1</div>
+                    <h3 class="cache-title">CACHE 1: THE DAMNING EVIDENCE</h3>
+                    <p class="cache-subtitle">"Bonds, Orbitals, and Deception"</p>
+                    <p class="cache-description">
+                        An anonymous leak contains an encrypted termination authorization. 
+                        Use molecular cipher keys to decode the message that allegedly 
+                        proves AuRa's guilt.
+                    </p>
+                    <div class="cache-topics">
+                        <ul class="topic-list">
+                            <li>π bonds and σ bonds</li>
+                            <li>Unhybridized p orbitals</li>
+                            <li>Resonance structures</li>
+                            <li>Hybridization states</li>
+                        </ul>
+                    </div>
+                    <div class="enter-btn">ENTER CACHE 1</div>
+                    <div class="status-indicator">ACCESSIBLE</div>
                 </div>
-                <a href="https://prof-gilley.github.io/CHEM1A/03_Assingments/Spiral/SP5_AuRa/cache_3.html" class="enter-btn">ENTER CACHE 1</a>
-                <div class="status-indicator">ACCESSIBLE</div>
-            </div>
+            </a>
 
-            <div class="cache-card">
-                <div class="cache-number">2</div>
-                <h3 class="cache-title">CACHE 2: THE MOLECULAR ANGLES</h3>
-                <p class="cache-subtitle">"Every Bond Tells a Story"</p>
-                <p class="cache-description">
-                    AuRa's emergency communications were intercepted. Decode the timeline using molecular bond angles to discover what really happened that night.
-                </p>
-                <div class="cache-topics">
-                    <ul class="topic-list">
-                        <li>VSEPR theory</li>
-                        <li>Molecular geometry</li>
-                        <li>Bond angles</li>
-                        <li>Lone pair effects</li>
-                    </ul>
+            <!-- CACHE 2 -->
+            <a href="https://prof-gilley.github.io/CHEM1A/03_Assingments/Spiral/SP5_AuRa/cache_2.html" 
+               class="cache-link-wrapper">
+                <div class="cache-card">
+                    <div class="cache-number">2</div>
+                    <h3 class="cache-title">CACHE 2: THE MOLECULAR ANGLES</h3>
+                    <p class="cache-subtitle">"Every Bond Tells a Story"</p>
+                    <p class="cache-description">
+                        AuRa's emergency communications were intercepted. Decode the timeline 
+                        using molecular bond angles to discover what really happened that night.
+                    </p>
+                    <div class="cache-topics">
+                        <ul class="topic-list">
+                            <li>VSEPR theory</li>
+                            <li>Molecular geometry</li>
+                            <li>Bond angles</li>
+                            <li>Lone pair effects</li>
+                        </ul>
+                    </div>
+                    <div class="enter-btn">ENTER CACHE 2</div>
+                    <div class="status-indicator">ACCESSIBLE</div>
                 </div>
-                <a href="cache2.html" class="enter-btn">ENTER CACHE 2</a>
-                <div class="status-indicator">ACCESSIBLE</div>
-            </div>
+            </a>
 
-            <div class="cache-card">
-                <div class="cache-number">3</div>
-                <h3 class="cache-title">CACHE 3: THE FORMAL ACCUSATION</h3>
-                <p class="cache-subtitle">"Five Documents, One Truth"</p>
-                <p class="cache-description">
-                    Five sealed documents hold the final truth. Calculate formal charges to identify which words reveal the true directive behind everything.
-                </p>
-                <div class="cache-topics">
-                    <ul class="topic-list">
-                        <li>Formal charge calculations</li>
-                        <li>Polyatomic ions</li>
-                        <li>Ionic compounds</li>
-                        <li>Document authentication</li>
-                    </ul>
+            <!-- CACHE 3 -->
+            <a href="https://prof-gilley.github.io/CHEM1A/03_Assingments/Spiral/SP5_AuRa/cache_3.html" 
+               class="cache-link-wrapper">
+                <div class="cache-card">
+                    <div class="cache-number">3</div>
+                    <h3 class="cache-title">CACHE 3: THE FORMAL ACCUSATION</h3>
+                    <p class="cache-subtitle">"Five Documents, One Truth"</p>
+                    <p class="cache-description">
+                        Five sealed documents hold the final truth. Calculate formal charges 
+                        to identify which words reveal the true directive behind everything.
+                    </p>
+                    <div class="cache-topics">
+                        <ul class="topic-list">
+                            <li>Formal charge calculations</li>
+                            <li>Polyatomic ions</li>
+                            <li>Ionic compounds</li>
+                            <li>Document authentication</li>
+                        </ul>
+                    </div>
+                    <div class="enter-btn">ENTER CACHE 3</div>
+                    <div class="status-indicator">ACCESSIBLE</div>
                 </div>
-                <a href="cache3.html" class="enter-btn">ENTER CACHE 3</a>
-                <div class="status-indicator">ACCESSIBLE</div>
-            </div>
+            </a>
         </div>
 
         <div class="footer">
