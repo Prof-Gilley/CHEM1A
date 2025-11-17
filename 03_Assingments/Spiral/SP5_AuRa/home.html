@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLASSIFIED: AuRa House Investigation Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #1a0033 0%, #330011 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #e0e0e0;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(255, 215, 0, 0.03) 2px,
+                    rgba(255, 215, 0, 0.03) 4px
+                );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 3px solid #FFD700;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+            animation: goldPulse 3s infinite;
+        }
+
+        @keyframes goldPulse {
+            0%, 100% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.3); }
+            50% { box-shadow: 0 0 50px rgba(255, 215, 0, 0.5); }
+        }
+
+        h1 {
+            font-size: 2.8em;
+            color: #FFD700;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            letter-spacing: 3px;
+        }
+
+        .subtitle {
+            color: #ff6b6b;
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .warning {
+            background: rgba(255, 0, 0, 0.2);
+            border-left: 4px solid #ff0000;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            animation: warningFlash 2s infinite;
+        }
+
+        @keyframes warningFlash {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .cache-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .cache-card {
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #666;
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cache-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .cache-card:hover::before {
+            opacity: 1;
+        }
+
+        .cache-card:hover {
+            transform: translateY(-10px);
+            border-color: #FFD700;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .cache-number {
+            font-size: 3em;
+            color: #FFD700;
+            opacity: 0.3;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-weight: bold;
+        }
+
+        .cache-title {
+            font-size: 1.5em;
+            color: #00ffff;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cache-subtitle {
+            color: #ffa500;
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+
+        .cache-description {
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: #e0e0e0;
+        }
+
+        .cache-topics {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .topic-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .topic-list li {
+            padding: 5px 0;
+            color: #aaa;
+        }
+
+        .topic-list li::before {
+            content: '⚗️ ';
+            margin-right: 10px;
+        }
+
+        .enter-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000;
+            text-decoration: none;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: all 0.3s;
+            text-align: center;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+        }
+
+        .enter-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .status-indicator {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-top: 10px;
+            background: #333;
+            color: #FFD700;
+            border: 1px solid #FFD700;
+        }
+
+        .intro-section {
+            background: rgba(0, 50, 100, 0.2);
+            border: 2px solid #00ffff;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .intro-section h2 {
+            color: #00ffff;
+            margin-bottom: 20px;
+        }
+
+        .evidence-preview {
+            background: rgba(100, 0, 0, 0.1);
+            border-left: 3px solid #ff6b6b;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.7);
+            border-top: 2px solid #FFD700;
+        }
+
+        .footer p {
+            color: #999;
+            margin-bottom: 10px;
+        }
+
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+
+        .scanline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(transparent, rgba(255, 215, 0, 0.5), transparent);
+            animation: scanline 8s linear infinite;
+            pointer-events: none;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div class="scanline"></div>
+    <div class="container">
+        <div class="header">
+            <h1>🔐 SPIRAL 5: AURA HOUSE INVESTIGATION 🔐</h1>
+            <div class="subtitle">"Every Bond Tells a Story, Every Orbital Holds a Secret"</div>
+            <div class="warning">
+                <strong>⚠️ CLASSIFIED INVESTIGATION ⚠️</strong><br>
+                Your own house is under suspicion. Trust no one.<br>
+                Three caches of evidence await your analysis.
+            </div>
+        </div>
+
+        <div class="intro-section">
+            <h2>📋 BRIEFING</h2>
+            <p>Four hours after Radan's death, encrypted documents have surfaced implicating AuRa House in his murder. As members of AuRa House, you must use your chemistry knowledge to decode these documents and uncover the truth.</p>
+            
+            <div class="evidence-preview">
+                "Every house has been cleared. Every house has been suspected.<br>
+                The investigation has come full circle..."
+            </div>
+
+            <p><strong>Your Mission:</strong> Navigate through three caches of evidence using molecular chemistry to reveal who truly orchestrated Radan's fate.</p>
+        </div>
+
+        <div class="cache-grid">
+            <div class="cache-card">
+                <div class="cache-number">1</div>
+                <h3 class="cache-title">CACHE 1: THE DAMNING EVIDENCE</h3>
+                <p class="cache-subtitle">"Bonds, Orbitals, and Deception"</p>
+                <p class="cache-description">
+                    An anonymous leak contains an encrypted termination authorization. Use molecular cipher keys to decode the message that allegedly proves AuRa's guilt.
+                </p>
+                <div class="cache-topics">
+                    <ul class="topic-list">
+                        <li>π bonds and σ bonds</li>
+                        <li>Unhybridized p orbitals</li>
+                        <li>Resonance structures</li>
+                        <li>Hybridization states</li>
+                    </ul>
+                </div>
+                <a href="cache1.html" class="enter-btn">ENTER CACHE 1</a>
+                <div class="status-indicator">ACCESSIBLE</div>
+            </div>
+
+            <div class="cache-card">
+                <div class="cache-number">2</div>
+                <h3 class="cache-title">CACHE 2: THE MOLECULAR ANGLES</h3>
+                <p class="cache-subtitle">"Every Bond Tells a Story"</p>
+                <p class="cache-description">
+                    AuRa's emergency communications were intercepted. Decode the timeline using molecular bond angles to discover what really happened that night.
+                </p>
+                <div class="cache-topics">
+                    <ul class="topic-list">
+                        <li>VSEPR theory</li>
+                        <li>Molecular geometry</li>
+                        <li>Bond angles</li>
+                        <li>Lone pair effects</li>
+                    </ul>
+                </div>
+                <a href="cache2.html" class="enter-btn">ENTER CACHE 2</a>
+                <div class="status-indicator">ACCESSIBLE</div>
+            </div>
+
+            <div class="cache-card">
+                <div class="cache-number">3</div>
+                <h3 class="cache-title">CACHE 3: THE FORMAL ACCUSATION</h3>
+                <p class="cache-subtitle">"Five Documents, One Truth"</p>
+                <p class="cache-description">
+                    Five sealed documents hold the final truth. Calculate formal charges to identify which words reveal the true directive behind everything.
+                </p>
+                <div class="cache-topics">
+                    <ul class="topic-list">
+                        <li>Formal charge calculations</li>
+                        <li>Polyatomic ions</li>
+                        <li>Ionic compounds</li>
+                        <li>Document authentication</li>
+                    </ul>
+                </div>
+                <a href="cache3.html" class="enter-btn">ENTER CACHE 3</a>
+                <div class="status-indicator">ACCESSIBLE</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>ALL CACHES ARE ACCESSIBLE FOR INVESTIGATION</p>
+            <p style="color: #FFD700;">Complete all three to reveal the full truth</p>
+            <p style="font-size: 0.9em; color: #666;">Collegiate Obscurum Protocol 247 | Classification: EYES ONLY</p>
+        </div>
+    </div>
+</body>
+</html>
