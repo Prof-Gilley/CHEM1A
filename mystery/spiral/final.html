@@ -1,0 +1,2137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Initiation Trial — Collegiate Obscurum</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a12;
+            --bg-card: #12121c;
+            --bg-input: #1a1a28;
+            --border: #2a2a3a;
+            --text: #d0d0d8;
+            --text-dim: #808090;
+            --accent-red: #ff4757;
+            --accent-teal: #4ecdc4;
+            --accent-gold: #f7b731;
+            --accent-purple: #9b59b6;
+            --accent-blue: #3498db;
+            --success: #2ecc71;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier Prime', monospace;
+            background: var(--bg-dark);
+            color: var(--text);
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(ellipse at top, #1a1a2e 0%, transparent 50%),
+                radial-gradient(ellipse at bottom, #0f0f1e 0%, transparent 50%);
+        }
+
+        /* Confetti Canvas */
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* Header */
+        .main-header {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(180deg, rgba(20,20,35,0.9) 0%, transparent 100%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .main-header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5em;
+            color: var(--accent-gold);
+            text-shadow: 0 0 30px rgba(247, 183, 49, 0.3);
+            letter-spacing: 4px;
+            margin-bottom: 8px;
+        }
+
+        .main-header .subtitle {
+            font-size: 1.1em;
+            color: var(--text-dim);
+            letter-spacing: 2px;
+        }
+
+        /* Progress Tracker */
+        .progress-container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .progress-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .progress-bar::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--border);
+            transform: translateY(-50%);
+            z-index: 0;
+        }
+
+        .progress-fill {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            height: 2px;
+            background: var(--accent-teal);
+            transform: translateY(-50%);
+            z-index: 1;
+            transition: width 0.5s ease;
+            box-shadow: 0 0 10px var(--accent-teal);
+        }
+
+        .progress-station {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9em;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .progress-station.complete {
+            background: var(--accent-teal);
+            border-color: var(--accent-teal);
+            color: var(--bg-dark);
+        }
+
+        .progress-station.active {
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 15px rgba(247, 183, 49, 0.5);
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 0 20px;
+            justify-content: center;
+        }
+
+        .nav-tab {
+            padding: 12px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-dim);
+            cursor: pointer;
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.9em;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-tab:hover {
+            border-color: var(--accent-gold);
+            color: var(--text);
+        }
+
+        .nav-tab.active {
+            background: var(--accent-gold);
+            color: var(--bg-dark);
+            border-color: var(--accent-gold);
+            font-weight: bold;
+        }
+
+        .nav-tab.complete {
+            background: rgba(78, 205, 196, 0.15);
+            border-color: var(--accent-teal);
+            color: var(--accent-teal);
+        }
+
+        .nav-tab.complete.active {
+            background: var(--accent-teal);
+            color: var(--bg-dark);
+        }
+
+        /* Content Container */
+        .content-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 25px;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .card-icon {
+            font-size: 1.8em;
+        }
+
+        .card-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4em;
+            color: var(--accent-gold);
+        }
+
+        .card-subtitle {
+            font-size: 0.9em;
+            color: var(--text-dim);
+        }
+
+        /* Station Headers */
+        .station-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .station-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8em;
+            color: var(--accent-red);
+            margin-bottom: 8px;
+        }
+
+        .station-header .house-name {
+            font-size: 1.1em;
+            color: var(--accent-teal);
+            margin-bottom: 5px;
+        }
+
+        .station-header .elements {
+            font-size: 0.9em;
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
+        /* Why This Matters Box */
+        .context-box {
+            background: rgba(255, 71, 87, 0.08);
+            border-left: 3px solid var(--accent-red);
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .context-box h3 {
+            color: var(--accent-red);
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+
+        .context-box p {
+            line-height: 1.7;
+            color: var(--text-dim);
+        }
+
+        /* Task Cards */
+        .task-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            transition: border-color 0.3s ease;
+        }
+
+        .task-card.correct {
+            border-color: var(--success);
+        }
+
+        .task-header {
+            background: rgba(0,0,0,0.3);
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .task-number {
+            font-family: 'Cinzel', serif;
+            color: var(--accent-gold);
+            font-size: 1.1em;
+        }
+
+        .task-type {
+            font-size: 0.85em;
+            color: var(--text-dim);
+        }
+
+        .task-status {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .task-status.correct {
+            background: var(--success);
+            border-color: var(--success);
+            color: var(--bg-dark);
+        }
+
+        .task-body {
+            padding: 20px;
+        }
+
+        .briefing {
+            background: rgba(0,0,0,0.2);
+            border-left: 2px solid var(--accent-purple);
+            padding: 15px;
+            margin-bottom: 20px;
+            font-style: italic;
+            color: var(--text-dim);
+            line-height: 1.6;
+        }
+
+        .task-prompt {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .task-prompt strong {
+            color: var(--accent-teal);
+        }
+
+        /* Reference Tables */
+        .reference-box {
+            background: rgba(52, 152, 219, 0.08);
+            border: 1px solid rgba(52, 152, 219, 0.3);
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .reference-box h4 {
+            color: var(--accent-blue);
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+
+        .reference-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85em;
+        }
+
+        .reference-table th,
+        .reference-table td {
+            padding: 8px 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .reference-table th {
+            color: var(--accent-blue);
+        }
+
+        /* Input Fields */
+        .answer-row {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .answer-input {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 15px;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            color: var(--text);
+            font-family: 'Courier Prime', monospace;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+
+        .answer-input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+
+        .answer-input.correct {
+            border-color: var(--success);
+            background: rgba(46, 204, 113, 0.1);
+        }
+
+        .check-btn {
+            padding: 12px 24px;
+            background: var(--accent-teal);
+            border: none;
+            border-radius: 4px;
+            color: var(--bg-dark);
+            font-family: 'Courier Prime', monospace;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .check-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+        }
+
+        .check-btn:disabled {
+            background: var(--border);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .feedback {
+            margin-top: 12px;
+            padding: 10px 15px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            display: none;
+        }
+
+        .feedback.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .feedback.success {
+            background: rgba(46, 204, 113, 0.15);
+            border: 1px solid var(--success);
+            color: var(--success);
+        }
+
+        .feedback.error {
+            background: rgba(255, 71, 87, 0.15);
+            border: 1px solid var(--accent-red);
+            color: var(--accent-red);
+        }
+
+        /* Station Progress */
+        .station-progress {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .station-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .station-dot.complete {
+            background: var(--success);
+            box-shadow: 0 0 10px var(--success);
+        }
+
+        /* Checksum Box */
+        .checksum-box {
+            background: rgba(247, 183, 49, 0.1);
+            border: 2px solid var(--accent-gold);
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .checksum-box h3 {
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+            font-family: 'Cinzel', serif;
+        }
+
+        .checksum-display {
+            font-size: 2em;
+            font-weight: bold;
+            color: var(--accent-teal);
+            margin: 15px 0;
+        }
+
+        /* Revelation Content */
+        .revelation-text {
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .revelation-text p {
+            margin-bottom: 15px;
+        }
+
+        .highlight-name {
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+
+        .passed-banner {
+            text-align: center;
+            padding: 20px;
+            background: rgba(46, 204, 113, 0.1);
+            border: 2px solid var(--success);
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+
+        .passed-banner h3 {
+            color: var(--success);
+            font-family: 'Cinzel', serif;
+            font-size: 1.5em;
+        }
+
+        /* Instructions List */
+        .instructions-list {
+            list-style: none;
+            counter-reset: instructions;
+        }
+
+        .instructions-list li {
+            counter-increment: instructions;
+            padding: 12px 0;
+            padding-left: 45px;
+            position: relative;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .instructions-list li::before {
+            content: counter(instructions);
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 28px;
+            height: 28px;
+            background: var(--accent-gold);
+            color: var(--bg-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.85em;
+        }
+
+        /* Station Table */
+        .station-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .station-table th,
+        .station-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .station-table th {
+            color: var(--accent-gold);
+            font-weight: normal;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            letter-spacing: 1px;
+        }
+
+        .station-table .status-cell {
+            text-align: center;
+        }
+
+        /* Oath Section */
+        .oath-box {
+            background: rgba(155, 89, 182, 0.08);
+            border: 1px solid var(--accent-purple);
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        .oath-box h3 {
+            color: var(--accent-purple);
+            font-family: 'Cinzel', serif;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .oath-list {
+            list-style: none;
+        }
+
+        .oath-list li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+            color: var(--text-dim);
+        }
+
+        .oath-list li::before {
+            content: '⚗';
+            position: absolute;
+            left: 0;
+        }
+
+        /* Quote */
+        .closing-quote {
+            text-align: center;
+            padding: 30px;
+            font-style: italic;
+            color: var(--text-dim);
+            border-top: 1px solid var(--border);
+            margin-top: 30px;
+        }
+
+        .closing-quote .author {
+            color: var(--accent-gold);
+            margin-top: 15px;
+            font-style: normal;
+            font-weight: bold;
+        }
+
+        /* Completion Banner */
+        .completion-banner {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(46, 204, 113, 0.15) 0%, rgba(78, 205, 196, 0.15) 100%);
+            border: 2px solid var(--success);
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+
+        .completion-banner.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .completion-banner h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--success);
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .completion-banner p {
+            color: var(--text);
+            font-size: 1.1em;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .main-header h1 {
+                font-size: 1.8em;
+            }
+            
+            .nav-tabs {
+                gap: 5px;
+            }
+            
+            .nav-tab {
+                padding: 10px 12px;
+                font-size: 0.8em;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+            
+            .answer-row {
+                flex-direction: column;
+            }
+            
+            .answer-input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="confetti-canvas"></canvas>
+
+    <header class="main-header">
+        <h1>THE INITIATION TRIAL</h1>
+        <p class="subtitle">Collegiate Obscurum — Final Rite of Passage</p>
+    </header>
+
+    <div class="progress-container">
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+            <div class="progress-station" data-station="1">1</div>
+            <div class="progress-station" data-station="2">2</div>
+            <div class="progress-station" data-station="3">3</div>
+            <div class="progress-station" data-station="4">4</div>
+            <div class="progress-station" data-station="5">5</div>
+        </div>
+    </div>
+
+    <nav class="nav-tabs">
+        <button class="nav-tab active" data-tab="cover">Cover Sheet</button>
+        <button class="nav-tab" data-tab="station1">Station 1: AsH</button>
+        <button class="nav-tab" data-tab="station2">Station 2: BeAr</button>
+        <button class="nav-tab" data-tab="station3">Station 3: CoIn</button>
+        <button class="nav-tab" data-tab="station4">Station 4: LiFe</button>
+        <button class="nav-tab" data-tab="station5">Station 5: AuRa</button>
+        <button class="nav-tab" data-tab="oath">Oath</button>
+    </nav>
+
+    <main class="content-container">
+        <!-- COVER SHEET -->
+        <section class="tab-content active" id="cover">
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-icon">📜</span>
+                    <div>
+                        <div class="card-title">THE FINAL REVELATION</div>
+                        <div class="card-subtitle">Official Induction Document</div>
+                    </div>
+                </div>
+                
+                <div class="revelation-text">
+                    <p>You have uncovered the truth.</p>
+                    
+                    <p>D.K. Radan never died. The body in the chemistry building, the impossible temperature readings, the mysterious disappearance from the morgue—all of it was orchestrated. An elaborate performance designed by the five houses of Collegiate Obscurum working in perfect harmony.</p>
+                    
+                    <p>The man you knew as D.K. Radan is <span class="highlight-name">Dan Kwasniewski</span>—chemistry educator, architect of impossible puzzles, and Grand Proctor of the Collegiate Obscurum recruitment initiative.</p>
+                    
+                    <p>Every clue you followed was placed intentionally. Every house you investigated, every chemical cipher you decoded, every calculation you performed—all of it was a test. Not of your knowledge alone, but of your persistence, your collaboration, and your ability to see truth hidden within complexity.</p>
+                    
+                    <p>The five houses were never enemies. The accusations, the evidence, the suspicion—theater designed to assess how you think, how you work under pressure, and where your values lie.</p>
+                </div>
+                
+                <div class="passed-banner">
+                    <h3>YOU PASSED.</h3>
+                </div>
+                
+                <p class="revelation-text">Your performance throughout the semester has demonstrated the qualities Collegiate Obscurum seeks: analytical precision, ethical reasoning, collaborative problem-solving, and an unwavering commitment to uncovering truth through chemistry.</p>
+                
+                <p class="revelation-text"><strong>But one trial remains.</strong></p>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-icon">⚗️</span>
+                    <div>
+                        <div class="card-title">THE INITIATION TRIAL</div>
+                        <div class="card-subtitle">Prove mastery of the five chemical disciplines</div>
+                    </div>
+                </div>
+                
+                <table class="station-table">
+                    <thead>
+                        <tr>
+                            <th>Station</th>
+                            <th>Discipline</th>
+                            <th>House Guardian</th>
+                            <th class="status-cell">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td><strong>Nomenclature</strong> — The Language of Secrets</td>
+                            <td>AsH House</td>
+                            <td class="status-cell"><span id="cover-status-1">⬜</span></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><strong>Gas Laws</strong> — The Atmospheric Protocols</td>
+                            <td>BeAr House</td>
+                            <td class="status-cell"><span id="cover-status-2">⬜</span></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td><strong>Thermochemistry</strong> — The Energy Archives</td>
+                            <td>CoIn House</td>
+                            <td class="status-cell"><span id="cover-status-3">⬜</span></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td><strong>Stoichiometry</strong> — The Precise Formulations</td>
+                            <td>LiFe House</td>
+                            <td class="status-cell"><span id="cover-status-4">⬜</span></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td><strong>IMF & Geometry</strong> — The Structural Revelations</td>
+                            <td>AuRa House</td>
+                            <td class="status-cell"><span id="cover-status-5">⬜</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-icon">📋</span>
+                    <div>
+                        <div class="card-title">INSTRUCTIONS</div>
+                    </div>
+                </div>
+                
+                <ol class="instructions-list">
+                    <li><strong>Work as a team.</strong> Each station has 6 problems—assign one "lead" per problem, but collaborate on all solutions.</li>
+                    <li><strong>Show your work.</strong> Chemistry rewards precision. Calculate carefully.</li>
+                    <li><strong>Verify before moving on.</strong> Enter your answers in the fields provided. Stations 2, 3, & 4 use checksums.</li>
+                    <li><strong>Record your motto word.</strong> After completing a station, the Proctor will give you one word of your house motto.</li>
+                    <li><strong>Complete all five stations.</strong> Your house motto—and your induction—depends on it.</li>
+                    <li><strong>First house to complete all stations wins.</strong> But every house that finishes earns their place in Collegiate Obscurum.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- STATION 1: AsH NOMENCLATURE -->
+        <section class="tab-content" id="station1">
+            <div class="station-header">
+                <h2>STATION 1: THE CIPHER PROTOCOL</h2>
+                <div class="house-name">AsH House — Keepers of Dangerous Secrets</div>
+                <div class="elements">Arsenic (33) + Helium (2)</div>
+            </div>
+
+            <div class="station-progress">
+                <div class="station-dot" id="s1-dot-1"></div>
+                <div class="station-dot" id="s1-dot-2"></div>
+                <div class="station-dot" id="s1-dot-3"></div>
+                <div class="station-dot" id="s1-dot-4"></div>
+                <div class="station-dot" id="s1-dot-5"></div>
+                <div class="station-dot" id="s1-dot-6"></div>
+            </div>
+
+            <div class="context-box">
+                <h3>☠️ WHY THIS MATTERS TO AsH HOUSE</h3>
+                <p>In AsH House, we guard dangerous knowledge through precise language. A single misnamed compound can expose a hidden formula or compromise decades of protected research. When we encode our secrets, we use the universal language of chemistry—ionic, molecular, acidic. Our enemies study the same nomenclature rules you do. The difference? We never make mistakes.</p>
+                <p style="margin-top: 12px;"><strong>Prove you can speak our language without error.</strong></p>
+            </div>
+
+            <!-- Task 1 -->
+            <div class="task-card" id="s1-task-1">
+                <div class="task-header">
+                    <div>
+                        <div class="task-number">DECRYPTION TASK 1</div>
+                        <div class="task-type">Ionic Compound — Simple Binary</div>
+                    </div>
+                    <div class="task-status" id="s1-status-1"></div>
+                </div>
+                <div class="task-body">
+                    <div class="briefing">
+                        "The dead drop coordinates are encoded in the shipment manifest. Look for the calcium phosphate order—the quantity in kilograms gives the latitude, the delivery date gives the longitude. AsH operatives have used this compound for decades because its formula requires understanding polyatomic ions. Only trained chemists can read our messages."
+                    </div>
+                    <div class="task-prompt">
+                        An AsH encoded message references <strong>calcium phosphate</strong>. To decode the coordinates, you must first verify you know the correct formula.
+                        <br><br><strong>Write the chemical formula for calcium phosphate.</strong>
+                    </div>
+                    <div class="answer-row">
+                        <input type="text" class="answer-input" id="s1-answer-1" placeholder="Enter formula...">
+                        <button class="check-btn" onclick="checkAnswer(1, 1)">CHECK</button>
+                    </div>
+                    <div class="feedback" id="s1-feedback-1"></div>
+                </div>
+            </div>
+
+            <!-- Task 2 -->
+            <div class="task-card" id="s1-task-2">
+                <div class="task-header">
+                    <div>
+                        <div class="task-number">DECRYPTION TASK 2</div>
+                        <div class="task-type">Ionic Compound — Variable Charge Metal</div>
+                    </div>
+                    <div class="task-status" id="s1-status-2"></div>
+                </div>
+                <div class="task-body">
+                    <div class="briefing">
+                        "Residue sample collected from the chemistry building basement, September 10, 2024, 23:47. Initial analysis reveals a rust-colored powder coating the ventilation shaft. Composition confirmed as Fe₂O₃. This compound's presence suggests recent high-temperature oxidation—someone was burning iron-containing materials."
+                    </div>
+                    <div class="task-prompt">
+                        The forensic team has identified the formula. To file the evidence correctly in AsH archives, you must provide the systematic name—including the Roman numeral indicating iron's oxidation state.
+                        <br><br><strong>Name the compound Fe₂O₃.</strong>
+                    </div>
+                    <div class="answer-row">
+                        <input type="text" class="answer-input" id="s1-answer-2" placeholder="Enter name...">
+                        <button class="check-btn" onclick="checkAnswer(1, 2)">CHECK</button>
+                    </div>
+                    <div class="feedback" id="s1-feedback-2"></div>
+                </div>
+            </div>
+
+            <!-- Task 3 -->
+            <div class="task-card" id="s1-task-3">
+                <div class="task-header">
+                    <div>
+                        <div class="task-number">DECRYPTION TASK 3</div>
+                        <div class="task-type">Molecular Compound — Nonmetal + Nonmetal</div>
+                    </div>
+                    <div class="task-status" id="s1-status-3"></div>
+                </div>
+                <div class="task-body">
+                    <div class="briefing">
+                        "...the destabilization protocol requires precise atmospheric control. Introduce dinitrogen pentoxide to the sealed chamber at exactly 0.3 atm partial pressure. WARNING: This compound is highly unstable and will decompose rapidly above 33°C. The fact that both elements are nonmetals means standard ionic naming rules DO NOT APPLY—use Greek prefixes..."
+                    </div>
+                    <div class="task-prompt">
+                        AsH operatives recovered this fragment from a destroyed hard drive. The compound mentioned is critical to understanding the Protocol, but our archival system requires formulas, not names.
+                        <br><br><strong>Write the chemical formula for dinitrogen pentoxide.</strong>
+                    </div>
+                    <div class="answer-row">
+                        <input type="text" class="answer-input" id="s1-answer-3" placeholder="Enter formula...">
+                        <button class="check-btn" onclick="checkAnswer(1, 3)">CHECK</button>
+                    </div>
+                    <div class="feedback" id="s1-feedback-3"></div>
+                </div>
+            </div>
+
+            <!-- Task 4 -->
+            <div class="task-card" id="s1-task-4">
+                <div class="task-header">
+                    <div>
+                        <div class="task-number">DECRYPTION TASK 4</div>
+                        <div class="task-type">Binary Acid — Hydrogen + Nonmetal</div>
+                    </div>
+                    <div class="task-status" id="s1-status-4"></div>
+                </div>
+                <div class="task-body">
+                    <div class="briefing">
+                        "Atmospheric sensors in Radan's laboratory triggered at 03:22 on September 11. Compound detected: H₂S in aqueous vapor form. Concentration: 12 ppm (above OSHA threshold of 10 ppm). This is the same toxic gas responsible for the 'rotten egg' smell reported by first responders. When dissolved in water, it forms a weak acid that we must name according to binary acid nomenclature rules—the 'hydro-___-ic acid' pattern."
+                    </div>
+                    <div class="task-prompt">
+                        The incident report uses the molecular formula, but AsH safety protocols require the acid name for proper hazard classification.
+                        <br><br><strong>Name the compound H₂S(aq) using acid nomenclature.</strong>
+                    </div>
+                    <div class="answer-row">
+                        <input type="text" class="answer-input" id="s1-answer-4" placeholder="Enter acid name...">
+                        <button class="check-btn" onclick="checkAnswer(1, 4)">CHECK</button>
+                    </div>
+                    <div class="feedback" id="s1-feedback-4"></div>
+                </div>
+            </div>
+
+            <!-- Task 5 -->
+            <div class="task-card" id="s1-task-5">
+                <div class="task-header">
+                    <div>
+                        <div class="task-number">DECRYPTION TASK 5</div>
+                        <div class="task-type">Oxyacid — Hydrogen + Polyatomic Ion</div>
+                    </div>
+                    <div class="task-status" id="s1-status-5"></div>
+                </div>
+                <div class="task-body">
+                    <div class="briefing">
+                        "Phase 3 requires phosphoric acid as the primary buffer system. This compound is essential—its three ionizable hydrogens provide the pH stability necessary for biological preservation. Do not substitute with phosphorous acid (note the spelling difference)—the '-ic' ending indicates the polyatomic ion with MORE oxygen atoms."
+                    </div>
+                    <div class="task-prompt">
+                        The Protocol file references the acid by name, but AsH chemical requisitions require the formula. Remember: phosphoric acid contains the phosphate ion (PO₄³⁻), which has MORE oxygen than phosphite.
+                        <br><br><strong>Write the chemical formula for phosphoric acid.</strong>
+                    </div>
+                    <div class="answer-row">
+                        <input type="text" class="answer-input" id="s1-answer-5" placeholder="Enter formula...">
+                        <button class="check-btn" onclick="checkAnswer(1, 5)">CHECK</button>
+                    </div>
+                    <div class="feedback" id="s1-feedback-5"></div>
+                </div>
+            </div>
+
+            <!-- Task 6 -->
+            <div class="task-card" id="s1-task-6">
+                <div class="task-header">
+                    <div>
+                        <div class="task-number">DECRYPTION TASK 6</div>
+                        <div class="task-type">Ionic Compound — Polyatomic Ions</div>
+                    </div>
+                    <div class="task-status" id="s1-status-6"></div>
+                </div>
+                <div class="task-body">
+                    <div class="briefing">
+                        "Flagged shipment to Fresno distribution center: 2,400 kg (NH₄)₂SO₄, labeled as agricultural fertilizer. Cover story is plausible—this compound IS commonly used in agriculture. However, the recipient address traces to a Collegiate Obscurum front company. Both ions in this compound are polyatomic: a nitrogen-hydrogen cation and a sulfur-oxygen anion."
+                    </div>
+                    <div class="task-prompt">
+                        AsH intelligence has intercepted this manifest. To cross-reference with our database of known Protocol materials, we need the common chemical name.
+                        <br><br><strong>Name the compound (NH₄)₂SO₄.</strong>
+                    </div>
+                    <div class="answer-row">
+                        <input type="text" class="answer-input" id="s1-answer-6" placeholder="Enter name...">
+                        <button class="check-btn" onclick="checkAnswer(1, 6)">CHECK</button>
+                    </div>
+                    <div class="feedback" id="s1-feedback-6"></div>
+                </div>
+            </div>
+
+            <div class="completion-banner" id="s1-complete">
+                <h2>✓ STATION 1 COMPLETE</h2>
+                <p>Report to the Proctor for your first motto word.</p>
+            </div>
+        </section>
+
+        <!-- STATION 2: BeAr GAS LAWS -->
+        <section class="tab-content" id="station2">
+            <div class="station-header">
+                <h2>STATION 2: THE ATMOSPHERIC PROTOCOLS</h2>
+                <div class="house-name">BeAr House — Protective Guardians</div>
+                <div class="elements">Beryllium (4) + Argon (18)</div>
+            </div>
+
+            <div class="station-progress">
+                <div class="station-dot" id="s2-dot-1"></div>
+                <div class="station-dot" id="s2-dot-2"></div>
+                <div class="station-dot" id="s2-dot-3"></div>
+                <div class="station-dot" id="s2-dot-4"></div>
+                <div class="station-dot" id="s2-dot-5"></div>
+                <div class="station-dot" id="s2-dot-6"></div>
+            </div>
+
+            <div class="context-box">
+                <h3>🛡️ WHY THIS MATTERS TO BeAr HOUSE</h3>
+                <p>BeAr House has prevented seventeen laboratory disasters in the past decade alone—incidents that never made the news because we contained them before they became catastrophes. Every intervention required split-second calculations: How fast is that gas expanding? What pressure will rupture that vessel? How long until the atmosphere becomes toxic?</p>
+                <p style="margin-top: 12px;">We don't guess. We calculate. PV=nRT isn't just an equation—it's the difference between a controlled environment and a body count.</p>
+                <p style="margin-top: 12px;"><strong>Prove you can execute calculations under pressure.</strong></p>
+            </div>
+
+            <div class="reference-box">
+                <h4>📋 REFERENCE DATA</h4>
+                <table class="reference-table">
+                    <tr><th>Constant</th><th>Value</th></tr>
+                    <tr><td>R (gas constant)</td><td>0.0821 L·atm/(mol·K)</td></tr>
+                    <tr><td>Molar Volume at STP</td><td>22.4 L/mol</td></tr>
+                    <tr><td>STP Conditions</td><td>1 atm, 273 K</td></tr>
+                </table>
+                <table class="reference-table" style="margin-top: 15px;">
+                    <tr><th>Substance</th><th>Molar Mass (g/mol)</th></tr>
+                    <tr><td>O₂</td><td>32.00</td></tr>
+                    <tr><td>N₂</td><td>28.02</td></tr>
+                    <tr><td>CO₂</td><td>44.01</td></tr>
+                    <tr><td>NH₃</td><td>17.03</td></tr>
+                    <tr><td>Cl₂</td><td>70.90</td></tr>
+                </table>
+            </div>
+
+            <!-- Task 1 -->
+            <div class="task-card" id="s2-task-1">
+                <div class="task-header">
+                    <div>
+                        <div class="task-number">CONTAINMENT TASK 1</div>
+                        <div class="task-type">Ideal Gas Law — Pressure Calculation</div>
+                    </div>
+                    <div class="task-status" id="s2-status-1"></div>
+                </div>
+                <div class="task-body">
+                    <div class="briefing">
+                        "BeAr Team Seven, we have a situation in Lab 247-B. The previous occupant sealed the chamber before evacuation and we need to verify internal pressure before breach. Sensors indicate 2.50 moles of an unknown gas mixture in the 15.0 L chamber. Thermal imaging shows internal temperature has stabilized at 298 K."
+                    </div>
+                    <div class="task-prompt">
+                        <strong>Given:</strong> n = 2.50 mol, V = 15.0 L, T = 298 K, R = 0.0821 L·atm/(mol·K)
+                        <br><br><strong>Calculate the pressure in atm.</strong>
+                    </div>
+                    <div class="answer-row">
+                        <input type="number" step="0.01" class="answer-input" id="s2-answer-1" placeholder="Enter pressure (atm)...">
+                        <button class="check-btn" onclick="checkAnswer(2, 1)">CHECK</button>
+                    </div>
+                    <div class="feedback" id="s2-feedback-1"></div>
+                </div>
+            </div>
+
+            <!-- Task 2 -->
+            <div class="task-card" id="s2-task-2">
+                <div class="task-header">
+                    <div>
+                        <div class="task-number">CONTAINMENT TASK 2</div>
+                        <div class="task-type">Combined Gas Law — Volume Change</div>
+                    </div>
+                    <div class="task-status" id="s2-status-2"></div>
+                </div>
+                <div class="task-body">
+                    <div class="briefing">
+                        "The mobile containment unit recovered from Radan's laboratory contains a gaseous sample critical to the Protocol investigation. Initial readings when sealed: 1.20 atm, 3.00 L, 280 K. For transport to the secure archive, we must compress the vessel to 2.50 atm while heating to 350 K to prevent condensation."
+                    </div>
+                    <div class="task-prompt">
+                        <strong>Given:</strong> P₁ = 1.20 atm, V₁ = 3.00 L, T₁ = 280 K → P₂ = 2.50 atm, T₂ = 350 K
+                        <br><br><strong>Calculate the final volume in L.</strong>
+                    </div>
+                    <div class="answer-row">
+                        <input type="number" step="0.01" class="answer-input" id="s2-answer-2" placeholder="Enter volume (L)...">
+                        <button class="check-btn" onclick="checkAnswer(2, 2)">CHECK</button>
+                    </div>
+                    <div class="feedback" id="s2-feedback-2"></div>
+                </div>
+            </div>
+
+            <!-- Task 3 -->
+            <div class="task-card" id="s2-task-3">
+                <div class="task-header">
+                    <div>
+                        <div class="task-number">CONTAINMENT TASK 3</div>
+                        <div class="task-type">STP Molar Volume — Mass to Volume</div>
+                    </div>
+                    <div class="task-status" id="s2-status-3"></div>
+                </div>
+                <div class="task-body">
+                    <div class="briefing">
+                        "Building evacuation is complete, but we have three BeAr operatives still working in the sealed east wing. Their portable oxygen supply failed and they're relying on the emergency O₂ canister. The canister contains 64.0 g of compressed oxygen. Work fast—their lives depend on your calculation."
+                    </div>
+                    <div class="task-prompt">
+                        <strong>Given:</strong> Mass of O₂ = 64.0 g, Molar mass = 32.00 g/mol, Molar volume at STP = 22.4 L/mol
+                        <br><br><strong>Calculate the volume of O₂ at STP in L.</strong>
+                    </div>
+                    <div class="answer-row">
+                        <input type="number" step="0.01" class="answer-input" id="s2-answer-3" placeholder="Enter volume (L)...">
+                        <button class="check-btn" onclick="checkAnswer(2, 3)">CHECK</button>
+                    </div>
+                    <div class="feedback" id="s2-feedback-3"></div>
+                </div>
+            </div>
+
+            <!-- Task 4 -->
+            <div class="task-card" id="s2-task-4">
+                <div class="task-header">
+                    <div>
+                        <div class="task-number">CONTAINMENT TASK 4</div>
+                        <div class="task-type">Dalton's Law — Partial Pressure</div>
+                    </div>
+                    <div class="task-status" id="s2-status-4"></div>
+                </div>
+                <div class="task-body">
+                    <div class="briefing">
+                        "The sealed chamber where Radan's body was found maintained an artificial atmosphere. The mixture contains 0.40 mol N₂ and 0.10 mol O₂, with a total pressure of 2.00 atm. We need to know the partial pressure of oxygen in that chamber."
+                    </div>
+                    <div class="task-prompt">
+                        <strong>Given:</strong> n(N₂) = 0.40 mol, n(O₂) = 0.10 mol, P(total) = 2.00 atm
+                        <br><br><strong>Calculate the partial pressure of O₂ in atm.</strong>
+                    </div>
+                    <div class="answer-row">
+                        <input type="number" step="0.01" class="answer-input" id="s2-answer-4" placeholder="Enter partial pressure (atm)...">
+                        <button class="check-btn" onclick="checkAnswer(2, 4)">CHECK</button>
+                    </div>
+                    <div class="feedback" id="s2-feedback-4"></div>
+                </div>
+            </div>
+
+            <!-- Task 5 -->
+            <div class="task-card" id="s2-task-5">
+                <div class="task-header">
+                    <div>
+                        <div class="task-number">CONTAINMENT TASK 5</div>
+                        <div class="task-type">Gas Density — Identifying Accumulation Zones</div>
+                    </div>
+                    <div class="task-status" id="s2-status-5"></div>
+                </div>
+                <div class="task-body">
+                    <div class="briefing">
+                        "We've detected CO₂ accumulation in the sub-basement—likely from dry ice sublimation used to preserve... something. Carbon dioxide is denser than air, which means it pools in low areas. Current conditions: 1.25 atm pressure, 310 K temperature."
+                    </div>
+                    <div class="task-prompt">
+                        <strong>Given:</strong> P = 1.25 atm, T = 310 K, M(CO₂) = 44.01 g/mol, R = 0.0821 L·atm/(mol·K)
+                        <br><strong>Formula:</strong> d = PM/RT
+                        <br><br><strong>Calculate the density of CO₂ in g/L.</strong>
+                    </div>
+                    <div class="answer-row">
+                        <input type="number" step="0.01" class="answer-input" id="s2-answer-5" placeholder="Enter density (g/L)...">
+                        <button class="check-btn" onclick="checkAnswer(2, 5)">CHECK</button>
+                    </div>
+                    <div class="feedback" id="s2-feedback-5"></div>
+                </div>
+            </div>
+
+            <!-- Task 6 -->
+            <div class="task-card" id="s2-task-6">
+                <div class="task-header">
+                    <div>
+                        <div class="task-number">CONTAINMENT TASK 6</div>
+                        <div class="task-type">Graham's Law — Effusion Rate Comparison</div>
+                    </div>
+                    <div class="task-status" id="s2-status-6"></div>
+                </div>
+                <div class="task-body">
+                    <div class="briefing">
+                        "Worst case scenario: the laboratory's ammonia (NH₃) line and chlorine (Cl₂) cylinder both rupture simultaneously. Both gases are toxic, but they move at different rates. We need to know HOW much faster NH₃ effuses so we can time our evacuation corridors."
+                    </div>
+                    <div class="task-prompt">
+                        <strong>Given:</strong> M(NH₃) = 17.03 g/mol, M(Cl₂) = 70.90 g/mol
+                        <br><strong>Formula:</strong> r₁/r₂ = √(M₂/M₁)
+                        <br><br><strong>Calculate the ratio r(NH₃)/r(Cl₂).</strong>
+                    </div>
+                    <div class="answer-row">
+                        <input type="number" step="0.01" class="answer-input" id="s2-answer-6" placeholder="Enter ratio...">
+                        <button class="check-btn" onclick="checkAnswer(2, 6)">CHECK</button>
+                    </div>
+                    <div class="feedback" id="s2-feedback-6"></div>
+                </div>
+            </div>
+
+            <div class="checksum-box">
+                <h3>📢 CHECKSUM</h3>
+                <p>Add all six numerical answers together:</p>
+                <div class="checksum-display" id="s2-checksum">—</div>
+                <p style="color: var(--text-dim); font-size: 0.9em;">Target checksum: <strong>55.28</strong></p>
+            </div>
+
+            <div class="completion-banner" id="s2-complete">
+                <h2>✓ STATION 2 COMPLETE</h2>
+                <p>Report to the Proctor for your second motto word.</p>
+            </div>
+        </section>
+
+        <!-- STATION 3: CoIn THERMOCHEMISTRY -->
+        <section class="tab-content" id="station3">
+            <div class="station-header">
+                <h2>STATION 3: THE ENERGY ARCHIVES</h2>
+                <div class="house-name">CoIn House — Collectors & Preservers</div>
+                <div class="elements">Cobalt (27) + Indium (49)</div>
+            </div>
+
+            <div class="station-progress">
+                <div class="station-dot" id="s3-dot-1"></div>
+                <div class="station-dot" id="s3-dot-2"></div>
+                <div class="station-dot" id="s3-dot-3"></div>
+                <div class="station-dot" id="s3-dot-4"></div>
+                <div class="station-dot" id="s3-dot-5"></div>
+                <div class="station-dot" id="s3-dot-6"></div>
+            </div>
+
+            <div class="context-box">
+                <h3>📚 WHY THIS MATTERS TO CoIn HOUSE</h3>
+                <p>CoIn House has preserved chemical knowledge for over seventy years. Our archives contain reaction data, enthalpy values, and calorimetric records that exist nowhere else on Earth. But preservation isn't passive—it requires understanding exactly how energy flows through chemical systems.</p>
+                <p style="margin-top: 12px;">Energy cannot be created or destroyed, only transformed. We track every joule.</p>
+                <p style="margin-top: 12px;"><strong>Demonstrate that you understand where energy goes and where it comes from.</strong></p>
+            </div>
+
+            <div class="reference-box">
+                <h4>📋 REFERENCE DATA</h4>
+                <table class="reference-table">
+                    <tr><th>Constant</th><th>Value</th></tr>
+                    <tr><td>Specific heat of water (c)</td><td>4.184 J/(g·°C)</td></tr>
+                    <tr><td>Specific heat of copper (c)</td><td>0.385 J/(g·°C)</td></tr>
+                </table>
+                <table class="reference-table" style="margin-top: 15px;">
+                    <tr><th>Substance</th><th>Molar Mass</th><th>ΔH combustion</th></tr>
+                    <tr><td>CH₄</td><td>16.04 g/mol</td><td>-890.4 kJ/mol</td></tr>
+                    <tr><td>C₂H₅OH</td><td>46.07 g/mol</td><td>-1367 kJ/mol</td></tr>
+                </table>
+                <p style="margin-top: 10px; font-size: 0.9em;"><strong>Key Equations:</strong> q = mcΔT, q = nΔH</p>
+            </div>
+
+            <!-- Task 1 -->
+            <div class="task-card" id="s3-task-1">
+                <div class="task-header">
+                    <div>
+                        <div class="task-number">ARCHIVE TASK 1</div>
+                        <div class="task-type">Heat Capacity — Temperature Regulation Failure</div>
+                    </div>
+                    <div class="task-status" id="s3-status-1"></div>
+                </div>
+                <div class="task-body">
+                    <div class="briefing">
+                        "At 03:47 this morning, the climate control system in Archive Wing 7 failed. The wing contains irreplaceable Protocol documents. The thermal regulation tank contains 250.0 g of water, and temperature logs show it rose from 22.0°C to 45.0°C before stabilization."
+                    </div>
+                    <div class="task-prompt">
+                        <strong>Given:</strong> m = 250.0 g, T₁ = 22.0°C, T₂ = 45.0°C, c = 4.184 J/(g·°C)
+                        <br><br><strong>Calculate the heat absorbed (q) in kJ.</strong>
+                    </div>
+                    <div class="answer-row">
+                        <input type="number" step="0.01" class="answer-input" id="s3-answer-1" placeholder="Enter heat (kJ)...">
+                        <button class="check-btn" onclick="checkAnswer(3, 1)">CHECK</button>
+                    </div>
+                    <div class="feedback" id="s3-feedback-1"></div>
+                </div>
+            </div>
+
+            <!-- Task 2 -->
+            <div class="task-card" id="s3-task-2">
+                <div class="task-header">
+                    <div>
+                        <div class="task-number">ARCHIVE TASK 2</div>
+                        <div class="task-type">Heat Transfer — Artifact Recovery</div>
+                    </div>
+                    <div class="task-status" id="s3-status-2"></div>
+                </div>
+                <div class="task-body">
+                    <div class="briefing">
+                        "CoIn recovery team extracted a copper artifact from the ruins of the East Laboratory fire. The artifact—a custom-machined reaction vessel—was recovered at 250.0°C. We immersed the 150.0 g copper vessel in water initially at 20.0°C."
+                    </div>
+                    <div class="task-prompt">
+                        <strong>Given:</strong> m = 150.0 g copper, T₁ = 250.0°C, T₂ = 20.0°C, c = 0.385 J/(g·°C)
+                        <br><br><strong>Calculate the heat lost by the copper (q) in kJ.</strong>
+                    </div>
+                    <div class="answer-row">
+                        <input type="number" step="0.01" class="answer-input" id="s3-answer-2" placeholder="Enter heat (kJ)...">
+                        <button class="check-btn" onclick="checkAnswer(3, 2)">CHECK</button>
+                    </div>
+                    <div class="feedback" id="s3-feedback-2"></div>
+                </div>
+            </div>
+
+            <!-- Task 3 -->
+            <div class="task-card" id="s3-task-3">
+                <div class="task-header">
+                    <div>
+                        <div class="task-number">ARCHIVE TASK 3</div>
+                        <div class="task-type">Molar Enthalpy — Energy Signature Analysis</div>
+                    </div>
+                    <div class="task-status" id="s3-status-3"></div>
+                </div>
+                <div class="task-body">
+                    <div class="briefing">
+                        "The energy signature detected at the Radan crime scene matches the combustion profile of methane. Our archived data indicates CH₄ combustion releases 890.4 kJ per mole. Atmospheric analysis suggests approximately 0.500 mol of methane was combusted on the night of September 10th."
+                    </div>
+                    <div class="task-prompt">
+                        <strong>Given:</strong> n = 0.500 mol CH₄, ΔH = -890.4 kJ/mol
+                        <br><br><strong>Calculate the magnitude of heat released in kJ. (Report as positive value)</strong>
+                    </div>
+                    <div class="answer-row">
+                        <input type="number" step="0.01" class="answer-input" id="s3-answer-3" placeholder="Enter heat (kJ)...">
+                        <button class="check-btn" onclick="checkAnswer(3, 3)">CHECK</button>
+                    </div>
+                    <div class="feedback" id="s3-feedback-3"></div>
+                </div>
+            </div>
+
+            <!-- Task 4 -->
+            <div class="task-card" id="s3-task-4">
+                <div class="task-header">
+                    <div>
+                        <div class="task-number">ARCHIVE TASK 4</div>
+                        <div class="task-type">Coffee Cup Calorimetry — Reconstructing the Experiment</div>
+                    </div>
+                    <div class="task-status" id="s3-status-4"></div>
+                </div>
+                <div class="task-body">
+                    <div class="briefing">
+                        "We're reconstructing Radan's final experiment. One entry describes a neutralization reaction: 50.0 mL of 2.0 M HCl mixed with 50.0 mL of 2.0 M NaOH in a coffee cup calorimeter. His notes indicate the temperature rose by 13.7°C."
+                    </div>
+                    <div class="task-prompt">
+                        <strong>Given:</strong> Total mass = 100.0 g, ΔT = 13.7°C, c = 4.184 J/(g·°C)
+                        <br><br><strong>Calculate the heat released (q) in kJ.</strong>
+                    </div>
+                    <div class="answer-row">
+                        <input type="number" step="0.01" class="answer-input" id="s3-answer-4" placeholder="Enter heat (kJ)...">
+                        <button class="check-btn" onclick="checkAnswer(3, 4)">CHECK</button>
+                    </div>
+                    <div class="feedback" id="s3-feedback-4"></div>
+                </div>
+            </div>
+
+            <!-- Task 5 -->
+            <div class="task-card" id="s3-task-5">
+                <div class="task-header">
+                    <div>
+                        <div class="task-number">ARCHIVE TASK 5</div>
+                        <div class="task-type">Hess's Law — Reconstructing Fragmented Data</div>
+                    </div>
+                    <div class="task-status" id="s3-status-5"></div>
+                </div>
+                <div class="task-body">
+                    <div class="briefing">
+                        "A fire in the East Wing destroyed primary records for several important reaction enthalpies. However, CoIn never truly loses data—we reconstruct it from related records. Using Hess's Law, we can reconstruct the lost value."
+                    </div>
+                    <div class="task-prompt">
+                        <strong>Given Reactions:</strong><br>
+                        Reaction 1: N₂(g) + O₂(g) → 2NO(g) &nbsp; ΔH₁ = +180.6 kJ<br>
+                        Reaction 2: 2NO(g) + O₂(g) → 2NO₂(g) &nbsp; ΔH₂ = -113.2 kJ<br><br>
+                        <strong>Target:</strong> N₂(g) + 2O₂(g) → 2NO₂(g) &nbsp; ΔH = ?
+                        <br><br><strong>Calculate ΔH for the target reaction in kJ.</strong>
+                    </div>
+                    <div class="answer-row">
+                        <input type="number" step="0.01" class="answer-input" id="s3-answer-5" placeholder="Enter ΔH (kJ)...">
+                        <button class="check-btn" onclick="checkAnswer(3, 5)">CHECK</button>
+                    </div>
+                    <div class="feedback" id="s3-feedback-5"></div>
+                </div>
+            </div>
+
+            <!-- Task 6 -->
+            <div class="task-card" id="s3-task-6">
+                <div class="task-header">
+                    <div>
+                        <div class="task-number">ARCHIVE TASK 6</div>
+                        <div class="task-type">Combustion Enthalpy — Energy Audit</div>
+                    </div>
+                    <div class="task-status" id="s3-status-6"></div>
+                </div>
+                <div class="task-body">
+                    <div class="briefing">
+                        "Inventory discrepancy detected: 10.0 g of ethanol (C₂H₅OH) is missing from the Protocol laboratory supplies. If this ethanol was combusted—whether as part of an experiment or to destroy evidence—we need to know exactly how much energy was released."
+                    </div>
+                    <div class="task-prompt">
+                        <strong>Given:</strong> m = 10.0 g, M = 46.07 g/mol, ΔH = -1367 kJ/mol
+                        <br><br><strong>Calculate the magnitude of heat released in kJ. (Report as positive value)</strong>
+                    </div>
+                    <div class="answer-row">
+                        <input type="number" step="0.01" class="answer-input" id="s3-answer-6" placeholder="Enter heat (kJ)...">
+                        <button class="check-btn" onclick="checkAnswer(3, 6)">CHECK</button>
+                    </div>
+                    <div class="feedback" id="s3-feedback-6"></div>
+                </div>
+            </div>
+
+            <div class="checksum-box">
+                <h3>📢 CHECKSUM</h3>
+                <p>Add all six numerical answers together:</p>
+                <div class="checksum-display" id="s3-checksum">—</div>
+                <p style="color: var(--text-dim); font-size: 0.9em;">Target checksum: <strong>852.41</strong></p>
+            </div>
+
+            <div class="completion-banner" id="s3-complete">
+                <h2>✓ STATION 3 COMPLETE</h2>
+                <p>Report to the Proctor for your third motto word.</p>
+            </div>
+        </section>
+
+        <!-- STATION 4: LiFe STOICHIOMETRY -->
+        <section class="tab-content" id="station4">
+            <div class="station-header">
+                <h2>STATION 4: THE PRECISE FORMULATIONS</h2>
+                <div class="house-name">LiFe House — Betterment of Lives</div>
+                <div class="elements">Lithium (3) + Iron (26)</div>
+            </div>
+
+            <div class="station-progress">
+                <div class="station-dot" id="s4-dot-1"></div>
+                <div class="station-dot" id="s4-dot-2"></div>
+                <div class="station-dot" id="s4-dot-3"></div>
+                <div class="station-dot" id="s4-dot-4"></div>
+                <div class="station-dot" id="s4-dot-5"></div>
+                <div class="station-dot" id="s4-dot-6"></div>
+            </div>
+
+            <div class="context-box">
+                <h3>💊 WHY THIS MATTERS TO LiFe HOUSE</h3>
+                <p>In LiFe House, we develop treatments that save lives. But medicine is unforgiving—too little of a compound and it's ineffective, too much and it's poison. The margin between therapeutic dose and lethal dose is measured in milligrams, calculated through stoichiometry.</p>
+                <p style="margin-top: 12px;">Every gram matters. Every mole counts. Lives depend on your calculations being correct.</p>
+                <p style="margin-top: 12px;"><strong>Show us you have the precision to work where errors cost lives.</strong></p>
+            </div>
+
+            <div class="reference-box">
+                <h4>📋 REFERENCE DATA</h4>
+                <table class="reference-table">
+                    <tr><th>Substance</th><th>Molar Mass (g/mol)</th></tr>
+                    <tr><td>H₂</td><td>2.02</td></tr>
+                    <tr><td>N₂</td><td>28.02</td></tr>
+                    <tr><td>O₂</td><td>32.00</td></tr>
+                    <tr><td>Al</td><td>26.98</td></tr>
+                    <tr><td>AlCl₃</td><td>133.33</td></tr>
+                    <tr><td>H₂O</td><td>18.02</td></tr>
+                    <tr><td>NH₃</td><td>17.03</td></tr>
+                    <tr><td>CaCO₃</td><td>100.09</td></tr>
+                    <tr><td>CaO</td><td>56.08</td></tr>
+                    <tr><td>NaOH</td><td>40.00</td></tr>
+                </table>
+            </div>
+
+            <!-- Task 1 -->
+            <div class="task-card" id="s4-task-1">
+                <div class="task-header">
+                    <div>
+                        <div class="task-number">FORMULATION TASK 1</div>
+                        <div class="task-type">Mole-to-Mole Conversion — Therapeutic Synthesis</div>
+                    </div>
+                    <div class="task-status" id="s4-status-1"></div>
+                </div>
+                <div class="task-body">
+                    <div class="briefing">
+                        "LiFe House has developed an ammonia-based therapeutic compound. The synthesis begins with the Haber process: combining nitrogen and hydrogen gases to produce ammonia. Our current hydrogen supply is limited to exactly 4.50 moles."
+                    </div>
+                    <div class="task-prompt">
+                        <strong>Balanced Equation:</strong> N₂ + 3H₂ → 2NH₃<br>
+                        <strong>Given:</strong> 4.50 mol H₂ available (assume excess N₂)
+                        <br><br><strong>Calculate the moles of NH₃ produced.</strong>
+                    </div>
+                    <div class="answer-row">
+                        <input type="number" step="0.01" class="answer-input" id="s4-answer-1" placeholder="Enter moles...">
+                        <button class="check-btn" onclick="checkAnswer(4, 1)">CHECK</button>
+                    </div>
+                    <div class="feedback" id="s4-feedback-1"></div>
+                </div>
+            </div>
+
+            <!-- Task 2 -->
+            <div class="task-card" id="s4-task-2">
+                <div class="task-header">
+                    <div>
+                        <div class="task-number">FORMULATION TASK 2</div>
+                        <div class="task-type">Mass-to-Mass Conversion — Precursor Production</div>
+                    </div>
+                    <div class="task-status" id="s4-status-2"></div>
+                </div>
+                <div class="task-body">
+                    <div class="briefing">
+                        "Aluminum chloride serves as a critical precursor in several LiFe House pharmaceutical syntheses. Today's production run begins with 15.0 g of pure aluminum metal reacting with excess chlorine gas."
+                    </div>
+                    <div class="task-prompt">
+                        <strong>Balanced Equation:</strong> 2Al + 3Cl₂ → 2AlCl₃<br>
+                        <strong>Given:</strong> 15.0 g Al, M(Al) = 26.98 g/mol, M(AlCl₃) = 133.33 g/mol
+                        <br><br><strong>Calculate the mass of AlCl₃ produced in grams.</strong>
+                    </div>
+                    <div class="answer-row">
+                        <input type="number" step="0.01" class="answer-input" id="s4-answer-2" placeholder="Enter mass (g)...">
+                        <button class="check-btn" onclick="checkAnswer(4, 2)">CHECK</button>
+                    </div>
+                    <div class="feedback" id="s4-feedback-2"></div>
+                </div>
+            </div>
+
+            <!-- Task 3 -->
+            <div class="task-card" id="s4-task-3">
+                <div class="task-header">
+                    <div>
+                        <div class="task-number">FORMULATION TASK 3</div>
+                        <div class="task-type">Limiting Reagent — Sterile Water Production</div>
+                    </div>
+                    <div class="task-status" id="s4-status-3"></div>
+                </div>
+                <div class="task-body">
+                    <div class="briefing">
+                        "Field hospital reports critical shortage of sterile water for injections. LiFe House emergency response team has located supplies of hydrogen gas (5.00 mol) and oxygen gas (2.00 mol). One of these reagents will run out first."
+                    </div>
+                    <div class="task-prompt">
+                        <strong>Balanced Equation:</strong> 2H₂ + O₂ → 2H₂O<br>
+                        <strong>Given:</strong> 5.00 mol H₂, 2.00 mol O₂
+                        <br><br><strong>Calculate the maximum moles of H₂O that can be produced.</strong>
+                    </div>
+                    <div class="answer-row">
+                        <input type="number" step="0.01" class="answer-input" id="s4-answer-3" placeholder="Enter moles...">
+                        <button class="check-btn" onclick="checkAnswer(4, 3)">CHECK</button>
+                    </div>
+                    <div class="feedback" id="s4-feedback-3"></div>
+                </div>
+            </div>
+
+            <!-- Task 4 -->
+            <div class="task-card" id="s4-task-4">
+                <div class="task-header">
+                    <div>
+                        <div class="task-number">FORMULATION TASK 4</div>
+                        <div class="task-type">Theoretical Yield — Calcium Supplement Preparation</div>
+                    </div>
+                    <div class="task-status" id="s4-status-4"></div>
+                </div>
+                <div class="task-body">
+                    <div class="briefing">
+                        "LiFe House supplies calcium oxide (CaO) for pharmaceutical-grade calcium supplements. Production involves thermally decomposing calcium carbonate. Today's batch starts with 50.0 g of pure CaCO₃."
+                    </div>
+                    <div class="task-prompt">
+                        <strong>Balanced Equation:</strong> CaCO₃ → CaO + CO₂<br>
+                        <strong>Given:</strong> 50.0 g CaCO₃, M(CaCO₃) = 100.09 g/mol, M(CaO) = 56.08 g/mol
+                        <br><br><strong>Calculate the theoretical yield of CaO in grams.</strong>
+                    </div>
+                    <div class="answer-row">
+                        <input type="number" step="0.01" class="answer-input" id="s4-answer-4" placeholder="Enter mass (g)...">
+                        <button class="check-btn" onclick="checkAnswer(4, 4)">CHECK</button>
+                    </div>
+                    <div class="feedback" id="s4-feedback-4"></div>
+                </div>
+            </div>
+
+            <!-- Task 5 -->
+            <div class="task-card" id="s4-task-5">
+                <div class="task-header">
+                    <div>
+                        <div class="task-number">FORMULATION TASK 5</div>
+                        <div class="task-type">Percent Yield — Batch Quality Verification</div>
+                    </div>
+                    <div class="task-status" id="s4-status-5"></div>
+                </div>
+                <div class="task-body">
+                    <div class="briefing">
+                        "Batch QC-2847 has completed synthesis. Theoretical calculations predicted a yield of 45.0 g of active pharmaceutical ingredient. Actual measured yield after purification: 38.5 g. LiFe House standards require minimum 80% yield for release."
+                    </div>
+                    <div class="task-prompt">
+                        <strong>Given:</strong> Theoretical yield = 45.0 g, Actual yield = 38.5 g<br>
+                        <strong>Formula:</strong> Percent Yield = (Actual/Theoretical) × 100%
+                        <br><br><strong>Calculate the percent yield. (Report numerical value only)</strong>
+                    </div>
+                    <div class="answer-row">
+                        <input type="number" step="0.01" class="answer-input" id="s4-answer-5" placeholder="Enter percent...">
+                        <button class="check-btn" onclick="checkAnswer(4, 5)">CHECK</button>
+                    </div>
+                    <div class="feedback" id="s4-feedback-5"></div>
+                </div>
+            </div>
+
+            <!-- Task 6 -->
+            <div class="task-card" id="s4-task-6">
+                <div class="task-header">
+                    <div>
+                        <div class="task-number">FORMULATION TASK 6</div>
+                        <div class="task-type">Solution Stoichiometry — Neutralization</div>
+                    </div>
+                    <div class="task-status" id="s4-status-6"></div>
+                </div>
+                <div class="task-body">
+                    <div class="briefing">
+                        "Certain injectable medications require precise pH adjustment. This batch requires neutralizing 25.0 mL of 0.400 M hydrochloric acid with sodium hydroxide. Patient safety demands exact stoichiometric neutralization."
+                    </div>
+                    <div class="task-prompt">
+                        <strong>Balanced Equation:</strong> HCl + NaOH → NaCl + H₂O<br>
+                        <strong>Given:</strong> V = 25.0 mL = 0.0250 L, M(HCl) = 0.400 M, M(NaOH) = 40.00 g/mol
+                        <br><br><strong>Calculate the mass of NaOH required in grams.</strong>
+                    </div>
+                    <div class="answer-row">
+                        <input type="number" step="0.01" class="answer-input" id="s4-answer-6" placeholder="Enter mass (g)...">
+                        <button class="check-btn" onclick="checkAnswer(4, 6)">CHECK</button>
+                    </div>
+                    <div class="feedback" id="s4-feedback-6"></div>
+                </div>
+            </div>
+
+            <div class="checksum-box">
+                <h3>📢 CHECKSUM</h3>
+                <p>Add all six numerical answers together:</p>
+                <div class="checksum-display" id="s4-checksum">—</div>
+                <p style="color: var(--text-dim); font-size: 0.9em;">Target checksum: <strong>195.09</strong></p>
+            </div>
+
+            <div class="completion-banner" id="s4-complete">
+                <h2>✓ STATION 4 COMPLETE</h2>
+                <p>Report to the Proctor for your fourth motto word.</p>
+            </div>
+        </section>
+
+        <!-- STATION 5: AuRa IMF & GEOMETRY -->
+        <section class="tab-content" id="station5">
+            <div class="station-header">
+                <h2>STATION 5: THE STRUCTURAL REVELATIONS</h2>
+                <div class="house-name">AuRa House — Seekers of Truth</div>
+                <div class="elements">Gold (79) + Radium (88)</div>
+            </div>
+
+            <div class="station-progress">
+                <div class="station-dot" id="s5-dot-1"></div>
+                <div class="station-dot" id="s5-dot-2"></div>
+                <div class="station-dot" id="s5-dot-3"></div>
+                <div class="station-dot" id="s5-dot-4"></div>
+                <div class="station-dot" id="s5-dot-5"></div>
+                <div class="station-dot" id="s5-dot-6"></div>
+            </div>
+
+            <div class="context-box">
+                <h3>🔍 WHY THIS MATTERS TO AuRa HOUSE</h3>
+                <p>AuRa House reveals hidden truths. We look at a substance and see beyond its surface—we see the molecular architecture beneath, the geometry that determines behavior, the invisible forces that hold matter together.</p>
+                <p style="margin-top: 12px;">To hunt what hides, you must see what others cannot. Lewis structures are your blueprints. VSEPR theory is your lens. IMF analysis is your decoder ring.</p>
+                <p style="margin-top: 12px;"><strong>Prove you can see the invisible architecture of matter.</strong></p>
+            </div>
+
+            <div class="reference-box">
+                <h4>📋 VSEPR GEOMETRIES</h4>
+                <table class="reference-table">
+                    <tr><th>Domains</th><th>Bonding</th><th>Lone</th><th>Geometry</th><th>Angle</th></tr>
+                    <tr><td>2</td><td>2</td><td>0</td><td>Linear</td><td>180°</td></tr>
+                    <tr><td>3</td><td>3</td><td>0</td><td>Trigonal planar</td><td>120°</td></tr>
+                    <tr><td>3</td><td>2</td><td>1</td><td>Bent</td><td>&lt;120°</td></tr>
+                    <tr><td>4</td><td>4</td><td>0</td><td>Tetrahedral</td><td>109.5°</td></tr>
+                    <tr><td>4</td><td>3</td><td>1</td><td>Trigonal pyramidal</td><td>&lt;109.5°</td></tr>
+                    <tr><td>4</td><td>2</td><td>2</td><td>Bent</td><td>&lt;109.5°</td></tr>
+                </table>
+                <p style="margin-top: 15px;"><strong>IMFs (Strongest → Weakest):</strong> Hydrogen bonding → Dipole-dipole → London dispersion</p>
+            </div>
+
+            <!-- Task 1 -->
+            <div class="task-card" id="s5-task-1">
+                <div class="task-header">
+                    <div>
+                        <div class="task-number">ANALYSIS TASK 1</div>
+                        <div class="task-type">Lewis Structure & Molecular Geometry</div>
+                    </div>
+                    <div class="task-status" id="s5-status-1"></div>
+                </div>
+                <div class="task-body">
+                    <div class="briefing">
+                        "AuRa investigators recovered trace amounts of an unknown sulfur-chlorine compound from Radan's laboratory ventilation system. Mass spectrometry confirms the formula: SCl₂. To understand how this compound dispersed through the air ducts, we must first determine its three-dimensional structure."
+                    </div>
+                    <div class="task-prompt">
+                        <strong>Given:</strong> SCl₂, Sulfur is central, Valence: S = 6, Cl = 7
+                        <br><br><strong>What is the molecular geometry of SCl₂?</strong>
+                    </div>
+                    <div class="answer-row">
+                        <input type="text" class="answer-input" id="s5-answer-1" placeholder="Enter geometry...">
+                        <button class="check-btn" onclick="checkAnswer(5, 1)">CHECK</button>
+                    </div>
+                    <div class="feedback" id="s5-feedback-1"></div>
+                </div>
+            </div>
+
+            <!-- Task 2 -->
+            <div class="task-card" id="s5-task-2">
+                <div class="task-header">
+                    <div>
+                        <div class="task-number">ANALYSIS TASK 2</div>
+                        <div class="task-type">VSEPR Prediction — Molecular Profile</div>
+                    </div>
+                    <div class="task-status" id="s5-status-2"></div>
+                </div>
+                <div class="task-body">
+                    <div class="briefing">
+                        "Intercepted communications reference a compound called 'the interrogator's friend'—a boron trifluoride complex. BF₃ has unusual geometry due to boron's electron deficiency. Predict the molecular shape and bond angles."
+                    </div>
+                    <div class="task-prompt">
+                        <strong>Given:</strong> BF₃, Boron is central, Valence: B = 3, F = 7<br>
+                        <em>Note: Boron is stable with fewer than 8 electrons</em>
+                        <br><br><strong>Report your answer as: Geometry, Angle°</strong>
+                    </div>
+                    <div class="answer-row">
+                        <input type="text" class="answer-input" id="s5-answer-2" placeholder="e.g., Tetrahedral, 109.5°">
+                        <button class="check-btn" onclick="checkAnswer(5, 2)">CHECK</button>
+                    </div>
+                    <div class="feedback" id="s5-feedback-2"></div>
+                </div>
+            </div>
+
+            <!-- Task 3 -->
+            <div class="task-card" id="s5-task-3">
+                <div class="task-header">
+                    <div>
+                        <div class="task-number">ANALYSIS TASK 3</div>
+                        <div class="task-type">Polarity Determination</div>
+                    </div>
+                    <div class="task-status" id="s5-status-3"></div>
+                </div>
+                <div class="task-body">
+                    <div class="briefing">
+                        "The sedative found in Radan's bloodstream has been identified as chloroform (CHCl₃). To understand how it crossed the blood-brain barrier so quickly, we need to determine its polarity."
+                    </div>
+                    <div class="task-prompt">
+                        <strong>Given:</strong> CHCl₃, Carbon is central, Geometry: Tetrahedral<br>
+                        <strong>Electronegativity:</strong> C = 2.5, H = 2.1, Cl = 3.0
+                        <br><br><strong>Is CHCl₃ polar or nonpolar?</strong>
+                    </div>
+                    <div class="answer-row">
+                        <input type="text" class="answer-input" id="s5-answer-3" placeholder="Enter polar or nonpolar...">
+                        <button class="check-btn" onclick="checkAnswer(5, 3)">CHECK</button>
+                    </div>
+                    <div class="feedback" id="s5-feedback-3"></div>
+                </div>
+            </div>
+
+            <!-- Task 4 -->
+            <div class="task-card" id="s5-task-4">
+                <div class="task-header">
+                    <div>
+                        <div class="task-number">ANALYSIS TASK 4</div>
+                        <div class="task-type">IMF Identification</div>
+                    </div>
+                    <div class="task-status" id="s5-status-4"></div>
+                </div>
+                <div class="task-body">
+                    <div class="briefing">
+                        "Critical evidence was dissolved in methanol (CH₃OH) before AuRa investigators arrived—a classic destruction technique. To understand why the perpetrator chose this specific solvent, we need to identify the strongest intermolecular force present."
+                    </div>
+                    <div class="task-prompt">
+                        <strong>Given:</strong> CH₃OH, Structure: H₃C—O—H (oxygen bonded to carbon and hydrogen)
+                        <br><br><strong>What is the strongest intermolecular force in CH₃OH?</strong>
+                    </div>
+                    <div class="answer-row">
+                        <input type="text" class="answer-input" id="s5-answer-4" placeholder="Enter IMF type...">
+                        <button class="check-btn" onclick="checkAnswer(5, 4)">CHECK</button>
+                    </div>
+                    <div class="feedback" id="s5-feedback-4"></div>
+                </div>
+            </div>
+
+            <!-- Task 5 -->
+            <div class="task-card" id="s5-task-5">
+                <div class="task-header">
+                    <div>
+                        <div class="task-number">ANALYSIS TASK 5</div>
+                        <div class="task-type">IMF Comparison — Boiling Point Ranking</div>
+                    </div>
+                    <div class="task-status" id="s5-status-5"></div>
+                </div>
+                <div class="task-body">
+                    <div class="briefing">
+                        "AuRa forensic team has recovered a mixture of three compounds: methane (CH₄), methanol (CH₃OH), and chloromethane (CH₃Cl). Separating these by distillation requires knowing their relative boiling points."
+                    </div>
+                    <div class="task-prompt">
+                        <strong>Compounds:</strong><br>
+                        • CH₄ (methane) — nonpolar, London dispersion only<br>
+                        • CH₃OH (methanol) — contains O-H bond<br>
+                        • CH₃Cl (chloromethane) — polar, no H bonded to N/O/F
+                        <br><br><strong>Rank from lowest to highest boiling point:</strong><br>
+                        <em>Format: CH₄ &lt; CH₃Cl &lt; CH₃OH</em>
+                    </div>
+                    <div class="answer-row">
+                        <input type="text" class="answer-input" id="s5-answer-5" placeholder="e.g., A < B < C">
+                        <button class="check-btn" onclick="checkAnswer(5, 5)">CHECK</button>
+                    </div>
+                    <div class="feedback" id="s5-feedback-5"></div>
+                </div>
+            </div>
+
+            <!-- Task 6 -->
+            <div class="task-card" id="s5-task-6">
+                <div class="task-header">
+                    <div>
+                        <div class="task-number">ANALYSIS TASK 6</div>
+                        <div class="task-type">Formal Charge — Compound Authentication</div>
+                    </div>
+                    <div class="task-status" id="s5-status-6"></div>
+                </div>
+                <div class="task-body">
+                    <div class="briefing">
+                        "Radan's notes contain Lewis structures for several compounds. The sulfate ion (SO₄²⁻) appears repeatedly. To verify his structures are legitimate, calculate the formal charge on the central sulfur atom."
+                    </div>
+                    <div class="task-prompt">
+                        <strong>Given:</strong> SO₄²⁻, Standard structure has 4 single bonds to oxygen<br>
+                        <strong>Formula:</strong> FC = Valence - Lone pairs - ½(Bonding electrons)<br>
+                        <strong>Valence:</strong> S = 6, O = 6
+                        <br><br><strong>Calculate the formal charge on S in SO₄²⁻.</strong>
+                    </div>
+                    <div class="answer-row">
+                        <input type="text" class="answer-input" id="s5-answer-6" placeholder="Enter formal charge...">
+                        <button class="check-btn" onclick="checkAnswer(5, 6)">CHECK</button>
+                    </div>
+                    <div class="feedback" id="s5-feedback-6"></div>
+                </div>
+            </div>
+
+            <div class="completion-banner" id="s5-complete">
+                <h2>✓ STATION 5 COMPLETE</h2>
+                <p>Report to the Proctor for your fifth and final motto word.</p>
+            </div>
+        </section>
+
+        <!-- OATH SECTION -->
+        <section class="tab-content" id="oath">
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-icon">✍️</span>
+                    <div>
+                        <div class="card-title">OATH OF INDUCTION</div>
+                        <div class="card-subtitle">Final Rite of Passage</div>
+                    </div>
+                </div>
+
+                <div class="oath-box">
+                    <h3>By completing this trial, we pledge ourselves to the principles of Collegiate Obscurum:</h3>
+                    <ul class="oath-list">
+                        <li>To pursue chemical knowledge with rigor and integrity</li>
+                        <li>To protect dangerous truths until the world is ready</li>
+                        <li>To preserve what others would let fade</li>
+                        <li>To heal through the precise application of science</li>
+                        <li>To reveal what hides in shadow through the light of understanding</li>
+                    </ul>
+                </div>
+
+                <div class="closing-quote">
+                    <p>"The Protocol was never about death. It was about transformation—turning students into chemists, curiosity into mastery, individuals into houses united. Welcome to Collegiate Obscurum. The real work begins now."</p>
+                    <p class="author">— Dan Kwasniewski, Grand Proctor</p>
+                </div>
+            </div>
+
+            <div class="completion-banner show" id="final-complete" style="display: none;">
+                <h2>🎓 INDUCTION CONFIRMED</h2>
+                <p>All five stations complete. You have earned your place in Collegiate Obscurum.</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Answer keys
+        const answerKeys = {
+            1: { // Station 1 - Nomenclature (text)
+                1: ['ca3(po4)2', 'ca3po42'],
+                2: ['iron(iii) oxide', 'iron (iii) oxide', 'iron(iii)oxide', 'ferric oxide'],
+                3: ['n2o5'],
+                4: ['hydrosulfuric acid'],
+                5: ['h3po4'],
+                6: ['ammonium sulfate']
+            },
+            2: { // Station 2 - Gas Laws (numerical)
+                1: 4.08,
+                2: 1.80,
+                3: 44.80,
+                4: 0.40,
+                5: 2.16,
+                6: 2.04
+            },
+            3: { // Station 3 - Thermochemistry (numerical)
+                1: 24.06,
+                2: 13.28,
+                3: 445.20,
+                4: 5.73,
+                5: 67.40,
+                6: 296.74
+            },
+            4: { // Station 4 - Stoichiometry (numerical)
+                1: 3.00,
+                2: 74.11,
+                3: 4.00,
+                4: 28.02,
+                5: 85.56,
+                6: 0.40
+            },
+            5: { // Station 5 - IMF & Geometry (text)
+                1: ['bent'],
+                2: ['trigonal planar, 120', 'trigonal planar 120', 'trigonalplanar,120', 'trigonal planar, 120°', 'trigonal planar 120°'],
+                3: ['polar'],
+                4: ['hydrogen bonding', 'hydrogen bonds', 'h-bonding', 'h bonding'],
+                5: ['ch4 < ch3cl < ch3oh', 'ch4<ch3cl<ch3oh', 'methane < chloromethane < methanol'],
+                6: ['+2', '2', '2+']
+            }
+        };
+
+        // Track completion state
+        const stationState = {
+            1: { correct: [false, false, false, false, false, false], values: [0,0,0,0,0,0] },
+            2: { correct: [false, false, false, false, false, false], values: [0,0,0,0,0,0] },
+            3: { correct: [false, false, false, false, false, false], values: [0,0,0,0,0,0] },
+            4: { correct: [false, false, false, false, false, false], values: [0,0,0,0,0,0] },
+            5: { correct: [false, false, false, false, false, false], values: [0,0,0,0,0,0] }
+        };
+
+        const stationsComplete = [false, false, false, false, false];
+
+        // Check answer function
+        function checkAnswer(station, task) {
+            const input = document.getElementById(`s${station}-answer-${task}`);
+            const feedback = document.getElementById(`s${station}-feedback-${task}`);
+            const status = document.getElementById(`s${station}-status-${task}`);
+            const dot = document.getElementById(`s${station}-dot-${task}`);
+            const taskCard = document.getElementById(`s${station}-task-${task}`);
+            
+            let userAnswer = input.value.trim();
+            let isCorrect = false;
+
+            if (station === 1 || station === 5) {
+                // Text answers - flexible matching
+                const normalized = userAnswer.toLowerCase().replace(/\s+/g, ' ').replace(/[₂₃₄₅]/g, (m) => {
+                    return {'₂':'2','₃':'3','₄':'4','₅':'5'}[m];
+                });
+                const acceptableAnswers = answerKeys[station][task];
+                isCorrect = acceptableAnswers.some(ans => normalized.includes(ans) || ans.includes(normalized));
+            } else {
+                // Numerical answers
+                const userNum = parseFloat(userAnswer);
+                const correctNum = answerKeys[station][task];
+                isCorrect = Math.abs(userNum - correctNum) <= 0.05;
+                stationState[station].values[task - 1] = userNum || 0;
+            }
+
+            if (isCorrect) {
+                feedback.textContent = '✓ Correct!';
+                feedback.className = 'feedback show success';
+                status.innerHTML = '✓';
+                status.classList.add('correct');
+                dot.classList.add('complete');
+                input.classList.add('correct');
+                input.disabled = true;
+                taskCard.classList.add('correct');
+                stationState[station].correct[task - 1] = true;
+                
+                // Small confetti
+                launchConfetti(false);
+                
+                // Update checksum for numerical stations
+                if (station >= 2 && station <= 4) {
+                    updateChecksum(station);
+                }
+                
+                // Check if station complete
+                checkStationComplete(station);
+            } else {
+                feedback.textContent = '✗ Try again. Check your calculation.';
+                feedback.className = 'feedback show error';
+            }
+        }
+
+        // Update checksum display
+        function updateChecksum(station) {
+            const values = stationState[station].values;
+            const sum = values.reduce((a, b) => a + b, 0);
+            document.getElementById(`s${station}-checksum`).textContent = sum.toFixed(2);
+        }
+
+        // Check if station is complete
+        function checkStationComplete(station) {
+            const allCorrect = stationState[station].correct.every(c => c);
+            if (allCorrect && !stationsComplete[station - 1]) {
+                stationsComplete[station - 1] = true;
+                
+                // Show completion banner
+                document.getElementById(`s${station}-complete`).classList.add('show');
+                
+                // Update nav tab
+                document.querySelector(`[data-tab="station${station}"]`).classList.add('complete');
+                
+                // Update progress bar
+                document.querySelector(`.progress-station[data-station="${station}"]`).classList.add('complete');
+                
+                // Update cover sheet status
+                document.getElementById(`cover-status-${station}`).textContent = '✅';
+                
+                // Update progress fill
+                updateProgressFill();
+                
+                // Big confetti!
+                launchConfetti(true);
+                
+                // Check if all complete
+                checkAllComplete();
+            }
+        }
+
+        // Update progress bar fill
+        function updateProgressFill() {
+            const complete = stationsComplete.filter(c => c).length;
+            const percentage = (complete / 5) * 100;
+            document.getElementById('progress-fill').style.width = `${percentage}%`;
+        }
+
+        // Check if all stations complete
+        function checkAllComplete() {
+            if (stationsComplete.every(c => c)) {
+                document.getElementById('final-complete').style.display = 'block';
+                // Epic confetti
+                setTimeout(() => launchConfetti(true), 500);
+                setTimeout(() => launchConfetti(true), 1000);
+                setTimeout(() => launchConfetti(true), 1500);
+            }
+        }
+
+        // Confetti system
+        const canvas = document.getElementById('confetti-canvas');
+        const ctx = canvas.getContext('2d');
+        let confettiParticles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        function launchConfetti(isBig) {
+            const particleCount = isBig ? 150 : 30;
+            const colors = ['#ff4757', '#4ecdc4', '#f7b731', '#9b59b6', '#3498db', '#2ecc71'];
+            
+            for (let i = 0; i < particleCount; i++) {
+                confettiParticles.push({
+                    x: Math.random() * canvas.width,
+                    y: isBig ? -20 : canvas.height / 2,
+                    vx: (Math.random() - 0.5) * (isBig ? 15 : 8),
+                    vy: isBig ? Math.random() * 5 + 2 : -(Math.random() * 10 + 5),
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    size: Math.random() * (isBig ? 10 : 6) + 4,
+                    rotation: Math.random() * 360,
+                    rotationSpeed: (Math.random() - 0.5) * 10,
+                    gravity: 0.3,
+                    life: 1
+                });
+            }
+            
+            if (!animating) {
+                animating = true;
+                animateConfetti();
+            }
+        }
+
+        let animating = false;
+
+        function animateConfetti() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            confettiParticles = confettiParticles.filter(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+                p.vy += p.gravity;
+                p.rotation += p.rotationSpeed;
+                p.life -= 0.01;
+                
+                if (p.life <= 0 || p.y > canvas.height + 50) return false;
+                
+                ctx.save();
+                ctx.translate(p.x, p.y);
+                ctx.rotate(p.rotation * Math.PI / 180);
+                ctx.fillStyle = p.color;
+                ctx.globalAlpha = p.life;
+                ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+                ctx.restore();
+                
+                return true;
+            });
+            
+            if (confettiParticles.length > 0) {
+                requestAnimationFrame(animateConfetti);
+            } else {
+                animating = false;
+            }
+        }
+
+        // Tab navigation
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabId = tab.dataset.tab;
+                
+                // Update active tab
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Update active content
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                document.getElementById(tabId).classList.add('active');
+                
+                // Update progress station highlights
+                document.querySelectorAll('.progress-station').forEach(s => s.classList.remove('active'));
+                const stationNum = tabId.replace('station', '');
+                if (stationNum >= 1 && stationNum <= 5) {
+                    document.querySelector(`.progress-station[data-station="${stationNum}"]`).classList.add('active');
+                }
+            });
+        });
+
+        // Initialize - mark station 1 as active in progress
+        document.querySelector('.progress-station[data-station="1"]').classList.add('active');
+    </script>
+</body>
+</html>
