@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chem Olympiad Jeopardy</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:      #050c1f;
+  --deep:      #080f28;
+  --cell:      #0c1e5c;
+  --cell-h:    #162b80;
+  --gold:      #f5c518;
+  --gold-dim:  rgba(245,197,24,0.35);
+  --gold-glow: 0 0 18px rgba(245,197,24,0.55), 0 0 50px rgba(245,197,24,0.2);
+  --blue-acc:  #3b82f6;
+  --white:     #eef2ff;
+  --dim:       rgba(238,242,255,0.45);
+  --green:     #22c55e;
+  --red:       #ef4444;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--navy);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(59,130,246,0.08) 0%, transparent 70%),
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(59,130,246,0.04) 39px, rgba(59,130,246,0.04) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(59,130,246,0.04) 39px, rgba(59,130,246,0.04) 40px);
+  color: var(--white);
+  font-family: 'Space Mono', monospace;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── SETUP ──────────────────────────────────────── */
+#setup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.logo {
+  font-family: 'Bebas Neue', cursive;
+  font-size: clamp(3.5rem,10vw,6.5rem);
+  color: var(--gold);
+  text-shadow: var(--gold-glow);
+  letter-spacing: 0.06em;
+  text-align: center;
+  line-height: 0.95;
+}
+
+.logo-sub {
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
+  color: var(--dim);
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+}
+
+.players-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  width: 100%;
+  max-width: 860px;
+}
+
+.p-group { display: flex; flex-direction: column; gap: 0.4rem; align-items: center; }
+
+.p-label {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.1rem;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+}
+
+.p-input {
+  background: rgba(11,31,77,0.8);
+  border: 2px solid var(--gold-dim);
+  border-radius: 5px;
+  color: var(--white);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.8rem;
+  padding: 0.55rem 0.5rem;
+  text-align: center;
+  width: 100%;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.p-input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 12px rgba(245,197,24,0.25); }
+.p-input::placeholder { color: rgba(238,242,255,0.25); }
+
+.start-btn {
+  background: var(--gold);
+  border: none;
+  border-radius: 5px;
+  color: var(--navy);
+  cursor: pointer;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2rem;
+  letter-spacing: 0.18em;
+  padding: 0.7rem 3.5rem;
+  box-shadow: var(--gold-glow);
+  transition: all 0.18s;
+}
+.start-btn:hover { background: #ffe566; transform: translateY(-3px); box-shadow: 0 0 40px rgba(245,197,24,0.8), 0 6px 20px rgba(0,0,0,0.4); }
+
+/* ── GAME ───────────────────────────────────────── */
+#game {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1360px;
+  padding: 0.8rem 1rem 1rem;
+  gap: 0.8rem;
+}
+
+.game-header {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.6rem;
+  color: var(--gold);
+  letter-spacing: 0.25em;
+  text-shadow: var(--gold-glow);
+}
+
+.game-layout { display: flex; gap: 1.2rem; width: 100%; align-items: flex-start; }
+
+/* ── BOARD ──────────────────────────────────────── */
+.board {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto repeat(5, 1fr);
+  gap: 5px;
+}
+
+.cat-hdr {
+  background: rgba(11,31,77,0.95);
+  border: 2px solid var(--gold-dim);
+  border-radius: 4px;
+  padding: 0.7rem 0.3rem;
+  text-align: center;
+  font-family: 'Bebas Neue', cursive;
+  font-size: clamp(0.75rem,1.3vw,1.25rem);
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  line-height: 1.15;
+}
+
+.cell {
+  background: var(--cell);
+  border: 2px solid rgba(59,130,246,0.25);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4/3;
+  cursor: pointer;
+  font-family: 'Bebas Neue', cursive;
+  font-size: clamp(1.1rem,2.2vw,1.8rem);
+  color: var(--gold);
+  text-shadow: 0 0 12px rgba(245,197,24,0.4);
+  transition: background 0.15s, border-color 0.15s, transform 0.1s, box-shadow 0.15s;
+  user-select: none;
+}
+.cell:hover:not(.used) {
+  background: var(--cell-h);
+  border-color: var(--gold);
+  box-shadow: var(--gold-glow), inset 0 0 20px rgba(245,197,24,0.08);
+  transform: scale(1.04);
+  z-index: 1;
+}
+.cell.used {
+  background: rgba(5,12,31,0.6);
+  border-color: rgba(59,130,246,0.07);
+  color: transparent;
+  cursor: default;
+}
+.cell.dd-flash { animation: ddFlash 0.55s ease; }
+@keyframes ddFlash {
+  0%   { background: var(--cell); }
+  40%  { background: var(--gold); border-color: var(--gold); color: var(--navy); transform: scale(1.08); }
+  100% { background: var(--cell); }
+}
+
+/* ── SCORES ─────────────────────────────────────── */
+.scores-col {
+  width: 210px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.scores-heading {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.3rem;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  text-align: center;
+  border-bottom: 2px solid var(--gold-dim);
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.2rem;
+}
+
+.scard {
+  background: rgba(11,31,77,0.8);
+  border: 2px solid rgba(245,197,24,0.12);
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.7rem;
+  transition: all 0.18s;
+}
+.scard:hover { border-color: var(--gold-dim); }
+.scard.active { border-color: var(--gold); box-shadow: 0 0 16px rgba(245,197,24,0.3); background: rgba(14,40,117,0.9); }
+
+.scard-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 6px var(--gold); opacity: 0; flex-shrink: 0; }
+.scard.active .scard-dot { opacity: 1; }
+
+.scard-name { font-family: 'Bebas Neue', cursive; font-size: 1rem; letter-spacing: 0.05em; flex: 1; }
+.scard-val { font-size: 0.85rem; font-weight: 700; color: var(--gold); white-space: nowrap; }
+.scard-val.neg { color: var(--red); }
+
+.scores-hint { font-size: 0.6rem; color: rgba(238,242,255,0.3); line-height: 1.5; text-align: center; margin-top: 0.4rem; }
+
+/* ── OVERLAYS ───────────────────────────────────── */
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(5,12,31,0.96);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  backdrop-filter: blur(4px);
+}
+.overlay.on { display: flex; animation: fadeI 0.18s ease; }
+@keyframes fadeI { from { opacity: 0; } to { opacity: 1; } }
+
+.mbox {
+  background: var(--deep);
+  border: 3px solid var(--gold);
+  border-radius: 10px;
+  padding: 2rem;
+  max-width: 760px;
+  width: 100%;
+  box-shadow: var(--gold-glow), 0 30px 80px rgba(0,0,0,0.6);
+  animation: slideU 0.22s ease;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+@keyframes slideU { from { transform: translateY(24px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+/* ── DD MODAL ───────────────────────────────────── */
+#dd-box { text-align: center; max-width: 480px; }
+.dd-big {
+  font-family: 'Bebas Neue', cursive;
+  font-size: clamp(3rem, 9vw, 5.5rem);
+  color: var(--gold);
+  text-shadow: var(--gold-glow), 0 0 80px rgba(245,197,24,0.4);
+  letter-spacing: 0.1em;
+  animation: ddBig 0.5s ease;
+}
+@keyframes ddBig { from { transform: scale(0.7); opacity: 0; } 70% { transform: scale(1.06); } to { opacity: 1; transform: scale(1); } }
+.dd-sub { font-size: 0.7rem; letter-spacing: 0.3em; color: var(--dim); margin-bottom: 1.5rem; text-transform: uppercase; }
+.dd-who { font-family: 'Bebas Neue', cursive; font-size: 1.6rem; letter-spacing: 0.1em; margin-bottom: 1rem; }
+.wager-in {
+  background: var(--navy);
+  border: 2px solid var(--gold);
+  border-radius: 5px;
+  color: var(--gold);
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2.2rem;
+  padding: 0.4rem 0.8rem;
+  text-align: center;
+  width: 180px;
+  margin-bottom: 0.4rem;
+}
+.wager-in:focus { outline: none; box-shadow: var(--gold-glow); }
+.dd-limit { font-size: 0.65rem; color: var(--dim); margin-bottom: 1.4rem; }
+.dd-go {
+  background: var(--gold);
+  border: none;
+  border-radius: 6px;
+  color: var(--navy);
+  cursor: pointer;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.7rem;
+  letter-spacing: 0.12em;
+  padding: 0.55rem 2.5rem;
+  box-shadow: var(--gold-glow);
+  transition: all 0.15s;
+}
+.dd-go:hover { background: #ffe566; transform: scale(1.04); }
+
+/* ── Q MODAL ────────────────────────────────────── */
+.q-meta-cat { font-family: 'Bebas Neue', cursive; font-size: 0.85rem; letter-spacing: 0.35em; color: rgba(245,197,24,0.5); }
+.q-meta-pts { font-family: 'Bebas Neue', cursive; font-size: 2.2rem; color: var(--gold); text-shadow: var(--gold-glow); line-height: 1.1; margin-bottom: 1.2rem; }
+
+.tbar-wrap { height: 5px; background: rgba(255,255,255,0.08); border-radius: 3px; margin-bottom: 0.3rem; overflow: hidden; }
+.tbar { height: 100%; background: var(--gold); border-radius: 3px; transition: width 1s linear, background-color 0.4s; }
+.tbar.hot { background: var(--red); animation: blink 0.5s infinite; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+.tbar-text { font-size: 0.65rem; color: var(--dim); text-align: right; margin-bottom: 1.1rem; }
+
+.q-text { font-size: 0.95rem; line-height: 1.75; margin-bottom: 1.3rem; }
+
+.opts { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-bottom: 1.2rem; }
+.opt {
+  background: rgba(12,30,92,0.7);
+  border: 2px solid rgba(59,130,246,0.3);
+  border-radius: 6px;
+  color: var(--white);
+  cursor: pointer;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  padding: 0.75rem 0.9rem;
+  text-align: left;
+  transition: border-color 0.12s, background 0.12s;
+}
+.opt:hover:not(.locked) { border-color: var(--gold); background: rgba(22,43,128,0.9); }
+.opt.correct { border-color: var(--green) !important; background: rgba(34,197,94,0.18) !important; color: var(--green); }
+.opt.wrong   { border-color: rgba(239,68,68,0.35) !important; background: rgba(239,68,68,0.08) !important; color: rgba(238,242,255,0.35); }
+.opt.chosen-wrong { border-color: var(--red) !important; background: rgba(239,68,68,0.25) !important; color: var(--red); }
+
+.reveal-btn {
+  background: var(--gold);
+  border: none;
+  border-radius: 6px;
+  color: var(--navy);
+  cursor: pointer;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.5rem;
+  letter-spacing: 0.12em;
+  padding: 0.65rem 2rem;
+  width: 100%;
+  transition: all 0.15s;
+}
+.reveal-btn:hover { background: #ffe566; }
+
+.answer-block { display: none; border-top: 1px solid var(--gold-dim); margin-top: 1.4rem; padding-top: 1.2rem; }
+
+.exp-text { font-size: 0.72rem; font-style: italic; color: rgba(238,242,255,0.55); line-height: 1.65; margin-bottom: 1.2rem; }
+
+.award-title { font-family: 'Bebas Neue', cursive; font-size: 1.1rem; letter-spacing: 0.1em; color: var(--dim); margin-bottom: 0.7rem; }
+
+.award-rows { display: flex; flex-direction: column; gap: 0.35rem; }
+.award-row  { display: flex; align-items: center; gap: 0.5rem; }
+.award-name { flex: 1; font-family: 'Bebas Neue', cursive; font-size: 1rem; letter-spacing: 0.04em; }
+.abtn {
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.28rem 0.6rem;
+  transition: filter 0.12s;
+}
+.abtn:hover { filter: brightness(1.25); }
+.abtn.pos { background: rgba(34,197,94,0.18); border: 1px solid var(--green); color: var(--green); }
+.abtn.neg { background: rgba(239,68,68,0.15); border: 1px solid var(--red);   color: var(--red);   }
+
+.close-q {
+  background: transparent;
+  border: 2px solid rgba(238,242,255,0.2);
+  border-radius: 6px;
+  color: var(--dim);
+  cursor: pointer;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  margin-top: 1rem;
+  padding: 0.45rem 1.5rem;
+  transition: all 0.15s;
+  width: 100%;
+}
+.close-q:hover { border-color: rgba(238,242,255,0.5); color: var(--white); }
+
+/* ── SCORE FLASH ─────────────────────────────────── */
+.flash {
+  pointer-events: none;
+  position: fixed;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Bebas Neue', cursive;
+  font-size: 3.5rem;
+  z-index: 999;
+  animation: flashGo 1s ease forwards;
+}
+.flash.pos { color: var(--green); text-shadow: 0 0 30px rgba(34,197,94,0.9); }
+.flash.neg { color: var(--red);   text-shadow: 0 0 30px rgba(239,68,68,0.9); }
+@keyframes flashGo {
+  0%   { opacity: 1; transform: translate(-50%,-50%) scale(1); }
+  65%  { opacity: 1; transform: translate(-50%,-80%) scale(1.2); }
+  100% { opacity: 0; transform: translate(-50%,-120%) scale(1.4); }
+}
+
+/* ── FINAL SCREEN ────────────────────────────────── */
+#final-box { text-align: center; max-width: 500px; }
+.final-title { font-family: 'Bebas Neue', cursive; font-size: 3.5rem; color: var(--gold); text-shadow: var(--gold-glow); margin-bottom: 1.2rem; letter-spacing: 0.1em; }
+.final-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.55rem 1rem; background: rgba(12,30,92,0.8); border-radius: 6px; margin-bottom: 0.4rem;
+  border: 1px solid rgba(245,197,24,0.15);
+}
+.final-row.first { border-color: var(--gold); box-shadow: 0 0 12px rgba(245,197,24,0.25); }
+.final-row-name { font-family: 'Bebas Neue', cursive; font-size: 1.15rem; letter-spacing: 0.05em; }
+.final-row-score { font-weight: 700; color: var(--gold); }
+.final-row-score.neg-s { color: var(--red); }
+.play-again {
+  background: var(--gold); border: none; border-radius: 6px; color: var(--navy);
+  cursor: pointer; font-family: 'Bebas Neue', cursive; font-size: 1.7rem;
+  letter-spacing: 0.12em; padding: 0.6rem 2.5rem; box-shadow: var(--gold-glow);
+  margin-top: 1.4rem; transition: all 0.15s;
+}
+.play-again:hover { background: #ffe566; transform: scale(1.05); }
+
+/* scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<!-- ══ SETUP ══════════════════════════════════════════ -->
+<div id="setup">
+  <div>
+    <div class="logo">CHEM<br>JEOPARDY</div>
+    <div class="logo-sub">U.S. National Chemistry Olympiad Edition</div>
+  </div>
+  <div class="players-grid" id="player-inputs"></div>
+  <button class="start-btn" onclick="startGame()">START GAME</button>
+</div>
+
+<!-- ══ GAME ═══════════════════════════════════════════ -->
+<div id="game">
+  <div class="game-header">⚗ CHEM JEOPARDY ⚗</div>
+  <div class="game-layout">
+    <div class="board" id="board"></div>
+    <div class="scores-col" id="scores-col"></div>
+  </div>
+</div>
+
+<!-- ══ DAILY DOUBLE OVERLAY ═══════════════════════════ -->
+<div class="overlay" id="dd-overlay">
+  <div class="mbox" id="dd-box">
+    <div class="dd-big">DAILY DOUBLE!</div>
+    <div class="dd-sub">Make Your Wager</div>
+    <div class="dd-who" id="dd-who"></div>
+    <div><input class="wager-in" type="number" id="wager-in" min="100" placeholder="0"></div>
+    <div class="dd-limit" id="dd-limit"></div>
+    <button class="dd-go" onclick="ddProceed()">PLACE WAGER</button>
+  </div>
+</div>
+
+<!-- ══ QUESTION OVERLAY ════════════════════════════════ -->
+<div class="overlay" id="q-overlay">
+  <div class="mbox" id="q-box">
+    <div class="q-meta-cat" id="q-cat"></div>
+    <div class="q-meta-pts" id="q-pts"></div>
+    <div class="tbar-wrap"><div class="tbar" id="tbar"></div></div>
+    <div class="tbar-text"><span id="t-count">30</span>s remaining</div>
+    <div class="q-text" id="q-text"></div>
+    <div class="opts" id="opts"></div>
+    <button class="reveal-btn" id="reveal-btn" onclick="revealAnswer()">REVEAL ANSWER</button>
+    <div class="answer-block" id="answer-block">
+      <div class="exp-text" id="exp-text"></div>
+      <div class="award-title">AWARD POINTS</div>
+      <div class="award-rows" id="award-rows"></div>
+      <button class="close-q" onclick="closeQ()">CLOSE &amp; CONTINUE</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FINAL OVERLAY ══════════════════════════════════ -->
+<div class="overlay" id="final-overlay">
+  <div class="mbox" id="final-box">
+    <div class="final-title">GAME OVER!</div>
+    <div id="final-list"></div>
+    <button class="play-again" onclick="location.reload()">PLAY AGAIN</button>
+  </div>
+</div>
+
+<script>
+/* ══════════════════════════════════════════════════════
+   GAME DATA
+══════════════════════════════════════════════════════ */
+const CATS = [
+  "Stoichiometry",
+  "Solutions",
+  "Gas Laws",
+  "Thermodynamics",
+  "Equilibrium &amp; Acids"
+];
+
+const PTS = [200, 400, 600, 800, 1000];
+
+const QS = [
+  /* 0 — Stoichiometry */
+  [
+    {
+      q: "How many atoms are in 4.0 × 10⁻⁵ grams of aluminum? (Al = 26.98 g/mol)",
+      opts: ["A) 8.93 × 10¹⁷", "B) 2.41 × 10¹⁶", "C) 1.47 × 10¹⁷", "D) 5.37 × 10¹⁸"],
+      ans: 0,
+      exp: "mol Al = 4.0×10⁻⁵ ÷ 26.98 = 1.483×10⁻⁶ mol; atoms = 1.483×10⁻⁶ × 6.022×10²³ = 8.93×10¹⁷"
+    },
+    {
+      q: "A compound contains 40.0% C, 6.71% H, and 53.3% O by mass. What is its empirical formula?",
+      opts: ["A) CH₂O", "B) C₂H₄O₂", "C) CHO", "D) C₂H₄O"],
+      ans: 0,
+      exp: "C: 40.0÷12.01=3.33 | H: 6.71÷1.008=6.66 | O: 53.3÷16.00=3.33 → mole ratio 1:2:1 → CH₂O"
+    },
+    {
+      q: "Cu₂O + H₂ → 2Cu + H₂O. What mass of H₂O is produced when 10.00 g of Cu forms? (Cu = 63.55 g/mol)",
+      opts: ["A) 1.42 g", "B) 2.84 g", "C) 0.71 g", "D) 5.67 g"],
+      ans: 0,
+      exp: "mol Cu = 10.00÷63.55 = 0.1574 mol; mol H₂O = 0.1574÷2 = 0.07870 mol; mass = 0.07870×18.02 = 1.42 g"
+    },
+    {
+      q: "A hydrate of CuSO₄ loses 36.0% of its mass when heated. What is its formula? (CuSO₄ = 159.6 g/mol, H₂O = 18.02)",
+      opts: ["A) CuSO₄·3H₂O", "B) CuSO₄·4H₂O", "C) CuSO₄·5H₂O", "D) CuSO₄·7H₂O"],
+      ans: 2,
+      exp: "36.0 g water per 64.0 g CuSO₄: 18x / 159.6 = 36.0/64.0 → x = 4.99 ≈ 5 → CuSO₄·5H₂O"
+    },
+    {
+      q: "2Al + 3Cl₂ → 2AlCl₃. If 5.40 g Al reacts with 14.2 g Cl₂ (Cl₂ = 70.90, AlCl₃ = 133.3 g/mol), find the mass of AlCl₃ formed.",
+      opts: ["A) 26.7 g", "B) 17.8 g", "C) 35.5 g", "D) 13.4 g"],
+      ans: 1,
+      exp: "mol Al = 0.200, needs 0.300 mol Cl₂; mol Cl₂ = 0.200 (limiting) → 0.1333 mol AlCl₃ × 133.3 = 17.8 g"
+    }
+  ],
+  /* 1 — Solutions */
+  [
+    {
+      q: "How many moles of SO₄²⁻ ions are in 100. mL of 0.0020 M Fe₂(SO₄)₃?",
+      opts: ["A) 2.0 × 10⁻⁴ mol", "B) 4.0 × 10⁻⁴ mol", "C) 6.0 × 10⁻⁴ mol", "D) 1.2 × 10⁻³ mol"],
+      ans: 2,
+      exp: "Fe₂(SO₄)₃ dissociates to give 3 SO₄²⁻; mol salt = 0.100 L × 0.0020 M = 2.0×10⁻⁴; ×3 = 6.0×10⁻⁴ mol"
+    },
+    {
+      q: "Commercial vinegar is 5.00% acetic acid by mass, density = 1.006 g/mL. What is the molarity? (CH₃COOH = 60.05 g/mol)",
+      opts: ["A) 0.503 M", "B) 0.838 M", "C) 1.25 M", "D) 0.0500 M"],
+      ans: 1,
+      exp: "Per liter: 1006 g × 0.0500 = 50.3 g CH₃COOH; mol = 50.3÷60.05 = 0.838 mol → 0.838 M"
+    },
+    {
+      q: "What volume of 18.0 M H₂SO₄ is needed to prepare 500. mL of 3.00 M H₂SO₄?",
+      opts: ["A) 83.3 mL", "B) 167 mL", "C) 41.7 mL", "D) 3000 mL"],
+      ans: 0,
+      exp: "M₁V₁ = M₂V₂ → 18.0 × V₁ = 3.00 × 500 → V₁ = 83.3 mL. Always add acid to water!"
+    },
+    {
+      q: "5.85 g NaCl (MW = 58.5) dissolves in 250. g water. What is the freezing point? (Kf = 1.86°C·kg/mol, i = 2)",
+      opts: ["A) −0.744°C", "B) −1.49°C", "C) −2.98°C", "D) −0.372°C"],
+      ans: 1,
+      exp: "m = 0.100 mol ÷ 0.250 kg = 0.400 m; ΔTf = 1.86 × 0.400 × 2 = 1.49°C; Tf = 0 − 1.49 = −1.49°C"
+    },
+    {
+      q: "A 30.0% by mass H₂O₂ solution has density = 1.11 g/cm³. What is the molarity? (H₂O₂ = 34.01 g/mol)",
+      opts: ["A) 9.79 M", "B) 8.82 M", "C) 3.30 M", "D) 11.1 M"],
+      ans: 0,
+      exp: "Per liter: 1110 g × 0.300 = 333 g H₂O₂; mol = 333÷34.01 = 9.79 mol → 9.79 M"
+    }
+  ],
+  /* 2 — Gas Laws */
+  [
+    {
+      q: "A gas occupies 4.2 L at 25°C and constant pressure. What is the volume at 75°C?",
+      opts: ["A) 4.91 L", "B) 3.59 L", "C) 5.67 L", "D) 4.20 L"],
+      ans: 0,
+      exp: "Charles's Law: V₁/T₁ = V₂/T₂ → 4.2/298 K = V₂/348 K → V₂ = 4.91 L"
+    },
+    {
+      q: "A gas has a density of 1.96 g/L at STP (0°C, 1 atm). What is its molar mass?",
+      opts: ["A) 22.4 g/mol", "B) 32.0 g/mol", "C) 43.9 g/mol", "D) 28.0 g/mol"],
+      ans: 2,
+      exp: "At STP: 1 mol = 22.4 L → M = density × molar volume = 1.96 g/L × 22.4 L/mol = 43.9 g/mol"
+    },
+    {
+      q: "2C₄H₁₀ + 13O₂ → 8CO₂ + 10H₂O. What volume of CO₂ is produced from 2.50 L butane at constant T and P?",
+      opts: ["A) 2.50 L", "B) 5.00 L", "C) 10.0 L", "D) 8.00 L"],
+      ans: 2,
+      exp: "At constant T and P, volume ∝ moles. 1 mol C₄H₁₀ → 4 mol CO₂; V(CO₂) = 2.50 L × 4 = 10.0 L"
+    },
+    {
+      q: "What is the ratio of effusion rates rate(He)/rate(Xe)? (He = 4.003 g/mol, Xe = 131.3 g/mol)",
+      opts: ["A) 0.175", "B) 32.8", "C) 5.73", "D) 2.39"],
+      ans: 2,
+      exp: "Graham's Law: rate(He)/rate(Xe) = √(M_Xe/M_He) = √(131.3÷4.003) = √32.80 = 5.73"
+    },
+    {
+      q: "A mixture contains 0.400 mol N₂, 0.150 mol O₂, and 0.200 mol CO₂ at a total pressure of 3.80 atm. Find P(CO₂).",
+      opts: ["A) 0.760 atm", "B) 1.01 atm", "C) 2.03 atm", "D) 0.507 atm"],
+      ans: 1,
+      exp: "n_total = 0.750 mol; χ(CO₂) = 0.200/0.750 = 0.2667; P(CO₂) = 0.2667 × 3.80 atm = 1.01 atm"
+    }
+  ],
+  /* 3 — Thermodynamics */
+  [
+    {
+      q: "Which combination of ΔH and ΔS guarantees a spontaneous reaction at ALL temperatures?",
+      opts: ["A) ΔH > 0, ΔS > 0", "B) ΔH < 0, ΔS > 0", "C) ΔH < 0, ΔS < 0", "D) ΔH > 0, ΔS < 0"],
+      ans: 1,
+      exp: "ΔG = ΔH − TΔS. When ΔH < 0 and ΔS > 0, both terms make ΔG negative for any positive T → always spontaneous"
+    },
+    {
+      q: "CH₄ + 2O₂ → CO₂ + 2H₂O, ΔH = −890 kJ/mol. How much heat is released burning 4.00 g CH₄? (MW = 16.05 g/mol)",
+      opts: ["A) 890 kJ", "B) 222 kJ", "C) 111 kJ", "D) 3560 kJ"],
+      ans: 1,
+      exp: "mol CH₄ = 4.00÷16.05 = 0.249 mol; q = 0.249 mol × 890 kJ/mol = 222 kJ released"
+    },
+    {
+      q: "Given: C + O₂ → CO₂ (ΔH = −393.5 kJ); CO + ½O₂ → CO₂ (ΔH = −283.0 kJ). Find ΔH for: C + ½O₂ → CO",
+      opts: ["A) −676.5 kJ", "B) +110.5 kJ", "C) −110.5 kJ", "D) −393.5 kJ"],
+      ans: 2,
+      exp: "Reverse rxn 2 (ΔH = +283.0 kJ) and add to rxn 1: ΔH = −393.5 + 283.0 = −110.5 kJ (Hess's Law)"
+    },
+    {
+      q: "50.0 g of water is heated from 20.0°C to 80.0°C. How much heat is absorbed? (c = 4.184 J/g·°C)",
+      opts: ["A) 8.37 kJ", "B) 12.6 kJ", "C) 25.1 kJ", "D) 4.18 kJ"],
+      ans: 1,
+      exp: "q = mcΔT = 50.0 g × 4.184 J/g·°C × 60.0°C = 12,552 J = 12.6 kJ"
+    },
+    {
+      q: "For a reaction: ΔH = −92.4 kJ, ΔS = −198 J/K. Above what temperature does it become nonspontaneous?",
+      opts: ["A) 216 K", "B) 467 K", "C) 740 K", "D) 233 K"],
+      ans: 1,
+      exp: "Set ΔG = 0: T = ΔH/ΔS = −92,400 J ÷ −198 J/K = 467 K. Reaction is nonspontaneous above 467 K"
+    }
+  ],
+  /* 4 — Equilibrium & Acids */
+  [
+    {
+      q: "N₂(g) + 3H₂(g) ⇌ 2NH₃(g), ΔH < 0. Which change INCREASES [NH₃] at equilibrium?",
+      opts: ["A) Increasing temperature", "B) Decreasing pressure", "C) Adding a catalyst", "D) Increasing [H₂]"],
+      ans: 3,
+      exp: "Adding H₂ (a reactant) shifts equilibrium to the right. Temperature increase favors the endothermic reverse. Catalysts don't shift equilibrium."
+    },
+    {
+      q: "What is the pH of a 0.0500 M HCl solution?",
+      opts: ["A) 1.30", "B) 2.00", "C) 0.699", "D) 1.70"],
+      ans: 0,
+      exp: "HCl is a strong acid; [H⁺] = 0.0500 M; pH = −log(0.0500) = −log(5.00 × 10⁻²) = 2 − log 5 = 1.30"
+    },
+    {
+      q: "The Ksp of Ba(IO₃)₂ is 6.0 × 10⁻¹⁰ at 25°C. What is the molar solubility?",
+      opts: ["A) 1.2 × 10⁻⁵ M", "B) 1.7 × 10⁻⁵ M", "C) 5.3 × 10⁻⁴ M", "D) 8.4 × 10⁻⁴ M"],
+      ans: 2,
+      exp: "Ba(IO₃)₂ ⇌ Ba²⁺ + 2IO₃⁻; Ksp = s(2s)² = 4s³ = 6.0×10⁻¹⁰; s³ = 1.50×10⁻¹⁰; s = 5.3×10⁻⁴ M"
+    },
+    {
+      q: "SO₂ + ½O₂ ⇌ SO₃. At equilibrium: P(SO₂) = 0.40 atm, P(O₂) = 0.30 atm, P(SO₃) = 0.80 atm. Find Kp.",
+      opts: ["A) 3.65 atm⁻¹/²", "B) 6.67 atm⁻¹/²", "C) 5.33 atm⁻¹/²", "D) 1.33 atm⁻¹/²"],
+      ans: 0,
+      exp: "Kp = P(SO₃) / [P(SO₂) · P(O₂)^½] = 0.80 / [0.40 × √0.30] = 0.80 / 0.2191 = 3.65 atm⁻¹/²"
+    },
+    {
+      q: "A buffer contains [CH₃COOH] = 0.200 M and [CH₃COO⁻] = 0.150 M. What is the pH? (Ka = 1.8 × 10⁻⁵)",
+      opts: ["A) 4.74", "B) 4.87", "C) 4.62", "D) 5.00"],
+      ans: 2,
+      exp: "Henderson–Hasselbalch: pH = pKa + log([A⁻]/[HA]) = 4.74 + log(0.150/0.200) = 4.74 − 0.125 = 4.62"
+    }
+  ]
+];
+
+/* ══════════════════════════════════════════════════════
+   AUDIO  (Web Audio API)
+══════════════════════════════════════════════════════ */
+let actx = null;
+
+function getCtx() {
+  if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)();
+  return actx;
+}
+
+function tone(freq, dur, type = 'sine', vol = 0.28) {
+  const ctx = getCtx();
+  const osc = ctx.createOscillator();
+  const g   = ctx.createGain();
+  osc.connect(g); g.connect(ctx.destination);
+  osc.type = type;
+  osc.frequency.setValueAtTime(freq, ctx.currentTime);
+  g.gain.setValueAtTime(vol, ctx.currentTime);
+  g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + dur);
+  osc.start(ctx.currentTime);
+  osc.stop(ctx.currentTime + dur + 0.05);
+}
+
+function sndCorrect() {
+  tone(523, 0.12); setTimeout(()=>tone(659,0.12),90); setTimeout(()=>tone(784,0.28),180);
+}
+function sndWrong() {
+  tone(220, 0.35, 'sawtooth', 0.22); setTimeout(()=>tone(165,0.35,'sawtooth',0.22),130);
+}
+function sndTick() { tone(900, 0.04, 'square', 0.1); }
+function sndTimeUp() {
+  tone(300, 0.18, 'sawtooth', 0.3); setTimeout(()=>tone(200,0.45,'sawtooth',0.3),130);
+}
+function sndDD() {
+  [523,659,784,1047].forEach((f,i) => setTimeout(()=>tone(f,0.28),i*140));
+}
+function sndClick() { tone(700, 0.04, 'square', 0.12); }
+function sndReveal() { tone(440, 0.1); setTimeout(()=>tone(550,0.2),80); }
+
+/* ══════════════════════════════════════════════════════
+   STATE
+══════════════════════════════════════════════════════ */
+let players     = [];
+let scores      = [];
+let activeP     = 0;
+let usedCells   = new Set();
+let ddCell      = null;     // "col-row"
+let curQ        = null;
+let curPts      = 0;
+let curWager    = 0;
+let curKey      = null;
+let curDD       = false;
+let revealed    = false;
+let timerID     = null;
+let timerSecs   = 30;
+const TIMER_MAX = 30;
+
+/* ══════════════════════════════════════════════════════
+   SETUP
+══════════════════════════════════════════════════════ */
+(function initSetup() {
+  const g = document.getElementById('player-inputs');
+  for (let i = 0; i < 5; i++) {
+    g.innerHTML += `
+      <div class="p-group">
+        <div class="p-label">Player ${i+1}</div>
+        <input class="p-input" id="pin-${i}" type="text" maxlength="12" placeholder="Name…">
+      </div>`;
+  }
+})();
+
+function startGame() {
+  players = [];
+  for (let i = 0; i < 5; i++) {
+    const v = document.getElementById(`pin-${i}`).value.trim();
+    players.push(v || `Player ${i+1}`);
+  }
+  scores    = new Array(5).fill(0);
+  activeP   = 0;
+  usedCells = new Set();
+
+  // Pick 1 random daily double
+  ddCell = `${Math.floor(Math.random()*5)}-${Math.floor(Math.random()*5)}`;
+
+  document.getElementById('setup').style.display = 'none';
+  const gs = document.getElementById('game');
+  gs.style.display = 'flex';
+
+  buildBoard();
+  buildScores();
+}
+
+/* ══════════════════════════════════════════════════════
+   BOARD
+══════════════════════════════════════════════════════ */
+function buildBoard() {
+  const b = document.getElementById('board');
+  b.innerHTML = '';
+  CATS.forEach(c => { b.innerHTML += `<div class="cat-hdr">${c}</div>`; });
+  for (let row = 0; row < 5; row++)
+    for (let col = 0; col < 5; col++) {
+      const key = `${col}-${row}`;
+      b.innerHTML += `<div class="cell" id="c-${key}" onclick="cellClick(${col},${row})">$${PTS[row]}</div>`;
+    }
+}
+
+/* ══════════════════════════════════════════════════════
+   SCORES
+══════════════════════════════════════════════════════ */
+function buildScores() {
+  const col = document.getElementById('scores-col');
+  let h = '<div class="scores-heading">SCORES</div>';
+  players.forEach((n,i) => {
+    h += `
+      <div class="scard ${i===0?'active':''}" id="sc-${i}" onclick="setActive(${i})">
+        <div class="scard-dot"></div>
+        <div class="scard-name">${n}</div>
+        <div class="scard-val" id="sv-${i}">$0</div>
+      </div>`;
+  });
+  h += '<div class="scores-hint">Click a player card to set as the active player before choosing a cell.</div>';
+  col.innerHTML = h;
+}
+
+function setActive(i) {
+  activeP = i;
+  document.querySelectorAll('.scard').forEach((el,j)=>el.classList.toggle('active',j===i));
+  sndClick();
+}
+
+function refreshScore(i) {
+  const el = document.getElementById(`sv-${i}`);
+  const s  = scores[i];
+  el.textContent = (s < 0 ? '-$' : '$') + Math.abs(s).toLocaleString();
+  el.classList.toggle('neg', s < 0);
+}
+
+function awardPoints(playerIdx, delta) {
+  scores[playerIdx] += delta;
+  refreshScore(playerIdx);
+  // flash
+  const f = document.createElement('div');
+  f.className = `flash ${delta >= 0 ? 'pos' : 'neg'}`;
+  f.textContent = (delta >= 0 ? '+$' : '-$') + Math.abs(delta).toLocaleString();
+  document.body.appendChild(f);
+  setTimeout(()=>f.remove(), 1050);
+  delta >= 0 ? sndCorrect() : sndWrong();
+}
+
+/* ══════════════════════════════════════════════════════
+   CELL CLICK
+══════════════════════════════════════════════════════ */
+function cellClick(col, row) {
+  const key = `${col}-${row}`;
+  if (usedCells.has(key)) return;
+  sndClick();
+  curQ   = QS[col][row];
+  curPts = PTS[row];
+  curKey = key;
+  curDD  = (key === ddCell);
+
+  if (curDD) {
+    // flash cell
+    const cell = document.getElementById(`c-${key}`);
+    cell.classList.add('dd-flash');
+    setTimeout(()=>cell.classList.remove('dd-flash'), 600);
+    sndDD();
+    showDD();
+  } else {
+    showQ(false);
+  }
+}
+
+/* ══════════════════════════════════════════════════════
+   DAILY DOUBLE
+══════════════════════════════════════════════════════ */
+function showDD() {
+  const maxWager = Math.max(scores[activeP], curPts);
+  document.getElementById('dd-who').textContent   = players[activeP];
+  document.getElementById('dd-limit').textContent = `Wager $100 to $${maxWager.toLocaleString()} (min $100)`;
+  const wi = document.getElementById('wager-in');
+  wi.min   = 100;
+  wi.max   = maxWager;
+  wi.value = '';
+  document.getElementById('dd-overlay').classList.add('on');
+}
+
+function ddProceed() {
+  const wi  = document.getElementById('wager-in');
+  const max = Math.max(scores[activeP], curPts);
+  let w = parseInt(wi.value);
+  if (isNaN(w) || w < 100) w = 100;
+  if (w > max) w = max;
+  curWager = w;
+  document.getElementById('dd-overlay').classList.remove('on');
+  showQ(true);
+}
+
+/* ══════════════════════════════════════════════════════
+   QUESTION MODAL
+══════════════════════════════════════════════════════ */
+function showQ(isDD) {
+  stopTimer();
+  revealed = false;
+  const col = parseInt(curKey.split('-')[0]);
+
+  document.getElementById('q-cat').textContent  = CATS[col].replace('&amp;','&');
+  document.getElementById('q-pts').textContent  = isDD
+    ? `DAILY DOUBLE — WAGER: $${curWager.toLocaleString()}`
+    : `$${curPts.toLocaleString()}`;
+  document.getElementById('q-text').innerHTML   = curQ.q;
+  document.getElementById('exp-text').textContent = curQ.exp;
+  document.getElementById('answer-block').style.display = 'none';
+
+  const revBtn = document.getElementById('reveal-btn');
+  revBtn.style.display  = 'block';
+  revBtn.disabled       = false;
+  revBtn.textContent    = 'REVEAL ANSWER';
+
+  // Options
+  const optsEl = document.getElementById('opts');
+  optsEl.innerHTML = '';
+  curQ.opts.forEach((o,i)=>{
+    optsEl.innerHTML += `<button class="opt" id="opt-${i}" onclick="pickOpt(${i})">${o}</button>`;
+  });
+
+  // Award buttons
+  const pts = isDD ? curWager : curPts;
+  const ar  = document.getElementById('award-rows');
+  ar.innerHTML = '';
+  players.forEach((n,i)=>{
+    ar.innerHTML += `
+      <div class="award-row">
+        <div class="award-name">${n}</div>
+        <button class="abtn pos" onclick="awardPoints(${i},${pts})">+$${pts.toLocaleString()}</button>
+        <button class="abtn neg" onclick="awardPoints(${i},-${pts})">−$${pts.toLocaleString()}</button>
+      </div>`;
+  });
+
+  document.getElementById('tbar').classList.remove('hot');
+  document.getElementById('q-overlay').classList.add('on');
+  startTimer();
+}
+
+let _pickedOpt = null;
+function pickOpt(i) {
+  if (revealed) return;
+  _pickedOpt = i;
+  document.querySelectorAll('.opt').forEach((el,j)=>{
+    el.classList.remove('chosen-wrong');
+    if (j===i && i !== curQ.ans) el.classList.add('chosen-wrong');
+  });
+}
+
+function revealAnswer() {
+  if (revealed) return;
+  revealed = true;
+  stopTimer();
+  sndReveal();
+
+  document.querySelectorAll('.opt').forEach((el,i)=>{
+    el.classList.add('locked');
+    if (i === curQ.ans) el.classList.add('correct');
+    else {
+      el.classList.add('wrong');
+      el.classList.remove('chosen-wrong');
+    }
+  });
+
+  document.getElementById('answer-block').style.display = 'block';
+  document.getElementById('reveal-btn').style.display   = 'none';
+}
+
+function closeQ() {
+  usedCells.add(curKey);
+  const cell = document.getElementById(`c-${curKey}`);
+  cell.classList.add('used');
+  cell.textContent = '';
+  document.getElementById('q-overlay').classList.remove('on');
+  document.getElementById('tbar').classList.remove('hot');
+  stopTimer();
+
+  if (usedCells.size === 25) setTimeout(showFinal, 400);
+}
+
+/* ══════════════════════════════════════════════════════
+   TIMER
+══════════════════════════════════════════════════════ */
+function startTimer() {
+  timerSecs = TIMER_MAX;
+  renderTimer();
+  timerID = setInterval(()=>{
+    timerSecs--;
+    renderTimer();
+    if (timerSecs <= 10 && timerSecs > 0) sndTick();
+    if (timerSecs <= 0) { stopTimer(); sndTimeUp(); revealAnswer(); }
+  }, 1000);
+}
+
+function stopTimer() { clearInterval(timerID); timerID = null; }
+
+function renderTimer() {
+  const pct = (timerSecs / TIMER_MAX) * 100;
+  const bar = document.getElementById('tbar');
+  bar.style.width = pct + '%';
+  bar.classList.toggle('hot', timerSecs <= 10);
+  document.getElementById('t-count').textContent = Math.max(0, timerSecs);
+}
+
+/* ══════════════════════════════════════════════════════
+   FINAL SCREEN
+══════════════════════════════════════════════════════ */
+function showFinal() {
+  const sorted = players.map((n,i)=>({n, s:scores[i]})).sort((a,b)=>b.s-a.s);
+  const medals = ['🥇','🥈','🥉','',''];
+  let h = '';
+  sorted.forEach((p,i)=>{
+    const neg = p.s < 0;
+    h += `
+      <div class="final-row ${i===0?'first':''}">
+        <div class="final-row-name">${medals[i]||''} ${p.n}</div>
+        <div class="final-row-score ${neg?'neg-s':''}">${neg?'-$':'$'}${Math.abs(p.s).toLocaleString()}</div>
+      </div>`;
+  });
+  document.getElementById('final-list').innerHTML = h;
+  document.getElementById('final-overlay').classList.add('on');
+  sndDD();
+}
+</script>
+</body>
+</html>
