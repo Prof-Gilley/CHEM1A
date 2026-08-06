@@ -1,0 +1,256 @@
+{
+ "title": "CHEM1A Practice Quiz — Objective 8: Bonding I — Lewis, VSEPR, Valence Bond (DRAFT pending Gilley approval)",
+ "tags": [
+  "obj8.bond.types",
+  "obj8.polarity.bond",
+  "obj8.lewis.draw",
+  "obj8.lewis.formalcharge",
+  "obj8.lewis.resonance",
+  "obj8.lewis.exceptions",
+  "obj8.vsepr.geometry",
+  "obj8.polarity.molecular",
+  "obj8.bond.properties",
+  "obj8.isomers.cistrans",
+  "obj8.vb.overlap",
+  "obj8.vb.hybridization",
+  "obj8.vocab"
+ ],
+ "items": [
+  {
+   "tag": "obj8.bond.types",
+   "stem": "Which pair of elements forms an ionic bond?",
+   "choices": ["Barium and fluorine", "Carbon and oxygen", "Nitrogen and chlorine", "Sulfur and oxygen"],
+   "answer": 0,
+   "explain": "Metal + nonmetal transfers electrons — ionic. The other three pairs are nonmetal + nonmetal: they share, making covalent bonds."
+  },
+  {
+   "tag": "obj8.bond.types",
+   "stem": "Which compound has the LARGEST lattice energy?",
+   "choices": ["SrO — 2+ and 2− charges", "RbF — 1+ and 1−, small ions", "RbI — 1+ and 1−, large ions", "SrS — 2+ and 2−, but larger anion than SrO"],
+   "answer": 0,
+   "explain": "Charge product first: the 2+/2− pairs beat every 1+/1− pair. Size second: between SrO and SrS, oxide is smaller than sulfide, so SrO's ions sit closer. Checking size before charge is the classic inversion."
+  },
+  {
+   "tag": "obj8.polarity.bond",
+   "stem": "Which bond is the MOST polar? (EN: B = 2.0, C = 2.5, N = 3.0, O = 3.5)",
+   "choices": ["B–O (ΔEN = 1.5)", "C–O (ΔEN = 1.0)", "N–O (ΔEN = 0.5)", "O–O (ΔEN = 0)"],
+   "answer": 0,
+   "explain": "Bond polarity rides on the electronegativity DIFFERENCE: the partner farthest from oxygen makes the most lopsided pair. O–O is perfectly nonpolar."
+  },
+  {
+   "tag": "obj8.polarity.bond",
+   "stem": "In a polar covalent bond, the shared electrons:",
+   "choices": [
+    "Spend more time near the more electronegative atom",
+    "Transfer completely to one atom",
+    "Sit exactly halfway between the nuclei at all times",
+    "Leave the bond entirely"
+   ],
+   "answer": 0,
+   "explain": "Polar covalent = uneven sharing, not transfer. Complete transfer is ionic; perfectly even sharing is nonpolar covalent."
+  },
+  {
+   "tag": "obj8.lewis.draw",
+   "stem": "How many total valence electrons belong in the Lewis structure of PF₃?",
+   "choices": ["26", "24", "28", "8"],
+   "answer": 0,
+   "explain": "5 (P) + 3 × 7 (F) = 26. The count comes FIRST — 24 forgets phosphorus's lone pair allotment (miscounting P as 3); 8 counts only one atom's octet."
+  },
+  {
+   "tag": "obj8.lewis.draw",
+   "stem": "How many total valence electrons belong in the Lewis structure of the bromate ion, BrO₃⁻?",
+   "choices": ["26", "25", "24", "32"],
+   "answer": 0,
+   "explain": "7 (Br) + 3 × 6 (O) + 1 (the ion's −1 charge) = 26. The charge enters at the count step — 25 is the count with the charge forgotten, the single most common ion error."
+  },
+  {
+   "tag": "obj8.lewis.draw",
+   "stem": "How many total valence electrons belong in the Lewis structure of ethanol, C₂H₅OH?",
+   "choices": ["20", "22", "14", "26"],
+   "answer": 0,
+   "explain": "2 × 4 (C) + 6 × 1 (H) + 6 (O) = 8 + 6 + 6 = 20. The count comes FIRST, even for organics — 22 hands oxygen a full octet instead of its six valence electrons; 14 forgets the six hydrogens entirely."
+  },
+  {
+   "tag": "obj8.lewis.draw",
+   "stem": "In the correct Lewis structure of methylamine, CH₃NH₂ (skeleton H₃C–NH₂), the nitrogen atom carries:",
+   "choices": ["One lone pair", "No lone pairs", "Two lone pairs", "A double bond to carbon"],
+   "answer": 0,
+   "explain": "Count first: 4 (C) + 5 (N) + 5 × 1 (H) = 14 electrons. Six bonds place 12 of them; the last pair sits on nitrogen as its one lone pair, completing its octet. Two lone pairs is oxygen's pattern misapplied; a C=N double bond would overfill both octets here."
+  },
+  {
+   "tag": "obj8.lewis.formalcharge",
+   "stem": "What is the formal charge on the carbon of CH₃⁻ (three C–H bonds and one lone pair on carbon)?",
+   "choices": ["−1", "0", "+1", "−4"],
+   "answer": 0,
+   "explain": "FC = valence − (nonbonding + ½ bonding) = 4 − (2 + 3) = −1 — which matches the ion's charge, the built-in self-check. 0 forgets the lone pair; −4 subtracts everything from nothing."
+  },
+  {
+   "tag": "obj8.lewis.formalcharge",
+   "stem": "When two Lewis structures are otherwise equally good, the better one places any NEGATIVE formal charge on:",
+   "choices": [
+    "The most electronegative atom",
+    "The least electronegative atom",
+    "The central atom, always",
+    "A hydrogen atom"
+   ],
+   "answer": 0,
+   "explain": "Negative charge belongs where electrons are most welcome — the most electronegative atom. That tiebreak (after minimizing charges) picks the real skeleton in cases like cyanate."
+  },
+  {
+   "tag": "obj8.lewis.resonance",
+   "stem": "The two carbon-oxygen bonds of the formate ion, HCO₂⁻, are exactly equal in length. This is because the ion:",
+   "choices": [
+    "Is a resonance hybrid — one averaged structure with two identical intermediate bonds",
+    "Flickers rapidly between its two Lewis structures",
+    "Contains two double bonds",
+    "Contains two single bonds"
+   ],
+   "answer": 0,
+   "explain": "The hybrid is a permanent average, not a movie. Flickering would still show one short and one long bond at any instant; the equal lengths are the fingerprint of the average."
+  },
+  {
+   "tag": "obj8.lewis.resonance",
+   "stem": "In the acetate ion, CH₃COO⁻, how many equivalent positions can the carbon-oxygen double bond occupy?",
+   "choices": ["2", "1", "3", "4"],
+   "answer": 0,
+   "explain": "The double bond has two legal homes — one per oxygen — giving two resonance structures and two identical carbon-oxygen bonds in the real ion."
+  },
+  {
+   "tag": "obj8.lewis.exceptions",
+   "stem": "Which molecule CANNOT satisfy the octet rule for every atom, no matter how you draw it?",
+   "choices": ["NO₂", "N₂", "H₂O", "NH₃"],
+   "answer": 0,
+   "explain": "NO₂ has 17 valence electrons — an odd number. Pairs can never cover an odd count, so one electron stays unpaired. Check the count before drawing a single dot."
+  },
+  {
+   "tag": "obj8.lewis.exceptions",
+   "stem": "Which element can hold MORE than eight electrons in its valence shell?",
+   "choices": [
+    "Sulfur — period 3, with d orbitals available",
+    "Nitrogen — it has five valence electrons",
+    "Oxygen — it is highly electronegative",
+    "Fluorine — it forms many compounds"
+   ],
+   "answer": 0,
+   "explain": "Expanded octets need an empty d subshell in the valence shell — available from period 3 down. Nitrogen, oxygen, and fluorine live in period 2 (n = 2 holds only s and p) and never exceed eight."
+  },
+  {
+   "tag": "obj8.vsepr.geometry",
+   "stem": "What is the molecular geometry of PH₃ (three bonds and one lone pair on phosphorus)?",
+   "choices": ["Trigonal pyramidal", "Trigonal planar", "Tetrahedral", "Bent"],
+   "answer": 0,
+   "explain": "Four electron groups → tetrahedral ELECTRON geometry; the lone pair keeps its seat but drops out of the name → trigonal pyramidal MOLECULAR geometry. Tetrahedral is the electron-geometry answer put in the wrong blank."
+  },
+  {
+   "tag": "obj8.vsepr.geometry",
+   "stem": "Which molecule is LINEAR?",
+   "choices": ["BeF₂", "H₂O", "OF₂", "NH₃"],
+   "answer": 0,
+   "explain": "BeF₂ has two electron groups and no lone pairs on beryllium → linear, 180°. H₂O and OF₂ are bent (their lone pairs fold them); NH₃ is trigonal pyramidal."
+  },
+  {
+   "tag": "obj8.polarity.molecular",
+   "stem": "Which molecule is NONPOLAR even though its bonds are polar?",
+   "choices": ["SiF₄", "H₂O", "CHCl₃", "NF₃"],
+   "answer": 0,
+   "explain": "SiF₄'s perfect tetrahedron of four IDENTICAL bonds cancels the four dipole arrows. The others are asymmetric — bent, mixed corners, or lone-pair-tilted — and keep a net arrow."
+  },
+  {
+   "tag": "obj8.polarity.molecular",
+   "stem": "A bent molecule whose two bonds are polar is:",
+   "choices": [
+    "Always polar — dipoles at an angle cannot fully cancel",
+    "Always nonpolar",
+    "Polar only if it contains oxygen",
+    "Impossible to classify without measuring it"
+   ],
+   "answer": 0,
+   "explain": "Cancellation requires arrows pointing exactly opposite; a bend guarantees they do not. Shape plus bond dipoles decides polarity — nothing about oxygen specifically."
+  },
+  {
+   "tag": "obj8.bond.properties",
+   "stem": "Which carbon-carbon bond is the SHORTEST?",
+   "choices": ["C≡C", "C=C", "C–C", "They are all the same length"],
+   "answer": 0,
+   "explain": "Bond order up → length down (and energy up). Triple bonds pull the same two atoms closest together."
+  },
+  {
+   "tag": "obj8.bond.properties",
+   "stem": "For bonds between the same two atoms, as bond order increases from single to triple, bond energy:",
+   "choices": ["Increases — more shared pairs bind more strongly", "Decreases", "Stays the same", "First rises, then falls"],
+   "answer": 0,
+   "explain": "Order up → energy up, length down: three rungs of the same ladder. This pairing (stronger AND shorter) is the pattern the final tests."
+  },
+  {
+   "tag": "obj8.isomers.cistrans",
+   "stem": "Which alkene exists as cis and trans isomers?",
+   "choices": ["2-hexene", "1-hexene", "Propene", "2-methylpropene"],
+   "answer": 0,
+   "explain": "Cis/trans needs two DIFFERENT groups on EACH carbon of the double bond. In the other three, at least one double-bond carbon carries two identical groups — swap them and nothing changes."
+  },
+  {
+   "tag": "obj8.isomers.cistrans",
+   "stem": "How many degrees of unsaturation does C₆H₁₀ have?",
+   "choices": ["2", "1", "3", "0"],
+   "answer": 0,
+   "explain": "(2 × 6 + 2 − 10)/2 = 2 — some combination of two rings and π bonds. 1 miscounts the hydrogens; 0 describes the saturated C₆H₁₄."
+  },
+  {
+   "tag": "obj8.vb.overlap",
+   "stem": "A triple bond consists of:",
+   "choices": ["One σ bond and two π bonds", "Three σ bonds", "Three π bonds", "Two σ bonds and one π bond"],
+   "answer": 0,
+   "explain": "Every bond gets exactly one head-on σ; the extra lines are side-on π bonds. Three σ bonds between the same two atoms is geometrically impossible."
+  },
+  {
+   "tag": "obj8.vb.overlap",
+   "stem": "A π bond forms when two orbitals overlap:",
+   "choices": [
+    "Side-on, above and below the line between the nuclei",
+    "Head-on, along the line between the nuclei",
+    "Not at all — π bonds are ionic",
+    "Inside the nucleus"
+   ],
+   "answer": 0,
+   "explain": "Side-on p-orbital overlap is the π signature — and it is why rotation (which would tear the side-on contact apart) is locked. Head-on overlap is the σ bond."
+  },
+  {
+   "tag": "obj8.vb.hybridization",
+   "stem": "What is the hybridization of the carbon atom in CH₃Cl (four single bonds, no lone pairs)?",
+   "choices": ["sp³", "sp²", "sp", "Not hybridized"],
+   "answer": 0,
+   "explain": "Four electron groups → sp³ → tetrahedral. The lookup runs count → hybridization: 2 groups sp, 3 groups sp², 4 groups sp³."
+  },
+  {
+   "tag": "obj8.vb.hybridization",
+   "stem": "An sp-hybridized central atom is surrounded by how many electron groups, in what arrangement?",
+   "choices": ["2 groups, linear", "3 groups, trigonal planar", "4 groups, tetrahedral", "6 groups, octahedral"],
+   "answer": 0,
+   "explain": "sp mixes two orbitals for two groups at 180° — and leaves two unhybridized p orbitals, which is how a triple bond's two π bonds fit."
+  },
+  {
+   "tag": "obj8.vocab",
+   "stem": "Electronegativity is:",
+   "choices": [
+    "An atom's pull on the electrons it SHARES in a bond",
+    "The energy needed to remove an electron from an isolated atom",
+    "The charge of an ion",
+    "The number of valence electrons an atom has"
+   ],
+   "answer": 0,
+   "explain": "Pull on SHARED electrons — a bonding property. The remove-an-electron definition is ionization energy (Objective 7's trend, a close cousin but a different measurement)."
+  },
+  {
+   "tag": "obj8.vocab",
+   "stem": "Bond energy is:",
+   "choices": [
+    "The energy required to break one mole of that bond in the gas phase",
+    "The energy stored inside the bonded atoms' nuclei",
+    "The heat released when any bond breaks",
+    "The mass difference between bonded and free atoms"
+   ],
+   "answer": 0,
+   "explain": "Breaking bonds always COSTS energy (bond energies are positive); heat is released only when stronger bonds FORM. 'Breaking releases energy' is the misconception the ΔH-from-bond-energies method exposes."
+  }
+ ]
+}

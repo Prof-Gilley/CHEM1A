@@ -1,0 +1,339 @@
+{
+ "title": "CHEM1A Practice Quiz — Objective 4: Reactions, Aqueous Chemistry & Stoichiometry (DRAFT pending Gilley approval)",
+ "tags": [
+  "obj4.eqn.balance",
+  "obj4.eqn.classify",
+  "obj4.aq.electrolytes",
+  "obj4.aq.precipitation",
+  "obj4.aq.ionicequations",
+  "obj4.aq.acidbase",
+  "obj4.aq.ph",
+  "obj4.redox.oxnumbers",
+  "obj4.redox.identify",
+  "obj4.redox.halfreaction",
+  "obj4.stoich.massmass",
+  "obj4.stoich.limiting",
+  "obj4.stoich.yield",
+  "obj4.stoich.solution",
+  "obj4.stoich.gravimetric",
+  "obj4.vocab"
+ ],
+ "items": [
+  {
+   "tag": "obj4.eqn.balance",
+   "stem": "When ___Fe + ___Cl₂ → ___FeCl₃ is balanced with the smallest whole-number coefficients, the coefficient of Cl₂ is:",
+   "choices": ["3", "2", "1", "6"],
+   "answer": 0,
+   "explain": "2 Fe + 3 Cl₂ → 2 FeCl₃ (Fe 2/2, Cl 6/6). Choosing 2 reads iron's coefficient as chlorine's; 1 leaves chlorine unbalanced; 6 balances atoms but is not the smallest set (it doubles everything)."
+  },
+  {
+   "tag": "obj4.eqn.balance",
+   "stem": "Which equation is correctly balanced?",
+   "choices": [
+    "C₂H₄ + 3 O₂ → 2 CO₂ + 2 H₂O",
+    "C₂H₄ + O₂ → CO₂ + H₂O",
+    "C₂H₄ + 3 O₂ → 2 CO₂ + 2 H₂O₂",
+    "C₂H₄ + 2 O₂ → 2 CO₂ + 2 H₂O"
+   ],
+   "answer": 0,
+   "explain": "C 2/2, H 4/4, O 6 = 4 + 2. The second is unbalanced; the third changed a SUBSCRIPT (H₂O to H₂O₂ — a different substance); the fourth has only 4 oxygens on the left for 6 on the right."
+  },
+  {
+   "tag": "obj4.eqn.classify",
+   "stem": "The reaction 2 H₂O₂ → 2 H₂O + O₂ is best classified as:",
+   "choices": ["Decomposition", "Synthesis", "Single displacement", "Combustion"],
+   "answer": 0,
+   "explain": "One substance breaks into two — decomposition. Synthesis is the reverse pattern; nothing displaces anything; there is no fuel + O₂ reactant pattern (oxygen is a PRODUCT here)."
+  },
+  {
+   "tag": "obj4.eqn.classify",
+   "stem": "Which reaction is a double displacement?",
+   "choices": [
+    "BaCl₂(aq) + Na₂SO₄(aq) → BaSO₄(s) + 2 NaCl(aq)",
+    "Zn(s) + 2 HCl(aq) → ZnCl₂(aq) + H₂(g)",
+    "H₂(g) + Cl₂(g) → 2 HCl(g)",
+    "CH₄(g) + 2 O₂(g) → CO₂(g) + 2 H₂O(g)"
+   ],
+   "answer": 0,
+   "explain": "Two compounds swap partners (Ba/Na trade anions), and the swap strands barium with sulfate as insoluble BaSO₄ — a precipitation predicted straight from the solubility rules. Zn + HCl is single displacement (an element displaces H); H₂ + Cl₂ is synthesis; CH₄ + O₂ is combustion."
+  },
+  {
+   "tag": "obj4.eqn.classify",
+   "stem": "Which reaction is a synthesis (combination) reaction?",
+   "choices": [
+    "CaO(s) + CO₂(g) → CaCO₃(s)",
+    "2 HgO(s) → 2 Hg(l) + O₂(g)",
+    "Fe(s) + CuSO₄(aq) → FeSO₄(aq) + Cu(s)",
+    "K₂CO₃(aq) + MgCl₂(aq) → MgCO₃(s) + 2 KCl(aq)"
+   ],
+   "answer": 0,
+   "explain": "Two substances combine into one — the synthesis pattern (A + B → AB). 2 HgO → 2 Hg + O₂ is decomposition (one substance becomes two); Fe + CuSO₄ is single displacement (iron displaces copper); K₂CO₃ + MgCl₂ is double displacement (partner swap)."
+  },
+  {
+   "tag": "obj4.aq.electrolytes",
+   "stem": "Which 0.1 M solution conducts electricity best?",
+   "choices": [
+    "NaCl(aq) — a soluble ionic compound",
+    "Table sugar (C₁₂H₂₂O₁₁)(aq)",
+    "Acetic acid (HC₂H₃O₂)(aq)",
+    "They all conduct equally at equal concentration"
+   ],
+   "answer": 0,
+   "explain": "NaCl dissociates completely — a strong electrolyte, maximum ions per formula unit dissolved. Sugar dissolves without forming ions (nonelectrolyte); acetic acid only partially ionizes (weak electrolyte). Conduction depends on IONS, not on how much dissolved."
+  },
+  {
+   "tag": "obj4.aq.electrolytes",
+   "stem": "Nitrous acid (HNO₂) is a weak acid. In aqueous solution it exists mostly as:",
+   "choices": [
+    "Intact HNO₂ molecules, with a small fraction ionized to H⁺ and NO₂⁻",
+    "Completely separated H⁺ and NO₂⁻ ions",
+    "A solid precipitate",
+    "H₂ gas and NO₂ gas"
+   ],
+   "answer": 0,
+   "explain": "Weak electrolyte = partial ionization — most molecules stay whole. Complete dissociation describes a STRONG acid; the other options confuse dissolving with reacting."
+  },
+  {
+   "tag": "obj4.aq.precipitation",
+   "stem": "Mixing which pair of aqueous solutions produces a precipitate?",
+   "choices": [
+    "BaCl₂ and K₂SO₄",
+    "NaCl and KNO₃",
+    "HCl and KOH",
+    "NaNO₃ and K₂CO₃"
+   ],
+   "answer": 0,
+   "explain": "The swap gives BaSO₄ — the classic sulfate exception (Ba²⁺/Pb²⁺/Ca²⁺/Sr²⁺). NaCl + KNO₃ and NaNO₃ + K₂CO₃ give only soluble products (group 1 and nitrates are always soluble); HCl + KOH neutralizes to water — no solid."
+  },
+  {
+   "tag": "obj4.aq.precipitation",
+   "stem": "According to the solubility rules, which compound IS soluble in water?",
+   "choices": ["(NH₄)₂CO₃", "CaCO₃", "Fe(OH)₃", "AgBr"],
+   "answer": 0,
+   "explain": "Ammonium compounds are ALWAYS soluble — that rule outranks the carbonate rule. CaCO₃ (carbonate), Fe(OH)₃ (hydroxide), and AgBr (silver halide) are all standard insolubles."
+  },
+  {
+   "tag": "obj4.aq.ionicequations",
+   "stem": "For AgNO₃(aq) + KBr(aq) → AgBr(s) + KNO₃(aq), the spectator ions are:",
+   "choices": [
+    "K⁺ and NO₃⁻",
+    "Ag⁺ and Br⁻",
+    "Ag⁺ and NO₃⁻",
+    "There are no spectator ions in a precipitation reaction"
+   ],
+   "answer": 0,
+   "explain": "K⁺ and NO₃⁻ appear unchanged on both sides and cancel. Ag⁺ and Br⁻ are the ions that actually react (they form the solid) — the net ionic equation is Ag⁺ + Br⁻ → AgBr(s)."
+  },
+  {
+   "tag": "obj4.aq.ionicequations",
+   "stem": "When writing a complete ionic equation, which species is NOT split into ions?",
+   "choices": ["AgCl(s)", "NaCl(aq)", "KNO₃(aq)", "HCl(aq)"],
+   "answer": 0,
+   "explain": "Solids, liquids, gases, and weak electrolytes stay whole — only dissolved strong electrolytes dissociate. NaCl(aq) and KNO₃(aq) are soluble ionic compounds and HCl is a strong acid: all three split."
+  },
+  {
+   "tag": "obj4.aq.acidbase",
+   "stem": "Which compound is an Arrhenius base?",
+   "choices": ["KOH", "HBr", "CH₄", "NaCl"],
+   "answer": 0,
+   "explain": "KOH raises the OH⁻ concentration in water — the Arrhenius base definition. HBr is an acid (raises H⁺); CH₄ and NaCl do neither."
+  },
+  {
+   "tag": "obj4.aq.acidbase",
+   "stem": "When aqueous sodium carbonate reacts with excess hydrochloric acid, the gas produced is:",
+   "choices": ["CO₂", "H₂", "O₂", "Cl₂"],
+   "answer": 0,
+   "explain": "Carbonates + acid → salt + water + CO₂ (carbonic acid forms first, then splits). H₂ comes from metals + acid, not carbonates; O₂ and Cl₂ come from neither."
+  },
+  {
+   "tag": "obj4.aq.ph",
+   "stem": "A solution has [H⁺] = 1.0 × 10⁻⁸ M. Its pH is:",
+   "choices": [
+    "8.00, and the solution is basic",
+    "8.00, and the solution is acidic",
+    "6.00, and the solution is basic",
+    "−8.00, and the solution is acidic"
+   ],
+   "answer": 0,
+   "explain": "pH = −log(10⁻⁸) = 8.00, above 7 = basic. High pH means LOW [H⁺] — the scale runs backwards from instinct; the sign options drop the negative in the definition."
+  },
+  {
+   "tag": "obj4.aq.ph",
+   "stem": "The pH of a solution drops from 6.00 to 3.00. The H⁺ concentration has:",
+   "choices": [
+    "Increased by a factor of 1000",
+    "Increased by a factor of 3",
+    "Decreased by a factor of 1000",
+    "Doubled"
+   ],
+   "answer": 0,
+   "explain": "Each pH unit is a factor of ten: three units = 10³ = 1000, and DOWN in pH means UP in acidity. 'Factor of 3' reads the log scale as linear; 'decreased' inverts the scale's direction."
+  },
+  {
+   "tag": "obj4.redox.oxnumbers",
+   "stem": "What is the oxidation number of Cl in KClO₄?",
+   "choices": ["+7", "−1", "+4", "+1"],
+   "answer": 0,
+   "explain": "K is +1, each O is −2: 1 + x − 8 = 0 → x = +7. −1 is chlorine's number in simple chlorides (pattern-matched from memory); +4 miscounts the oxygens; +1 is potassium's number."
+  },
+  {
+   "tag": "obj4.redox.oxnumbers",
+   "stem": "What is the oxidation number of C in CO₃²⁻?",
+   "choices": ["+4", "−4", "+6", "0"],
+   "answer": 0,
+   "explain": "x + 3(−2) = −2 → x = +4. −4 flips the algebra sign; +6 forgets the ion's −2 charge (treats it as neutral); 0 confuses 'element in a compound' with 'element in its natural form.'"
+  },
+  {
+   "tag": "obj4.redox.identify",
+   "stem": "In Zn + 2 HCl → ZnCl₂ + H₂, the species that is REDUCED is:",
+   "choices": [
+    "H⁺ — its oxidation number falls from +1 to 0",
+    "Zn — it dissolves",
+    "Cl⁻ — it changes partners",
+    "Nothing is reduced; this is an acid-base reaction"
+   ],
+   "answer": 0,
+   "explain": "Reduction = oxidation number decreasing: H goes +1 → 0. Zn goes 0 → +2 (oxidized — dissolving is not the criterion); Cl⁻ stays −1 throughout (spectator); a reaction with oxidation-number changes IS redox."
+  },
+  {
+   "tag": "obj4.redox.identify",
+   "stem": "A substance whose oxidation number DECREASES during a reaction is:",
+   "choices": [
+    "Reduced — and it is the oxidizing agent",
+    "Reduced — and it is the reducing agent",
+    "Oxidized — and it is the oxidizing agent",
+    "Oxidized — and it is the reducing agent"
+   ],
+   "answer": 0,
+   "explain": "Number down = gained electrons = reduced; the thing being reduced is what CAUSES the other's oxidation, so it is the oxidizing agent. The crossover naming is the whole trap — the agent is named for what it does to the OTHER substance."
+  },
+  {
+   "tag": "obj4.redox.halfreaction",
+   "stem": "When balancing a half-reaction in acidic solution, oxygen atoms are balanced by adding:",
+   "choices": ["H₂O to the oxygen-poor side", "O₂ gas", "OH⁻ ions", "Electrons"],
+   "answer": 0,
+   "explain": "The acidic-solution order: atoms first, then O with H₂O, then H with H⁺, then charge with electrons. OH⁻ belongs to the BASIC-solution finish; O₂ and electrons never balance oxygen."
+  },
+  {
+   "tag": "obj4.redox.halfreaction",
+   "stem": "The correctly balanced half-reaction for Fe²⁺ → Fe³⁺ is:",
+   "choices": [
+    "Fe²⁺ → Fe³⁺ + e⁻",
+    "Fe²⁺ + e⁻ → Fe³⁺",
+    "Fe²⁺ → Fe³⁺ + 2 e⁻",
+    "Fe²⁺ + H₂O → Fe³⁺ + OH⁻"
+   ],
+   "answer": 0,
+   "explain": "Charge check: left +2, right +3 − 1 = +2 ✓ — the lost electron is a PRODUCT of oxidation. Adding the electron to the left describes reduction; two electrons overshoots the one-unit change; no oxygen means no H₂O is involved."
+  },
+  {
+   "tag": "obj4.stoich.massmass",
+   "stem": "For 2 CO + O₂ → 2 CO₂, how many grams of CO₂ (44.01 g/mol) form from 0.400 mol of CO with excess oxygen?",
+   "choices": ["17.6 g", "35.2 g", "8.80 g", "0.400 g"],
+   "answer": 0,
+   "explain": "0.400 mol CO × (2 CO₂/2 CO) = 0.400 mol × 44.01 g/mol = 17.6 g. 35.2 doubles the ratio (misreads 2:2 as 1:2); 8.80 halves it; 0.400 reports moles as grams."
+  },
+  {
+   "tag": "obj4.stoich.massmass",
+   "stem": "In a mass-to-mass calculation, the balanced equation enters at exactly one step — which?",
+   "choices": [
+    "The mole-ratio step between the given and wanted substances",
+    "The grams-to-moles conversion of the given substance",
+    "The moles-to-grams conversion of the wanted substance",
+    "The significant-figures decision at the end"
+   ],
+   "answer": 0,
+   "explain": "The coefficients supply the exchange rate between substances; both molar-mass steps use only the periodic table. Knowing WHERE the equation matters is what makes the chain transferable to any reaction."
+  },
+  {
+   "tag": "obj4.stoich.limiting",
+   "stem": "5.0 mol of CO and 3.0 mol of O₂ react: 2 CO + O₂ → 2 CO₂. The limiting reactant is:",
+   "choices": [
+    "CO — dividing by coefficients gives CO: 2.5 and O₂: 3.0",
+    "O₂ — there are fewer moles of it",
+    "Neither — both are consumed exactly",
+    "CO₂ — it is produced in the smallest amount"
+   ],
+   "answer": 0,
+   "explain": "Divide by coefficient: CO 5.0/2 = 2.5, O₂ 3.0/1 = 3.0 — the smaller result limits. 'Fewer moles' ignores the 2:1 stoichiometry (the classic trap); a PRODUCT can never be limiting."
+  },
+  {
+   "tag": "obj4.stoich.limiting",
+   "stem": "2.0 mol of SO₂ and 1.5 mol of O₂ react completely: 2 SO₂ + O₂ → 2 SO₃. How many moles of the excess reactant remain?",
+   "choices": ["0.5 mol O₂", "1.5 mol O₂", "1.0 mol SO₂", "0 mol — both are used up"],
+   "answer": 0,
+   "explain": "SO₂: 2.0/2 = 1.0; O₂: 1.5/1 = 1.5 → SO₂ limits. O₂ used = 2.0 mol SO₂ × (1 O₂/2 SO₂) = 1.0 mol; remaining = 1.5 − 1.0 = 0.5 mol. 1.5 forgets any O₂ reacted; the SO₂ option picks the wrong reactant as excess."
+  },
+  {
+   "tag": "obj4.stoich.yield",
+   "stem": "A reaction has a theoretical yield of 15.5 g. The experiment collects 12.4 g. The percent yield is:",
+   "choices": ["80.0%", "125%", "3.1%", "12.4%"],
+   "answer": 0,
+   "explain": "12.4/15.5 × 100 = 80.0% — actual over theoretical. 125% inverts the fraction (a percent yield above 100 from a division flip); 3.1 subtracts; 12.4 reports the actual mass as a percent."
+  },
+  {
+   "tag": "obj4.stoich.yield",
+   "stem": "A synthesis runs at 65.0 percent yield. To actually collect 13.0 g of product, the theoretical yield you must aim for is:",
+   "choices": ["20.0 g", "8.45 g", "13.7 g", "65.0 g"],
+   "answer": 0,
+   "explain": "Theoretical = actual ÷ yield = 13.0/0.650 = 20.0 g — you scale UP, because the actual is only a fraction of the theoretical. 8.45 multiplies instead of divides (scales the wrong way); the reverse-yield direction is a known final-exam demand."
+  },
+  {
+   "tag": "obj4.stoich.solution",
+   "stem": "How many moles of NaOH are in 50.0 mL of a 0.200 M solution?",
+   "choices": ["0.0100 mol", "10.0 mol", "0.250 mol", "4.00 mol"],
+   "answer": 0,
+   "explain": "M × V = 0.200 mol/L × 0.0500 L = 0.0100 mol. 10.0 forgets the mL→L conversion; 0.250 divides M by V; 4.00 divides V by M. The M × V door is how moles enter every solution-stoichiometry chain."
+  },
+  {
+   "tag": "obj4.stoich.solution",
+   "stem": "A 30.00 mL sample of HCl is neutralized by 15.00 mL of 0.400 M NaOH (1:1 ratio). The molarity of the HCl is:",
+   "choices": ["0.200 M", "0.133 M", "0.400 M", "0.00600 M"],
+   "answer": 0,
+   "explain": "Moles NaOH = 0.01500 × 0.400 = 0.00600 mol = moles HCl; 0.00600/0.03000 L = 0.200 M. 0.133 divides by the COMBINED volume (45.00 mL) — the acid's moles live in the acid's volume alone; 0.400 assumes equal volumes mean equal molarity; 0.00600 reports moles as molarity."
+  },
+  {
+   "tag": "obj4.stoich.gravimetric",
+   "stem": "In a gravimetric analysis, the mass that is actually weighed is:",
+   "choices": [
+    "The dried, insoluble precipitate that carries the ion being measured",
+    "The original solution sample",
+    "The filter paper before filtering",
+    "The water evaporated from the solution"
+   ],
+   "answer": 0,
+   "explain": "The analyte ion is captured quantitatively in an insoluble solid, dried, and weighed — the precipitate's mass walks back through moles to the ion's concentration. The other options measure nothing about the analyte."
+  },
+  {
+   "tag": "obj4.stoich.gravimetric",
+   "stem": "Excess BaCl₂ precipitates all the sulfate from a 100.0 mL sample as BaSO₄ (233.40 g/mol). The dried solid weighs 0.467 g. The sulfate-ion molarity of the sample was:",
+   "choices": ["0.0200 M", "0.00200 M", "0.200 M", "4.67 M"],
+   "answer": 0,
+   "explain": "0.467/233.40 = 0.00200 mol BaSO₄ = 0.00200 mol SO₄²⁻; ÷ 0.1000 L = 0.0200 M. 0.00200 reports moles as molarity (skips the volume); 0.200 slips the mL→L conversion; 4.67 divides grams by volume."
+  },
+  {
+   "tag": "obj4.vocab",
+   "stem": "The theoretical yield of a reaction is:",
+   "choices": [
+    "The maximum amount of product the limiting reactant could form, computed from stoichiometry",
+    "The amount of product actually collected in the laboratory",
+    "The percent of reactant converted to product",
+    "The amount of excess reactant remaining"
+   ],
+   "answer": 0,
+   "explain": "Theoretical = the stoichiometric maximum (calculated, not measured). The actual yield is what the bench delivers; percent yield compares the two; leftover excess is a different bookkeeping line entirely."
+  },
+  {
+   "tag": "obj4.vocab",
+   "stem": "A net ionic equation shows:",
+   "choices": [
+    "Only the species that actually change during the reaction, with spectators removed",
+    "Every ion present in the mixed solutions",
+    "Only the solid products",
+    "The same information as the molecular equation, in different notation"
+   ],
+   "answer": 0,
+   "explain": "Net ionic = complete ionic minus the spectators — the chemistry that actually happened. 'Every ion' describes the COMPLETE ionic equation; solids alone omit the reacting ions; the molecular equation hides which species are dissociated."
+  }
+ ]
+}

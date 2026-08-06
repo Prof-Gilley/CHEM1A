@@ -1,0 +1,187 @@
+{
+ "title": "CHEM1A Practice Quiz — Objective 5: Thermochemistry (DRAFT pending Gilley approval)",
+ "tags": [
+  "obj5.energy.basics",
+  "obj5.heat.specificheat",
+  "obj5.heat.calorimetry",
+  "obj5.work.pv",
+  "obj5.enthalpy.concept",
+  "obj5.enthalpy.stoich",
+  "obj5.enthalpy.hess",
+  "obj5.enthalpy.formation",
+  "obj5.vocab"
+ ],
+ "items": [
+  {
+   "tag": "obj5.energy.basics",
+   "stem": "An ice pack is applied to a sprained ankle. Treating the ice pack as the system, heat flows:",
+   "choices": [
+    "From the surroundings (the ankle) into the system — the process is endothermic for the pack",
+    "From the system into the ankle — the pack is exothermic",
+    "In neither direction — cold flows, not heat",
+    "Both directions equally"
+   ],
+   "answer": 0,
+   "explain": "Heat always flows from warmer to cooler — the warm ankle loses heat INTO the cold pack. 'Cold flowing' is the everyday-language trap: cold is the absence of heat, not a substance that moves."
+  },
+  {
+   "tag": "obj5.energy.basics",
+   "stem": "The first law of thermodynamics states that:",
+   "choices": [
+    "Energy is conserved — it can be transferred as heat or work but never created or destroyed",
+    "Heat always flows from cold to hot",
+    "Every reaction releases energy",
+    "Energy is destroyed in exothermic reactions"
+   ],
+   "answer": 0,
+   "explain": "Conservation is the whole law: ΔE(universe) = 0. Exothermic reactions RELEASE energy to the surroundings — the energy is transferred, not destroyed."
+  },
+  {
+   "tag": "obj5.heat.specificheat",
+   "stem": "How much heat is needed to warm 40.0 g of water from 15.0 °C to 40.0 °C? (c = 4.184 J/g·°C)",
+   "choices": ["4180 J", "1050 J", "167 J", "41,800 J"],
+   "answer": 0,
+   "explain": "q = 40.0 × 4.184 × 25.0 = 4184 → 4180 J. 1050 uses ΔT = 25/4; 167 forgets the mass; 41,800 slips a factor of ten."
+  },
+  {
+   "tag": "obj5.heat.specificheat",
+   "stem": "A 50.0 g metal absorbs 450 J and warms by 20.0 °C. Its specific heat is:",
+   "choices": ["0.450 J/g·°C", "2.22 J/g·°C", "9.00 J/g·°C", "0.0222 J/g·°C"],
+   "answer": 0,
+   "explain": "c = q/(mΔT) = 450/(50.0 × 20.0) = 0.450 J/g·°C. 2.22 inverts the fraction; 9.00 forgets the mass; 0.0222 forgets ΔT."
+  },
+  {
+   "tag": "obj5.heat.calorimetry",
+   "stem": "A reaction in a coffee-cup calorimeter makes the solution's temperature RISE. For the reaction itself:",
+   "choices": [
+    "q is negative — the reaction released the heat the solution absorbed",
+    "q is positive — the temperature went up",
+    "q is zero — the calorimeter is insulated",
+    "The sign cannot be determined"
+   ],
+   "answer": 0,
+   "explain": "q(rxn) = −q(soln). The solution absorbed heat (+), so the reaction released it (−). Reading the reaction's sign off the thermometer's direction without the flip is the classic calorimetry error."
+  },
+  {
+   "tag": "obj5.heat.calorimetry",
+   "stem": "A bomb calorimeter has a heat capacity of 6.50 kJ/°C. A combustion raises its temperature by 4.00 °C. The heat released is:",
+   "choices": ["26.0 kJ", "1.63 kJ", "10.5 kJ", "0.615 kJ"],
+   "answer": 0,
+   "explain": "q = C × ΔT = 6.50 × 4.00 = 26.0 kJ. 1.63 divides instead of multiplies; the bomb's lumped C replaces m × c entirely — no mass belongs in this calculation."
+  },
+  {
+   "tag": "obj5.work.pv",
+   "stem": "A system releases 600 J of heat while the surroundings do 200 J of work ON it. ΔE for the system is:",
+   "choices": ["−400 J", "−800 J", "+800 J", "+400 J"],
+   "answer": 0,
+   "explain": "ΔE = q + w = (−600) + (+200) = −400 J. Work done ON the system is positive w. −800 flips the work's sign; the others scramble both."
+  },
+  {
+   "tag": "obj5.work.pv",
+   "stem": "In ΔE = q + w, the work term w is NEGATIVE when:",
+   "choices": [
+    "The system does work on the surroundings (for example, a gas expanding)",
+    "The surroundings compress the system",
+    "Heat leaves the system",
+    "The temperature drops"
+   ],
+   "answer": 0,
+   "explain": "Energy leaving as work = negative w, from the system's point of view. Compression puts energy IN (+w); heat and temperature belong to the q term, not w."
+  },
+  {
+   "tag": "obj5.enthalpy.concept",
+   "stem": "Water boils at a constant 100 °C even while absorbing heat from the stove. That energy is:",
+   "choices": [
+    "Breaking the attractions between molecules to form gas — reorganization, not warming",
+    "Lost to the air entirely",
+    "Raising the temperature of the steam above 100 °C immediately",
+    "Destroyed, since the temperature is constant"
+   ],
+   "answer": 0,
+   "explain": "During a phase change, added energy goes into separating molecules, not into kinetic energy (temperature). 'Destroyed' violates the first law; the constant temperature is the signature of a phase change in progress."
+  },
+  {
+   "tag": "obj5.enthalpy.concept",
+   "stem": "A reaction has ΔH = +125 kJ. Which is true?",
+   "choices": [
+    "The reaction absorbs 125 kJ — endothermic — and its reverse releases 125 kJ",
+    "The reaction releases 125 kJ — exothermic",
+    "The reaction cannot occur",
+    "The reaction is at equilibrium"
+   ],
+   "answer": 0,
+   "explain": "Positive ΔH = absorbed = endothermic, and flipping the equation flips the sign. Endothermic reactions occur constantly (ice melting, cold packs) — 'cannot occur' confuses ΔH with impossibility."
+  },
+  {
+   "tag": "obj5.enthalpy.stoich",
+   "stem": "For 2 H₂(g) + O₂(g) → 2 H₂O(g), ΔH = −484 kJ. How much heat is released when 1.0 mol of H₂ burns?",
+   "choices": ["242 kJ", "484 kJ", "968 kJ", "121 kJ"],
+   "answer": 0,
+   "explain": "The −484 kJ belongs to 2 mol of H₂ as written; 1.0 mol releases half: 242 kJ. Taking 484 ignores the coefficient — the central enthalpy-stoichiometry error."
+  },
+  {
+   "tag": "obj5.enthalpy.stoich",
+   "stem": "A fuel's combustion has ΔH = −802 kJ per mole of fuel. To release 2406 kJ, the moles of fuel required are:",
+   "choices": ["3.00 mol", "0.333 mol", "2406 mol", "802 mol"],
+   "answer": 0,
+   "explain": "2406 ÷ 802 = 3.00 mol — the reverse direction of the usual chain (heat → moles). 0.333 inverts the division; the reverse direction is a known exam demand."
+  },
+  {
+   "tag": "obj5.enthalpy.hess",
+   "stem": "Given P → Q, ΔH = −110 kJ and R → Q, ΔH = −70 kJ, what is ΔH for P → R?",
+   "choices": ["−40 kJ", "−180 kJ", "+40 kJ", "+180 kJ"],
+   "answer": 0,
+   "explain": "Flip the second: Q → R, ΔH = +70. Add: P → Q → R gives −110 + 70 = −40 kJ. −180 adds without flipping — the flip-the-sign step is the whole skill."
+  },
+  {
+   "tag": "obj5.enthalpy.hess",
+   "stem": "When an equation is multiplied by 3 in a Hess's law combination, its ΔH:",
+   "choices": [
+    "Is multiplied by 3 as well",
+    "Stays the same — ΔH is per reaction, not per amount",
+    "Is divided by 3",
+    "Changes sign"
+   ],
+   "answer": 0,
+   "explain": "ΔH scales with the equation — triple the moles, triple the heat. 'Stays the same' treats ΔH as an intensive property (the misconception); sign changes only on a FLIP."
+  },
+  {
+   "tag": "obj5.enthalpy.formation",
+   "stem": "Which substance has ΔH°f = 0?",
+   "choices": ["N₂(g)", "CO₂(g)", "H₂O(l)", "NO(g)"],
+   "answer": 0,
+   "explain": "Elements in their standard states define zero — N₂ gas is nitrogen's standard state. CO₂, H₂O, and NO are compounds; each has a tabulated nonzero formation value."
+  },
+  {
+   "tag": "obj5.enthalpy.formation",
+   "stem": "Using ΔH°f values (kJ/mol): SO₂(g) −296.8, SO₃(g) −395.7, O₂(g) 0 — ΔH°rxn for 2 SO₂ + O₂ → 2 SO₃ is:",
+   "choices": ["−197.8 kJ", "−98.9 kJ", "+197.8 kJ", "−692.5 kJ"],
+   "answer": 0,
+   "explain": "[2(−395.7)] − [2(−296.8) + 0] = −791.4 + 593.6 = −197.8 kJ. −98.9 forgets the coefficients; +197.8 subtracts backwards; −692.5 adds products and reactants instead of subtracting."
+  },
+  {
+   "tag": "obj5.vocab",
+   "stem": "A thermochemical equation differs from an ordinary chemical equation because it:",
+   "choices": [
+    "Includes the ΔH for the reaction as written, tied to those exact coefficients",
+    "Shows only the heat, not the substances",
+    "Is always written for one gram of reactant",
+    "Never includes physical states"
+   ],
+   "answer": 0,
+   "explain": "The ΔH belongs to the equation AS WRITTEN — coefficients and states included (water vapor and liquid water differ by the heat of vaporization). Per-gram and stateless readings both break the bookkeeping."
+  },
+  {
+   "tag": "obj5.vocab",
+   "stem": "Enthalpy is called a state function because:",
+   "choices": [
+    "Its change depends only on the initial and final states, not the path between them",
+    "It applies only to standard states",
+    "It is constant for every substance",
+    "It can only be measured in a calorimeter"
+   ],
+   "answer": 0,
+   "explain": "Path-independence is the definition — and it is exactly the property that makes Hess's law legal. The other options confuse 'state function' with 'standard state' or with constancy."
+  }
+ ]
+}

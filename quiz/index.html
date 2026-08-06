@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHEM1A Practice Quiz</title>
+<style>
+  :root { --ink:#1a2433; --accent:#0b6e4f; --soft:#eef3f0; --warn:#b3541e; }
+  * { box-sizing:border-box; }
+  body { font-family:Georgia,serif; color:var(--ink); max-width:760px; margin:2rem auto; padding:0 1rem; line-height:1.5; }
+  h1 { font-size:1.5rem; } h2 { font-size:1.15rem; }
+  .card { border:1px solid #ccd5cf; border-radius:10px; padding:1.25rem 1.5rem; margin:1rem 0; background:#fff; }
+  .tagbar { display:flex; flex-wrap:wrap; gap:.4rem; margin:.75rem 0; }
+  .tag { font-family:monospace; font-size:.75rem; padding:.2rem .5rem; border-radius:999px; background:var(--soft); border:1px solid #ccd5cf; }
+  .tag.done { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .tag.half { border-color:var(--accent); color:var(--accent); font-weight:bold; }
+  button { font:inherit; padding:.55rem 1.1rem; border-radius:8px; border:1px solid var(--ink); background:#fff; cursor:pointer; }
+  button.primary { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .choice { display:block; width:100%; text-align:left; margin:.4rem 0; }
+  .choice.correct { background:#d9efe4; border-color:var(--accent); }
+  .choice.wrong { background:#f7e3d6; border-color:var(--warn); }
+  .feedback { margin-top:.75rem; font-style:italic; }
+  .muted { color:#5b6672; font-size:.9rem; }
+  .err { color:var(--warn); font-weight:bold; }
+  input { font:inherit; padding:.5rem; width:100%; margin:.25rem 0 .75rem; border:1px solid #ccd5cf; border-radius:6px; }
+  #certificate { display:none; }
+  @media print {
+    body * { visibility:hidden; }
+    #certificate, #certificate * { visibility:visible; }
+    #certificate { display:block; position:absolute; top:0; left:0; width:100%; }
+  }
+</style>
+</head>
+<body>
+<h1 id="quizTitle">CHEM1A Practice Quiz</h1>
+
+<!-- IDENTITY GATE — shown first, before any question -->
+<div class="card" id="gateCard">
+  <h2>Sign in to begin</h2>
+  <p class="muted">Enter your information exactly as it appears in Canvas. Your progress is saved to this browser under this identity.</p>
+  <label>Last name</label>
+  <input id="gLast" autocomplete="family-name">
+  <label>Student ID number</label>
+  <input id="gId" inputmode="numeric" autocomplete="off">
+  <label>Section number</label>
+  <input id="gSection" inputmode="numeric" autocomplete="off">
+  <button class="primary" id="gateBtn">Begin practice quiz</button>
+  <p class="err" id="gateErr"></p>
+</div>
+
+<div id="quizUI" style="display:none">
+  <p class="muted" id="whoLine"></p>
+  <p class="muted">Mastery rule: answer <strong>two in a row correctly</strong> on each skill tag. Wrong answers reset that tag's streak — that is how practice is supposed to work.</p>
+  <div class="tagbar" id="tagbar"></div>
+  <div class="card" id="quizCard">
+    <div id="questionArea"></div>
+    <div class="feedback" id="feedback"></div>
+    <button id="nextBtn" class="primary" style="display:none">Next question</button>
+  </div>
+  <div class="card" id="doneCard" style="display:none">
+    <h2>All skills mastered — well done.</h2>
+    <p>Print this page to PDF (Control+P or Command+P → Save as PDF) and upload it to the practice quiz assignment in Canvas.</p>
+    <button class="primary" onclick="makeCertificate()">Generate completion page</button>
+  </div>
+</div>
+
+<div id="certificate"></div>
+
+<script>
+// ----- ITEM BANK -----------------------------------------------------------
+// Production banks: quiz/banks/<name>.json via ?bank=<name>
+// Roster lockdown: quiz/banks/roster.json  →  { "salt": "...", "allowed": ["sha256hex", ...] }
+// Hashes are SHA-256 of  salt|lastname(lowercase)|studentid|section  — no plaintext student data
+// is ever published. Build roster.json with roster-tool.html (runs entirely on your own computer).
+const DUMMY_BANK = {
+  title: "Engine Test Bank (dummy items — not chemistry-certified)",
+  tags: ["demo.tag.one", "demo.tag.two", "demo.tag.three"],
+  items: [
+    { tag:"demo.tag.one", stem:"Dummy item 1: which choice is labeled correct?",
+      choices:["This one (correct)","Distractor A","Distractor B","Distractor C"], answer:0,
+      explain:"Test item — choice 1 is keyed correct." },
+    { tag:"demo.tag.two", stem:"Dummy item 2: which choice is labeled correct?",
+      choices:["Distractor A","This one (correct)","Distractor B","Distractor C"], answer:1,
+      explain:"Test item — choice 2 is keyed correct." },
+    { tag:"demo.tag.three", stem:"Dummy item 3: which choice is labeled correct?",
+      choices:["Distractor A","Distractor B","This one (correct)","Distractor C"], answer:2,
+      explain:"Test item — choice 3 is keyed correct." }
+  ]
+};
+
+// ----- ENGINE CORE (pure functions, machine-tested July 8) -----------------
+const STREAK_TARGET = 2;
+function newState(tags) {
+  const s = { streaks:{}, attempts:{}, log:[] };
+  tags.forEach(t => { s.streaks[t] = 0; s.attempts[t] = 0; });
+  return s;
+}
+function applyAnswer(state, tag, correct) {
+  state.attempts[tag] += 1;
+  state.streaks[tag] = correct ? state.streaks[tag] + 1 : 0;
+  state.log.push({ tag, correct, at: Date.now() });
+  return state;
+}
+function masteredTags(state) { return Object.keys(state.streaks).filter(t => state.streaks[t] >= STREAK_TARGET); }
+function openTags(state) { return Object.keys(state.streaks).filter(t => state.streaks[t] < STREAK_TARGET); }
+function allMastered(state) { return openTags(state).length === 0; }
+function pickItem(bank, state, lastStem) {
+  const open = openTags(state);
+  if (open.length === 0) return null;
+  const tag = open[Math.floor(Math.random() * open.length)];
+  const pool = bank.items.filter(i => i.tag === tag && i.stem !== lastStem);
+  const fallback = bank.items.filter(i => i.tag === tag);
+  const set = pool.length ? pool : fallback;
+  return set[Math.floor(Math.random() * set.length)];
+}
+
+// ----- IDENTITY + ROSTER ---------------------------------------------------
+function normIdentity(last, id, section) {
+  return { last: last.trim().toLowerCase(), id: id.trim(), section: section.trim() };
+}
+async function sha256hex(str) {
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
+  return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, "0")).join("");
+}
+async function identityHash(salt, iden) {
+  return sha256hex(salt + "|" + iden.last + "|" + iden.id + "|" + iden.section);
+}
+
+// ----- APP -----------------------------------------------------------------
+let bank = DUMMY_BANK, roster = null, iden = null, idenKey = "", state, current = null, lastStem = null;
+const params = new URLSearchParams(location.search);
+const bankName = params.get("bank");
+const storeKey = () => "chem1a-pq-" + (bankName || "dummy") + "-" + idenKey;
+
+async function boot() {
+  if (bankName) {
+    try {
+      const r = await fetch("banks/" + bankName + ".json");
+      if (r.ok) bank = await r.json();
+    } catch(e) {}
+  }
+  try {
+    const r = await fetch("banks/roster.json");
+    if (r.ok) roster = await r.json();
+  } catch(e) {}
+  document.getElementById("quizTitle").textContent = bank.title;
+  if (!roster) document.getElementById("gateErr").textContent = "";
+  document.getElementById("gateBtn").onclick = gate;
+}
+
+async function gate() {
+  const last = document.getElementById("gLast").value;
+  const id = document.getElementById("gId").value;
+  const section = document.getElementById("gSection").value;
+  const err = document.getElementById("gateErr");
+  if (!last.trim() || !id.trim() || !section.trim()) { err.textContent = "All three fields are required."; return; }
+  iden = normIdentity(last, id, section);
+  if (roster && roster.allowed && roster.allowed.length) {
+    const h = await identityHash(roster.salt || "", iden);
+    if (!roster.allowed.includes(h)) {
+      err.textContent = "No match found. Check that your last name, student ID, and section number match Canvas exactly. If they do and you still cannot get in, email your instructor.";
+      return;
+    }
+  }
+  idenKey = (await identityHash("localstore", iden)).slice(0, 16);
+  const saved = localStorage.getItem(storeKey());
+  state = saved ? JSON.parse(saved) : newState(bank.tags);
+  document.getElementById("gateCard").style.display = "none";
+  document.getElementById("quizUI").style.display = "block";
+  document.getElementById("whoLine").textContent =
+    "Signed in: " + cap(iden.last) + " · Student ID " + iden.id + " · Section " + iden.section +
+    (roster ? " (roster verified)" : " (open access — roster not installed)");
+  render();
+}
+
+function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+
+function render() {
+  const bar = document.getElementById("tagbar");
+  bar.innerHTML = "";
+  bank.tags.forEach(t => {
+    const el = document.createElement("span");
+    el.className = "tag" + (state.streaks[t] >= STREAK_TARGET ? " done" : state.streaks[t] === 1 ? " half" : "");
+    el.textContent = t + " " + Math.min(state.streaks[t], STREAK_TARGET) + "/" + STREAK_TARGET;
+    bar.appendChild(el);
+  });
+  if (allMastered(state)) {
+    document.getElementById("quizCard").style.display = "none";
+    document.getElementById("doneCard").style.display = "block";
+    return;
+  }
+  current = pickItem(bank, state, lastStem);
+  lastStem = current.stem;
+  const qa = document.getElementById("questionArea");
+  qa.innerHTML = "<p class='muted'>Skill tag: <code>" + current.tag + "</code></p><h2>" + current.stem + "</h2>";
+  current.choices.forEach((c, i) => {
+    const b = document.createElement("button");
+    b.className = "choice"; b.textContent = c;
+    b.onclick = () => answer(i, b);
+    qa.appendChild(b);
+  });
+  document.getElementById("feedback").textContent = "";
+  document.getElementById("nextBtn").style.display = "none";
+}
+
+function answer(i, btn) {
+  const correct = i === current.answer;
+  document.querySelectorAll(".choice").forEach((b, j) => {
+    b.disabled = true;
+    if (j === current.answer) b.classList.add("correct");
+  });
+  if (!correct) btn.classList.add("wrong");
+  applyAnswer(state, current.tag, correct);
+  localStorage.setItem(storeKey(), JSON.stringify(state));
+  document.getElementById("feedback").textContent =
+    (correct ? "Correct. " : "Not this time — streak resets on this tag. ") + (current.explain || "");
+  const nb = document.getElementById("nextBtn");
+  nb.style.display = "inline-block";
+  nb.onclick = render;
+}
+
+function djb2(str) { let h = 5381; for (const c of str) h = ((h << 5) + h + c.charCodeAt(0)) >>> 0; return h.toString(16); }
+
+function makeCertificate() {
+  const when = new Date().toLocaleString();
+  const totalAttempts = Object.values(state.attempts).reduce((a,b)=>a+b,0);
+  const code = djb2(iden.last + "|" + iden.id + "|" + iden.section + "|" + bank.title + "|" + when + "|" + totalAttempts);
+  let rows = bank.tags.map(t => "<tr><td style='padding:4px 12px;border:1px solid #999'>" + t +
+      "</td><td style='padding:4px 12px;border:1px solid #999'>" + state.attempts[t] + "</td></tr>").join("");
+  document.getElementById("certificate").innerHTML =
+    "<h1>CHEM1A Practice Quiz — Completion Record</h1>" +
+    "<p><strong>Last name:</strong> " + cap(iden.last) +
+    "<br><strong>Student ID:</strong> " + iden.id +
+    "<br><strong>Section:</strong> " + iden.section +
+    "<br><strong>Quiz:</strong> " + bank.title +
+    "<br><strong>Roster verification:</strong> " + (roster ? "verified" : "open access") +
+    "<br><strong>All " + bank.tags.length + " skill tags mastered</strong> (two correct in a row per tag)" +
+    "<br><strong>Total attempts:</strong> " + totalAttempts +
+    "<br><strong>Completed:</strong> " + when +
+    "<br><strong>Verification code:</strong> " + code + "</p>" +
+    "<table style='border-collapse:collapse'><tr><th style='padding:4px 12px;border:1px solid #999'>Skill tag</th><th style='padding:4px 12px;border:1px solid #999'>Attempts</th></tr>" + rows + "</table>" +
+    "<p style='margin-top:1rem'>Print this page to PDF and upload it to the Canvas practice quiz assignment.</p>";
+  window.print();
+}
+
+boot();
+</script>
+</body>
+</html>

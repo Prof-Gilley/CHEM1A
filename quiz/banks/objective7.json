@@ -1,0 +1,189 @@
+{
+ "title": "CHEM1A Practice Quiz — Objective 7: Atomic Structure & Periodicity (DRAFT pending Gilley approval)",
+ "tags": [
+  "obj7.light.waves",
+  "obj7.light.quanta",
+  "obj7.atom.bohr",
+  "obj7.atom.quantum",
+  "obj7.atom.qnumbers",
+  "obj7.econfig.write",
+  "obj7.econfig.valence",
+  "obj7.trends.predict",
+  "obj7.vocab"
+ ],
+ "items": [
+  {
+   "tag": "obj7.light.waves",
+   "stem": "Calculate the frequency of light with wavelength 750 nm. (c = 2.998 × 10⁸ m/s)",
+   "choices": ["4.00 × 10¹⁴ Hz", "4.00 × 10⁵ Hz", "2.25 × 10¹⁴ Hz", "7.50 × 10¹⁴ Hz"],
+   "answer": 0,
+   "explain": "Convert first: 750 nm = 750 × 10⁻⁹ m. ν = c/λ = 4.00 × 10¹⁴ Hz. The 10⁵ answer skipped the nanometer-to-meter conversion — the unit's signature error, off by nine powers of ten."
+  },
+  {
+   "tag": "obj7.light.waves",
+   "stem": "Which of these regions of the electromagnetic spectrum has the LONGEST wavelength?",
+   "choices": ["Radio waves", "Visible light", "Ultraviolet", "X-rays"],
+   "answer": 0,
+   "explain": "The spectrum runs radio → microwave → infrared → visible → ultraviolet → X-ray → gamma in order of shrinking wavelength (and climbing frequency and energy). Radio is the long-wavelength, low-energy end."
+  },
+  {
+   "tag": "obj7.light.quanta",
+   "stem": "Calculate the energy of one photon with frequency 2.00 × 10¹⁵ Hz. (h = 6.626 × 10⁻³⁴ J·s)",
+   "choices": ["1.33 × 10⁻¹⁸ J", "3.31 × 10⁻¹⁹ J", "3.02 × 10⁴⁸ J", "6.63 × 10⁻³⁴ J"],
+   "answer": 0,
+   "explain": "E = hν = (6.626 × 10⁻³⁴)(2.00 × 10¹⁵) = 1.33 × 10⁻¹⁸ J. The 10⁴⁸ answer divided ν by h instead of multiplying; 6.63 × 10⁻³⁴ forgot the frequency entirely."
+  },
+  {
+   "tag": "obj7.light.quanta",
+   "stem": "Dim blue light ejects electrons from a metal surface; extremely bright red light ejects none. This is because:",
+   "choices": [
+    "Each photon's energy rides on its frequency, and ejection is a one-photon-per-electron event",
+    "Blue light contains more photons than red light",
+    "Red light is absorbed by the air before it arrives",
+    "Brightness has no physical effect on light"
+   ],
+   "answer": 0,
+   "explain": "The photoelectric effect's whole lesson: brightness sets the NUMBER of photons, frequency sets each photon's ENERGY. Each red photon arrives under the threshold no matter how many there are."
+  },
+  {
+   "tag": "obj7.atom.bohr",
+   "stem": "Calculate the magnitude of the energy change when hydrogen's electron falls from n = 4 to n = 3. (R_H = 2.179 × 10⁻¹⁸ J)",
+   "choices": ["1.06 × 10⁻¹⁹ J", "1.82 × 10⁻¹⁹ J", "2.179 × 10⁻¹⁸ J", "5.45 × 10⁻¹⁹ J"],
+   "answer": 0,
+   "explain": "ΔE = R_H(1/9 − 1/16) = (2.179 × 10⁻¹⁸)(0.0486) = 1.06 × 10⁻¹⁹ J. The 1.82 answer used 1/3 − 1/4 instead of squaring the level numbers — the most common Bohr-equation slip."
+  },
+  {
+   "tag": "obj7.atom.bohr",
+   "stem": "When a hydrogen atom ABSORBS a photon, its electron:",
+   "choices": [
+    "Climbs to a higher level whose gap exactly matches the photon's energy",
+    "Falls to a lower level and speeds up",
+    "Leaves the atom, regardless of the photon's energy",
+    "Absorbs any photon and stores the extra energy for later"
+   ],
+   "answer": 0,
+   "explain": "Absorption climbs, emission falls, and the match must be exact — that exactness is why absorption spectra are sharp lines. There is no storing of partial energy between levels."
+  },
+  {
+   "tag": "obj7.atom.quantum",
+   "stem": "Electrons show measurable wave behavior (λ = h/mv) but thrown baseballs do not, because:",
+   "choices": [
+    "The baseball's mass makes its wavelength unimaginably small",
+    "Baseballs move too slowly to have a wavelength",
+    "Only charged particles have wavelengths",
+    "The baseball's wavelength is too large to see"
+   ],
+   "answer": 0,
+   "explain": "Mass sits in the denominator: an electron's tiny mass gives an atom-sized wavelength; a baseball's gives roughly 10⁻³⁴ m. Charge is irrelevant to de Broglie's relation."
+  },
+  {
+   "tag": "obj7.atom.quantum",
+   "stem": "The quantum-mechanical model replaced Bohr's circular orbits with orbitals because:",
+   "choices": [
+    "Position and momentum cannot both be known exactly, so only probability regions can be drawn",
+    "Electrons were found to stand still inside atoms",
+    "Orbits were too difficult to calculate",
+    "Atoms were discovered to be flat"
+   ],
+   "answer": 0,
+   "explain": "Heisenberg's uncertainty principle forbids the exact-path picture; the orbital is the probability region that survives. Difficulty of calculation was never the issue."
+  },
+  {
+   "tag": "obj7.atom.qnumbers",
+   "stem": "Which quantum number set is NOT allowed for any electron?",
+   "choices": [
+    "n = 3, l = 1, mₗ = +2, mₛ = +½",
+    "n = 3, l = 2, mₗ = +2, mₛ = +½",
+    "n = 2, l = 0, mₗ = 0, mₛ = −½",
+    "n = 4, l = 3, mₗ = −3, mₛ = +½"
+   ],
+   "answer": 0,
+   "explain": "mₗ runs only from −l to +l; with l = 1, mₗ = +2 is out of range. The other three sets are a 3d, a 2s, and a 4f electron respectively."
+  },
+  {
+   "tag": "obj7.atom.qnumbers",
+   "stem": "The maximum number of electrons in any d subshell is:",
+   "choices": ["10", "6", "14", "2"],
+   "answer": 0,
+   "explain": "A d subshell (l = 2) holds five orbitals × two electrons = 10. Six is the p count, fourteen the f count, two a single orbital's limit (Pauli)."
+  },
+  {
+   "tag": "obj7.econfig.write",
+   "stem": "The ground-state electron configuration of magnesium (Z = 12) is:",
+   "choices": ["[Ne] 3s²", "[Ne] 3s¹ 3p¹", "[Ne] 3p²", "[Ar] 3s²"],
+   "answer": 0,
+   "explain": "Twelve electrons: 1s² 2s² 2p⁶ 3s² = [Ne] 3s². The 3s¹ 3p¹ version is an EXCITED state — ground state fills lowest-energy first (Aufbau). [Ar] already contains 18 electrons, too many."
+  },
+  {
+   "tag": "obj7.econfig.write",
+   "stem": "The ground-state electron configuration of the Al³⁺ ion (Z = 13) is:",
+   "choices": ["1s² 2s² 2p⁶", "1s² 2s² 2p⁶ 3s² 3p¹", "1s² 2s² 2p⁶ 3s² 3p⁴", "1s² 2s² 2p⁵"],
+   "answer": 0,
+   "explain": "Count first: 13 − 3 = 10 electrons → the neon configuration. The second choice forgot to remove any electrons; the third ADDED three instead of removing."
+  },
+  {
+   "tag": "obj7.econfig.valence",
+   "stem": "Tin (Sn) sits in group 14 (4A). How many valence electrons does it have?",
+   "choices": ["4", "14", "2", "50"],
+   "answer": 0,
+   "explain": "Main-group number reads off the valence count: group 14 → ns² np² → 4 valence electrons. Fourteen reads the group label as a count; fifty is all of tin's electrons."
+  },
+  {
+   "tag": "obj7.econfig.valence",
+   "stem": "An element's configuration ends in 4s² 4p². This element is in:",
+   "choices": ["Period 4, group 14 — it is germanium", "Period 2, group 4", "Period 4, group 2", "Period 6, group 4"],
+   "answer": 0,
+   "explain": "n = 4 on the valence shell puts it in period 4; s² p² is four valence electrons, group 14. The table position and the configuration are the same information written two ways."
+  },
+  {
+   "tag": "obj7.trends.predict",
+   "stem": "Which atom is the SMALLEST: nitrogen, oxygen, or fluorine?",
+   "choices": ["Fluorine", "Nitrogen", "Oxygen", "They are the same size — same shell"],
+   "answer": 0,
+   "explain": "Same shell, but effective nuclear charge climbs across the period: nine protons pull the n = 2 shell tighter than seven. Same-shell-same-size is exactly the misconception the Zeff story replaces."
+  },
+  {
+   "tag": "obj7.trends.predict",
+   "stem": "An element's second ionization energy is enormously larger than its first, while its first is quite low. The element is most likely in group:",
+   "choices": ["1 — one easy valence electron, then a noble-gas core", "17", "14", "18"],
+   "answer": 0,
+   "explain": "The giant jump marks the wall where valence electrons run out and the core begins. One cheap electron, then the wall → exactly one valence electron → group 1."
+  },
+  {
+   "tag": "obj7.trends.predict",
+   "stem": "ELECTRON AFFINITY is best described as:",
+   "choices": [
+    "The energy change when a gaseous atom gains an electron — for many nonmetals, energy is released",
+    "The energy required to remove an electron from a gaseous atom",
+    "An atom's pull on the electrons it shares within a chemical bond",
+    "The number of extra electrons an atom is able to accept"
+   ],
+   "answer": 0,
+   "explain": "Electron affinity is the energy change of GAINING an electron: X(g) + e⁻ → X⁻(g) — and for many nonmetals that change releases energy. 'Energy required to remove' is ionization energy, the reverse process; the shared-electron pull is electronegativity, which lives inside bonds and has no energy units; a simple count of acceptable electrons is neither quantity."
+  },
+  {
+   "tag": "obj7.vocab",
+   "stem": "An atom is in its GROUND STATE when:",
+   "choices": [
+    "Its electrons occupy the lowest-energy arrangement available",
+    "It has lost all its electrons",
+    "Its electrons have stopped moving",
+    "It is at zero kelvin"
+   ],
+   "answer": 0,
+   "explain": "Ground state = lowest-energy electron arrangement — the configuration the Aufbau order builds. Electrons never stop moving, and temperature is a different variable entirely."
+  },
+  {
+   "tag": "obj7.vocab",
+   "stem": "SHIELDING refers to:",
+   "choices": [
+    "Inner electrons canceling part of the nuclear pull felt by outer electrons",
+    "The nucleus protecting itself from radiation",
+    "Electrons repelling photons away from the atom",
+    "The outermost shell blocking chemical reactions"
+   ],
+   "answer": 0,
+   "explain": "Core electrons sit between the nucleus and the valence shell, canceling part of the pull — the difference between Z and Zeff. It is an electron-electron effect, nothing to do with radiation."
+  }
+ ]
+}

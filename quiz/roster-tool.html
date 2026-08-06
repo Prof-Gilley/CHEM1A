@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CHEM1A Roster Tool — INSTRUCTOR ONLY, DO NOT UPLOAD TO THE REPOSITORY</title>
+<style>
+  body { font-family:Georgia,serif; max-width:760px; margin:2rem auto; padding:0 1rem; line-height:1.5; color:#1a2433; }
+  textarea { width:100%; height:180px; font-family:monospace; font-size:.85rem; }
+  button { font:inherit; padding:.55rem 1.1rem; border-radius:8px; border:1px solid #0b6e4f; background:#0b6e4f; color:#fff; cursor:pointer; }
+  .warn { background:#f7e3d6; border:1px solid #b3541e; border-radius:8px; padding:.75rem 1rem; }
+  pre { background:#eef3f0; padding:1rem; border-radius:8px; overflow:auto; font-size:.8rem; }
+</style>
+</head>
+<body>
+<h1>Roster Tool</h1>
+<div class="warn"><strong>Instructor use only. Run this file locally by double-clicking it. Do NOT push this file or your student list to the repository.</strong> Only the generated <code>roster.json</code> (hashes, no readable student data) gets uploaded, to <code>quiz/banks/roster.json</code>.</div>
+
+<p>Paste one student per line, comma-separated: <code>lastname,studentid,section</code></p>
+<p>Example:<br><code>Gilley,0012345,25776</code></p>
+
+<textarea id="csv" placeholder="lastname,studentid,section"></textarea>
+<p><button onclick="build()">Build roster.json</button></p>
+<p id="status"></p>
+<pre id="out"></pre>
+<p><button onclick="download()" id="dlBtn" style="display:none">Download roster.json</button></p>
+
+<script>
+// Must produce hashes identical to quiz/index.html:
+// SHA-256 of  salt|lastname(lowercase,trimmed)|studentid(trimmed)|section(trimmed)
+async function sha256hex(str) {
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
+  return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, "0")).join("");
+}
+let result = null;
+async function build() {
+  const lines = document.getElementById("csv").value.split("\n").map(l => l.trim()).filter(Boolean);
+  const salt = [...crypto.getRandomValues(new Uint8Array(12))].map(b => b.toString(16).padStart(2, "0")).join("");
+  const allowed = [];
+  let bad = 0;
+  for (const line of lines) {
+    const parts = line.split(",").map(p => p.trim());
+    if (parts.length !== 3 || parts.some(p => !p)) { bad++; continue; }
+    const [last, id, section] = parts;
+    allowed.push(await sha256hex(salt + "|" + last.toLowerCase() + "|" + id + "|" + section));
+  }
+  // shuffle so hash order does not mirror roster order
+  for (let i = allowed.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [allowed[i], allowed[j]] = [allowed[j], allowed[i]]; }
+  result = { salt, allowed };
+  document.getElementById("status").textContent = allowed.length + " students hashed" + (bad ? " · " + bad + " malformed line(s) SKIPPED — fix and rebuild" : "") + ". IMPORTANT: rebuilding generates a new salt; always upload the freshest file.";
+  document.getElementById("out").textContent = JSON.stringify(result, null, 1);
+  document.getElementById("dlBtn").style.display = "inline-block";
+}
+function download() {
+  const blob = new Blob([JSON.stringify(result, null, 1)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "roster.json";
+  a.click();
+}
+</script>
+</body>
+</html>

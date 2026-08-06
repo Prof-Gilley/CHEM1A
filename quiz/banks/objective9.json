@@ -1,0 +1,209 @@
+{
+  "title": "CHEM1A Practice Quiz — Objective 9: Bonding II → Materials — MO, IMFs, Solids, Solutions (DRAFT pending Gilley approval)",
+  "tags": [
+    "obj9.mo.theory",
+    "obj9.imf.identify",
+    "obj9.imf.properties",
+    "obj9.phase.changes",
+    "obj9.phase.diagrams",
+    "obj9.solid.types",
+    "obj9.solid.crystal",
+    "obj9.soln.process",
+    "obj9.soln.concentration",
+    "obj9.colligative.calc",
+    "obj9.colligative.mm",
+    "obj9.colloids",
+    "obj9.vocab"
+  ],
+  "items": [
+    {
+      "tag": "obj9.mo.theory",
+      "stem": "A diatomic molecule's MO diagram holds 6 electrons in bonding orbitals and 2 in antibonding orbitals. Its bond order is:",
+      "choices": ["2", "4", "8", "1"],
+      "answer": 0,
+      "explain": "Bond order = (bonding − antibonding)/2 = (6 − 2)/2 = 2. Adding instead of subtracting gives 4; forgetting to halve gives 4 as well; counting only bonding gives 3 — the formula has all three moves."
+    },
+    {
+      "tag": "obj9.mo.theory",
+      "stem": "Which bond order predicts the STRONGEST, SHORTEST bond between two atoms?",
+      "choices": ["3", "1", "0", "They are all equal once the molecule forms"],
+      "answer": 0,
+      "explain": "Higher bond order = more net bonding electrons = stronger and shorter. Bond order 0 predicts no molecule at all."
+    },
+    {
+      "tag": "obj9.mo.theory",
+      "stem": "Nitric oxide, NO, is a HETERONUCLEAR diatomic — two different atoms — but the bond-order machine runs the same way. Its molecular-orbital configuration is (σ2s)²(σ*2s)²(π2p)⁴(σ2p)²(π*2p)¹. Its bond order is:",
+      "choices": ["2.5", "3", "2", "5.5"],
+      "answer": 0,
+      "explain": "Count the plain and the starred, subtract, halve: bonding 2 + 4 + 2 = 8, antibonding 2 + 1 = 3, bond order (8 − 3)/2 = 2.5 — fractional orders are legal, and the lone unpaired π* electron also makes NO paramagnetic. 3 forgets the antibonding π* electron; 2 double-counts it; 5.5 adds instead of subtracting."
+    },
+    {
+      "tag": "obj9.imf.identify",
+      "stem": "Which molecule can hydrogen-bond with its own kind?",
+      "choices": ["NH₃", "PH₃", "CH₄", "H₂S"],
+      "answer": 0,
+      "explain": "Hydrogen bonding needs H bonded directly to N, O, or F. NH₃ qualifies. PH₃ and H₂S have H on P and S — close, but not on the list; CH₄'s H sits on carbon."
+    },
+    {
+      "tag": "obj9.imf.identify",
+      "stem": "Which substance has ONLY dispersion forces between its molecules?",
+      "choices": ["Hexane, C₆H₁₄ — nonpolar", "HBr — polar", "NH₃ — H on nitrogen", "SO₂ — bent and polar"],
+      "answer": 0,
+      "explain": "Dispersion is the only force nonpolar molecules get. HBr and SO₂ add dipole-dipole; NH₃ adds hydrogen bonding. Every option HAS dispersion — the question is who has nothing else."
+    },
+    {
+      "tag": "obj9.imf.properties",
+      "stem": "Which hydrogen halide has the HIGHEST boiling point?",
+      "choices": ["HF", "HCl", "HBr", "They increase steadily with size, so HBr wins by mass"],
+      "answer": 0,
+      "explain": "HF hydrogen-bonds (H on F) and that beats the dispersion advantage of the heavier halides. Option D is the pure-size reasoning that misses the hydrogen-bond anomaly."
+    },
+    {
+      "tag": "obj9.imf.properties",
+      "stem": "At room temperature F₂ and Cl₂ are gases, Br₂ is a liquid, and I₂ is a solid. What force grows down the group to cause this?",
+      "choices": ["Dispersion — it strengthens as electron count and size grow", "Hydrogen bonding", "Dipole-dipole — the heavier halogens are more polar", "Covalent bond strength within each molecule"],
+      "answer": 0,
+      "explain": "All four are nonpolar: dispersion is the only intermolecular force present, and it scales with polarizability. The bonds INSIDE the molecules are not what melting and boiling break."
+    },
+    {
+      "tag": "obj9.phase.changes",
+      "stem": "Steam at 100 °C burns far worse than liquid water at 100 °C because the steam:",
+      "choices": ["Releases its heat of vaporization as it condenses on skin", "Is at a higher temperature", "Contains stronger covalent bonds", "Has a higher specific heat"],
+      "answer": 0,
+      "explain": "Same temperature — the difference is ΔHvap (2256 J/g) dumped during condensation. Phase changes move heat without moving temperature."
+    },
+    {
+      "tag": "obj9.phase.changes",
+      "stem": "How much heat is required to melt 50.0 g of ice already at 0 °C? (ΔHfus = 334 J/g)",
+      "choices": ["16.7 kJ", "209 kJ", "0 kJ — melting needs no heat once at 0 °C", "4.18 kJ"],
+      "answer": 0,
+      "explain": "Flat segment: q = m × ΔHfus = 50.0 × 334 = 16 700 J = 16.7 kJ. Option B uses q = mcΔT machinery where none applies; option C mistakes constant temperature for zero heat."
+    },
+    {
+      "tag": "obj9.phase.diagrams",
+      "stem": "Beyond the critical point, a substance:",
+      "choices": ["Becomes a supercritical fluid — the liquid/gas distinction disappears", "Must be a solid", "Splits into two phases", "Cannot exist"],
+      "answer": 0,
+      "explain": "Past critical T and P there is no boundary left between liquid and gas — one fluid phase. No pressure can liquefy a gas above its critical temperature."
+    },
+    {
+      "tag": "obj9.phase.diagrams",
+      "stem": "Dry ice sublimes (solid → gas, no liquid) at ordinary pressure because 1 atm is:",
+      "choices": ["Below CO₂'s triple-point pressure — the liquid region is out of reach", "Above CO₂'s critical pressure", "Exactly at CO₂'s triple point", "Too cold for liquids to form"],
+      "answer": 0,
+      "explain": "CO₂'s triple point sits at 5.11 atm. Below that pressure the warming path crosses straight from solid to gas — the liquid region only exists above it."
+    },
+    {
+      "tag": "obj9.solid.types",
+      "stem": "Diamond melts above 3500 °C and conducts no electricity. It is best classified as:",
+      "choices": ["A covalent network solid", "A molecular solid", "A metallic solid", "An ionic solid"],
+      "answer": 0,
+      "explain": "One giant lattice of covalent bonds — melting means breaking real covalent bonds, hence the extreme temperature; every electron is pinned in a bond, hence no conduction."
+    },
+    {
+      "tag": "obj9.solid.types",
+      "stem": "A solid does not conduct electricity — but it conducts well when melted or dissolved in water. It is:",
+      "choices": ["Ionic — the ions are locked in the lattice until freed", "Metallic — metals always conduct", "Molecular — molecules carry charge", "Amorphous"],
+      "answer": 0,
+      "explain": "Ionic solids have charge carriers (the ions) that cannot move until melting or dissolving frees them. Metals conduct as solids; molecular solids have no charge carriers at all."
+    },
+    {
+      "tag": "obj9.solid.crystal",
+      "stem": "How many atoms does one SIMPLE cubic unit cell own?",
+      "choices": ["1", "8", "2", "4"],
+      "answer": 0,
+      "explain": "Eight corner atoms × one-eighth each = 1. Counting the corners as whole atoms gives the classic wrong answer of 8."
+    },
+    {
+      "tag": "obj9.solid.crystal",
+      "stem": "How many atoms does one BODY-centered cubic unit cell own?",
+      "choices": ["2 — eight corners at one-eighth, plus the body atom", "9", "1", "4"],
+      "answer": 0,
+      "explain": "8(⅛) + 1 = 2. Nine counts corners whole; 4 is the face-centered census."
+    },
+    {
+      "tag": "obj9.soln.process",
+      "stem": "Iodine (I₂, nonpolar) dissolves best in:",
+      "choices": ["Hexane — a nonpolar solvent", "Water — the universal solvent", "Any polar solvent", "Molten salt"],
+      "answer": 0,
+      "explain": "Like dissolves like, said in forces: I₂'s dispersion-only toolkit matches hexane's. Water's hydrogen-bond network won't open up for a solute that offers nothing back."
+    },
+    {
+      "tag": "obj9.soln.process",
+      "stem": "A gas dissolves MOST in a liquid when the conditions are:",
+      "choices": ["Cold liquid, high gas pressure", "Hot liquid, high gas pressure", "Cold liquid, low gas pressure", "Temperature and pressure do not affect gas solubility"],
+      "answer": 0,
+      "explain": "Gas solubility rises as temperature falls and as pressure rises (Henry's law) — why cold sealed soda stays fizzy and warm open soda goes flat."
+    },
+    {
+      "tag": "obj9.soln.concentration",
+      "stem": "2.0 mol of solute dissolved in 4.0 kg of water has a molality of:",
+      "choices": ["0.50 m", "2.0 m", "8.0 m", "It cannot be computed without the solution volume"],
+      "answer": 0,
+      "explain": "m = mol solute ÷ kg SOLVENT = 2.0 ÷ 4.0 = 0.50 m. Option D is molarity thinking — molality never needs a volume."
+    },
+    {
+      "tag": "obj9.soln.concentration",
+      "stem": "Which concentration unit does NOT change when the solution's temperature changes?",
+      "choices": ["Molality — it is built from masses only", "Molarity — moles per liter", "Both change equally", "Neither ever changes"],
+      "answer": 0,
+      "explain": "Molarity's denominator (liters) expands and contracts with temperature; molality's (kilograms of solvent) cannot. That is why colligative equations use molality."
+    },
+    {
+      "tag": "obj9.colligative.calc",
+      "stem": "Which 0.10 m aqueous solution has the LOWEST freezing point?",
+      "choices": ["0.10 m K₃PO₄ — four particles per formula unit", "0.10 m NaCl — two particles", "0.10 m CaCl₂ — three particles", "0.10 m sucrose — one particle"],
+      "answer": 0,
+      "explain": "Colligative properties count particles: i = 4 beats 3, 2, and 1 at equal molality. Ignoring dissociation makes all four look identical — the i-blind error."
+    },
+    {
+      "tag": "obj9.colligative.calc",
+      "stem": "A 0.500 m aqueous solution of a NONELECTROLYTE boils at: (Kb = 0.512 °C/m)",
+      "choices": ["100.26 °C", "99.74 °C", "100.51 °C", "102.56 °C"],
+      "answer": 0,
+      "explain": "ΔTb = i·Kb·m = 1 × 0.512 × 0.500 = 0.256 °C, ADDED to 100.00. Subtracting gives 99.74 (boiling goes up, freezing goes down); 100.51 forgets the 0.500; 102.56 invents i = 10."
+    },
+    {
+      "tag": "obj9.colligative.mm",
+      "stem": "To find a molar mass from freezing-point depression, the correct order of steps is:",
+      "choices": ["ΔTf → molality → moles of solute → grams ÷ moles", "Grams ÷ ΔTf directly", "ΔTf → molarity → liters → molar mass", "Moles → ΔTf → grams"],
+      "answer": 0,
+      "explain": "The measured ΔTf gives m (divide by i·Kf); m times kilograms of solvent gives moles; the weighed sample mass over those moles is the molar mass. Molarity never appears."
+    },
+    {
+      "tag": "obj9.colligative.mm",
+      "stem": "3.0 g of a nonelectrolyte in 100.0 g of water freezes at −0.93 °C (Kf = 1.86 °C/m). Its molar mass is:",
+      "choices": ["60. g/mol", "30. g/mol", "120 g/mol", "3.0 g/mol"],
+      "answer": 0,
+      "explain": "m = 0.93/1.86 = 0.50 m; moles = 0.50 × 0.1000 kg = 0.050 mol; MM = 3.0/0.050 = 60. g/mol. Halving or doubling errors come from the kilograms step."
+    },
+    {
+      "tag": "obj9.colloids",
+      "stem": "Which of these is a COLLOID?",
+      "choices": ["Milk", "Salt water", "Sand stirred into water", "Sugar water"],
+      "answer": 0,
+      "explain": "Milk's dispersed particles are colloid-sized — big enough to scatter light (Tyndall), too small to settle. Salt and sugar water are true solutions; sand settles — a suspension."
+    },
+    {
+      "tag": "obj9.colloids",
+      "stem": "The reliable way to tell a SUSPENSION from a colloid is that a suspension:",
+      "choices": ["Settles out on standing", "Scatters a light beam", "Is always colored", "Conducts electricity"],
+      "answer": 0,
+      "explain": "Suspension particles are large enough for gravity to win. Colloids scatter light but never settle; solutions do neither."
+    },
+    {
+      "tag": "obj9.vocab",
+      "stem": "A COLLIGATIVE property depends on:",
+      "choices": ["How many dissolved particles there are", "What the dissolved particles are", "The color of the solution", "The solvent's molar mass only"],
+      "answer": 0,
+      "explain": "Number, not identity — that single idea is the whole colligative toolbox, and it is why the van 't Hoff factor exists."
+    },
+    {
+      "tag": "obj9.vocab",
+      "stem": "Two liquids that mix in ALL proportions — like ethanol and water — are called:",
+      "choices": ["Miscible", "Saturated", "Immiscible", "Supercritical"],
+      "answer": 0,
+      "explain": "Miscible = mutually soluble without limit. Immiscible is the opposite (oil and water); saturated describes a solution at its solubility limit."
+    }
+  ]
+}

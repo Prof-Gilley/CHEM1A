@@ -1,0 +1,229 @@
+{
+ "title": "CHEM1A Practice Quiz — Objective 6: Gases & Kinetic Molecular Theory (DRAFT pending Gilley approval)",
+ "tags": [
+  "obj6.pressure",
+  "obj6.laws.empirical",
+  "obj6.laws.ideal",
+  "obj6.gas.densitymm",
+  "obj6.gas.stoich",
+  "obj6.gas.dalton",
+  "obj6.kmt.theory",
+  "obj6.kmt.effusion",
+  "obj6.gas.real",
+  "obj6.vocab"
+ ],
+ "items": [
+  {
+   "tag": "obj6.pressure",
+   "stem": "Convert 1140 torr to atmospheres:",
+   "choices": ["1.50 atm", "0.667 atm", "1140 atm", "11.4 atm"],
+   "answer": 0,
+   "explain": "1140/760 = 1.50 atm. 0.667 inverts the factor; 11.4 moves a decimal instead of converting. The anchor: 1 atm = 760 torr."
+  },
+  {
+   "tag": "obj6.pressure",
+   "stem": "A barometer reads lower at the top of a mountain than at sea level because:",
+   "choices": [
+    "Less atmosphere sits above it, so the air column weighs less",
+    "Gravity is too weak to hold the mercury up",
+    "Cold temperatures shrink the mercury",
+    "Barometers only work at sea level"
+   ],
+   "answer": 0,
+   "explain": "Atmospheric pressure IS the weight of the overlying air. Temperature affects mercury slightly but is not the mechanism; the pressure change is the whole point of the instrument."
+  },
+  {
+   "tag": "obj6.laws.empirical",
+   "stem": "A gas occupies 6.00 L at 2.00 atm. At constant temperature the pressure becomes 3.00 atm. The new volume is:",
+   "choices": ["4.00 L", "9.00 L", "2.00 L", "6.00 L"],
+   "answer": 0,
+   "explain": "Boyle: V₂ = P₁V₁/P₂ = 2.00 × 6.00/3.00 = 4.00 L — pressure up, volume down. 9.00 applies a direct proportion to an inverse law."
+  },
+  {
+   "tag": "obj6.laws.empirical",
+   "stem": "A student uses 25 °C directly in a Charles's law ratio. The result is wrong because:",
+   "choices": [
+    "Gas-law proportionalities hold only on the kelvin scale, whose zero is true zero",
+    "Celsius degrees are a different size than kelvins",
+    "25 °C is too cold for gas laws",
+    "Charles's law uses Fahrenheit"
+   ],
+   "answer": 0,
+   "explain": "Ratios require a scale where zero means zero motion — kelvin. Celsius degrees are the SAME size as kelvins (that distractor is subtle but wrong); the offset, not the size, is the problem."
+  },
+  {
+   "tag": "obj6.laws.empirical",
+   "stem": "Equal volumes of any two gases at the same temperature and pressure contain equal numbers of molecules. This is a statement of:",
+   "choices": [
+    "Avogadro's law",
+    "Boyle's law",
+    "Charles's law",
+    "Dalton's law"
+   ],
+   "answer": 0,
+   "explain": "Avogadro's law: at fixed temperature and pressure, volume is proportional to moles — the gas's identity does not matter, only the particle count. Boyle relates pressure and volume; Charles relates volume and temperature; Dalton adds partial pressures. Equal volumes–equal molecules is the sentence to attach to Avogadro's name."
+  },
+  {
+   "tag": "obj6.laws.ideal",
+   "stem": "How many moles of gas occupy 22.4 L at 2.00 atm and 273 K? (R = 0.08206 L·atm/mol·K)",
+   "choices": ["2.00 mol", "1.00 mol", "0.500 mol", "44.8 mol"],
+   "answer": 0,
+   "explain": "n = PV/RT = (2.00 × 22.4)/(0.08206 × 273) = 2.00 mol. 1.00 forgets the doubled pressure (22.4 L is one mole only at 1 atm); 0.500 inverts that correction."
+  },
+  {
+   "tag": "obj6.laws.ideal",
+   "stem": "In PV = nRT, doubling the temperature (in kelvin) of a sealed rigid container:",
+   "choices": [
+    "Doubles the pressure — V and n are fixed",
+    "Doubles the volume",
+    "Halves the pressure",
+    "Changes nothing"
+   ],
+   "answer": 0,
+   "explain": "Sealed = n fixed; rigid = V fixed; so P must carry the change: P = nRT/V doubles with T. Doubling volume requires a container that can expand."
+  },
+  {
+   "tag": "obj6.gas.densitymm",
+   "stem": "The density of argon (39.95 g/mol) at STP is about:",
+   "choices": ["1.78 g/L", "22.4 g/L", "0.561 g/L", "40.0 g/L"],
+   "answer": 0,
+   "explain": "d = M/V(molar) = 39.95/22.414 = 1.78 g/L. 0.561 inverts; 40.0 reports molar mass as density; 22.4 reports the molar volume."
+  },
+  {
+   "tag": "obj6.gas.densitymm",
+   "stem": "To find the molar mass of an unknown gas, you measure its mass plus:",
+   "choices": [
+    "Its pressure, volume, and temperature — PV = nRT gives n, then M = mass/n",
+    "Its color and odor",
+    "Only its volume",
+    "Its effusion rate alone, with no reference gas"
+   ],
+   "answer": 0,
+   "explain": "PV = nRT is n's back-door: state variables give moles, and mass over moles is molar mass. Effusion CAN give molar mass, but only compared against a known gas."
+  },
+  {
+   "tag": "obj6.gas.stoich",
+   "stem": "For 2 H₂(g) + O₂(g) → 2 H₂O(g) at constant temperature and pressure, 8.0 L of H₂ requires how many liters of O₂?",
+   "choices": ["4.0 L", "8.0 L", "16 L", "2.0 L"],
+   "answer": 0,
+   "explain": "At the same T and P, volumes are proportional to moles (Avogadro) — the 2:1 mole ratio IS a 2:1 volume ratio: 8.0/2 = 4.0 L. Equal volumes (8.0) ignores the coefficients."
+  },
+  {
+   "tag": "obj6.gas.stoich",
+   "stem": "In a gas-stoichiometry chain, PV = nRT replaces which step of the Objective 4 mass-mass chain?",
+   "choices": [
+    "The molar-mass conversion on the gas's side — moles enter or leave through P, V, T instead of grams",
+    "The mole-ratio step",
+    "The balancing of the equation",
+    "All three steps"
+   ],
+   "answer": 0,
+   "explain": "The ratio and the balanced equation are untouched — only the gas leg changes doors. Seeing the chain's architecture is what transfers; the ratio step never changes."
+  },
+  {
+   "tag": "obj6.gas.dalton",
+   "stem": "A container holds 0.20 mol He and 0.60 mol Ne at a total pressure of 4.00 atm. The partial pressure of He is:",
+   "choices": ["1.00 atm", "2.00 atm", "0.80 atm", "4.00 atm"],
+   "answer": 0,
+   "explain": "Mole fraction of He = 0.20/0.80 = 0.25; × 4.00 atm = 1.00 atm. 2.00 assumes an even split; 0.80 multiplies by the mole count instead of the fraction."
+  },
+  {
+   "tag": "obj6.gas.dalton",
+   "stem": "Nitrogen is collected over water at a total pressure of 738 torr and 21 °C (vapor pressure of water at 21 °C = 18.7 torr). The pressure of the dry N₂ is:",
+   "choices": [
+    "719 torr",
+    "738 torr",
+    "757 torr",
+    "369 torr"
+   ],
+   "answer": 0,
+   "explain": "The collected 'gas' is a mixture of N₂ and water vapor — Dalton's law says the total is the sum, so subtract the vapor's contribution: 738 − 18.7 = 719.3 → 719 torr. Answering 738 forgets the subtraction (THE collection-over-water error); 757 adds instead of subtracting; 369 halves the total for no physical reason."
+  },
+  {
+   "tag": "obj6.kmt.theory",
+   "stem": "According to kinetic-molecular theory, gas pressure is caused by:",
+   "choices": [
+    "Molecules colliding with the container walls",
+    "Molecules attracting the walls",
+    "The weight of the molecules pressing down",
+    "Molecules pushing against each other"
+   ],
+   "answer": 0,
+   "explain": "Pressure = wall collisions, full stop. Weight-pressing-down describes atmospheric pressure's origin but not the wall mechanism; ideal-gas molecules are assumed not to attract anything."
+  },
+  {
+   "tag": "obj6.kmt.theory",
+   "stem": "Balloons of H₂ and O₂ sit at the same temperature. Which statement is true?",
+   "choices": [
+    "Both gases have the same average kinetic energy, so the lighter H₂ molecules move faster",
+    "Both gases' molecules move at the same average speed",
+    "The heavier O₂ molecules move faster",
+    "The H₂ has more kinetic energy because it moves faster"
+   ],
+   "answer": 0,
+   "explain": "Temperature fixes average kinetic energy — equal T means equal KE, so at ½mv², a smaller m forces a larger v. 'Same speed' and 'more energy' each break the KE identity in a different direction."
+  },
+  {
+   "tag": "obj6.kmt.effusion",
+   "stem": "How many times faster does He (4.00 g/mol) effuse than O₂ (32.00 g/mol)?",
+   "choices": ["2.83", "8.00", "0.354", "64.0"],
+   "answer": 0,
+   "explain": "√(32.00/4.00) = √8 = 2.83. 8.00 forgets the square root; 0.354 inverts the ratio; 64 squares instead of rooting."
+  },
+  {
+   "tag": "obj6.kmt.effusion",
+   "stem": "Gas X effuses half as fast as Ne (20.18 g/mol). The molar mass of X is about:",
+   "choices": ["80.7 g/mol", "40.4 g/mol", "10.1 g/mol", "5.05 g/mol"],
+   "answer": 0,
+   "explain": "Half the rate means √(M(X)/20.18) = 2, so M(X) = 4 × 20.18 = 80.7 g/mol — the square undoes the root. 40.4 doubles instead of quadrupling; 10.1 and 5.05 run the relationship backwards (slower means HEAVIER)."
+  },
+  {
+   "tag": "obj6.gas.real",
+   "stem": "A real gas deviates most from ideal behavior at:",
+   "choices": [
+    "High pressure and low temperature",
+    "Low pressure and high temperature",
+    "Exactly STP",
+    "It never deviates"
+   ],
+   "answer": 0,
+   "explain": "High P crowds molecules until their own volume matters; low T slows them until attractions matter — the two ideal assumptions break exactly there. Low P + high T is where gases are MOST ideal."
+  },
+  {
+   "tag": "obj6.gas.real",
+   "stem": "The van der Waals equation corrects the ideal gas law for:",
+   "choices": [
+    "Molecular volume and intermolecular attractions",
+    "Gravity and friction",
+    "Temperature measurement error",
+    "The color of the gas"
+   ],
+   "answer": 0,
+   "explain": "Two correction terms patch the two ideal-gas lies: molecules DO take up space (volume term) and DO attract each other (pressure term)."
+  },
+  {
+   "tag": "obj6.vocab",
+   "stem": "The **standard molar volume** of a gas is:",
+   "choices": [
+    "22.4 L — the volume of one mole of any ideal gas at STP",
+    "The volume of one gram of gas",
+    "1.00 L per mole at any conditions",
+    "Different for every gas at STP"
+   ],
+   "answer": 0,
+   "explain": "One mole of ANY ideal gas at STP fills 22.4 L — identity doesn't matter, which is Avogadro's point. 'Different for every gas' contradicts exactly that."
+  },
+  {
+   "tag": "obj6.vocab",
+   "stem": "**Effusion** is:",
+   "choices": [
+    "Gas escaping through a tiny hole into a vacuum",
+    "Gases mixing throughout a room",
+    "A gas dissolving in water",
+    "A gas condensing on a cold surface"
+   ],
+   "answer": 0,
+   "explain": "Effusion = escape through a pinhole; DIFFUSION = spreading/mixing. The two terms are the classic vocabulary pair to swap — Graham's law governs both, but the definitions differ."
+  }
+ ]
+}
