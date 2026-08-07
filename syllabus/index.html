@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHEM 1A Syllabus · Fall 2026 · Prof. Gilley — Fresno City College</title>
+<meta name="description" content="Official syllabus: CHEM 1A General Chemistry, Section 25776, Fall 2026, Fresno City College, Prof. Robert Gilley.">
+<style>
+  :root{
+    --red:#C41230; --red-dark:#8E0D23; --coral:#E85D75; --gold:#F4B860;
+    --cream:#FFF8F3; --paper:#FFFFFF; --ink:#2B2B2B; --ink-soft:#5A5450;
+    --line:#F0E2D8; --green:#2E7D53; --green-soft:#EAF6EF; --sky:#EAF4FB;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6}
+  .wrap{max-width:980px;margin:0 auto;padding:0 20px}
+
+  .draft-ribbon{position:fixed;top:14px;right:-44px;z-index:99;background:#333;color:#fff;
+    padding:4px 60px;transform:rotate(35deg);font-size:12px;letter-spacing:2px;opacity:.85}
+
+  /* HERO */
+  .hero{background:linear-gradient(140deg,var(--red) 0%,var(--red-dark) 70%);color:#fff;
+    padding:28px 0 32px;position:relative;overflow:hidden}
+  .hero::after{content:"♥";position:absolute;right:-30px;bottom:-70px;font-size:280px;
+    color:rgba(255,255,255,.07);transform:rotate(-12deg)}
+  .school-line{display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:2.5px;
+    text-transform:uppercase;opacity:.92;flex-wrap:wrap}
+  .school-line .heart{color:var(--gold)}
+  .hero h1{font-size:clamp(30px,6vw,52px);line-height:1.1;margin:14px 0 4px;font-weight:800}
+  .hero .sub{font-size:clamp(16px,2.6vw,21px);opacity:.95}
+  .idcard{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+  .idcard span{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);
+    padding:7px 14px;border-radius:999px;font-size:14px}
+  .belong{margin-top:24px;background:rgba(255,255,255,.12);border-left:5px solid var(--gold);
+    padding:16px 18px;border-radius:0 12px 12px 0;max-width:660px}
+  .belong strong{color:var(--gold)}
+
+  /* COUNTDOWN STRIP — compact */
+  .count-strip{background:var(--paper);border-bottom:1px solid var(--line);padding:7px 0}
+  .counts{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  .chip{display:flex;align-items:center;gap:7px;background:var(--cream);border:1px solid var(--line);
+    border-radius:9px;padding:4px 10px;font-size:11.5px}
+  .chip .num{font-size:15px;font-weight:800;color:var(--red)}
+  .chip .lbl{color:var(--ink-soft);line-height:1.2}
+  .chip.urgent{border-color:var(--coral);background:#FDEEF1}
+
+  /* BUTTON NAV */
+  .btnbar{background:var(--paper);border-bottom:2px solid var(--red);padding:14px 0 12px}
+  .navgrid{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  .navgrid button{position:relative;border:1.5px solid var(--line);background:var(--cream);
+    border-radius:12px;padding:9px 14px;font-size:13.5px;font-weight:700;color:var(--ink-soft);
+    cursor:pointer;transition:.15s;font-family:inherit}
+  .navgrid button:hover{border-color:var(--coral);color:var(--red);transform:translateY(-1px)}
+  .navgrid button.sel{background:var(--red);border-color:var(--red);color:#fff}
+  .navgrid button.all{border-style:dashed}
+  .navgrid button.read::after{content:"✓";position:absolute;top:-7px;right:-7px;width:18px;height:18px;
+    background:var(--green);color:#fff;border-radius:50%;font-size:12px;font-weight:800;
+    display:flex;align-items:center;justify-content:center}
+  .progress{max-width:420px;margin:12px auto 0;text-align:center;font-size:13px;color:var(--ink-soft)}
+  .pbar{height:8px;background:var(--line);border-radius:99px;margin-top:5px;overflow:hidden}
+  #pfill{height:100%;width:0;background:linear-gradient(90deg,var(--coral),var(--green));
+    border-radius:99px;transition:width .3s}
+
+  /* SECTION READ CHECK */
+  .readbox{display:flex;align-items:center;gap:10px;margin:18px 0 8px;padding:12px 16px;width:100%;
+    background:var(--paper);border:2px dashed var(--line);border-radius:12px;cursor:pointer;
+    font-family:inherit;font-size:14.5px;font-weight:700;color:var(--ink-soft);transition:.15s;text-align:left}
+  .readbox:hover{border-color:var(--coral)}
+  .readbox .box{width:22px;height:22px;border:2.5px solid var(--coral);border-radius:6px;
+    display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:15px;flex:none}
+  .readbox.checked{border-color:var(--green);background:var(--green-soft);color:var(--green)}
+  .readbox.checked .box{background:var(--green);border-color:var(--green)}
+
+  /* BANNERS */
+  .banner{display:flex;gap:12px;align-items:flex-start;border-radius:12px;padding:14px 18px;margin:18px 0;font-size:15px}
+  .banner .ico{font-size:20px;line-height:1.3}
+  .banner.love{background:#FDEEF1;border:1px solid #F5C6CF}
+  .banner.gold{background:#FEF6E7;border:1px solid #F2DDB0}
+  .banner.info{background:var(--sky);border:1px solid #C9E2F2}
+  .banner.green{background:var(--green-soft);border:1px solid #BFE3CE}
+
+  /* SECTIONS */
+  section{padding:38px 0 6px}
+  h2{font-size:26px;color:var(--red-dark);margin-bottom:4px}
+  .kicker{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--coral);font-weight:700}
+  .lede{color:var(--ink-soft);max-width:720px;margin-bottom:12px}
+
+  /* BASICS / HOW-TO duo — the core pattern */
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+  @media(max-width:760px){.duo{grid-template-columns:1fr}}
+  .panel{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 20px;
+    box-shadow:0 1px 3px rgba(140,90,60,.05)}
+  .panel .tag{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:1.5px;
+    text-transform:uppercase;padding:3px 10px;border-radius:999px;margin-bottom:10px}
+  .panel.basics{border-top:4px solid var(--red)}
+  .panel.basics .tag{background:#FBE9EC;color:var(--red)}
+  .panel.howto{border-top:4px solid var(--green)}
+  .panel.howto .tag{background:var(--green-soft);color:var(--green)}
+  .panel h3{font-size:17px;margin-bottom:6px;color:var(--ink)}
+  .panel p,.panel li{font-size:14.5px}
+  .panel ul{padding-left:18px}
+  .panel ul.clean{list-style:none;padding-left:0}
+  .panel ul.clean li{padding:5px 0 5px 24px;position:relative}
+  .panel ul.clean li::before{content:"→";position:absolute;left:0;color:var(--green);font-weight:800}
+
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:14px 0}
+  .card h3{color:var(--red-dark);margin-bottom:8px;font-size:18px}
+  ol.steps{counter-reset:s;list-style:none}
+  ol.steps li{counter-increment:s;position:relative;padding:8px 0 8px 44px}
+  ol.steps li::before{content:counter(s);position:absolute;left:0;top:8px;width:30px;height:30px;
+    background:var(--red);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700}
+
+  table{width:100%;border-collapse:collapse;background:var(--paper);border-radius:12px;overflow:hidden;
+    border:1px solid var(--line);font-size:14px;margin:12px 0}
+  th{background:var(--red);color:#fff;text-align:left;padding:9px 12px;font-size:13px}
+  td{padding:8px 12px;border-top:1px solid var(--line);vertical-align:top}
+  tr:nth-child(even) td{background:#FDFAF7}
+  td.hot,strong.hot{color:var(--red);font-weight:700}
+  .tablewrap{overflow-x:auto}
+
+  /* RHYTHM TRACKER */
+  .rhythm{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:14px 0}
+  .day{background:var(--paper);border:2px solid var(--line);border-radius:14px;padding:16px;cursor:pointer;transition:.15s;user-select:none}
+  .day:hover{border-color:var(--coral)}
+  .day.done{border-color:var(--green);background:var(--green-soft)}
+  .day .dow{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--coral);font-weight:700}
+  .day.done .dow{color:var(--green)}
+  .day h4{margin:4px 0 2px;font-size:16px}
+  .day p{font-size:13px;color:var(--ink-soft)}
+  .day .tick{float:right;font-size:20px;color:#D8CCC3}
+  .day.done .tick{color:var(--green)}
+  .tracker-foot{font-size:13px;color:var(--ink-soft)}
+  .tracker-foot button{border:1px solid var(--line);background:var(--paper);border-radius:8px;padding:4px 12px;cursor:pointer;font-size:13px;margin-left:8px}
+
+  .ladder .rung{display:flex;gap:14px;align-items:flex-start;padding:10px 0;border-bottom:1px dashed var(--line)}
+  .ladder .rung:last-child{border-bottom:none}
+  .ladder .att{min-width:96px;font-weight:800;color:var(--red)}
+
+  .support{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+  .support a.scard{display:block;background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--coral);
+    border-radius:12px;padding:16px;text-decoration:none;color:var(--ink);transition:.15s}
+  .support a.scard:hover{transform:translateY(-2px);box-shadow:0 4px 10px rgba(140,90,60,.10)}
+  .support h4{color:var(--red-dark);margin-bottom:4px}
+  .support p{font-size:13.5px;color:var(--ink-soft)}
+
+  details{background:var(--paper);border:1px solid var(--line);border-radius:12px;margin:10px 0;padding:0 18px}
+  details summary{cursor:pointer;font-weight:700;padding:14px 0;color:var(--red-dark);list-style:none}
+  details summary::after{content:"+";float:right;font-size:20px;color:var(--coral)}
+  details[open] summary::after{content:"–"}
+  details .body{padding:0 0 16px;font-size:14.5px}
+
+  /* GRADE VISUAL */
+  .gradebar{display:flex;height:46px;border-radius:12px;overflow:hidden;margin:14px 0;border:1px solid var(--line);font-size:12.5px;color:#fff;text-align:center}
+  .gradebar div{display:flex;flex-direction:column;justify-content:center;font-weight:700;line-height:1.2}
+  .gb-obj{width:60%;background:var(--red)}
+  .gb-lab{width:20%;background:var(--coral)}
+  .gb-acs{width:15%;background:var(--gold);color:var(--ink)}
+  .gb-mys{width:5%;background:var(--green)}
+
+  /* HOVER IMAGE PEEK — image only, no card chrome */
+  .peek{position:relative;cursor:default;outline:none}
+  .peek .cam{font-size:12px;vertical-align:super}
+  .peek .pop{position:absolute;bottom:130%;left:50%;transform:translateX(-50%);width:220px;
+    border-radius:10px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.22);
+    opacity:0;pointer-events:none;transition:opacity .15s;z-index:40;line-height:0}
+  .peek:hover .pop,.peek:focus .pop{opacity:1}
+  .peek .pop img,.peek .pop svg{width:100%;display:block;background:#fff}
+
+  /* PIE HUB */
+  .hub{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:24px;margin:20px 0;
+    box-shadow:0 2px 8px rgba(140,90,60,.06)}
+  .hub-grid{display:grid;grid-template-columns:minmax(260px,340px) 1fr;gap:24px;align-items:center}
+  @media(max-width:760px){.hub-grid{grid-template-columns:1fr}}
+  #pie{width:100%;max-width:340px;margin:0 auto;display:block}
+  #pie path.slice{cursor:pointer;transition:transform .18s,opacity .18s;transform-origin:160px 160px}
+  #pie path.slice:hover,#pie path.slice.sel{transform:scale(1.045)}
+  #pie path.slice:not(:hover):not(.sel){opacity:.92}
+  #pie text{pointer-events:none;font-family:inherit}
+  #pie .ctr{cursor:pointer}
+  .hub-side h3{color:var(--red-dark);font-size:20px;margin-bottom:6px}
+  .hub-side p{font-size:14.5px;color:var(--ink-soft)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .chips button{border:1.5px solid var(--line);background:var(--cream);border-radius:999px;
+    padding:7px 14px;font-size:13.5px;font-weight:600;color:var(--ink-soft);cursor:pointer;transition:.15s}
+  .chips button:hover{border-color:var(--coral);color:var(--red)}
+  .chips button.sel{background:var(--red);border-color:var(--red);color:#fff}
+  .chips button.all{border-style:dashed}
+  section.hidden{display:none}
+  .backhub{display:inline-block;margin:6px 0 0;font-size:13.5px;font-weight:700;color:var(--red);
+    text-decoration:none;cursor:pointer}
+  @media print{section{display:block!important}.hub,.chips{display:none}}
+
+  footer{background:var(--red-dark);color:#fff;margin-top:48px;padding:36px 0}
+  footer a{color:var(--gold)}
+  .foot-heart{font-size:22px;color:var(--coral)}
+  .tbd{background:#FFF3CD;border:1px dashed #D9B44A;border-radius:6px;padding:1px 8px;font-size:12.5px;color:#7A5C00}
+  @media print{.draft-ribbon,nav,.count-strip,.tracker-foot button{display:none}}
+</style>
+</head>
+<body>
+<div class="draft-ribbon">DRAFT — NOT PUBLISHED</div>
+
+<!-- ═══════════ HERO ═══════════ -->
+<header class="hero">
+  <div class="wrap">
+    <div class="school-line"><span class="heart">♥</span> Fresno City College · Math, Science &amp; Engineering <span class="heart">♥</span> City Love</div>
+    <h1>CHEM 1A Syllabus</h1>
+    <div class="sub">General Chemistry · Fall 2026 · Section 25776 · Professor Robert Gilley — <strong>this is your official course syllabus</strong></div>
+    <div class="idcard">
+      <span>📍 New Science 337</span>
+      <span>🕗 Lecture Tue/Thu 8:00–9:15 AM</span>
+      <span>🧪 Lab Tue/Thu 9:30 AM–12:20 PM</span>
+      <span>📅 Aug 10 – Dec 11, 2026</span>
+      <span>✉️ rob.gilley@fresnocitycollege.edu</span>
+    </div>
+    <div class="belong">
+      <strong>You belong here.</strong> Every student who walks into this room can succeed in chemistry —
+      this course is built so that your effort converts into results, every single week. This page is the
+      complete syllabus: every rule of the course, and next to each one, exactly how to succeed at it.
+    </div>
+  </div>
+</header>
+
+<div class="count-strip"><div class="wrap counts" id="countdowns"></div></div>
+
+<div class="btnbar"><div class="wrap">
+  <div class="navgrid" id="navgrid">
+    <button data-show="start">👋 Welcome</button>
+    <button data-show="grademap">🥧 Grade Map</button>
+    <button data-show="week">🔁 Your Week</button>
+    <button data-show="skillchecks">✏️ Skill Checks</button>
+    <button data-show="grade">🧮 Your Grade</button>
+    <button data-show="lab">🧪 Lab</button>
+    <button data-show="time">⏰ Time</button>
+    <button data-show="norms">🤝 Norms</button>
+    <button data-show="materials">🥽 Materials</button>
+    <button data-show="calendar">🗓 Calendar</button>
+    <button data-show="finals">🏁 Finals</button>
+    <button data-show="investigation">🕵️ Investigation</button>
+    <button data-show="support">💗 Support</button>
+    <button data-show="policies">📜 Policies</button>
+    <button data-show="ALL" class="all">📖 Full Syllabus</button>
+  </div>
+  <div class="progress"><span id="progLabel"></span><div class="pbar"><div id="pfill"></div></div></div>
+</div></div>
+
+<main class="wrap">
+
+<div class="banner love"><span class="ico">💗</span><div>
+  <strong>City Love means nobody gets lost.</strong> If a week goes sideways — work, family, life — tell me
+  early. Between unlimited retakes, the test-out waiver, and early packet release, one rough week never has to
+  become a rough semester. You will never be penalized for asking for help.
+</div></div>
+<div class="banner gold"><span class="ico">📌</span><div>
+  <strong>The three dates that matter most:</strong> Skill Checks 1–4 close <strong>Fri Oct 9</strong>
+  (also the college's W-drop deadline) · Skill Checks 5–7 close <strong>Fri Nov 13</strong> ·
+  Skill Checks 8–10 close <strong>Fri Dec 4</strong>. Put them in your phone today.
+</div></div>
+
+<!-- ═══════════ GRADE MAP ═══════════ -->
+<section id="grademap">
+  <div class="kicker">The Map</div>
+  <h2>Grade Map</h2>
+  <div class="hub">
+    <div class="hub-grid">
+      <svg id="pie" viewBox="0 0 320 320" role="img" aria-label="Grade breakdown: Objectives 60%, Lab 20%, ACS Final 15%, Investigation 5%"></svg>
+      <div class="hub-side">
+        <h3>Your grade, your map 🗺</h3>
+        <p><strong>Click a slice of the pie</strong> to jump to everything about that part of your grade.
+        The center takes you to the grade overview and the math behind it.</p>
+        <p style="margin-top:8px">The big red slice is the message: <strong>completing Objectives is 60% of
+        your grade</strong>, and the retake system means every one of them stays winnable all semester.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ WELCOME ═══════════ -->
+<section id="start">
+  <div class="kicker">Welcome</div>
+  <h2>How This Course Works</h2>
+  <div class="duo">
+    <div class="panel basics"><span class="tag">The Basics</span>
+      <h3>A mastery course, in one paragraph</h3>
+      <p>The semester is organized into <strong>ten Objectives</strong> — ten packets of chemistry skills you
+      complete one at a time. Each Objective is completed by passing its <strong>Skill Check</strong> (a short,
+      handwritten test). Your grade is built from those ten packets (60%), lab (20%), the ACS national final
+      (15%), and the semester investigation (5%). Retakes are unlimited. No single bad day defines your grade.</p>
+      <p style="margin-top:8px">There is also a running mystery. You'll be sorted into houses in week 3, and the
+      chemistry you learn is the chemistry you'll need to solve it. Come Thursdays — that's all we'll say here.</p>
+    </div>
+    <div class="panel howto"><span class="tag">How to Succeed</span>
+      <h3>Your first week, step by step</h3>
+      <ol class="steps">
+        <li><strong>Tuesday, Aug 11, 8:00 AM — be there.</strong> Safety training is required before any experiment.</li>
+        <li><strong>Do Reading Check 1 by Wednesday 11:59 PM</strong> (week 1 only — later ones are due Mondays).</li>
+        <li><strong>Pick up the Objective 1 packet</strong> and skim all of it — it shows exactly what Skill Check 1 measures on Aug 27.</li>
+        <li><strong>Save Oct 9 · Nov 13 · Dec 4 in your phone.</strong> Done? You're already ahead.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ YOUR WEEK ═══════════ -->
+<section id="week">
+  <div class="kicker">The Rhythm</div>
+  <h2>Your Week, Every Week</h2>
+  <div class="duo">
+    <div class="panel basics"><span class="tag">The Basics</span>
+      <h3>Four deadlines, same rhythm, all semester</h3>
+      <ul>
+        <li><strong>Reading check</strong> — due Monday 11:59 PM before each week of lectures on a new objective. Short, auto-graded, in Canvas.</li>
+        <li><strong>Practice quiz</strong> — due Tuesday 11:59 PM of Skill Check week. Online mastery quiz: practice each skill until you answer two in a row correctly; upload your completion page.</li>
+        <li><strong>Problem set</strong> — due Wednesday 11:59 PM of Skill Check week. Ten handwritten problems on the exact Skill Check template. Worked solutions unlock the moment you submit.</li>
+        <li><strong>Skill Check</strong> — Thursday, in the flex block. The measurement that counts.</li>
+      </ul>
+      <p style="margin-top:8px"><strong>Early release:</strong> every packet publishes about two weeks before its
+      unit begins. For compressed units, that head start isn't a bonus — it's the plan.</p>
+    </div>
+    <div class="panel howto"><span class="tag">How to Succeed</span>
+      <h3>Run the loop — and use the tracker</h3>
+      <ul class="clean">
+        <li>Do the reading <em>before</em> Tuesday — lecture builds on it, and readers retake less.</li>
+        <li>Treat Wednesday's problem set as your dress rehearsal: submit, unlock the solutions, and check your work <em>that night</em>. Walk into Thursday knowing where you stand.</li>
+        <li>Heavy week coming in any class? Start the next packet early — it's already published.</li>
+        <li>Stuck? Run the "I'm Stuck" protocol (below) and bring me a <em>specific</em> question.</li>
+      </ul>
+    </div>
+  </div>
+  <details><summary>The "I'm Stuck" Protocol — turn confusion into passed Skill Checks</summary><div class="body">
+    <ol class="steps">
+      <li><strong>Locate the relevant section</strong> — find where this topic is covered in the reading or your notes.</li>
+      <li><strong>Define key terms</strong> — write out definitions for anything in the problem you're unsure about.</li>
+      <li><strong>Identify your sticking point</strong> — the setup? the math? the concept?</li>
+      <li><strong>Attempt a partial solution</strong> — show whatever you <em>can</em> do.</li>
+      <li><strong>Write a specific question</strong> — not "I don't get it" but "I don't understand how to convert grams to moles here because…" Then bring it to office hours and we'll get you unstuck fast.</li>
+    </ol>
+  </div></details>
+  <div class="rhythm" id="rhythm">
+    <div class="day" data-k="mon"><span class="tick">✓</span><div class="dow">Monday 11:59 PM</div>
+      <h4>Reading Check</h4><p>In Canvas, before Tuesday's lecture.</p></div>
+    <div class="day" data-k="tue"><span class="tick">✓</span><div class="dow">Tuesday 11:59 PM*</div>
+      <h4>Practice Quiz</h4><p>Two-in-a-row mastery; upload completion page. (*Skill Check weeks.)</p></div>
+    <div class="day" data-k="wed"><span class="tick">✓</span><div class="dow">Wednesday 11:59 PM*</div>
+      <h4>Problem Set</h4><p>Ten problems, exact template; solutions unlock on submit.</p></div>
+    <div class="day" data-k="thu"><span class="tick">✓</span><div class="dow">Thursday · Flex Block</div>
+      <h4>Skill Check</h4><p>The measurement that counts.</p></div>
+  </div>
+  <p class="tracker-foot">Tap cards as you finish — saves on this device, resets each Monday. <button id="resetWeek">Reset this week</button></p>
+  <div class="banner info"><span class="ico">⚡</span><div>
+    <strong>The Test-Out Waiver — read this twice.</strong> All packet work has real deadlines, and doing it is
+    how most students pass. But the Skill Check is the measurement that matters: <strong>pass at 80%+ and
+    anything you didn't submit is forgiven.</strong> Nobody is punished for learning fast. The other side of
+    the bargain: <strong>if you don't pass yet, everything you skipped becomes a requirement</strong> — plus remediation —
+    before your retake unlocks. Skipping practice is a bet. Win it and you saved time; lose it and you owe all
+    the work anyway.
+  </div></div>
+</section>
+
+<!-- ═══════════ SKILL CHECKS ═══════════ -->
+<section id="skillchecks">
+  <div class="kicker">Mastery</div>
+  <h2>Skill Checks &amp; Retakes</h2>
+  <div class="duo">
+    <div class="panel basics"><span class="tag">The Basics</span>
+      <h3>Scoring &amp; the rules</h3>
+      <ul>
+        <li>Handwritten problems worth <strong>5 points each</strong>: 2 for setup, 2 for execution, 1 for the clearly boxed answer.</li>
+        <li><strong>Pass = both:</strong> total score at least 80%, <em>and</em> at least 4 of 5 on each problem marked <strong>★ must-test</strong> (labeled on the test).</li>
+        <li>Passing is binary — no partial packet credit, no rounding; every point total is built so 80% lands on a whole number.</li>
+        <li>Each Skill Check carries one or two short review questions from earlier objectives — they keep old skills warm and are <em>never</em> counted against your 80%.</li>
+        <li><strong>Third gate:</strong> you must attempt every one of the ten Skill Checks at least once to pass the course — regardless of score.</li>
+        <li>Retakes: unlimited, new numbers, same structure and bar. Remediation must be completed before any retake unlocks.</li>
+        <li>Batched closes: <strong>SC 1–4 → Fri Oct 9 · SC 5–7 → Fri Nov 13 · SC 8–10 → Fri Dec 4</strong> (last retake day of the term).</li>
+      </ul>
+    </div>
+    <div class="panel howto"><span class="tag">How to Succeed</span>
+      <h3>Before, during, after</h3>
+      <ul class="clean">
+        <li><strong>Before:</strong> run the weekly rhythm — the problem set is a dress rehearsal on the exact template you'll see Thursday.</li>
+        <li><strong>During:</strong> show your setup on every problem and box every answer — most of the points live in setup and execution. Write what you know even when you can't finish.</li>
+        <li><strong>After a pass:</strong> packet complete — start the next one. After a miss: your remediation targets exactly the skills you missed, never the whole packet. Do it, then retake the week you're ready.</li>
+        <li><strong>Attempting costs one Thursday; skipping one costs the course.</strong> There is no strategic reason to be absent on a Skill Check day.</li>
+        <li>A Skill Check that didn't go your way is an obstacle, not a verdict — but don't sit on it; the batch close dates don't move.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tablewrap"><table>
+    <tr><th>Skill Check</th><th>Objective</th><th>Date (Thursday flex block)</th></tr>
+    <tr><td>1</td><td>Foundations: Matter, Measurement &amp; Atoms</td><td>Aug 27</td></tr>
+    <tr><td>2</td><td>Classification, Compounds &amp; Nomenclature</td><td>Sep 3</td></tr>
+    <tr><td>3</td><td>Mole &amp; Composition</td><td>Sep 10</td></tr>
+    <tr><td>4</td><td>Reactions, Aqueous Chemistry &amp; Stoichiometry</td><td>Sep 24</td></tr>
+    <tr><td>5</td><td>Thermochemistry</td><td>Oct 8</td></tr>
+    <tr><td>6</td><td>Gases &amp; Kinetic Molecular Theory</td><td>Oct 15</td></tr>
+    <tr><td>7</td><td>Atomic Structure &amp; Periodicity</td><td>Oct 29</td></tr>
+    <tr><td>8</td><td>Bonding I: Lewis, VSEPR, Valence Bond</td><td>Nov 12</td></tr>
+    <tr><td>9</td><td>Bonding II → Materials</td><td>Nov 19</td></tr>
+    <tr><td class="hot">10</td><td class="hot">Cumulative capstone — can raise earlier scores</td><td class="hot">TUESDAY Nov 24</td></tr>
+  </table></div>
+
+  <div class="card">
+    <h3>Where retakes happen — three options</h3>
+    <div class="ladder">
+      <div class="rung"><span class="att">Office hours</span><span>Monday or Wednesday 1:00–1:50 PM in NS310, or Friday 8:00–11:00 AM at the Grasp office. Just show up with your remediation.</span></div>
+      <div class="rung"><span class="att">Appointment</span><span>Email me, or ask after class. If my posted hours never fit your work or family schedule, we will find a time that does — <strong>a job never blocks a retake.</strong></span></div>
+      <div class="rung"><span class="att">Testing Center</span><span>Once your remediation is verified (in class, at office hours, or by email), I set up your exam at the campus Testing Center and you sit it when it works for you. The flexible option for busy schedules. Testing through DSPS accommodations? Your retakes run through the DSPS Testing Center as usual — (559) 442-8237.</span></div>
+    </div>
+  </div>
+
+  <div class="banner green"><span class="ico">🎯</span><div>
+    <strong>The November 24 safety net.</strong> The cumulative Skill Check is built from a blueprint you
+    receive in week 12, its review content arrives two weeks early, and it can only <em>raise</em> your earlier
+    skill scores — never lower them. If Tuesday doesn't go your way, retakes stay available by appointment
+    through Friday, December 4. Fair warning offered kindly: that last week also holds the final review, so
+    give November 24 your full preparation and keep the final week calm.
+  </div></div>
+  <div class="banner info"><span class="ico">🚌</span><div>
+    <strong>Joining the class late?</strong> The college allows adds through August 30, and this course plans
+    for you: your Objective 1 deadlines shift one week, you take Skill Check 1 by appointment during week 4,
+    and the test-out waiver covers anything due before you joined. <strong>Email me the day you add</strong>
+    and I will set your personal dates.
+  </div></div>
+</section>
+
+<!-- ═══════════ GRADE ═══════════ -->
+<section id="grade">
+  <div class="kicker">The Math</div>
+  <h2>Your Grade</h2>
+  <div class="gradebar" title="Grade composition">
+    <div class="gb-obj">10 Objective packets<br>60%</div>
+    <div class="gb-lab">Lab<br>20%</div>
+    <div class="gb-acs">ACS Final<br>15%</div>
+    <div class="gb-mys">🕵️<br>5%</div>
+  </div>
+  <div class="duo">
+    <div class="panel basics"><span class="tag">The Basics</span>
+      <h3>Components &amp; gates</h3>
+      <ul>
+        <li><strong>10 Objective packets — 60%</strong> (6% each). Each is Complete or Incomplete: pass the Skill Check, complete the packet. 79% and 0% earn the same packet credit until you retake and pass.</li>
+        <li><strong>Lab — 20%.</strong> Its own track: floor of 10 completed experiments plus the lab practical.</li>
+        <li><strong>ACS Final — 15%.</strong> Standardized national exam, finals week. You must sit it to pass the course.</li>
+        <li><strong>Investigation — 5%.</strong> Spirals, verdict ballots, and the weekly tip line — all completed/incomplete, in person.</li>
+        <li><strong>Three gates</strong> (independent of percentage): pass the lab section · sit the ACS Final · attempt every Skill Check at least once.</li>
+        <li>Letter grades: <span class="tbd">cutoffs pending ratification — will be posted before the semester begins</span></li>
+      </ul>
+    </div>
+    <div class="panel howto"><span class="tag">How to Succeed</span>
+      <h3>The strategy is persistence</h3>
+      <ul class="clean">
+        <li>Each packet ≈ half a letter grade: all 10 keeps every grade on the table; 8 of 10 lands near 88; 6 of 10 near 76. <strong>Complete every packet</strong> — the retake system means persistence gets you there.</li>
+        <li>Keep the investigation 5% — it's completion credit. Show up Thursdays and do the thing.</li>
+        <li>Protect your lab count (see Lab, below).</li>
+        <li>Use November 24 as your safety net — prepare for it like it matters, because it does.</li>
+        <li>Any week you're unsure where you stand, bring your gradebook to office hours — five minutes of arithmetic beats a semester of guessing. <strong>Do it before October 9.</strong></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ LAB ═══════════ -->
+<section id="lab">
+  <div class="kicker">Hands-On</div>
+  <h2>Laboratory</h2>
+  <div class="duo">
+    <div class="panel basics"><span class="tag">The Basics</span>
+      <h3>The rules &amp; safety</h3>
+      <ul>
+        <li>Eleven experiments + the department lab practical = 12 hands-on events, Tuesdays 9:30, NS 337.</li>
+        <li><strong>Floor to pass the lab section: 10 completed experiments.</strong> More than 3 unexcused misses puts the floor out of reach.</li>
+        <li><strong>Lab practical: Tuesday, November 17</strong> — required to pass the course. Only makeup: December 1.</li>
+        <li><strong>Safety is non-negotiable:</strong>
+          <span class="peek" tabindex="0">goggles<span class="cam">📷</span>
+            <span class="pop"><img src="img/goggles.jpeg" alt="Chemical splash safety goggles" loading="lazy"></span></span>,
+          <span class="peek" tabindex="0">knee-length white lab coat<span class="cam">📷</span>
+            <span class="pop"><img src="img/lab-coat.jpeg" alt="Proper lab attire" loading="lazy"></span></span>,
+          closed shoes (no crocs or slides), hair tied back. Improperly dressed = you cannot do the experiment. Week 1 is required safety training.
+          <br><a href="#materials" style="color:var(--red);font-weight:700;font-size:13.5px">→ Full gear list, prices &amp; where to buy: Required Materials</a></li>
+        <li>Miss the day's safety briefing and you sit out that experiment — this is a safety rule, not a punishment.</li>
+      </ul>
+    </div>
+    <div class="panel howto"><span class="tag">How to Succeed</span>
+      <h3>Protect your standing</h3>
+      <ul class="clean">
+        <li><strong>Show up Tuesdays by 9:30</strong> — the briefing opens the block.</li>
+        <li>Keep your goggles and coat in your bag or car — never be the person sent home for shoes.</li>
+        <li><strong>Going to miss?</strong> Tell me within 24 hours — before is better than after.</li>
+        <li><strong>Count your misses.</strong> At 3, the December 1 makeup is <em>mandatory</em> for you — and it recovers exactly one experiment. It's a safety net, not a strategy.</li>
+        <li>On Skill Check Thursdays, finish lab calculations at home — that's expected, not late.</li>
+      </ul>
+    </div>
+  </div>
+  <details><summary>Full lab schedule (Tuesdays, NS 337)</summary><div class="body"><div class="tablewrap"><table>
+    <tr><th>Wk</th><th>Date</th><th>Lab</th></tr>
+    <tr><td>1</td><td>Aug 11</td><td>Safety training (required)</td></tr>
+    <tr><td>2</td><td>Aug 18</td><td>0a — Laboratory Techniques</td></tr>
+    <tr><td>3</td><td>Aug 25</td><td>1a — Introduction to Measurements</td></tr>
+    <tr><td>4</td><td>Sep 1</td><td>3a — Determination of a Chemical Formula</td></tr>
+    <tr><td>5</td><td>Sep 8</td><td>2a — Qualitative Observations (Copper Cycle)</td></tr>
+    <tr><td>6</td><td>Sep 15</td><td>5b — Densities of NaCl Solutions</td></tr>
+    <tr><td>7</td><td>Sep 22</td><td>Flex / catch-up (no new lab)</td></tr>
+    <tr><td>8</td><td>Sep 29</td><td>5f — Percent Acetic Acid in Vinegar</td></tr>
+    <tr><td>9</td><td>Oct 6</td><td>7b — Calorimetry &amp; Hess's Law</td></tr>
+    <tr><td>10</td><td>Oct 13</td><td>6a — Molar Mass of a Volatile Liquid</td></tr>
+    <tr><td>11</td><td>Oct 20</td><td>5l — Citric Acid in Soda</td></tr>
+    <tr><td>12</td><td>Oct 27</td><td>5i — Redox Titration (KMnO₄)</td></tr>
+    <tr><td>13</td><td>Nov 3</td><td>14b — Ice Cream 🍦</td></tr>
+    <tr><td>14</td><td>Nov 10</td><td>Practical review lab</td></tr>
+    <tr><td class="hot">15</td><td class="hot">Nov 17</td><td class="hot">LAB PRACTICAL (department written)</td></tr>
+    <tr><td>16</td><td>Nov 24</td><td>No lab — Skill Check 10 morning</td></tr>
+    <tr><td>17</td><td>Dec 1</td><td>Makeup / open lab (mandatory at 3 misses; last practical makeup)</td></tr>
+    <tr><td>18</td><td>—</td><td>Finals week — no lab</td></tr>
+  </table></div></div></details>
+</section>
+
+<!-- ═══════════ TIME & ATTENDANCE ═══════════ -->
+<section id="time">
+  <div class="kicker">Commitment</div>
+  <h2>Time &amp; Attendance</h2>
+  <div class="duo">
+    <div class="panel basics"><span class="tag">The Basics</span>
+      <h3>What this course asks of you</h3>
+      <ul>
+        <li>This is a <strong>5-unit course</strong> <span class="tbd">verify units at posting</span> — plan for a real weekly commitment.</li>
+        <li><strong>Scheduled time (~8.5 hrs/week):</strong> lecture Tue/Thu 8:00–9:15 + lab/flex Tue/Thu 9:30–12:20. Tuesday = lecture + experiment; Thursday = lecture + flex block (Skill Checks, investigation, retakes).</li>
+        <li><strong>Outside time (~10–12 hrs/week):</strong> reading + reading check, practice quiz, problem set, retake prep, lab calculations.</li>
+        <li><strong>There is no attendance grade</strong> — and nothing replaces being here: Thursdays hold the Skill Checks (attempting each is required to pass) and lab is hands-on by nature.</li>
+      </ul>
+    </div>
+    <div class="panel howto"><span class="tag">How to Succeed</span>
+      <h3>Make the hours real</h3>
+      <ul class="clean">
+        <li>Block Tue/Thu 8:00–12:20 as unmovable — treat it like a job shift.</li>
+        <li>Put the Monday/Tuesday/Wednesday deadlines on repeat in your phone — the rhythm never changes.</li>
+        <li>Working a job? Use early packet release to shift coursework into your light days — the packets are always published two weeks ahead.</li>
+        <li>If life happens — illness, work, family, transportation — <strong>reach out early.</strong> Small problems stay small when I hear about them in week 3, not week 13.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ NORMS ═══════════ -->
+<section id="norms">
+  <div class="kicker">Our Room</div>
+  <h2>Class Norms — Shared Agreements</h2>
+  <p class="lede">We build this class together. These agreements keep it a place where everyone can learn, ask
+  questions, and grow as a scientist.</p>
+  <div class="duo">
+    <div class="panel basics"><span class="tag">The Agreements</span>
+      <ul>
+        <li><strong>Be kind and respectful.</strong> Chemistry is hard enough without fearing judgment from classmates. Be someone others can turn to.</li>
+        <li><strong>Embrace different perspectives.</strong> Different backgrounds and ways of thinking are a strength. Misunderstandings become learning, not division.</li>
+        <li><strong>Own your mistakes.</strong> A missed cleanup, a Skill Check that didn't go your way — own it, learn, move forward. That's what the retake system is for.</li>
+        <li><strong>Protect academic integrity.</strong> Don't share, post, or redistribute course materials — Skill Checks, labs, answer keys, mystery materials.</li>
+        <li><strong>Minimize distractions.</strong> Arrive on time (near the door if you must leave early), phones silenced and stored unless you have a DSPS accommodation, laptops for class work only.</li>
+      </ul>
+    </div>
+    <div class="panel howto"><span class="tag">How to Live Them</span>
+      <ul class="clean">
+        <li><strong>Work together generously:</strong> share the work fairly, listen before responding, pull quieter voices in, disagree with ideas rather than people.</li>
+        <li>Helping a classmate <em>understand</em> deepens your own learning — that's not cheating, that's science. Copying answers is the thing that isn't.</li>
+        <li>Come with your questions written down — attempting problems and showing your thinking beats silent perfection.</li>
+        <li><strong>If something feels wrong</strong> — excluded, disrespected, unable to participate — talk to me privately and we fix it together. Everyone belongs here, and I take that seriously.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ MATERIALS ═══════════ -->
+<section id="materials">
+  <div class="kicker">Gear Up</div>
+  <h2>Required Materials</h2>
+  <div class="duo">
+    <div class="panel basics"><span class="tag">The Basics</span>
+      <h3>What's required (mostly free)</h3>
+      <ul>
+        <li><strong>Textbook — FREE:</strong> OpenStax Chemistry 2e, online. Every reading guide section has a QR code straight to the assigned pages.</li>
+        <li><strong>Lab manual — FREE</strong>, provided. Lab notebook provided too.</li>
+        <li><strong>Safety gear:</strong> approved
+          <span class="peek" tabindex="0">splash goggles<span class="cam">📷</span>
+            <span class="pop"><img src="img/goggles.jpeg" alt="Chemical splash safety goggles" loading="lazy"></span></span>
+          (Uvex or <span class="peek" tabindex="0">Visorgog<span class="cam">📷</span>
+            <span class="pop"><img src="img/visorgog.jpeg" alt="Visorgog safety goggles with face shield" loading="lazy"></span></span>, ~$25–40) ·
+          <span class="peek" tabindex="0">knee-length white lab coat<span class="cam">📷</span>
+            <span class="pop"><img src="img/lab-coat.jpeg" alt="Student in proper lab attire: white coat, long pants, closed shoes, hair tied back" loading="lazy"></span></span>
+          (~$30–45) · closed shoes · hair tie. FCC bookstore carries all of it.</li>
+        <li><strong>Calculator:</strong> any non-graphing scientific — TI-36XPro or TI-34 MultiView (~$26) recommended.</li>
+        <li><strong>Scantron</strong> (#95677) for the ACS Final only — Skill Checks never use them.</li>
+      </ul>
+    </div>
+    <div class="panel howto"><span class="tag">How to Succeed</span>
+      <h3>Get ready before week 2</h3>
+      <ul class="clean">
+        <li>Buy goggles, coat, and calculator in week 1 — experiments start Aug 18, and safety gear is required at the door.</li>
+        <li>Get used to <em>your own</em> calculator early — different models behave differently, and Skill Check day is the wrong time to discover that. I'm happy to teach you yours.</li>
+        <li>Buy your scantron early and keep it in a sheet protector — torn scantrons jam the grading machine.</li>
+        <li><strong>Cost a barrier? Talk to me or Financial Aid.</strong> We will figure it out — the bookstore price of a lab coat will never be the obstacle that stops someone in chemistry.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CALENDAR ═══════════ -->
+<section id="calendar">
+  <div class="kicker">The Whole Semester</div>
+  <h2>Course Calendar</h2>
+  <p class="lede">Lecture Tue/Thu 8:00–9:15 · Lab/Flex Tue/Thu 9:30–12:20 · New Science 337. Reading checks
+  due Mondays 11:59 PM; practice quiz Tuesday and problem set Wednesday of each Skill Check week.</p>
+  <div class="tablewrap"><table>
+    <tr><th>Wk</th><th>Dates</th><th>Objective(s)</th><th>Tuesday Lab</th><th>Thursday</th><th>Deadlines &amp; notes</th></tr>
+    <tr><td>1</td><td>Aug 11–13</td><td>Objective 1</td><td>Safety training</td><td>Investigation: the hook</td><td>Reading Check 1 due <strong>Wed</strong> (wk-1 exception)</td></tr>
+    <tr><td>2</td><td>Aug 18–20</td><td>Objective 1 wraps</td><td>0a Lab Techniques</td><td>Obj 1 practice/review</td><td></td></tr>
+    <tr><td>3</td><td>Aug 25–27</td><td>Objective 2</td><td>1a Measurements</td><td class="hot">SKILL CHECK 1 + house sorting</td><td>Double reading check Mon Aug 24</td></tr>
+    <tr><td>4</td><td>Sep 1–3</td><td>Objective 3</td><td>3a Chemical Formula</td><td class="hot">SKILL CHECK 2</td><td>Doubles Mon Aug 31 · last add day Aug 30</td></tr>
+    <tr><td>5</td><td>Sep 8–10</td><td>Objective 4</td><td>2a Copper Cycle</td><td class="hot">SKILL CHECK 3</td><td>Doubles Mon Sep 7 (Labor Day — online)</td></tr>
+    <tr><td>6</td><td>Sep 15–17</td><td>Objective 4 wraps</td><td>5b NaCl Densities</td><td>Spiral 1</td><td>Tue: ungraded mid-unit checkpoint</td></tr>
+    <tr><td>7</td><td>Sep 22–24</td><td>Objective 5</td><td>Flex / catch-up</td><td class="hot">SKILL CHECK 4</td><td></td></tr>
+    <tr><td>8</td><td>Sep 29–Oct 1</td><td>Obj 5 wraps · Obj 6 starts</td><td>5f Vinegar</td><td>—</td><td>Doubles Mon Sep 28</td></tr>
+    <tr><td>9</td><td>Oct 6–8</td><td>Obj 6 wraps · Obj 7 starts</td><td>7b Calorimetry &amp; Hess</td><td class="hot">SKILL CHECK 5 + Spiral 2</td><td class="hot">Fri Oct 9: SC 1–4 close · W-deadline</td></tr>
+    <tr><td>10</td><td>Oct 13–15</td><td>Objective 7</td><td>6a Volatile Liquid</td><td class="hot">SKILL CHECK 6</td><td></td></tr>
+    <tr><td>11</td><td>Oct 20–22</td><td>Obj 7 wraps · Obj 8 starts</td><td>5l Citric Acid</td><td>—</td><td>Doubles Mon Oct 19</td></tr>
+    <tr><td>12</td><td>Oct 27–29</td><td>Objective 8</td><td>5i Redox Titration</td><td class="hot">SKILL CHECK 7 + Spiral 3</td><td>Skill Check 10 blueprint publishes</td></tr>
+    <tr><td>13</td><td>Nov 3–5</td><td>Obj 8 wraps · Obj 9 starts</td><td>14b Ice Cream</td><td>Spiral 4</td><td></td></tr>
+    <tr><td>14</td><td>Nov 10–12</td><td>Objective 9</td><td>Practical review lab</td><td class="hot">SKILL CHECK 8 + Spiral 5</td><td>SC10 review releases ~Nov 10 · Obj 8 problem set due online Wed (Veterans Day) · <strong class="hot">Fri Nov 13: SC 5–7 close</strong></td></tr>
+    <tr><td>15</td><td>Nov 17–19</td><td>Objective 9 wraps Tue</td><td class="hot">LAB PRACTICAL</td><td class="hot">AM review → SKILL CHECK 9</td><td>A tough week by design — plan for it</td></tr>
+    <tr><td>16</td><td>Nov 24</td><td>Objective 10</td><td>No lab — warm-up 8:00</td><td>🚫 Thanksgiving</td><td class="hot">SKILL CHECK 10 Tue in flex block · nothing else due this week</td></tr>
+    <tr><td>17</td><td>Dec 1–3</td><td>Review</td><td>Makeup / open lab</td><td>ACS review (Dr. Dan) + Championship</td><td class="hot">Fri Dec 4: SC 8–10 close — last retake day</td></tr>
+    <tr><td>18</td><td>Dec 8</td><td>Finals</td><td>—</td><td>—</td><td class="hot">ACS FINAL Tue Dec 8, 8:00–9:50 AM</td></tr>
+  </table></div>
+  <div class="banner info"><span class="ico">🗓</span><div>
+    <strong>Administrative deadlines:</strong> drop with refund <strong>Aug 21</strong> · last day to add
+    <strong>Aug 30</strong> · census <strong>Aug 31</strong> · drop with a "W" <strong>Oct 9</strong> — the same
+    Friday Skill Checks 1–4 close. If an open Skill Check is part of deciding whether to stay, come talk to me
+    <em>Monday</em> of that week, not Friday.
+  </div></div>
+</section>
+
+<!-- ═══════════ FINALS ═══════════ -->
+<section id="finals">
+  <div class="kicker">The Finish Line</div>
+  <h2>Lab Practical &amp; ACS Final</h2>
+  <div class="duo">
+    <div class="panel basics"><span class="tag">The Basics</span>
+      <h3>Two required components</h3>
+      <ul>
+        <li><strong>Lab Practical — Tuesday, Nov 17</strong>, regular lab block. Department-written, hands-on. Required to pass the course. Only makeup: Dec 1 — no alternate time exists after that.</li>
+        <li><strong>ACS Final — Tuesday, Dec 8, 8:00–9:50 AM</strong>, NS 337 (per the FCC finals schedule). A standardized national exam. You must sit it to pass the course.</li>
+        <li><strong>Missing either one means not passing the course</strong>, with two exceptions: <em>advance arrangements</em> (contact me as early as possible — a reschedule is not guaranteed) and <em>extenuating circumstances</em> (serious, verifiable, unforeseeable — may qualify for an Incomplete under FCC policy if you hold a passing grade at the time).</li>
+      </ul>
+    </div>
+    <div class="panel howto"><span class="tag">How to Succeed</span>
+      <h3>December takes care of itself</h3>
+      <ul class="clean">
+        <li>The spirals you do all semester <em>are</em> your spaced ACS review — take them seriously and you're never cramming.</li>
+        <li>Use the <strong>Nov 10 practical review lab</strong> — it exists precisely so Nov 17 isn't a surprise.</li>
+        <li>Come to the <strong>Dec 3 comprehensive review</strong> (Dr. Dan, live) and bring your two weakest objectives as questions.</li>
+        <li>Exam day: calculator (non-graphing) + scantron + arrive by 8:00.</li>
+        <li>Know a conflict is coming? <strong>Tell me the day you learn about it</strong> — early notice is what makes arrangements possible.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ INVESTIGATION ═══════════ -->
+<section id="investigation">
+  <div class="kicker">Thursdays</div>
+  <h2>The Investigation (5%)</h2>
+  <div class="duo">
+    <div class="panel basics"><span class="tag">The Basics</span>
+      <p>Something happened before the semester began. Week 3, you'll be sorted into houses, and from then on
+      the Thursday flex block carries a running investigation: <strong>spiral investigations</strong>
+      (handwritten chemistry from earlier objectives — deliberate spaced practice), <strong>verdict
+      ballots</strong> (your evidence-backed vote with a confidence percentage), and the weekly
+      <strong>tip line</strong>. All completed/incomplete, all in person. The championship and induction land
+      <strong>Thursday, December 3</strong> — which is also the ACS review.</p>
+    </div>
+    <div class="panel howto"><span class="tag">How to Succeed</span>
+      <ul class="clean">
+        <li>Show up Thursdays — ballots and the tip line close with each session and can't be done remotely.</li>
+        <li>Treat spirals as free retake insurance: they keep old skills alive, and old skills are what Skill Check review questions and the Nov 24 capstone draw from.</li>
+        <li>Back your verdicts with evidence — "how certain are you, Investigator?" is a chemistry question.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SUPPORT ═══════════ -->
+<section id="support">
+  <div class="kicker">City Love</div>
+  <h2>We've Got You — Campus Support</h2>
+  <p class="lede">College is more than chemistry. These are free, real, and used by your classmates every
+  semester. Using them is a sign of strength, not struggle.</p>
+  <div class="support">
+    <a class="scard" href="https://www.fresnocitycollege.edu/campus-life/ram-pantry/index.html"><h4>🍎 RAM Pantry</h4><p>Free food assistance for enrolled students. No stigma, no hoops.</p></a>
+    <a class="scard" href="https://www.fresnocitycollege.edu/campus-life/health-and-wellness/psychological-services/index.html"><h4>🧠 Psychological Services</h4><p>Free, confidential counseling on campus. In crisis? Call or text 988, any time.</p></a>
+    <a class="scard" href="https://www.fresnocitycollege.edu/campus-life/health-and-wellness/health-services/index.html"><h4>🩺 Health Services</h4><p>On-campus medical care for enrolled students.</p></a>
+    <a class="scard" href="https://www.fresnocitycollege.edu/student-services/disabled-students-program-and-services/index.html"><h4>♿ DSP&amp;S</h4><p>Accommodations for disability-related needs. Building A · (559) 442-8237.</p></a>
+    <a class="scard" href="https://www.fresnocitycollege.edu/academics/tutoring/index.html"><h4>📚 Tutoring + GRASP</h4><p>Free chemistry tutoring, including faculty-staffed GRASP sessions. I'm at the Grasp office Fridays 8–11.</p></a>
+    <a class="scard" href="https://www.fresnocitycollege.edu/academics/counseling/counseling/index.html"><h4>🧭 Counseling</h4><p>Stay in touch with your counselor at the start, middle, and end of semester.</p></a>
+    <a class="scard" href="https://www.fresnocitycollege.edu/admissions-aid/financial-aid-office/index.html"><h4>💵 Financial Aid</h4><p>Tuition, books, supplies, transportation — aid covers more than you think.</p></a>
+    <a class="scard" href="https://www.fresnocitycollege.edu/student-services/programs/index.html"><h4>🤝 Special Programs</h4><p>EOPS, CARE, Dream Center, Puente, RAIN, Rising Scholars, Umoja, USEAA, NextUp, Veterans Resource Center — communities built for you.</p></a>
+    <a class="scard" href="https://www.fresnocitycollege.edu/admissions-aid/admissions-and-records-office/index.html"><h4>📋 Admissions &amp; Records</h4><p>Registration, transcripts, petitions, enrollment verification, graduation.</p></a>
+    <a class="scard" href="https://www.fresnocitycollege.edu/academics/library/index.html"><h4>📖 Library</h4><p>Online resources, technology loans, reserved textbooks, and awesome librarians.</p></a>
+    <a class="scard" href="https://www.fresnocitycollege.edu/campus-life/cec/index.html"><h4>💼 Career &amp; Employment</h4><p>Career resources for current students and alumni.</p></a>
+    <a class="scard" href="mailto:rob.gilley@fresnocitycollege.edu"><h4>💬 Me — Prof. Gilley</h4><p>Canvas Inbox (&lt;24 hr Mon–Fri) · email (24–48 hr) · NS310 M/W 1:00–1:50 · Grasp Fri 8–11. You never need a reason to come by.</p></a>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <h3>How to reach me — and what to expect</h3>
+    <div class="tablewrap"><table>
+      <tr><th>Channel</th><th>Best for</th><th>Response time</th></tr>
+      <tr><td><strong>Canvas Inbox</strong></td><td>Quick questions, assignment clarifications</td><td>Within 24 hours (Mon–Fri)</td></tr>
+      <tr><td><strong>Email</strong> — rob.gilley@fresnocitycollege.edu</td><td>Longer questions, documentation, emergencies</td><td>24–48 hours (Mon–Fri)</td></tr>
+      <tr><td><strong>Office hours</strong> — NS310 M/W 1:00–1:50 · Grasp Fri 8–11</td><td>Working problems, retakes, grade questions, checking in</td><td>Immediate</td></tr>
+    </table></div>
+    <p style="font-size:14px;color:var(--ink-soft)"><strong>Weekends:</strong> I don't monitor email or Canvas —
+    Friday-evening messages get answered Monday. <strong>Your move:</strong> check Canvas and student email
+    daily; when you write, include the assignment name, the problem number, and what you've tried — specific
+    questions get fast, useful answers.</p>
+  </div>
+</section>
+
+<!-- ═══════════ POLICIES ═══════════ -->
+<section id="policies">
+  <div class="kicker">The Fine Print, Honestly</div>
+  <h2>Policies</h2>
+  <details><summary>Late work — how each window works</summary><div class="body">
+    <p>Most of this course has no "late" — it has the test-out waiver and the close dates.
+    <strong>Reading checks / practice quiz / problem set:</strong> hit the Monday–Wednesday deadlines; the
+    rhythm is the point. Skipped something? Pass Thursday's Skill Check and it's forgiven; miss the Skill Check
+    and the skipped work joins your retake requirements. <strong>Skill Checks:</strong> attempt Thursday no
+    matter what; retake any week you're ready — batch closes are hard: Oct 9 · Nov 13 · Dec 4.
+    <strong>Lab calculations:</strong> per lab instructions; on Skill Check Thursdays, finish at home.
+    <strong>Investigation:</strong> in person Thursdays; ballots close with each session.
+    <strong>The absolute end of the line: no work of any kind is accepted after Friday, December 4</strong> —
+    the Friday before finals week.</p></div></details>
+  <details><summary>Extra credit</summary><div class="body"><p>There is no extra credit. The retake system is
+    the second chance — it's bigger than any extra credit could be.</p></div></details>
+  <details><summary>Missed Lab Practical or Final Exam (full policy)</summary><div class="body">
+    <p>The lab practical and the final exam are required course components; missing either one means not
+    passing the course, with two exceptions.</p>
+    <p style="margin-top:8px"><strong>Advance arrangements.</strong> A student who knows in advance that they
+    cannot attend the scheduled lab practical or final exam must contact me as early as possible to arrange an
+    alternate time. A reschedule is not guaranteed and depends on the times available. No alternate lab
+    practical time exists after December 1.</p>
+    <p style="margin-top:8px"><strong>Extenuating circumstances.</strong> A student who misses the lab practical
+    or final exam for a serious, verifiable, and unforeseeable reason may be assigned an Incomplete ("I") grade
+    under Fresno City College policy, provided the student holds a passing grade in the course at that time. I
+    will file a Report of Incomplete Grade specifying exactly what must be completed, the deadline, and the
+    grade that will be assigned if the work is not completed. Coursework must be completed no later than the
+    deadline on that report, and in no case later than the end of the following semester.</p></div></details>
+  <details><summary>Academic dishonesty (Fresno City College policy)</summary><div class="body">
+    <p>Students at Fresno City College are entitled to the best education that the college can make available
+    to them, and they, their instructors, and their fellow students share the responsibility to ensure that
+    this education is honestly attained. Because cheating, plagiarism, and collusion in dishonest activities
+    erode the integrity of the college, each student is expected to exert an entirely honest effort in all
+    academic endeavors. Academic dishonesty in any form is a very serious offense and will incur serious
+    consequences.</p>
+    <p style="margin-top:8px"><strong>Cheating</strong> is the act or attempted act of taking an examination or
+    performing an assigned, evaluated task in a fraudulent or deceptive manner, such as having improper access
+    to answers, in an attempt to gain an unearned academic advantage. Cheating may include, but is not limited
+    to, copying from another's work, supplying one's work to another, giving or receiving copies of
+    examinations without an instructor's permission, using or displaying notes or devices inappropriate to the
+    conditions of the examination, allowing someone other than the officially enrolled student to represent
+    the student, or failing to disclose research results completely.</p>
+    <p style="margin-top:8px"><strong>Plagiarism</strong> is a specific form of cheating and is the use of
+    another's words or ideas without identifying them as such or giving credit to the source. Plagiarism may
+    include, but is not limited to, failing to provide complete citations and references for all work that
+    draws on the ideas, words, or work of others, failing to identify the contributors to work done in
+    collaboration, submitting duplicate work to be evaluated in different courses without the knowledge and
+    consent of the instructors involved, or encouraging, permitting, or assisting another to do any act that
+    could subject him or her to discipline. Incidents of cheating and plagiarism may result in a variety of
+    sanctions and penalties that may range from a failing grade on the particular examination, paper, project,
+    or assignment in question to a failing grade in the course, at the discretion of the instructor and
+    depending on the severity and frequency of the incidents.</p></div></details>
+  <details><summary>Accommodations for students with disabilities (DSP&amp;S)</summary><div class="body">
+    <p>I aim to create an inclusive learning environment and respect the need for accommodations. To access
+    tools and/or services for disability-related needs, you must be registered with the DSP&amp;S (Disabled
+    Students Programs and Services) office on campus — Building A, (559) 442-8237. If you are already
+    registered, your counselor will provide me with your Faculty Notification Letter.</p>
+    <p style="margin-top:8px">If your accommodation includes taking tests in the DSP&amp;S office, make an
+    appointment at least 3 business days before the assessment and let me know. Skill Checks and problem sets
+    are completed by hand because handwritten, work-weighted problem solving is what this course certifies —
+    you practice in the same mode you're tested in. <strong>If you have a documented accommodation, an
+    equivalent alternative is always available; talk to me or DSPS.</strong></p></div></details>
+  <details><summary>Course description, objectives &amp; learning outcomes</summary><div class="body">
+    <p><span class="tbd">This section auto-populates from the CHEM 1A Course Outline of Record in Simple
+    Syllabus — verify at posting.</span></p></div></details>
+</section>
+
+</main>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="wrap" style="text-align:center">
+    <div class="foot-heart">♥</div>
+    <p><strong>CHEM 1A · General Chemistry · Section 25776 · Fall 2026 · Fresno City College</strong></p>
+    <p>Professor Robert Gilley · <a href="mailto:rob.gilley@fresnocitycollege.edu">rob.gilley@fresnocitycollege.edu</a> · Office NS310</p>
+    <p style="opacity:.8;margin-top:8px;font-size:14px">City Love: you belong here, and this course is built for you to succeed.</p>
+    <p style="opacity:.5;margin-top:10px;font-size:12px">Canvas course link posted at semester start · This page is the official course syllabus for section 25776.</p>
+  </div>
+</footer>
+
+<script>
+/* ── Countdowns ── */
+const EVENTS=[
+  ["Last day to ADD","2026-08-30",true],
+  ["Last day to drop with a W","2026-10-09",true],
+  ["Last day work is accepted","2026-12-04",true],
+  ["Finals week","2026-12-07",true]
+];
+function renderCounts(){
+  const now=new Date(); now.setHours(0,0,0,0);
+  const up=EVENTS.map(([n,d,hot])=>({n,hot,days:Math.round((new Date(d+"T08:00:00")-now)/864e5)}))
+    .filter(e=>e.days>=0).slice(0,4);
+  document.getElementById("countdowns").innerHTML=up.map(e=>
+    `<div class="chip${e.days<=7||e.hot?" urgent":""}"><span class="num">${e.days===0?"today":e.days}</span>
+     <span class="lbl">${e.days===0?"":"day"+(e.days===1?"":"s")+" until"}<br><strong>${e.n}</strong></span></div>`).join("")
+    ||'<div class="chip"><span class="lbl">Semester complete — great work. 💗</span></div>';
+}
+renderCounts();
+
+/* ── Weekly rhythm tracker ── */
+function weekKey(){const d=new Date(),m=(d.getDay()+6)%7,mon=new Date(d);mon.setDate(d.getDate()-m);
+  return "chem1a-rhythm-"+mon.toISOString().slice(0,10);}
+function loadRhythm(){
+  Object.keys(localStorage).forEach(k=>{if(k.startsWith("chem1a-rhythm-")&&k!==weekKey())localStorage.removeItem(k);});
+  const st=JSON.parse(localStorage.getItem(weekKey())||"{}");
+  document.querySelectorAll(".day").forEach(el=>el.classList.toggle("done",!!st[el.dataset.k]));
+}
+document.querySelectorAll(".day").forEach(el=>el.addEventListener("click",()=>{
+  const st=JSON.parse(localStorage.getItem(weekKey())||"{}");
+  st[el.dataset.k]=!st[el.dataset.k];
+  localStorage.setItem(weekKey(),JSON.stringify(st));loadRhythm();}));
+document.getElementById("resetWeek").addEventListener("click",()=>{localStorage.removeItem(weekKey());loadRhythm();});
+loadRhythm();
+
+/* ── Pie hub: show only what's asked for ── */
+const SLICES=[
+  {k:"obj",v:60,c:"#C41230",l1:"10 Objectives",l2:"60%",ids:["week","skillchecks"]},
+  {k:"lab",v:20,c:"#E85D75",l1:"Lab",l2:"20%",ids:["lab"]},
+  {k:"acs",v:15,c:"#F4B860",l1:"ACS Final",l2:"15%",ids:["finals"],dark:true},
+  {k:"mys",v:5,c:"#2E7D53",l1:"🕵️ 5%",l2:"",ids:["investigation"]}
+];
+const allSecs=[...document.querySelectorAll("main section")];
+function show(ids,scroll=true){
+  allSecs.forEach(s=>s.classList.toggle("hidden",!ids.includes(s.id)));
+  document.querySelectorAll("#pie .slice").forEach(p=>p.classList.remove("sel"));
+  const first=document.getElementById(ids[0]);
+  if(first&&scroll)setTimeout(()=>first.scrollIntoView({behavior:"smooth",block:"start"}),40);
+}
+
+/* ── Confetti ── */
+const confettiCanvas=document.createElement("canvas");
+confettiCanvas.style.cssText="position:fixed;inset:0;pointer-events:none;z-index:999";
+document.body.appendChild(confettiCanvas);
+const cctx=confettiCanvas.getContext("2d");
+let particles=[],confettiRunning=false;
+const CCOLORS=["#C41230","#E85D75","#F4B860","#2E7D53","#8E0D23","#FFD6DE"];
+function burst(x,y,n=36){
+  for(let i=0;i<n;i++){
+    const a=Math.random()*2*Math.PI,v=3+Math.random()*6;
+    particles.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v-3,g:.22,
+      s:4+Math.random()*5,c:CCOLORS[i%CCOLORS.length],r:Math.random()*Math.PI,
+      vr:(Math.random()-.5)*.3,life:60+Math.random()*30});
+  }
+  if(!confettiRunning){confettiRunning=true;requestAnimationFrame(tickConfetti);}
+}
+function tickConfetti(){
+  confettiCanvas.width=innerWidth;confettiCanvas.height=innerHeight;
+  particles=particles.filter(p=>p.life>0);
+  particles.forEach(p=>{
+    p.x+=p.vx;p.y+=p.vy;p.vy+=p.g;p.r+=p.vr;p.life--;
+    cctx.save();cctx.translate(p.x,p.y);cctx.rotate(p.r);
+    cctx.globalAlpha=Math.min(1,p.life/30);cctx.fillStyle=p.c;
+    cctx.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6);cctx.restore();
+  });
+  if(particles.length){requestAnimationFrame(tickConfetti);}
+  else{confettiRunning=false;cctx.clearRect(0,0,confettiCanvas.width,confettiCanvas.height);}
+}
+function showAll(){allSecs.forEach(s=>s.classList.remove("hidden"));
+  document.querySelectorAll("#pie .slice,#chips button").forEach(p=>p.classList.remove("sel"));}
+
+/* build the pie */
+(function(){
+  const NS="http://www.w3.org/2000/svg",svg=document.getElementById("pie");
+  const cx=160,cy=160,rO=150,rI=62;let a=-Math.PI/2;
+  const P=(r,ang)=>[cx+r*Math.cos(ang),cy+r*Math.sin(ang)];
+  SLICES.forEach(s=>{
+    const a2=a+2*Math.PI*s.v/100,big=(a2-a)>Math.PI?1:0;
+    const [x1,y1]=P(rO,a),[x2,y2]=P(rO,a2),[x3,y3]=P(rI,a2),[x4,y4]=P(rI,a);
+    const p=document.createElementNS(NS,"path");
+    p.setAttribute("d",`M${x1} ${y1} A${rO} ${rO} 0 ${big} 1 ${x2} ${y2} L${x3} ${y3} A${rI} ${rI} 0 ${big} 0 ${x4} ${y4} Z`);
+    p.setAttribute("fill",s.c);p.setAttribute("stroke","#FFF8F3");p.setAttribute("stroke-width","3");
+    p.setAttribute("class","slice");p.dataset.k=s.k;
+    p.addEventListener("click",()=>{show(s.ids);p.classList.add("sel");});
+    svg.appendChild(p);
+    const mid=(a+a2)/2,[tx,ty]=P((rO+rI)/2,mid);
+    const t=document.createElementNS(NS,"text");
+    t.setAttribute("x",tx);t.setAttribute("y",ty-4);t.setAttribute("text-anchor","middle");
+    t.setAttribute("fill",s.dark?"#2B2B2B":"#fff");t.setAttribute("font-size","15");t.setAttribute("font-weight","800");
+    t.textContent=s.l1;svg.appendChild(t);
+    if(s.l2){const t2=document.createElementNS(NS,"text");
+      t2.setAttribute("x",tx);t2.setAttribute("y",ty+14);t2.setAttribute("text-anchor","middle");
+      t2.setAttribute("fill",s.dark?"#2B2B2B":"#fff");t2.setAttribute("font-size","14");t2.textContent=s.l2;
+      svg.appendChild(t2);}
+    a=a2;
+  });
+  /* center button → grade overview */
+  const c=document.createElementNS(NS,"circle");
+  c.setAttribute("cx",cx);c.setAttribute("cy",cy);c.setAttribute("r",rI-6);
+  c.setAttribute("fill","#FFF8F3");c.setAttribute("class","ctr");
+  c.addEventListener("click",()=>show(["grade"]));svg.appendChild(c);
+  const ct=document.createElementNS(NS,"text");
+  ct.setAttribute("x",cx);ct.setAttribute("y",cy-4);ct.setAttribute("text-anchor","middle");
+  ct.setAttribute("fill","#8E0D23");ct.setAttribute("font-size","15");ct.setAttribute("font-weight","800");
+  ct.setAttribute("class","ctr");ct.addEventListener("click",()=>show(["grade"]));
+  ct.textContent="Your Grade";svg.appendChild(ct);
+  const ct2=document.createElementNS(NS,"text");
+  ct2.setAttribute("x",cx);ct2.setAttribute("y",cy+14);ct2.setAttribute("text-anchor","middle");
+  ct2.setAttribute("fill","#5A5450");ct2.setAttribute("font-size","11");ct2.textContent="tap a slice";
+  svg.appendChild(ct2);
+})();
+
+/* nav buttons */
+document.querySelectorAll("#navgrid button").forEach(b=>b.addEventListener("click",()=>{
+  document.querySelectorAll("#navgrid button").forEach(x=>x.classList.remove("sel"));
+  if(b.dataset.show==="ALL"){showAll();}else{show([b.dataset.show]);}
+  b.classList.add("sel");
+}));
+
+/* in-content cross-links (e.g. Lab → Required Materials) reveal their target */
+document.querySelectorAll("main section a[href^='#']").forEach(aEl=>aEl.addEventListener("click",e=>{
+  e.preventDefault();show([aEl.getAttribute("href").slice(1)]);
+}));
+
+/* ── "I've read this section" tracking ── */
+const READKEY="chem1a-syllabus-read";
+const readState=()=>JSON.parse(localStorage.getItem(READKEY)||"{}");
+allSecs.forEach(s=>{
+  const b=document.createElement("button");
+  b.className="readbox";b.dataset.sec=s.id;
+  b.innerHTML='<span class="box">✓</span><span>I’ve read this section — check it off</span>';
+  b.addEventListener("click",e=>{
+    const st=readState();st[s.id]=!st[s.id];
+    localStorage.setItem(READKEY,JSON.stringify(st));refreshRead();
+    if(st[s.id]){
+      burst(e.clientX||innerWidth/2,e.clientY||innerHeight/2,40);
+      window.scrollTo({top:0,behavior:"smooth"});
+      const done=Object.keys(st).filter(k=>st[k]).length;
+      if(done===allSecs.length){setTimeout(()=>burst(innerWidth/2,innerHeight/3,140),500);}
+    }
+  });
+  s.appendChild(b);
+});
+function refreshRead(){
+  const st=readState(),total=allSecs.length;
+  let done=0;
+  allSecs.forEach(s=>{
+    const on=!!st[s.id];if(on)done++;
+    const box=s.querySelector(".readbox");
+    box.classList.toggle("checked",on);
+    box.querySelector("span:last-child").textContent=on?"Read — nice work!":"I’ve read this section — check it off";
+  });
+  document.querySelectorAll("#navgrid button[data-show]").forEach(b=>{
+    if(b.dataset.show!=="ALL")b.classList.toggle("read",!!st[b.dataset.show]);
+  });
+  document.getElementById("progLabel").textContent=
+    done===total?"🎉 Syllabus complete — "+done+" of "+total+" sections read!":
+    "Syllabus progress: "+done+" of "+total+" sections read";
+  document.getElementById("pfill").style.width=(100*done/total)+"%";
+}
+refreshRead();
+
+/* default view: welcome only, no auto-scroll */
+show(["start"],false);
+</script>
+</body>
+</html>
