@@ -1,5 +1,5 @@
 {
- "title": "CHEM1A Practice Quiz — Objective 5: Thermochemistry (DRAFT pending Gilley approval)",
+ "title": "CHEM1A Practice Quiz — Objective 5: Thermochemistry",
  "tags": [
   "obj5.energy.basics",
   "obj5.heat.specificheat",
@@ -39,14 +39,24 @@
   {
    "tag": "obj5.heat.specificheat",
    "stem": "How much heat is needed to warm 40.0 g of water from 15.0 °C to 40.0 °C? (c = 4.184 J/g·°C)",
-   "choices": ["4180 J", "1050 J", "167 J", "41,800 J"],
+   "choices": [
+    "4180 J",
+    "1050 J",
+    "167 J",
+    "41,800 J"
+   ],
    "answer": 0,
    "explain": "q = 40.0 × 4.184 × 25.0 = 4184 → 4180 J. 1050 uses ΔT = 25/4; 167 forgets the mass; 41,800 slips a factor of ten."
   },
   {
    "tag": "obj5.heat.specificheat",
    "stem": "A 50.0 g metal absorbs 450 J and warms by 20.0 °C. Its specific heat is:",
-   "choices": ["0.450 J/g·°C", "2.22 J/g·°C", "9.00 J/g·°C", "0.0222 J/g·°C"],
+   "choices": [
+    "0.450 J/g·°C",
+    "2.22 J/g·°C",
+    "9.00 J/g·°C",
+    "0.0222 J/g·°C"
+   ],
    "answer": 0,
    "explain": "c = q/(mΔT) = 450/(50.0 × 20.0) = 0.450 J/g·°C. 2.22 inverts the fraction; 9.00 forgets the mass; 0.0222 forgets ΔT."
   },
@@ -65,14 +75,24 @@
   {
    "tag": "obj5.heat.calorimetry",
    "stem": "A bomb calorimeter has a heat capacity of 6.50 kJ/°C. A combustion raises its temperature by 4.00 °C. The heat released is:",
-   "choices": ["26.0 kJ", "1.63 kJ", "10.5 kJ", "0.615 kJ"],
+   "choices": [
+    "26.0 kJ",
+    "1.63 kJ",
+    "10.5 kJ",
+    "0.615 kJ"
+   ],
    "answer": 0,
    "explain": "q = C × ΔT = 6.50 × 4.00 = 26.0 kJ. 1.63 divides instead of multiplies; the bomb's lumped C replaces m × c entirely — no mass belongs in this calculation."
   },
   {
    "tag": "obj5.work.pv",
    "stem": "A system releases 600 J of heat while the surroundings do 200 J of work ON it. ΔE for the system is:",
-   "choices": ["−400 J", "−800 J", "+800 J", "+400 J"],
+   "choices": [
+    "−400 J",
+    "−800 J",
+    "+800 J",
+    "+400 J"
+   ],
    "answer": 0,
    "explain": "ΔE = q + w = (−600) + (+200) = −400 J. Work done ON the system is positive w. −800 flips the work's sign; the others scramble both."
   },
@@ -115,21 +135,36 @@
   {
    "tag": "obj5.enthalpy.stoich",
    "stem": "For 2 H₂(g) + O₂(g) → 2 H₂O(g), ΔH = −484 kJ. How much heat is released when 1.0 mol of H₂ burns?",
-   "choices": ["242 kJ", "484 kJ", "968 kJ", "121 kJ"],
+   "choices": [
+    "242 kJ",
+    "484 kJ",
+    "968 kJ",
+    "121 kJ"
+   ],
    "answer": 0,
    "explain": "The −484 kJ belongs to 2 mol of H₂ as written; 1.0 mol releases half: 242 kJ. Taking 484 ignores the coefficient — the central enthalpy-stoichiometry error."
   },
   {
    "tag": "obj5.enthalpy.stoich",
    "stem": "A fuel's combustion has ΔH = −802 kJ per mole of fuel. To release 2406 kJ, the moles of fuel required are:",
-   "choices": ["3.00 mol", "0.333 mol", "2406 mol", "802 mol"],
+   "choices": [
+    "3.00 mol",
+    "0.333 mol",
+    "2406 mol",
+    "802 mol"
+   ],
    "answer": 0,
    "explain": "2406 ÷ 802 = 3.00 mol — the reverse direction of the usual chain (heat → moles). 0.333 inverts the division; the reverse direction is a known exam demand."
   },
   {
    "tag": "obj5.enthalpy.hess",
    "stem": "Given P → Q, ΔH = −110 kJ and R → Q, ΔH = −70 kJ, what is ΔH for P → R?",
-   "choices": ["−40 kJ", "−180 kJ", "+40 kJ", "+180 kJ"],
+   "choices": [
+    "−40 kJ",
+    "−180 kJ",
+    "+40 kJ",
+    "+180 kJ"
+   ],
    "answer": 0,
    "explain": "Flip the second: Q → R, ΔH = +70. Add: P → Q → R gives −110 + 70 = −40 kJ. −180 adds without flipping — the flip-the-sign step is the whole skill."
   },
@@ -148,14 +183,24 @@
   {
    "tag": "obj5.enthalpy.formation",
    "stem": "Which substance has ΔH°f = 0?",
-   "choices": ["N₂(g)", "CO₂(g)", "H₂O(l)", "NO(g)"],
+   "choices": [
+    "N₂(g)",
+    "CO₂(g)",
+    "H₂O(l)",
+    "NO(g)"
+   ],
    "answer": 0,
    "explain": "Elements in their standard states define zero — N₂ gas is nitrogen's standard state. CO₂, H₂O, and NO are compounds; each has a tabulated nonzero formation value."
   },
   {
    "tag": "obj5.enthalpy.formation",
    "stem": "Using ΔH°f values (kJ/mol): SO₂(g) −296.8, SO₃(g) −395.7, O₂(g) 0 — ΔH°rxn for 2 SO₂ + O₂ → 2 SO₃ is:",
-   "choices": ["−197.8 kJ", "−98.9 kJ", "+197.8 kJ", "−692.5 kJ"],
+   "choices": [
+    "−197.8 kJ",
+    "−98.9 kJ",
+    "+197.8 kJ",
+    "−692.5 kJ"
+   ],
    "answer": 0,
    "explain": "[2(−395.7)] − [2(−296.8) + 0] = −791.4 + 593.6 = −197.8 kJ. −98.9 forgets the coefficients; +197.8 subtracts backwards; −692.5 adds products and reactants instead of subtracting."
   },

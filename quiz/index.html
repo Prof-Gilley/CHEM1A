@@ -21,6 +21,9 @@
   .choice.wrong { background:#f7e3d6; border-color:var(--warn); }
   .feedback { margin-top:.75rem; font-style:italic; }
   .muted { color:#5b6672; font-size:.9rem; }
+  .nuc { display:inline-flex; align-items:center; white-space:nowrap; }
+  .nuc .az { display:inline-flex; flex-direction:column; align-items:flex-end; font-size:.68em; line-height:1.05; margin-right:.08em; }
+  sup, sub { line-height:0; }
   .err { color:var(--warn); font-weight:bold; }
   input { font:inherit; padding:.5rem; width:100%; margin:.25rem 0 .75rem; border:1px solid #ccd5cf; border-radius:6px; }
   #certificate { display:none; }
@@ -175,6 +178,19 @@ async function gate() {
 
 function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
 
+// ----- NOTATION ------------------------------------------------------------
+// Nuclide shorthand in bank text:  [[A|Z|Sym]]  or  [[A|Z|Sym|charge]]
+// e.g. [[27|13|Al|3+]] renders as stacked mass/atomic number left of Al with 3+ superscript.
+// Bare ion shorthand:  [[Sym|charge]]  e.g. [[Al|3+]]  → Al with 3+ superscript.
+function fmt(s) {
+  return String(s)
+    .replace(/\[\[(\d+)\|(\d*)\|([A-Za-z]{1,2})(?:\|([^\]|]+))?\]\]/g, (m, a, z, sym, chg) =>
+      (z ? "<span class='nuc'><span class='az'><span>" + a + "</span><span>" + z + "</span></span>" + sym + "</span>"
+         : "<sup>" + a + "</sup>" + sym) +
+      (chg ? "<sup>" + chg + "</sup>" : ""))
+    .replace(/\[\[([A-Za-z]{1,2})\|([^\]|]+)\]\]/g, (m, sym, chg) => sym + "<sup>" + chg + "</sup>");
+}
+
 function render() {
   const bar = document.getElementById("tagbar");
   bar.innerHTML = "";
@@ -192,10 +208,10 @@ function render() {
   current = pickItem(bank, state, lastStem);
   lastStem = current.stem;
   const qa = document.getElementById("questionArea");
-  qa.innerHTML = "<p class='muted'>Skill tag: <code>" + current.tag + "</code></p><h2>" + current.stem + "</h2>";
+  qa.innerHTML = "<p class='muted'>Skill tag: <code>" + current.tag + "</code></p><h2>" + fmt(current.stem) + "</h2>";
   current.choices.forEach((c, i) => {
     const b = document.createElement("button");
-    b.className = "choice"; b.textContent = c;
+    b.className = "choice"; b.innerHTML = fmt(c);
     b.onclick = () => answer(i, b);
     qa.appendChild(b);
   });
@@ -212,8 +228,8 @@ function answer(i, btn) {
   if (!correct) btn.classList.add("wrong");
   applyAnswer(state, current.tag, correct);
   localStorage.setItem(storeKey(), JSON.stringify(state));
-  document.getElementById("feedback").textContent =
-    (correct ? "Correct. " : "Not this time — streak resets on this tag. ") + (current.explain || "");
+  document.getElementById("feedback").innerHTML =
+    (correct ? "Correct. " : "Not this time — streak resets on this tag. ") + fmt(current.explain || "");
   const nb = document.getElementById("nextBtn");
   nb.style.display = "inline-block";
   nb.onclick = render;

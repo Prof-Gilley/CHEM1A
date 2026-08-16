@@ -1,5 +1,5 @@
 {
- "title": "CHEM1A Practice Quiz — Objective 6: Gases & Kinetic Molecular Theory (DRAFT pending Gilley approval)",
+ "title": "CHEM1A Practice Quiz — Objective 6: Gases & Kinetic Molecular Theory",
  "tags": [
   "obj6.pressure",
   "obj6.laws.empirical",
@@ -16,7 +16,12 @@
   {
    "tag": "obj6.pressure",
    "stem": "Convert 1140 torr to atmospheres:",
-   "choices": ["1.50 atm", "0.667 atm", "1140 atm", "11.4 atm"],
+   "choices": [
+    "1.50 atm",
+    "0.667 atm",
+    "1140 atm",
+    "11.4 atm"
+   ],
    "answer": 0,
    "explain": "1140/760 = 1.50 atm. 0.667 inverts the factor; 11.4 moves a decimal instead of converting. The anchor: 1 atm = 760 torr."
   },
@@ -35,7 +40,12 @@
   {
    "tag": "obj6.laws.empirical",
    "stem": "A gas occupies 6.00 L at 2.00 atm. At constant temperature the pressure becomes 3.00 atm. The new volume is:",
-   "choices": ["4.00 L", "9.00 L", "2.00 L", "6.00 L"],
+   "choices": [
+    "4.00 L",
+    "9.00 L",
+    "2.00 L",
+    "6.00 L"
+   ],
    "answer": 0,
    "explain": "Boyle: V₂ = P₁V₁/P₂ = 2.00 × 6.00/3.00 = 4.00 L — pressure up, volume down. 9.00 applies a direct proportion to an inverse law."
   },
@@ -66,7 +76,12 @@
   {
    "tag": "obj6.laws.ideal",
    "stem": "How many moles of gas occupy 22.4 L at 2.00 atm and 273 K? (R = 0.08206 L·atm/mol·K)",
-   "choices": ["2.00 mol", "1.00 mol", "0.500 mol", "44.8 mol"],
+   "choices": [
+    "2.00 mol",
+    "1.00 mol",
+    "0.500 mol",
+    "44.8 mol"
+   ],
    "answer": 0,
    "explain": "n = PV/RT = (2.00 × 22.4)/(0.08206 × 273) = 2.00 mol. 1.00 forgets the doubled pressure (22.4 L is one mole only at 1 atm); 0.500 inverts that correction."
   },
@@ -85,7 +100,12 @@
   {
    "tag": "obj6.gas.densitymm",
    "stem": "The density of argon (39.95 g/mol) at STP is about:",
-   "choices": ["1.78 g/L", "22.4 g/L", "0.561 g/L", "40.0 g/L"],
+   "choices": [
+    "1.78 g/L",
+    "22.4 g/L",
+    "0.561 g/L",
+    "40.0 g/L"
+   ],
    "answer": 0,
    "explain": "d = M/V(molar) = 39.95/22.414 = 1.78 g/L. 0.561 inverts; 40.0 reports molar mass as density; 22.4 reports the molar volume."
   },
@@ -104,7 +124,12 @@
   {
    "tag": "obj6.gas.stoich",
    "stem": "For 2 H₂(g) + O₂(g) → 2 H₂O(g) at constant temperature and pressure, 8.0 L of H₂ requires how many liters of O₂?",
-   "choices": ["4.0 L", "8.0 L", "16 L", "2.0 L"],
+   "choices": [
+    "4.0 L",
+    "8.0 L",
+    "16 L",
+    "2.0 L"
+   ],
    "answer": 0,
    "explain": "At the same T and P, volumes are proportional to moles (Avogadro) — the 2:1 mole ratio IS a 2:1 volume ratio: 8.0/2 = 4.0 L. Equal volumes (8.0) ignores the coefficients."
   },
@@ -123,7 +148,12 @@
   {
    "tag": "obj6.gas.dalton",
    "stem": "A container holds 0.20 mol He and 0.60 mol Ne at a total pressure of 4.00 atm. The partial pressure of He is:",
-   "choices": ["1.00 atm", "2.00 atm", "0.80 atm", "4.00 atm"],
+   "choices": [
+    "1.00 atm",
+    "2.00 atm",
+    "0.80 atm",
+    "4.00 atm"
+   ],
    "answer": 0,
    "explain": "Mole fraction of He = 0.20/0.80 = 0.25; × 4.00 atm = 1.00 atm. 2.00 assumes an even split; 0.80 multiplies by the mole count instead of the fraction."
   },
@@ -166,14 +196,24 @@
   {
    "tag": "obj6.kmt.effusion",
    "stem": "How many times faster does He (4.00 g/mol) effuse than O₂ (32.00 g/mol)?",
-   "choices": ["2.83", "8.00", "0.354", "64.0"],
+   "choices": [
+    "2.83",
+    "8.00",
+    "0.354",
+    "64.0"
+   ],
    "answer": 0,
    "explain": "√(32.00/4.00) = √8 = 2.83. 8.00 forgets the square root; 0.354 inverts the ratio; 64 squares instead of rooting."
   },
   {
    "tag": "obj6.kmt.effusion",
    "stem": "Gas X effuses half as fast as Ne (20.18 g/mol). The molar mass of X is about:",
-   "choices": ["80.7 g/mol", "40.4 g/mol", "10.1 g/mol", "5.05 g/mol"],
+   "choices": [
+    "80.7 g/mol",
+    "40.4 g/mol",
+    "10.1 g/mol",
+    "5.05 g/mol"
+   ],
    "answer": 0,
    "explain": "Half the rate means √(M(X)/20.18) = 2, so M(X) = 4 × 20.18 = 80.7 g/mol — the square undoes the root. 40.4 doubles instead of quadrupling; 10.1 and 5.05 run the relationship backwards (slower means HEAVIER)."
   },
