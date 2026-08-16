@@ -1,5 +1,5 @@
 {
- "title": "CHEM1A Practice Quiz — Objective 1: Foundations (DRAFT pending Gilley approval)",
+ "title": "CHEM1A Practice Quiz — Objective 1: Foundations",
  "tags": ["obj1.matter.classify","obj1.matter.properties","obj1.measure.units","obj1.measure.sigfigs","obj1.measure.precision","obj1.measure.dimanalysis","obj1.measure.density","obj1.atom.structure","obj1.atom.isotopes","obj1.atom.periodictable","obj1.vocab"],
  "items": [
   {"tag":"obj1.matter.classify","stem":"Filtered air (no dust or droplets) is best classified as:","choices":["A compound, because it contains nitrogen and oxygen","A homogeneous mixture","An element","A heterogeneous mixture"],"answer":1,"explain":"Air is uniform throughout but its components are not chemically bonded — homogeneous mixture. Calling it a compound is the classic misconception."},
