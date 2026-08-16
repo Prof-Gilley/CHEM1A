@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>ChemMystery Underground</title>
+<style>
+  :root{
+    --bg:#0b0d10; --panel:#12151a; --panel2:#161a21; --line:#232a33;
+    --txt:#c7d0d9; --dim:#6b7684; --accent:#8ab4f8; --warn:#e0b34c;
+    --red:#c05555; --green:#6faa7a;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:var(--bg); color:var(--txt); font-family:"Courier New",Courier,monospace; font-size:14px; line-height:1.5;}
+  .wrap{max-width:860px; margin:0 auto; padding:14px;}
+  header{border:1px solid var(--line); background:var(--panel); padding:14px 16px; margin-bottom:10px;}
+  header h1{font-size:20px; letter-spacing:2px; color:var(--txt);}
+  header h1 span{color:var(--warn);}
+  header .tag{color:var(--dim); font-size:12px; margin-top:2px;}
+  .notice{border:1px solid var(--line); border-left:3px solid var(--red); background:var(--panel2); color:var(--dim); font-size:12px; padding:8px 12px; margin-bottom:14px;}
+  .thread{border:1px solid var(--line); background:var(--panel); margin-bottom:10px;}
+  .thread-head{padding:10px 14px; cursor:pointer; display:flex; justify-content:space-between; gap:10px;}
+  .thread-head:hover{background:var(--panel2);}
+  .thread-title{color:var(--accent); font-weight:bold;}
+  .thread-title .pin{color:var(--warn); font-weight:normal;}
+  .thread-title .lock{color:var(--red); font-weight:normal;}
+  .thread-meta{color:var(--dim); font-size:12px; white-space:nowrap; text-align:right;}
+  .posts{display:none; border-top:1px solid var(--line);}
+  .thread.open .posts{display:block;}
+  .post{padding:10px 14px; border-bottom:1px solid var(--line);}
+  .post:last-child{border-bottom:none;}
+  .post-by{font-size:12px; color:var(--dim); margin-bottom:4px;}
+  .post-by b{color:var(--green);}
+  .post-body{white-space:pre-wrap;}
+  .post.deleted .post-body{color:var(--dim); font-style:italic;}
+  .quote{border-left:2px solid var(--line); color:var(--dim); padding-left:10px; margin:6px 0;}
+  footer{color:var(--dim); font-size:11px; text-align:center; padding:16px 0 30px;}
+  a{color:var(--accent);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>ChemMystery <span>UNDERGROUND</span></h1>
+    <div class="tag">est. 2014 · "the reactions they don't teach" · 3,411 members</div>
+  </header>
+  <div class="notice">NOTICE: New registrations have been DISABLED since 2019 following repeated infiltration attempts. Existing members may post. Guests may read. The archive is permanent. We do not delete. (Except when we do.)</div>
+  <div id="threads"></div>
+  <footer>ChemMystery Underground is not affiliated with any institution, society, or order — despite what you may have read. · <span id="stamp"></span></footer>
+</div>
+
+<script>
+/* ============================================================
+   POST DATABASE — INSTRUCTOR EDITS THIS BLOCK ONLY
+   To add a weekly drop: append post objects to a thread's
+   posts[], or add a new thread object. Re-upload this file to
+   GitHub (same path) and Pages updates in ~1 min.
+   Persona rules (Canon Bible v1.3): AC47 ≤2 posts/wk, first
+   appears Thu Aug 20. Vlad_49In ALWAYS posts at 11:47 PM (R30).
+   UnK_Chemist331 defends AsH starting wk 5.
+   ============================================================ */
+const THREADS = [
+  {
+    title:"Fresno County ME report — you need to read this",
+    pinned:true,
+    posts:[
+      {by:"hollowpoint_titration", date:"Aug 16, 2026 · 9:12 PM",
+       body:"A friend at the county pulled the preliminary ME report on the body they found in that sub-basement lab off Divisadero. I'm not posting the whole thing. I'm posting one line.\n\nCORE BODY TEMPERATURE: 98.1°F — RECORDED SIX (6) HOURS POST-MORTEM.\n\nSix hours. Bodies cool. That's not an opinion, that's Newton's Law of Cooling. Ambient in that room was 61°F. Do the math on what the temp SHOULD have been and then explain 98.1 to me."},
+      {by:"gravimetric_gremlin", date:"Aug 16, 2026 · 9:40 PM",
+       body:"Instrument error. Cheap probe, calibration drift. Next."},
+      {by:"hollowpoint_titration", date:"Aug 16, 2026 · 9:44 PM",
+       body:"Three readings. Two instruments. 98.1, 98.1, 98.0. The examiner flagged it herself and signed it anyway. Cause of death: cardiac arrest, etiology UNDETERMINED. No trauma. Nothing on the body at all.\n\nA man was found dead in a lab nobody knew existed and the only impossible thing in the report is the body itself."},
+      {by:"[deleted]", date:"Aug 16, 2026 · 11:58 PM", deleted:true,
+       body:"[post removed by moderators]"}
+    ]
+  },
+  {
+    title:"Who is 'D.K. Radan'? The name returns NOTHING",
+    posts:[
+      {by:"meniscus_reader", date:"Aug 17, 2026 · 10:05 AM",
+       body:"Effects found with the body included ID under the name D.K. RADAN. I've run it every way I know how. No records. No photos. No degrees, no publications, no property, no socials. Not a common-name problem — a NO-name problem. The county can't find next of kin because as far as paper is concerned this man never existed.\n\nSo the question isn't just how did he die. It's who was he."},
+      {by:"gravimetric_gremlin", date:"Aug 17, 2026 · 10:31 AM",
+       body:"Fake ID, obviously."},
+      {by:"meniscus_reader", date:"Aug 17, 2026 · 10:36 AM",
+       body:"A fake ID gets you a fake NAME with a real trail behind it. This is the opposite. A real man with no trail. People only scrub themselves like that when they're hiding from something.\n\nAnd a man hiding from something is exactly the kind of man who ends up dead in an underground lab."},
+      {by:"burette_witness", date:"Aug 17, 2026 · 1:12 PM",
+       body:"They're saying material from that big anonymous chemistry channel — The 19th Element — was found in his effects. Printed transcripts, notes in the margins. Make of that what you will. 1.1M subscribers and nobody has ever seen that man's face either.\n\nTwo ghosts. One lab."}
+    ]
+  },
+  {
+    title:"The 19th Element hasn't uploaded in 11 days",
+    posts:[
+      {by:"burette_witness", date:"Aug 16, 2026 · 6:20 PM",
+       body:"Last upload was Aug 5. He NEVER goes this long. And the last video ends with \"the next one changes everything.\"\n\nComments are filling up with people asking if he's okay. Channel's gone completely silent."},
+      {by:"meniscus_reader", date:"Aug 17, 2026 · 1:20 PM",
+       body:"See the Radan thread. I'm not saying it's connected. I'm saying two anonymous chemists went quiet the same week in the same city, and only one of them is in a drawer at the county."}
+    ]
+  },
+  {
+    title:"[LOCKED] 'C.O.' — stop asking",
+    locked:true,
+    posts:[
+      {by:"MODERATOR", date:"Mar 3, 2019 · 8:00 AM",
+       body:"This is the third thread this year. The society you keep asking about was disbanded in 1962. There is nothing to find. Thread locked. Registrations are closed until further notice.\n\nDo not make us regret keeping the archive public."}
+    ]
+  },
+  {
+    title:"Best flame test you've ever run? (photo thread)",
+    posts:[
+      {by:"gravimetric_gremlin", date:"Jul 29, 2026 · 4:44 PM",
+       body:"Copper chloride, outdoor burn at dusk. Green like nothing natural. Post yours."},
+      {by:"burette_witness", date:"Jul 30, 2026 · 9:02 PM",
+       body:"Potassium, always. That pale violet doesn't photograph right — you have to see it live. Some colors are signatures."}
+    ]
+  },
+  {
+    title:"Stockroom find: unlabeled hydrate, how do I ID it?",
+    posts:[
+      {by:"meniscus_reader", date:"Jun 11, 2026 · 2:15 PM",
+       body:"Inherited a jar of white crystal, label gone. Before I toss it — mass, heat, mass again, work out the water ratio? Or is there a faster way that doesn't involve tasting it (joke)."},
+      {by:"hollowpoint_titration", date:"Jun 11, 2026 · 5:47 PM",
+       body:"Heat-to-constant-mass. The water tells you what it was. Everything leaves a residue that talks, if you know the language."}
+    ]
+  }
+];
+
+/* ---------- render (no need to edit below) ---------- */
+const root=document.getElementById("threads");
+THREADS.forEach((t,i)=>{
+  const div=document.createElement("div");
+  div.className="thread"+(i===0?" open":"");
+  const flags=(t.pinned?'<span class="pin">[PINNED] </span>':'')+(t.locked?'<span class="lock">[LOCKED] </span>':'');
+  const last=t.posts[t.posts.length-1];
+  div.innerHTML='<div class="thread-head"><div class="thread-title">'+flags+t.title+'</div>'+
+    '<div class="thread-meta">'+t.posts.length+' post'+(t.posts.length>1?'s':'')+'<br>last: '+last.date.split("·")[0].trim()+'</div></div>'+
+    '<div class="posts">'+t.posts.map(p=>
+      '<div class="post'+(p.deleted?' deleted':'')+'"><div class="post-by"><b>'+p.by+'</b> · '+p.date+'</div>'+
+      '<div class="post-body">'+p.body+'</div></div>').join("")+'</div>';
+  div.querySelector(".thread-head").addEventListener("click",()=>div.classList.toggle("open"));
+  root.appendChild(div);
+});
+document.getElementById("stamp").textContent="archive mirror · last sync "+new Date().toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"});
+</script>
+</body>
+</html>

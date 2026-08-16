@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>The Case File — 26-08-1447</title>
+<style>
+  :root{
+    --cork:#8a6d4b; --cork2:#7a5f40; --paper:#f2ecdc; --ink:#26221c;
+    --tape:#d8cfae; --red:#a33c3c; --dim:#5c554a;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:"Courier New",Courier,monospace; color:var(--ink);
+    background:
+      radial-gradient(ellipse at 20% 10%, rgba(255,255,255,.07), transparent 60%),
+      radial-gradient(ellipse at 80% 90%, rgba(0,0,0,.18), transparent 60%),
+      repeating-linear-gradient(87deg, var(--cork) 0 14px, var(--cork2) 14px 15px);
+    min-height:100vh; padding:18px 14px 40px;
+  }
+  .frame{max-width:960px; margin:0 auto; border:10px solid #3d2f21; outline:2px solid #241b12;
+    background:transparent; padding:18px; position:relative;}
+  .board-title{
+    background:var(--paper); display:inline-block; padding:8px 18px; margin:0 auto 6px;
+    box-shadow:2px 3px 6px rgba(0,0,0,.4); transform:rotate(-.6deg);
+    font-weight:bold; letter-spacing:2px; font-size:15px;
+  }
+  .title-row{text-align:center; margin-bottom:14px;}
+  .sub{display:block; font-weight:normal; font-size:10.5px; color:var(--dim); letter-spacing:1px; margin-top:3px;}
+  .grid{display:flex; flex-wrap:wrap; gap:18px; justify-content:center; align-items:flex-start;}
+  .col{display:flex; flex-direction:column; gap:18px; flex:1 1 260px; max-width:300px;}
+
+  /* pinned cards */
+  .pin-card{
+    background:var(--paper); padding:12px 12px 10px; position:relative;
+    box-shadow:3px 4px 8px rgba(0,0,0,.45); text-decoration:none; color:var(--ink);
+    display:block; transition:transform .12s;
+  }
+  a.pin-card:hover{transform:scale(1.025) rotate(0deg) !important; z-index:5;}
+  .pin-card::before{ /* push pin */
+    content:""; position:absolute; top:-7px; left:50%; margin-left:-7px;
+    width:14px; height:14px; border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #e66, #8c1f1f 70%);
+    box-shadow:0 2px 3px rgba(0,0,0,.5);
+  }
+  .pin-card h3{font-size:12.5px; letter-spacing:1px; margin-bottom:6px;}
+  .pin-card p{font-size:11.5px; line-height:1.45; color:#3a342b;}
+  .pin-card .kind{font-size:9.5px; color:var(--red); letter-spacing:2px; margin-bottom:4px;}
+  .pin-card .open{display:inline-block; margin-top:8px; font-size:10px; letter-spacing:1px;
+    border:1px solid var(--ink); padding:2px 8px;}
+  .note{ /* handwritten-style note */
+    font-family:"Comic Sans MS","Segoe Print",cursive;
+    background:#fdf6b8; transform:rotate(1.5deg);
+  }
+  .note h3{font-family:inherit;}
+
+  /* the silhouette */
+  .suspect{background:var(--paper); padding:14px; text-align:center; position:relative;
+    box-shadow:3px 4px 8px rgba(0,0,0,.45); flex:1 1 300px; max-width:330px;}
+  .suspect::before{content:""; position:absolute; top:-7px; left:50%; margin-left:-7px;
+    width:14px; height:14px; border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #e66, #8c1f1f 70%);
+    box-shadow:0 2px 3px rgba(0,0,0,.5);}
+  .suspect svg{display:block; margin:0 auto;}
+  .suspect .who{font-size:13px; font-weight:bold; letter-spacing:2px; margin-top:8px;}
+  .suspect .aka{font-size:10.5px; color:var(--dim); margin-top:3px;}
+  .qmark{font-size:64px; font-weight:bold; fill:#f2ecdc; opacity:.92;}
+
+  footer{max-width:960px; margin:14px auto 0; text-align:center;
+    color:#d8cfae; font-size:10px; letter-spacing:1px; opacity:.8;}
+  @media (max-width:700px){ .col{max-width:none;} }
+</style>
+</head>
+<body>
+<div class="frame">
+  <div class="title-row">
+    <div class="board-title">THE CASE FILE — 26-08-1447
+      <span class="sub">CHEM1A · maintained by the investigating class · updated after each session</span>
+    </div>
+  </div>
+
+  <div class="grid" id="board">
+    <!-- left column -->
+    <div class="col" id="col-left"></div>
+
+    <!-- center: the unknown man -->
+    <div class="suspect">
+      <svg viewBox="0 0 200 230" width="210" height="240" xmlns="http://www.w3.org/2000/svg">
+        <rect width="200" height="230" fill="#221d17"/>
+        <!-- silhouette -->
+        <circle cx="100" cy="78" r="38" fill="#0d0b08"/>
+        <path d="M35 230 C35 160 70 132 100 132 C130 132 165 160 165 230 Z" fill="#0d0b08"/>
+        <text x="100" y="105" text-anchor="middle" class="qmark">?</text>
+      </svg>
+      <div class="who">UNIDENTIFIED MALE — "D.K. RADAN"</div>
+      <div class="aka">name returns nothing · body unclaimed · found 08/14/2026</div>
+    </div>
+
+    <!-- right column -->
+    <div class="col" id="col-right"></div>
+  </div>
+</div>
+<footer>NOTHING APPEARS HERE BEFORE IT APPEARS IN CLASS.</footer>
+
+<script>
+/* ============================================================
+   PIN DATABASE — INSTRUCTOR EDITS THIS BLOCK ONLY
+   BOARD LAW: nothing pins here before it has been opened, read
+   aloud, and pinned physically in class (R32). The board mirrors
+   the room; it never leads it.
+   Fields: kind (label), title, desc, href (omit = not clickable),
+   newtab:true to open in new tab, note:true for sticky-note style,
+   side:"L"|"R".
+   Deferred panels (add at their beats, not before):
+     wk3 — HOUSE STANDINGS panel + sorting results
+     wk3+ — OPEN QUESTIONS ledger (R24 cards)
+     post-verdicts — red string (CSS lines between pins)
+   ============================================================ */
+const PINS = [
+  {side:"L", kind:"COUNTY DOCUMENT", title:"PRELIMINARY ME REPORT",
+   desc:"Cardiac arrest, etiology undetermined. No trauma. Core temp 98.1°F six hours post-mortem — three readings, two instruments. Flagged and signed anyway.",
+   href:"../files/coroner-report.pdf", newtab:true},
+  {side:"L", kind:"RECOVERED FROM EFFECTS", title:"THE LAST UPLOAD",
+   desc:"Printed capture of a video page — an anonymous chemistry channel, 1.14M subscribers, face never shown. Final upload Aug 5: “the next one changes everything.” Channel silent since.",
+   href:"../last-upload/", newtab:true},
+  {side:"R", kind:"", title:"the forum is live →", note:true,
+   desc:"they were talking about him before we ever were. read everything. verify everyone.",
+   href:"../", newtab:true},
+];
+
+/* ---------- render (no need to edit below) ---------- */
+const L=document.getElementById("col-left"), R=document.getElementById("col-right");
+PINS.forEach((p,i)=>{
+  const el=document.createElement(p.href?"a":"div");
+  el.className="pin-card"+(p.note?" note":"");
+  if(p.href){el.href=p.href; if(p.newtab){el.target="_blank"; el.rel="noopener";}}
+  el.style.transform="rotate("+((i*137)%5-2)+"deg)";
+  el.innerHTML=(p.kind?'<div class="kind">'+p.kind+'</div>':'')+
+    '<h3>'+p.title+'</h3><p>'+p.desc+'</p>'+
+    (p.href?'<span class="open">OPEN ▸</span>':'');
+  (p.side==="R"?R:L).appendChild(el);
+});
+</script>
+</body>
+</html>
