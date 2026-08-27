@@ -237,23 +237,23 @@ const PINS = [
    mottos are Dec 3 station material — do not reword).
    ============================================================ */
 const HOUSES = [
-  {name:"AsH", pin:"33·01", color:"#8A6FB0", flameTxt:"pale violet",
+  {name:"AsH", icon:"🔥", pin:"33·01", color:"#8A6FB0", flameTxt:"pale violet",
    motto:"“Some knowledge must be kept.”",
    lore:"<i>Designated in the 1951 reorganization.</i> Keepers of dangerous chemical secrets and classified research — entrusted with knowledge that could prove harmful in inappropriate hands. Threat assessment, information security, and, when necessary, the elimination of risks to public safety. Their work requires the highest level of discretion and ██████████████ for the greater good. The 1962 primer says only: <i>discretion absolute.</i>",
    verdict:null},
-  {name:"LiFe", pin:"03·26", color:"#C41E3A", flameTxt:"crimson",
+  {name:"LiFe", icon:"🌳", pin:"03·26", color:"#C41E3A", flameTxt:"crimson",
    motto:"“Chemistry serves life.”",
    lore:"<i>Designated 1951.</i> Dedicated to the betterment of lives through chemical knowledge — medical chemistry, pharmaceutical development, biochemical research, from drug discovery to nutrition, guided by the principle that chemistry should heal and improve. The 1962 primer calls them <i>the gentlest house, and the most stubborn.</i>",
    verdict:null},
-  {name:"CoIn", pin:"27·49", color:"#0E7C7B", flameTxt:"blue-green",
+  {name:"CoIn", icon:"🪙", pin:"27·49", color:"#0E7C7B", flameTxt:"blue-green",
    motto:"“Nothing of value is lost.”",
    lore:"<i>Designated 1951.</i> Collectors and preservers — the institutional memory of the Collegium. Comprehensive archives of research, significant discoveries, and classified findings requiring special preservation. The primer's phrasing is stricter than the motto: <i>nothing of value is PERMITTED to be lost.</i>",
    verdict:null},
-  {name:"BeAr", pin:"04·18", color:"#6CA43F", flameTxt:"apple green",
+  {name:"BeAr", icon:"🐻", pin:"04·18", color:"#6CA43F", flameTxt:"apple green",
    motto:"“We stand between.”",
    lore:"<i>Designated 1951.</i> The protective guardians of chemical safety and ethical research. Hazard prevention, safety protocols, protection of researchers and the public — like beryllium shields and argon's inert blanket, they create safe environments for dangerous work while ████████████████████████ <i>[SECTION ILLEGIBLE — PHOTOCOPY QUALITY POOR]</i>",
    verdict:null},
-  {name:"AuRa", pin:"79·88", color:"#D4A017", flameTxt:"golden yellow",
+  {name:"AuRa", icon:"🌘", pin:"79·88", color:"#D4A017", flameTxt:"golden yellow",
    motto:"“Truth prevails.”",
    lore:"<i>Designated 1951.</i> Investigators and seekers of chemical truth — forensic chemistry, analysis of unknown substances, the uncovering of deception. Like gold revealing true value and radium illuminating the darkness, they ensure that truth prevails over ████████ <i>[SECTION ILLEGIBLE — PHOTOCOPY QUALITY POOR]</i>",
    verdict:null},
@@ -279,7 +279,7 @@ HOUSES.forEach((h,i)=>{
   const btn=document.createElement("button"); btn.className="house-btn";
   btn.style.borderTopColor=h.color;
   btn.style.transform="rotate("+((i*97)%5-2)+"deg)";
-  btn.innerHTML='<span class="flame" style="color:'+h.color+'">🔥</span>'+
+  btn.innerHTML='<span class="flame" style="color:'+h.color+'">'+h.icon+'</span>'+
     '<span class="hname">'+h.name+'</span>'+
     '<span class="hpin">'+h.pin+' · '+h.flameTxt+'</span>';
   const lore=document.createElement("div"); lore.className="lore-card";
