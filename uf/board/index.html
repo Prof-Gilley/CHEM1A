@@ -69,7 +69,70 @@
 
   footer{max-width:960px; margin:14px auto 0; text-align:center;
     color:#d8cfae; font-size:10px; letter-spacing:1px; opacity:.8;}
-  @media (max-width:700px){ .col{max-width:none;} }
+
+  /* ---- THE FIVE HOUSES panel ---- */
+  .houses-wrap{margin-top:22px;}
+  .houses-title{text-align:center; margin-bottom:12px;}
+  .houses-row{display:flex; flex-wrap:wrap; gap:14px; justify-content:center; align-items:flex-start;}
+  .house-slot{flex:1 1 160px; max-width:180px; display:flex; flex-direction:column; gap:8px;}
+  .house-btn{
+    background:var(--paper); border:none; cursor:pointer; width:100%;
+    font-family:inherit; color:var(--ink); text-align:center;
+    padding:10px 8px 9px; position:relative;
+    box-shadow:3px 4px 8px rgba(0,0,0,.45); transition:transform .12s;
+    border-top:5px solid #999;
+  }
+  .house-btn:hover{transform:scale(1.04); z-index:5;}
+  .house-btn::before{content:""; position:absolute; top:-7px; left:50%; margin-left:-7px;
+    width:14px; height:14px; border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #e66, #8c1f1f 70%);
+    box-shadow:0 2px 3px rgba(0,0,0,.5);}
+  .house-btn .flame{font-size:20px; display:block;}
+  .house-btn .hname{font-weight:bold; font-size:14px; letter-spacing:2px; display:block; margin-top:2px;}
+  .house-btn .hpin{font-size:10px; color:var(--dim); letter-spacing:1px; display:block; margin-top:2px;}
+  .verdict{
+    background:var(--paper); padding:7px 9px; font-size:10.5px; letter-spacing:1px;
+    box-shadow:2px 3px 6px rgba(0,0,0,.4);
+  }
+  .verdict .v-title{font-size:9px; color:var(--red); letter-spacing:2px; margin-bottom:4px;}
+  .verdict div{margin:2px 0;}
+  .verdict .box{display:inline-block; width:11px; height:11px; border:1.5px solid var(--ink);
+    margin-right:6px; vertical-align:-1px; position:relative;}
+  .verdict .checked .box::after{content:"✗"; position:absolute; top:-4px; left:0px;
+    font-size:13px; font-weight:bold; color:var(--red);}
+  .lore-card{
+    background:var(--paper); padding:12px; font-size:11.5px; line-height:1.5;
+    box-shadow:3px 4px 8px rgba(0,0,0,.45); display:none; text-align:left;
+  }
+  .lore-card.open{display:block;}
+  .lore-card h4{font-size:12px; letter-spacing:1.5px; margin-bottom:5px;}
+  .lore-card .motto{font-style:italic; color:var(--red); margin-bottom:6px; font-size:11px;}
+  /* ---- TIP LINE slip ---- */
+  .tip-wrap{margin-top:22px; display:flex; justify-content:center;}
+  .tipslip{
+    background:var(--paper); color:var(--ink); width:340px; max-width:92%;
+    border:2px dashed var(--ink); padding:14px 16px 10px; position:relative;
+    box-shadow:3px 4px 8px rgba(0,0,0,.45); transform:rotate(-1deg);
+  }
+  .tipslip::before{content:""; position:absolute; top:-7px; left:50%; margin-left:-7px;
+    width:14px; height:14px; border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #e66, #8c1f1f 70%);
+    box-shadow:0 2px 3px rgba(0,0,0,.5);}
+  .tipslip .t-head{font-weight:bold; font-size:13px; letter-spacing:1.5px;
+    border-bottom:2px solid var(--ink); padding-bottom:4px;}
+  .tipslip .t-sub{font-size:8.5px; color:var(--dim); letter-spacing:1px; text-align:right; margin:3px 0 8px;}
+  .tipslip .t-q{font-weight:bold; font-size:10.5px; letter-spacing:.5px; margin-top:9px;}
+  .tipslip .t-line{border-bottom:1px solid var(--ink); height:15px;}
+  .tipslip .t-conf{font-size:9.5px; margin-top:11px; letter-spacing:.5px;}
+  .tipslip .t-conf b{font-size:10.5px;}
+  .tipslip .t-box{display:inline-block; width:9px; height:9px; border:1.5px solid var(--ink);
+    vertical-align:-1px; margin:0 4px 0 8px;}
+  .tipslip .t-id{font-size:10.5px; font-weight:bold; margin-top:9px;}
+  .tipslip .t-id span{font-weight:normal; border-bottom:1px solid var(--ink); padding:0 34px 0 6px;}
+  .tipslip .t-foot{border-top:1px solid var(--ink); margin-top:11px; padding-top:4px;
+    font-size:8.5px; font-style:italic; color:var(--dim);}
+  .tipslip .t-stamp{font-size:8px; color:var(--dim); display:flex; justify-content:space-between; margin-top:2px; font-style:normal;}
+  @media (max-width:700px){ .col{max-width:none;} .house-slot{max-width:none; flex:1 1 45%;} }
 </style>
 </head>
 <body>
@@ -99,6 +162,35 @@
 
     <!-- right column -->
     <div class="col" id="col-right"></div>
+  </div>
+
+  <!-- THE FIVE HOUSES (added after the Aug 27 sorting — board mirrors the room) -->
+  <div class="houses-wrap">
+    <div class="houses-title">
+      <div class="board-title">THE FIVE HOUSES
+        <span class="sub">named in class 08/27 · verdicts recorded as the investigation votes them</span>
+      </div>
+    </div>
+    <div class="houses-row" id="houses-row"></div>
+  </div>
+
+  <!-- THE TIP LINE (paper slips filed at the door; this is the reference copy) -->
+  <div class="tip-wrap">
+    <div class="tipslip">
+      <div class="t-head">CASE 26-08-1447 — TIP LINE</div>
+      <div class="t-sub">PAPER ONLY · SUBMIT BEFORE YOU LEAVE</div>
+      <div class="t-q">WHAT DO YOU THINK IS GOING ON?</div>
+      <div class="t-line"></div><div class="t-line"></div><div class="t-line"></div>
+      <div class="t-q">WHAT MAKES SENSE? WHAT DOESN'T ADD UP?</div>
+      <div class="t-line"></div><div class="t-line"></div><div class="t-line"></div>
+      <div class="t-q">QUESTIONS, IDEAS, SUGGESTIONS — ANYTHING.</div>
+      <div class="t-line"></div><div class="t-line"></div><div class="t-line"></div><div class="t-line"></div>
+      <div class="t-conf"><b>CONFIDENCE:</b><span class="t-box"></span>SUSPICION ONLY<span class="t-box"></span>THEORY<span class="t-box"></span>WOULD TESTIFY</div>
+      <div class="t-id">INVESTIGATOR: <span>&nbsp;</span> &nbsp;HOUSE: <span>&nbsp;</span></div>
+      <div class="t-foot">Filed tips become case record. The strongest theory gets answered.
+        <div class="t-stamp"><span>FILED: ____________</span><span>RECEIVED BY 79·88</span></div>
+      </div>
+    </div>
   </div>
 </div>
 <footer>NOTHING APPEARS HERE BEFORE IT APPEARS IN CLASS.</footer>
@@ -137,6 +229,36 @@ const PINS = [
    desc:"Two more fragments from the same case review. The victim has a name — and the review mentions anomalous thermal data.<br><audio controls src='../audio/rec-E.mp3' style='width:100%;margin-top:8px;'></audio><br><audio controls src='../audio/rec-E-ext.mp3' style='width:100%;margin-top:6px;'></audio>"},
 ];
 
+/* ============================================================
+   HOUSES — INSTRUCTOR EDITS verdict FIELDS ONLY
+   verdict: null (no vote yet) | "guilty" | "innocent" | "unsure"
+   BOARD LAW: a verdict appears here only AFTER the class votes it
+   on a spiral day. Lore text = New Member Manual wording (canon;
+   mottos are Dec 3 station material — do not reword).
+   ============================================================ */
+const HOUSES = [
+  {name:"AsH", pin:"33·01", color:"#8A6FB0", flameTxt:"pale violet",
+   motto:"“Some knowledge must be kept.”",
+   lore:"<i>Designated in the 1951 reorganization.</i> Keepers of dangerous chemical secrets and classified research — entrusted with knowledge that could prove harmful in inappropriate hands. Threat assessment, information security, and, when necessary, the elimination of risks to public safety. Their work requires the highest level of discretion and ██████████████ for the greater good. The 1962 primer says only: <i>discretion absolute.</i>",
+   verdict:null},
+  {name:"LiFe", pin:"03·26", color:"#C41E3A", flameTxt:"crimson",
+   motto:"“Chemistry serves life.”",
+   lore:"<i>Designated 1951.</i> Dedicated to the betterment of lives through chemical knowledge — medical chemistry, pharmaceutical development, biochemical research, from drug discovery to nutrition, guided by the principle that chemistry should heal and improve. The 1962 primer calls them <i>the gentlest house, and the most stubborn.</i>",
+   verdict:null},
+  {name:"CoIn", pin:"27·49", color:"#0E7C7B", flameTxt:"blue-green",
+   motto:"“Nothing of value is lost.”",
+   lore:"<i>Designated 1951.</i> Collectors and preservers — the institutional memory of the Collegium. Comprehensive archives of research, significant discoveries, and classified findings requiring special preservation. The primer's phrasing is stricter than the motto: <i>nothing of value is PERMITTED to be lost.</i>",
+   verdict:null},
+  {name:"BeAr", pin:"04·18", color:"#6CA43F", flameTxt:"apple green",
+   motto:"“We stand between.”",
+   lore:"<i>Designated 1951.</i> The protective guardians of chemical safety and ethical research. Hazard prevention, safety protocols, protection of researchers and the public — like beryllium shields and argon's inert blanket, they create safe environments for dangerous work while ████████████████████████ <i>[SECTION ILLEGIBLE — PHOTOCOPY QUALITY POOR]</i>",
+   verdict:null},
+  {name:"AuRa", pin:"79·88", color:"#D4A017", flameTxt:"golden yellow",
+   motto:"“Truth prevails.”",
+   lore:"<i>Designated 1951.</i> Investigators and seekers of chemical truth — forensic chemistry, analysis of unknown substances, the uncovering of deception. Like gold revealing true value and radium illuminating the darkness, they ensure that truth prevails over ████████ <i>[SECTION ILLEGIBLE — PHOTOCOPY QUALITY POOR]</i>",
+   verdict:null},
+];
+
 /* ---------- render (no need to edit below) ---------- */
 const L=document.getElementById("col-left"), R=document.getElementById("col-right");
 PINS.forEach((p,i)=>{
@@ -148,6 +270,32 @@ PINS.forEach((p,i)=>{
     '<h3>'+p.title+'</h3><p>'+p.desc+'</p>'+
     (p.href?'<span class="open">OPEN ▸</span>':'');
   (p.side==="R"?R:L).appendChild(el);
+});
+
+/* houses render */
+const HR=document.getElementById("houses-row");
+HOUSES.forEach((h,i)=>{
+  const slot=document.createElement("div"); slot.className="house-slot";
+  const btn=document.createElement("button"); btn.className="house-btn";
+  btn.style.borderTopColor=h.color;
+  btn.style.transform="rotate("+((i*97)%5-2)+"deg)";
+  btn.innerHTML='<span class="flame" style="color:'+h.color+'">🔥</span>'+
+    '<span class="hname">'+h.name+'</span>'+
+    '<span class="hpin">'+h.pin+' · '+h.flameTxt+'</span>';
+  const lore=document.createElement("div"); lore.className="lore-card";
+  lore.innerHTML='<h4 style="color:'+h.color+'">HOUSE '+h.name+'</h4>'+
+    '<div class="motto">'+h.motto+'</div><p>'+h.lore+'</p>';
+  btn.addEventListener("click",()=>{
+    document.querySelectorAll(".lore-card.open").forEach(c=>{if(c!==lore)c.classList.remove("open");});
+    lore.classList.toggle("open");
+  });
+  const v=document.createElement("div"); v.className="verdict";
+  v.innerHTML='<div class="v-title">CLASS VERDICT</div>'+
+    ["guilty","innocent","unsure"].map(k=>
+      '<div class="'+(h.verdict===k?"checked":"")+'"><span class="box"></span>'+k.toUpperCase()+'</div>'
+    ).join("");
+  slot.appendChild(btn); slot.appendChild(v); slot.appendChild(lore);
+  HR.appendChild(slot);
 });
 </script>
 </body>
