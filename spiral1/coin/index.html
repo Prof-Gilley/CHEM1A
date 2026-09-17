@@ -1,0 +1,1079 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Case 26-08-1447 — CoIn Bench</title>
+<link rel="icon" href="data:,">
+<style>
+:root{
+  --ink:#16181d; --ink2:#474d59; --ink3:#6b7280;
+  --paper:#f6f4ef; --card:#fffdf8; --line:#d9d3c6; --line2:#c2b9a6;
+  --seal:#7a2323; --ok:#1f5c3a; --okbg:#e6f1e9; --warn:#7a4e12; --warnbg:#fbf0dc;
+  --blue:#1d3f6e; --bluebg:#e7edf6;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;-webkit-text-size-adjust:100%}
+.wrap{max-width:760px;margin:0 auto;padding:0 14px 104px}
+header.mast{background:var(--ink);color:#f3efe6;padding:14px;margin:0 -14px 16px;border-bottom:4px double var(--seal)}
+header.mast .case{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#c9bfa9}
+header.mast h1{font-size:19px;margin:4px 0 2px;font-weight:600;letter-spacing:.01em}
+header.mast .sub{font-size:12.5px;color:#b9b0a0}
+h2{font-size:17px;margin:26px 0 8px;padding-bottom:5px;border-bottom:2px solid var(--line2)}
+h3{font-size:15px;margin:18px 0 6px}
+p{margin:8px 0}
+small,.small{font-size:12.5px;color:var(--ink2)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:12px;margin:12px 0}
+.card.tight{padding:10px}
+.kv{width:100%;border-collapse:collapse;font-size:14px;table-layout:fixed}
+.kv th,.kv td{text-align:left;padding:5px 6px;border-bottom:1px solid #eae5da;vertical-align:top}
+.kv th{font-weight:500;color:var(--ink2);width:52%}
+.kv td{font-family:var(--mono);font-size:14px;word-break:break-word}
+.stamp{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;border:1px solid currentColor;border-radius:3px;padding:2px 6px;vertical-align:middle}
+.stamp.seal{color:var(--seal)}
+.stamp.blue{color:var(--blue)}
+.stamp.untimed{color:var(--warn);background:var(--warnbg);border-color:#d9b877}
+label.q{display:block;font-size:14px;margin:10px 0 4px;color:var(--ink)}
+.row{display:flex;gap:8px;align-items:flex-start;flex-wrap:wrap}
+.row>input,.row>textarea{flex:1 1 150px;min-width:0}
+input[type=text],textarea{font-family:var(--mono);font-size:16px;padding:11px 10px;border:1px solid var(--line2);border-radius:5px;background:#fff;color:var(--ink);width:100%;min-height:44px}
+textarea{min-height:64px;line-height:1.4}
+input:focus,textarea:focus{outline:2px solid var(--blue);outline-offset:1px}
+button{font-family:var(--sans);font-size:15px;padding:10px 14px;border-radius:5px;border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;min-height:44px}
+button.ghost{background:#fff;color:var(--ink)}
+button.sm{font-size:13px;padding:10px 12px;min-height:44px}
+button:disabled{opacity:.45;cursor:not-allowed}
+.unit{font-family:var(--mono);font-size:13px;color:var(--ink2);align-self:center;padding-top:10px}
+.fb{margin:6px 0 2px;padding:9px 10px;border-radius:5px;font-size:13.5px;border:1px solid transparent}
+.fb.ok{background:var(--okbg);border-color:#a9cdb8;color:var(--ok)}
+.fb.no{background:#fdeceb;border-color:#e3b4b0;color:#8a2318}
+.fb.note{background:var(--bluebg);border-color:#b6c6dd;color:var(--blue)}
+.fb.wait{background:var(--warnbg);border-color:#d9b877;color:var(--warn)}
+.prob{border:1px solid var(--line);border-left:5px solid var(--ink2);border-radius:6px;background:var(--card);padding:12px;margin:16px 0}
+.prob.untimed{border-left-color:#c8922e}
+.prob h3{margin-top:0}
+.rub{font-size:12px;color:var(--ink3);font-style:italic;margin-top:10px;border-top:1px dotted var(--line);padding-top:7px}
+pre.eq{font-family:var(--mono);font-size:13px;background:#f1ece1;border:1px solid var(--line);border-radius:4px;padding:9px;overflow-x:auto;white-space:pre;margin:8px 0}
+details{margin:8px 0;border:1px solid var(--line);border-radius:5px;background:#fbf8f1}
+summary{padding:13px 10px;cursor:pointer;font-size:14px;font-weight:500;min-height:44px;display:flex;align-items:center}
+details[open] summary{border-bottom:1px solid var(--line)}
+details .body{padding:10px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.scaf{width:100%;border-collapse:collapse;font-size:13px}
+.scaf th,.scaf td{border:1px solid var(--line);padding:6px;text-align:left;vertical-align:top}
+.scaf{min-width:300px}
+.kvwrap{overflow-x:auto}
+.scaf th{background:#f1ece1;font-weight:500}
+.scaf td.st{font-family:var(--mono);white-space:nowrap;width:1%}
+.gate{max-width:420px;margin:36px auto}
+.hide{display:none!important}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--ink);color:#efe9dc;font-size:12.5px;padding:5px 12px;display:flex;gap:10px;justify-content:space-between;align-items:center;z-index:20}
+.bar .who{font-family:var(--mono);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar button{font-size:12.5px;padding:6px 11px;min-height:44px;background:#3a3f49;border-color:#565c68}
+.warnbanner,.storewarn{background:var(--warnbg);border:1px solid #d9b877;color:var(--warn);padding:10px;border-radius:5px;font-size:13px;margin:10px 0}
+.statrow{display:flex;gap:8px;align-items:center;margin:6px 0;flex-wrap:wrap}
+.statrow .idx{font-family:var(--mono);font-size:12px;color:var(--ink3);width:26px;flex:0 0 26px}
+.statrow input[type=text]{flex:1 1 110px}
+.statrow label.ex{font-size:12px;color:var(--ink2);display:flex;align-items:center;gap:4px;white-space:nowrap}
+.statrow input[type=checkbox]{width:24px;height:24px;margin:0}
+.statrow label.ex{min-height:44px;padding:0 6px}   /* the whole label is the tap target */
+.foot{margin:30px 0 10px;font-size:13px;color:var(--ink2);font-style:italic;text-align:center;border-top:1px solid var(--line);padding-top:14px}
+.progress{font-family:var(--mono);font-size:11.5px;color:var(--ink3);letter-spacing:.06em}
+@media (max-width:420px){
+  body{font-size:15.5px}
+  .kv th{width:46%}
+  header.mast h1{font-size:17px}
+  /* the fixed bar was crushing three items into 390 px. The name is already at the
+     top of the page, so on a phone the bar carries the code and the count only. */
+  .bar .who{font-size:11.5px}
+  .bar .who .nm{display:none}
+  .bar button{font-size:12px;padding:6px 9px}
+  .bar .progress{font-size:11px}
+}
+@media print{.bar,button,.gate{display:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="mast">
+  <div class="case">Council of Collegiate Obscurum &middot; Inquiry 26-08-1447</div>
+  <h1>Investigator Bench</h1>
+  <div class="sub">CHEM 1A &middot; Spiral 1 &middot; sitting Thursday 17 September 2026</div>
+</header>
+
+<div id="gate" class="gate">
+  <div class="card">
+    <p style="margin-top:0"><strong>Enter the specimen code printed on your evidence card.</strong></p>
+    <div class="row">
+      <input type="text" id="codeInput" inputmode="text" autocapitalize="characters" autocomplete="off"
+             spellcheck="false" maxlength="12" placeholder="4 letters" aria-label="Specimen code">
+      <button id="codeGo">Open</button>
+    </div>
+    <div id="codeFb"></div>
+    <p class="small">Your code is unique to your replicate. Your data is not your neighbour&rsquo;s.
+       This page checks arithmetic only. Your shown work on the paper sheet is what is read.</p>
+  </div>
+  <div id="confirm" class="card hide">
+    <p style="margin-top:0">Confirm before you start:</p>
+    <p id="confirmWho" style="font-size:18px;font-weight:600;margin:6px 0"></p>
+    <p id="confirmHouse" class="small" style="margin:0 0 12px"></p>
+    <div class="row">
+      <button id="confirmYes">That is me &mdash; open my bench</button>
+      <button id="confirmNo" class="ghost">Not me</button>
+    </div>
+  </div>
+</div>
+
+<main id="bench" class="hide"></main>
+
+<div class="foot hide" id="footline">
+  What your number means is not decided on this page. It is decided out loud, in the chair,
+  by the five houses together.
+</div>
+
+</div>
+
+<div class="bar hide" id="bar">
+  <span class="who" id="barWho"></span>
+  <span class="progress" id="barProg"></span>
+  <button id="barExport">Copy my work</button>
+</div>
+
+<script>
+"use strict";
+/* ------------------------------------------------------------------
+   SPIRAL 1 - INVESTIGATOR BENCH
+   Serves ONLY specimens_student_YYYYMMDD.json (pre-pruned, no answers).
+
+   DESIGN INVARIANT: this file contains NO stored answer to any problem.
+   Every target is RECOMPUTED at check time from data the student can
+   already see on this page (the atomic-mass strip, the warm-up givens,
+   and their own evidence card). Master R3: recompute, never copy.
+   ------------------------------------------------------------------ */
+
+var DATA = /*<<DATA>>*/{"students": [{"canvas_user_id": "DUSK", "name": "THE ELDEST", "house": "CoIn", "specimen_code": "DUSK", "specimen_type": "B", "specimen_label": "Specimen B - residue scraped from the AsH analytical bench", "raw_display": {"mass_residue_sample_g": "0.5438", "mass_arsenic_recovered_g": "0.1942"}, "raw_context": {"method": "gravimetric arsenic determination on the bench residue", "balance": "analytical, 0.1 mg readability", "candidate_species": ["NaAsO2", "Na3AsO4"], "species_note": "NOTE ON FORMULAE: the arsenite ion is written AsO2- in the solid sodium salt (NaAsO2, sodium metaarsenite) and AsO3^3- in the buffered aqueous half-reaction on your sheet. These are the same arsenic species, differing by hydration - AsO2- + H2O is AsO3^3- + 2 H+. Use AsO3^3- in the half-reaction."}, "custody": {"storage_temp_C": 18.3, "days_collection_to_receipt": 0, "seal_state": "INTACT"}, "custody_acceptance_criteria": {"seal_state": "INTACT", "storage_temp_C": "15.0 - 25.0", "days_collection_to_receipt": "<= 2"}, "custody_note": "Chain of custody complete. Every acceptance criterion above was met at intake."}, {"canvas_user_id": "MELN", "name": "THE ARCHIVIST", "house": "CoIn", "specimen_code": "MELN", "specimen_type": "B", "specimen_label": "Specimen B - residue scraped from the AsH analytical bench", "raw_display": {"mass_residue_sample_g": "0.5193", "mass_arsenic_recovered_g": "0.1816"}, "raw_context": {"method": "gravimetric arsenic determination on the bench residue", "balance": "analytical, 0.1 mg readability", "candidate_species": ["NaAsO2", "Na3AsO4"], "species_note": "NOTE ON FORMULAE: the arsenite ion is written AsO2- in the solid sodium salt (NaAsO2, sodium metaarsenite) and AsO3^3- in the buffered aqueous half-reaction on your sheet. These are the same arsenic species, differing by hydration - AsO2- + H2O is AsO3^3- + 2 H+. Use AsO3^3- in the half-reaction."}, "custody": {"storage_temp_C": 22.9, "days_collection_to_receipt": 0, "seal_state": "INTACT"}, "custody_acceptance_criteria": {"seal_state": "INTACT", "storage_temp_C": "15.0 - 25.0", "days_collection_to_receipt": "<= 2"}, "custody_note": "Chain of custody complete. Every acceptance criterion above was met at intake."}, {"canvas_user_id": "RASK", "name": "THE MENDED BONE", "house": "CoIn", "specimen_code": "RASK", "specimen_type": "B", "specimen_label": "Specimen B - residue scraped from the AsH analytical bench", "raw_display": {"mass_residue_sample_g": "0.4569", "mass_arsenic_recovered_g": "0.1666"}, "raw_context": {"method": "gravimetric arsenic determination on the bench residue", "balance": "analytical, 0.1 mg readability", "candidate_species": ["NaAsO2", "Na3AsO4"], "species_note": "NOTE ON FORMULAE: the arsenite ion is written AsO2- in the solid sodium salt (NaAsO2, sodium metaarsenite) and AsO3^3- in the buffered aqueous half-reaction on your sheet. These are the same arsenic species, differing by hydration - AsO2- + H2O is AsO3^3- + 2 H+. Use AsO3^3- in the half-reaction."}, "custody": {"storage_temp_C": 21.2, "days_collection_to_receipt": 0, "seal_state": "INTACT"}, "custody_acceptance_criteria": {"seal_state": "INTACT", "storage_temp_C": "15.0 - 25.0", "days_collection_to_receipt": "<= 2"}, "custody_note": "Chain of custody complete. Every acceptance criterion above was met at intake."}, {"canvas_user_id": "TORV", "name": "THE PICKLE JAR", "house": "CoIn", "specimen_code": "TORV", "specimen_type": "B", "specimen_label": "Specimen B - residue scraped from the AsH analytical bench", "raw_display": {"mass_residue_sample_g": "0.4947", "mass_arsenic_recovered_g": "0.1794"}, "raw_context": {"method": "gravimetric arsenic determination on the bench residue", "balance": "analytical, 0.1 mg readability", "candidate_species": ["NaAsO2", "Na3AsO4"], "species_note": "NOTE ON FORMULAE: the arsenite ion is written AsO2- in the solid sodium salt (NaAsO2, sodium metaarsenite) and AsO3^3- in the buffered aqueous half-reaction on your sheet. These are the same arsenic species, differing by hydration - AsO2- + H2O is AsO3^3- + 2 H+. Use AsO3^3- in the half-reaction."}, "custody": {"storage_temp_C": 18.4, "days_collection_to_receipt": 0, "seal_state": "INTACT"}, "custody_acceptance_criteria": {"seal_state": "INTACT", "storage_temp_C": "15.0 - 25.0", "days_collection_to_receipt": "<= 2"}, "custody_note": "Chain of custody complete. Every acceptance criterion above was met at intake."}, {"canvas_user_id": "BLIX", "name": "THE PASSPORT", "house": "CoIn", "specimen_code": "BLIX", "specimen_type": "B", "specimen_label": "Specimen B - residue scraped from the AsH analytical bench", "raw_display": {"mass_residue_sample_g": "0.5043", "mass_arsenic_recovered_g": "0.1810"}, "raw_context": {"method": "gravimetric arsenic determination on the bench residue", "balance": "analytical, 0.1 mg readability", "candidate_species": ["NaAsO2", "Na3AsO4"], "species_note": "NOTE ON FORMULAE: the arsenite ion is written AsO2- in the solid sodium salt (NaAsO2, sodium metaarsenite) and AsO3^3- in the buffered aqueous half-reaction on your sheet. These are the same arsenic species, differing by hydration - AsO2- + H2O is AsO3^3- + 2 H+. Use AsO3^3- in the half-reaction."}, "custody": {"storage_temp_C": 21.8, "days_collection_to_receipt": 0, "seal_state": "INTACT"}, "custody_acceptance_criteria": {"seal_state": "INTACT", "storage_temp_C": "15.0 - 25.0", "days_collection_to_receipt": "<= 2"}, "custody_note": "Chain of custody complete. Every acceptance criterion above was met at intake."}, {"canvas_user_id": "CRAN", "name": "THE TWO NEPHEWS", "house": "CoIn", "specimen_code": "CRAN", "specimen_type": "B", "specimen_label": "Specimen B - residue scraped from the AsH analytical bench", "raw_display": {"mass_residue_sample_g": "0.5079", "mass_arsenic_recovered_g": "0.1825"}, "raw_context": {"method": "gravimetric arsenic determination on the bench residue", "balance": "analytical, 0.1 mg readability", "candidate_species": ["NaAsO2", "Na3AsO4"], "species_note": "NOTE ON FORMULAE: the arsenite ion is written AsO2- in the solid sodium salt (NaAsO2, sodium metaarsenite) and AsO3^3- in the buffered aqueous half-reaction on your sheet. These are the same arsenic species, differing by hydration - AsO2- + H2O is AsO3^3- + 2 H+. Use AsO3^3- in the half-reaction."}, "custody": {"storage_temp_C": 18.3, "days_collection_to_receipt": 0, "seal_state": "INTACT"}, "custody_acceptance_criteria": {"seal_state": "INTACT", "storage_temp_C": "15.0 - 25.0", "days_collection_to_receipt": "<= 2"}, "custody_note": "Chain of custody complete. Every acceptance criterion above was met at intake."}]};
+
+/* ---------- tiny DOM helpers (no innerHTML for any data value) ---------- */
+function el(tag, cls, txt){var e=document.createElement(tag); if(cls)e.className=cls; if(txt!==undefined&&txt!==null)e.textContent=String(txt); return e;}
+function h(tag, cls, html){var e=document.createElement(tag); if(cls)e.className=cls; if(html!==undefined)e.innerHTML=html; return e;}
+function $(id){return document.getElementById(id);}
+function isMissing(v){return (typeof v === "undefined") || v === null;}
+/* NOTE: never test a name or a code for truthiness. A surname that reads
+   like a JavaScript keyword, and a code like "0000", are perfectly valid
+   values; only undefined and null are missing. R4 also forbids naming any
+   real student anywhere in this file outside the served data, comments
+   included - the regression test names the case, this source must not. */
+
+/* ---------- storage: every call wrapped, in-memory fallback ---------- */
+var MEM={}, STORE_OK=true;
+function sget(k){
+  try{ var v=window.localStorage.getItem(k); if(isMissing(v)) return null; return v; }
+  catch(e){ STORE_OK=false; return Object.prototype.hasOwnProperty.call(MEM,k)?MEM[k]:null; }
+}
+function sset(k,v){
+  MEM[k]=v;
+  try{ window.localStorage.setItem(k,v); }
+  catch(e){ STORE_OK=false; }
+}
+(function probeStorage(){
+  try{
+    var t="__spiral1_probe__";
+    window.localStorage.setItem(t,"1");
+    if(window.localStorage.getItem(t)!=="1"){STORE_OK=false;}
+    window.localStorage.removeItem(t);
+  }catch(e){ STORE_OK=false; }
+})();
+
+var KEYPREFIX="spiral1.20260914.";
+var state=null, rec=null;
+
+function loadState(code){
+  var raw=sget(KEYPREFIX+code), st=null;
+  if(!isMissing(raw) && raw!==null){
+    try{ st=JSON.parse(raw); }catch(e){ st=null; }
+  }
+  if(st===null || typeof st!=="object"){ st={}; }
+  if(typeof st.ans!=="object"||st.ans===null) st.ans={};
+  if(typeof st.done!=="object"||st.done===null) st.done={};
+  if(typeof st.tries!=="object"||st.tries===null) st.tries={};
+  if(typeof st.stats!=="object"||st.stats===null) st.stats={v:["","","","","",""],x:[false,false,false,false,false,false],reason:"",mean:"",sd:""};
+  return st;
+}
+var saveTimer=null;
+function save(){
+  if(rec===null) return;
+  if(saveTimer!==null) clearTimeout(saveTimer);
+  saveTimer=setTimeout(function(){
+    try{ sset(KEYPREFIX+rec.specimen_code, JSON.stringify(state)); }catch(e){ STORE_OK=false; }
+    saveTimer=null;
+  },250);
+}
+
+/* ---------- chemistry recomputed from the printed data strip ---------- */
+var AM={As:74.92,O:16.00,H:1.008,I:126.90,Na:22.99,Zn:65.38,Cl:35.45,C:12.011,S:32.06};
+function mm(o){var s=0,k; for(k in o){ if(Object.prototype.hasOwnProperty.call(o,k)) s+=AM[k]*o[k]; } return s;}
+var M_As2O3 = mm({As:2,O:3});
+var M_NaAsO2 = mm({Na:1,As:1,O:2});
+var M_Na3AsO4 = mm({Na:3,As:1,O:4});
+var M_BAL = mm({C:3,H:8,O:1,S:2});
+var M_AsH3 = mm({As:1,H:3});
+/* warm-up givens - printed on every sheet, student-visible */
+/* Warm-up givens, printed in problem_sets_20260914.md. Master 4.5b (v1.2): the
+   certified mass carries three significant figures, so W4 inherits that count and
+   agrees with every card that carries a check-line. verify_briefc_20260914.js
+   asserts these against the problem-set stems, so page and sheet cannot drift
+   apart, and re-derives the check-line agreement rather than restating it here. */
+var REF_MASS=0.396, REF_ENDPOINT=80.00;
+function certI2(){ return (REF_MASS/M_As2O3)*2/(REF_ENDPOINT/1000); }
+/* oxidation number from the printed rules: target ox = (charge - sum(others))/nTarget */
+function oxn(charge, others, nTarget){
+  var s=0,i; for(i=0;i<others.length;i++){ s+=others[i][0]*others[i][1]; }
+  return (charge - s)/(isMissing(nTarget)?1:nTarget);
+}
+function R(k){ var v=rec.raw_display[k]; return isMissing(v)?NaN:parseFloat(v); }
+
+/* ---------- numeric parsing / sig figs ---------- */
+function parseNum(s){
+  if(isMissing(s)) return NaN;
+  var t=String(s).trim().replace(/−/g,"-").replace(/,/g,"").replace(/\s+/g,"");
+  t=t.replace(/^\+/,"");
+  /* accept 1.5x10^-3, 1.5*10^-3, 1.5E-3 */
+  t=t.replace(/[x×*]10\^?/i,"e").replace(/\^/,"");
+  if(!/^-?(\d+\.?\d*|\.\d+)(e-?\+?\d+)?$/i.test(t)) return NaN;
+  var v=parseFloat(t);
+  return isFinite(v)?v:NaN;
+}
+function sigFigs(s){
+  if(isMissing(s)) return null;
+  var t=String(s).trim().replace(/−/g,"-").replace(/,/g,"").replace(/\s+/g,"").replace(/^[+-]/,"");
+  t=t.replace(/[x×*]10\^?/i,"e").replace(/\^/,"");
+  var m=t.match(/^(\d+\.?\d*|\.\d+)(?:e[+-]?\d+)?$/i);
+  if(m===null) return null;
+  var d=m[1], digits;
+  if(d.indexOf(".")>=0){
+    digits=d.replace(".","").replace(/^0+/,"");
+    if(digits==="") return 1;
+    return digits.length;
+  }
+  digits=d.replace(/^0+/,"");
+  if(digits==="") return 1;
+  var trimmed=digits.replace(/0+$/,"");
+  if(trimmed.length===digits.length) return digits.length;
+  return {ambiguous:true,min:trimmed.length,max:digits.length};
+}
+function near(a,b,rel){ if(!isFinite(a)||!isFinite(b)||b===0) return false; return Math.abs(a-b)/Math.abs(b)<=rel; }
+
+/* ---------- the generic misstep engine -------------------------------
+   NO directional feedback is ever produced. A wrong entry returns either
+   (a) a named misstep, matched against an explicit wrong-path value or a
+   pure ratio signature, or (b) one fixed generic message. Because the
+   generic message is identical for every unmatched wrong value, the check
+   gives no gradient to walk and cannot be binary-searched.
+   --------------------------------------------------------------------- */
+var RATIO_HINTS=[
+ [1000,  "Check a unit conversion in this step — a volume in millilitres will not multiply straight into a concentration in mol/L, and a mass in milligrams is not a mass in grams."],
+ [0.001, "Check a unit conversion in this step — a volume in millilitres will not multiply straight into a concentration in mol/L, and a mass in milligrams is not a mass in grams."],
+ [1e6,   "Two separate unit conversions look to have gone the same way. Redo the chain one line at a time, writing the unit on every line."],
+ [1e-6,  "Two separate unit conversions look to have gone the same way. Redo the chain one line at a time, writing the unit on every line."],
+ [2,     "Look again at how many arsenic atoms are in the formula you started from, and at the mole ratio the protocol specifies."],
+ [0.5,   "Look again at how many arsenic atoms are in the formula you started from, and at the mole ratio the protocol specifies."],
+ [5,     "A dilution factor looks to have been applied the wrong way round, or not at all. Which solution did this titration actually use?"],
+ [0.2,   "A dilution factor looks to have been applied the wrong way round, or not at all. Which solution did this titration actually use?"],
+ [100,   "Percent and fraction are not the same number. Check where the ×100 belongs."],
+ [0.01,  "Percent and fraction are not the same number. Check where the ×100 belongs."],
+ [10,    "A power of ten has slipped. Rewrite the chain in scientific notation and recount the exponent."],
+ [0.1,   "A power of ten has slipped. Rewrite the chain in scientific notation and recount the exponent."]
+];
+var GENERIC="That does not check out. Go back to your setup on the sheet: write the quantity you are solving for, the quantity you are given, and the conversion factor between them, each with its unit. Do not change your number until the setup changes.";
+
+function agree(a,b,step){
+  /* A difference of two burette readings, or of two weighings, is a small
+     number carved out of two large ones. A RELATIVE tolerance on it cannot
+     tell "final - initial" apart from "final" when the initial reading is
+     near zero - on some cards those sit 0.08 % apart. Steps of that shape
+     declare an ABSOLUTE tolerance, set by the readability of the instrument. */
+  if(!isMissing(step.atol)) return Math.abs(a-b)<=step.atol;
+  return near(a,b,isMissing(step.tol)?0.006:step.tol);
+}
+function judge(v, target, step){
+  if(!isFinite(v)) return {k:"no", m:"Enter a number. Scientific notation is fine — write it as 1.5e-3 or 1.5x10^-3."};
+  var tol=isMissing(step.tol)?0.006:step.tol;
+  if(agree(v,target,step)) return {k:"ok"};
+  /* further paths that are equally correct - e.g. carrying the unrounded warm-up
+     value instead of the 3 s.f. figure the ruling prints. Not an error. */
+  if(!isMissing(step.also)){
+    for(var z=0;z<step.also.length;z++){
+      var av; try{ av=step.also[z](); }catch(e){ av=NaN; }
+      if(isFinite(av) && agree(v,av,step)) return {k:"ok"};
+    }
+  }
+  /* explicit wrong-path reconstructions declared by the step */
+  if(!isMissing(step.miss)){
+    for(var i=0;i<step.miss.length;i++){
+      var alt;
+      try{ alt=step.miss[i][0](); }catch(e){ alt=NaN; }
+      if(isFinite(alt) && agree(v,alt,step)) return {k:"no", m:step.miss[i][1]};
+    }
+  }
+  /* rounded-intermediate reconstructions: correct method, rounded early */
+  if(!isMissing(step.rounded)){
+    for(var j=0;j<step.rounded.length;j++){
+      var rv;
+      try{ rv=step.rounded[j](); }catch(e2){ rv=NaN; }
+      if(isFinite(rv) && near(v,rv,0.0012)){
+        return {k:"okish", m:"Your method is right. You rounded an intermediate line before the end, and the rounding has moved your answer. Carry full precision through the chain and round once, at the boxed answer."};
+      }
+    }
+  }
+  if(target!==0){
+    var r=v/target;
+    for(var q=0;q<RATIO_HINTS.length;q++){
+      if(near(r,RATIO_HINTS[q][0],0.02)) return {k:"no", m:RATIO_HINTS[q][1]};
+    }
+  }
+  return {k:"no", m:GENERIC};
+}
+
+/* Throttle. After 3 consecutive misses on one step the step freezes, and the
+   freeze escalates 15 s, 30 s, 60 s, 60 s... on that step until a check passes.
+   Gentler than a flat penalty on the first two freezes, which is where an
+   honest struggler lives, and far more expensive for blind search, which is
+   where a brute-forcer lives. Escalation resets on any successful check. */
+var COOL_AFTER=3, COOL_STEPS=[15000,30000,60000];
+function coolFor(level){ return COOL_STEPS[level<COOL_STEPS.length?level:COOL_STEPS.length-1]; }
+function coolLeft(id){
+  var t=state.tries[id];
+  if(isMissing(t)||t===null) return 0;
+  if(isMissing(t.until)) return 0;
+  var left=t.until-Date.now();
+  return left>0?left:0;
+}
+function bumpMiss(id){
+  var t=state.tries[id];
+  if(isMissing(t)||t===null) t={n:0,until:0,lvl:0};
+  t.n=(t.n||0)+1;
+  if(t.n>=COOL_AFTER){
+    t.until=Date.now()+coolFor(t.lvl||0);
+    t.lvl=(t.lvl||0)+1;
+    t.n=0;
+  }
+  state.tries[id]=t; save();
+}
+function clearMiss(id){ state.tries[id]={n:0,until:0,lvl:0}; save(); }
+
+/* ---------- house configuration ---------- */
+/* Significant figures accepted on the REPORTED MEAN are DERIVED from the student's
+   own card at render time, never written down here. sfKeys names the measured
+   quantities that enter that house's evidentiary calculation; the weakest of them
+   rules the answer, which is the same rule the warm-up now teaches. Writing the
+   count by hand would be a second copy of a threshold the generator already owns -
+   the exact failure mode that produced three bugs upstream. If Brief A re-emits at
+   different precision this follows it with no edit here. */
+var HOUSES={
+ BeAr:{sfKeys:["aliquot_volume_mL","titrant_molarity_M","titre_mL"], unit:"M", quantity:"concentration of As(III) in Specimen A", ev:"a3d"},
+ CoIn:{sfKeys:["mass_residue_sample_g","mass_arsenic_recovered_g"],  unit:"%", quantity:"experimental mass percent of arsenic",   ev:"b3b"},
+ LiFe:{sfKeys:["aliquot_volume_mL","titrant_molarity_M","titre_mL"], unit:"M", quantity:"c(As) in the Collection 3 digest",       ev:"c3e"},
+ AuRa:{sfKeys:["mass_As2O3_primary_standard_g","titre_mL"],          unit:"M", quantity:"concentration of the vault I₂ bottle", ev:"d3d"},
+ AsH :{sfKeys:["mirror_mass_mg","aliquot_volume_mL"],                unit:"M", quantity:"c(As) in the digest",                    ev:"e3b"}
+};
+function sfRequired(){
+  var keys=HOUSES[rec.house].sfKeys, best=null, i;
+  for(i=0;i<keys.length;i++){
+    var raw=rec.raw_display[keys[i]];
+    if(isMissing(raw)) continue;
+    var n=sigFigs(raw);
+    if(typeof n!=="number") continue;
+    if(best===null||n<best) best=n;
+  }
+  return best===null?4:best;
+}
+
+/* ---------- scaffold blocks (verbatim from the printed problem sets) ---------- */
+var SCAF_ACID=[
+ ["1","Balance every element except O and H. (As is already 1 : 1 — write the skeleton.)","AsO₃³⁻ → AsO₄³⁻"],
+ ["2","Balance <b>O</b> by adding <b>H₂O</b> to the side that needs oxygen. Left has 3 O, right has 4 O.","AsO₃³⁻ + ___ H₂O → AsO₄³⁻"],
+ ["3","Balance <b>H</b> by adding <b>H⁺</b> to the other side.","AsO₃³⁻ + ___ H₂O → AsO₄³⁻ + ___ H⁺"],
+ ["4","Add the charges on each side. Balance them by adding <b>e⁻</b> to the more positive side.","left charge = ____ right charge = ____ → add ____ e⁻"],
+ ["5","Write the finished oxidation half-reaction.","&nbsp;"]
+];
+var SCAF_BASE_EXTRA=["5","<b>BASE CONVERSION.</b> Add <b>the same number of OH⁻ as you have H⁺</b> to <b>both</b> sides. On the H⁺ side, every H⁺ + OH⁻ becomes one H₂O. Then cancel any H₂O appearing on both sides.","___ OH⁻ added each side → ___ H₂O formed → ___ H₂O cancels"];
+var SCAF_RED=[
+ ["1","Balance iodine.","I₂ → ___ I⁻"],
+ ["4","Add the charges. Balance with <b>e⁻</b>.","left = ____ right = ____ → add ____ e⁻"],
+ ["5","Write the finished reduction half-reaction.","&nbsp;"]
+];
+var SCAF_COMBINE=[
+ ["6","Compare the electrons in the two halves. If they are already equal, <b>no multiplication is needed</b> — say so.","ox ____ e⁻ &nbsp; red ____ e⁻ &nbsp; multiplier ____"],
+ ["7","Add the two halves and cancel the electrons.","&nbsp;"],
+ ["8","<b>CHECK.</b> Count each element on both sides. Add the charges on both sides.","As ___/___ &nbsp; O ___/___ &nbsp; H ___/___ &nbsp; I ___/___ &nbsp; charge ___/___"]
+];
+function scafTable(rows){
+  var t=el("table","scaf"), thead=el("thead"), tr=el("tr");
+  ["Stage","What you do","Write it on your sheet"].forEach(function(x){tr.appendChild(el("th",null,x));});
+  thead.appendChild(tr); t.appendChild(thead);
+  var tb=el("tbody");
+  rows.forEach(function(r){
+    var row=el("tr");
+    row.appendChild(el("td","st",r[0]));
+    row.appendChild(h("td",null,r[1]));
+    row.appendChild(h("td",null,"<span style='font-family:var(--mono);font-size:12.5px'>"+r[2]+"</span>"));
+    tb.appendChild(row);
+  });
+  t.appendChild(tb); return t;
+}
+
+/* rounding to n significant figures - used only to reconstruct a student's
+   round-early path so the hint can name that misstep. Never used to make
+   or store a target. */
+function rsf(x,n){
+  if(!isFinite(x)||x===0) return x;
+  var m=Math.pow(10,n-1-Math.floor(Math.log10(Math.abs(x))));
+  return Math.round(x*m)/m;
+}
+
+var LBL={
+  aliquot_volume_mL:["aliquot volume","mL"],
+  titrant_molarity_M:["titrant concentration, as printed on this card","M"],
+  certified_label_M:["certified Council stock, label figure","M"],
+  burette_initial_mL:["burette, initial reading","mL"],
+  burette_final_mL:["burette, final reading","mL"],
+  titre_mL:["titre, as logged","mL"],
+  mass_residue_sample_g:["mass of residue taken","g"],
+  mass_arsenic_recovered_g:["mass of arsenic recovered","g"],
+  mass_As2O3_primary_standard_g:["mass of As₂O₃ weighed out","g"],
+  digest_total_volume_mL:["total digest volume","mL"],
+  tube_mass_before_g:["ignition tube, mass BEFORE","g"],
+  tube_mass_after_g:["ignition tube, mass AFTER","g"],
+  mirror_mass_mg:["mass of the mirror, as logged","mg"]
+};
+var CTXLBL={
+  method:"method", medium:"medium", pipette:"pipette", titrant:"titrant", indicator:"indicator",
+  balance:"balance", collection:"collection number", candidate_species:"candidate species",
+  species_note:"note on formulae", reaction_1:"generator reaction, as printed on the worksheet",
+  reaction_2:"heated-tube step, as printed on the worksheet"
+};
+
+/* =====================  THE SETS  ===================== */
+function warmup(){
+  return {id:"W", title:"Warm-up — the Council reference ampoule",
+    tag:"Target time 2 minutes · identical on all thirty sheets",
+    blocks:[
+    {t:"p",html:"Before any specimen is opened, every bench in this inquiry is calibrated against a single sealed reference: <b>Council Reference Ampoule 26-08-1447-REF</b>, certified to contain <b>0.396 g of arsenic(III) oxide, As₂O₃</b>, the primary standard this Council has used for iodine titrations since the founding."},
+    {t:"p",html:"The Council's own analyst dissolved the ampoule, and the certified iodine stock solution delivered <b>80.00 mL</b> to reach the endpoint. In this reaction <b>1 mol I₂ reacts with 1 mol As(III)</b> — a ratio you will prove for yourself in Problem 4."},
+    {t:"num",id:"w1",q:"<b>W1.</b> Molar mass of As₂O₃.",unit:"g/mol",tol:0.0006,
+      tgt:function(){return M_As2O3;},
+      miss:[[function(){return mm({As:1,O:3});},"Count the atoms in the formula again, one element at a time, before you multiply anything."],
+            [function(){return mm({As:2,O:1});},"Count the atoms in the formula again, one element at a time, before you multiply anything."]]},
+    {t:"num",id:"w2",q:"<b>W2.</b> Convert the certified mass to moles of As₂O₃.",unit:"mol",
+      tgt:function(){return REF_MASS/M_As2O3;},
+      miss:[[function(){return REF_MASS*M_As2O3;},"Moles and grams are related by a division here. Write the conversion factor as a fraction with its units and see which way up it has to be for grams to cancel."]]},
+    {t:"num",id:"w3",q:"<b>W3.</b> Each formula unit of As₂O₃ carries two arsenic atoms. How many moles of As(III) did the ampoule deliver?",unit:"mol",
+      tgt:function(){return 2*REF_MASS/M_As2O3;},
+      miss:[[function(){return REF_MASS/M_As2O3/2;},"The subscript in the formula tells you how many arsenic atoms come with each formula unit. Decide whether that makes the arsenic count larger or smaller than the number of formula units."]]},
+    {t:"num",id:"w4",q:"<b>W4.</b> Using the 1 : 1 ratio and the 80.00 mL endpoint, compute the <b>certified concentration of the Council iodine stock</b>, with correct significant figures.",unit:"M",
+      /* the count is read off the weakest given, not written down here */
+      sfReq:function(){return sigFigs(String(REF_MASS));},
+      tgt:function(){return certI2();},
+      miss:[[function(){return 2*REF_MASS/M_As2O3/REF_ENDPOINT;},"Check the volume unit before you divide. Molarity is defined per litre."]]},
+    {t:"note",html:"<b>Significant figures matter here and they are graded.</b> Look at your inputs before you round: the burette reads 80.00 mL to four figures, but the certificate gives the mass to <b>three</b>. The weakest input rules the answer. Every number you carry out of this warm-up inherits that limit."},
+    {t:"warn",html:"<b>⚠ RANGE CHECK — do this before you go on.</b><br><b>Your W4 must fall between 0.04 and 0.06 M.</b> If it does not, <b>stop and find the error before you touch your evidence.</b> The most common cause is W3: there are <b>two</b> arsenic atoms in every As₂O₃, and an answer that is exactly half of where it should be means that 2 never got used.<br><br><i>This band applies to <b>W4 only</b>. Numbers you compute later in your house set will be different — that is expected, and this band is not a check on them.</i>"},
+    {t:"note",html:"<b>▣ CARRY THIS FORWARD.</b> Copy your W4 into the box at the top of your house set. <b>Every house uses it.</b><br><br><b>Check it against the range above — that is the check that works on every sheet.</b> Any concentration printed on your evidence card belongs to a <b>specific step in your own house's problems</b>. Use each one where its own problem tells you to, and do not assume any of them is meant to equal your W4 — most of them are not."},
+    {t:"rub",text:"Rubric line — W1–W4: molar-mass arithmetic · conversion chain shown · units carried · significant figures · boxed answer."}
+  ]};
+}
+
+function titreBlocks(pfx, molFn, aliqKey){
+  return [
+    {t:"num",id:pfx+"a",q:"<b>Titre</b> = final − initial.",unit:"mL",tol:0.004,
+      tgt:function(){return R("burette_final_mL")-R("burette_initial_mL");},
+      miss:[[function(){return R("burette_final_mL");},"A burette is read twice. The delivered volume is the difference between the two readings, not either reading on its own."],
+            [function(){return R("burette_final_mL")+R("burette_initial_mL");},"A burette is read twice. Decide which operation on those two readings gives the volume that actually left the burette."]]}
+  ];
+}
+
+function halfReactionSection(letter, medium, extras){
+  var rows=SCAF_ACID.slice();
+  var title="Problem 4 — why the ratio is 1 : 1";
+  var blocks=[
+    {t:"untimed"},
+    {t:"p",html:"<b>You are not expected to have balanced a half-reaction before.</b> Every step is printed. Work straight down your sheet. This problem is <i>taught content</i>: finishing it is the whole requirement."},
+    {t:"p",html:(letter==="E"?"Your bench did not only run Marsh tests. The worksheet's reverse side logs the <b>serial iodimetric determinations</b> — the titrations that tracked the arsenic across the three collections. This is the reaction those titrations ran on, and it is the same one every other house is balancing today.<br><br>":"")+"<b>Your medium: "+medium+".</b> Arsenite, AsO₃³⁻, is oxidised to arsenate, AsO₄³⁻. Iodine, I₂, is reduced to iodide, I⁻."},
+    {t:"scaf",title:"► OXIDATION HALF",rows:(medium==="BASIC"?SCAF_ACID.concat([SCAF_BASE_EXTRA,["6","Finished <b>basic</b> oxidation half-reaction.","&nbsp;"]]):SCAF_ACID)},
+    {t:"scaf",title:"► REDUCTION HALF",rows:SCAF_RED},
+    {t:"scaf",title:"► COMBINE",rows:SCAF_COMBINE},
+    {t:"p",html:"<b>Arithmetic checks for the stages that carry a number.</b> Everything else on this problem is read from your sheet."},
+    {t:"int",id:letter+"4h2o",q:"Stage 2 — how many H₂O did you add?",tgt:function(){return 1;},
+      miss:[[function(){return 0;},"Count the oxygens on each side of the skeleton before you decide. They are not equal yet."]]},
+    {t:"int",id:letter+"4hplus",q:"Stage 3 — how many H⁺ did you add?",tgt:function(){return 2;},
+      miss:[[function(){return 1;},"Count the hydrogens that the water you added in stage 2 brings with it, and put every one of them on the other side."]]},
+    {t:"int",id:letter+"4eox",q:"Stage 4 — how many e⁻ did the oxidation half need?",tgt:function(){return 2;}},
+    {t:"int",id:letter+"4ered",q:"Reduction half — how many e⁻?",tgt:function(){return 2;}},
+    {t:"int",id:letter+"4mult",q:"Stage 6 — the multiplier.",tgt:function(){return 1;}},
+    {t:"text",id:letter+"4ratio",q:"<b>(f)</b> State the mole ratio <b>I₂ : AsO₃³⁻</b> as you derived it. (Recorded for your sheet — written work is what is read.)",ph:"__ : __"}
+  ];
+  if(medium==="BASIC"){
+    blocks.splice(8,0,{t:"int",id:letter+"4oh",q:"Base conversion — how many OH⁻ did you add to each side?",tgt:function(){return 2;},
+      miss:[[function(){return 1;},"You add exactly as many OH⁻ as you have H⁺. Count the H⁺ you wrote in stage 3."]]});
+  }
+  if(!isMissing(extras)){ blocks=blocks.concat(extras); }
+  blocks.push({t:"rub",text:"Rubric line — Problem 4: every stage box filled · atom check written · charge check written · ratio boxed. Taught content; completing the stages is the requirement."});
+  return {id:letter+"4",title:title,tag:"Objective 4 — taught, fully scaffolded",untimed:true,blocks:blocks};
+}
+
+function setBeAr(){return [];}
+
+/*<<SET:CoIn>>*/
+function setCoIn(){
+ var s=[];
+ s.push({id:"B1",title:"B1 — The three candidates",tag:"Objective 2",blocks:[
+  {t:"p",html:"The residue is unlabelled. The Council chemist has narrowed it to three compounds consistent with the bench's other glassware. Name each."},
+  {t:"text",id:"b1a",q:"NaAsO₂",ph:"name"},
+  {t:"text",id:"b1b",q:"Na₃AsO₄",ph:"name"},
+  {t:"text",id:"b1c",q:"As₂O₃",ph:"name"},
+  {t:"text",id:"b1d",q:"<b>(d)</b> Two of these three contain the <b>same</b> oxyanion family root. State which two, and what suffix distinguishes them.",ph:"",rows:3},
+  {t:"recnote"},
+  {t:"rub",text:"Rubric line — B1: cation identified · anion identified · -ite/-ate suffix applied · Roman numeral used where required."}]});
+ s.push({id:"B2",title:"B2 — Oxidation numbers",tag:"Objective 4",blocks:[
+  {t:"p",html:"Determine the oxidation number of arsenic in <b>each</b> of the three candidates. Show the sum for each on your sheet."},
+  {t:"int",id:"b2a",q:"As in NaAsO₂ (with sign).",signed:true,tgt:function(){return oxn(0,[[1,1],[2,-2]],1);}},
+  {t:"int",id:"b2b",q:"As in Na₃AsO₄ (with sign).",signed:true,tgt:function(){return oxn(0,[[3,1],[4,-2]],1);}},
+  {t:"int",id:"b2c",q:"As in As₂O₃ (with sign).",signed:true,tgt:function(){return oxn(0,[[3,-2]],2);},
+   miss:[[function(){return oxn(0,[[3,-2]],1);},"There is more than one atom of the element you are solving for in this formula. The sum covers all of them; the oxidation number is per atom."]]},
+  {t:"text",id:"b2d",q:"<b>(d)</b> Which candidate is the <b>most oxidised</b> form of arsenic on this list?",ph:"formula"},
+  {t:"rub",text:"Rubric line — B2: rule cited · assignment shown for every element · sum equals the overall charge · three boxed values with signs."}]});
+ s.push({id:"B3",title:"B3 — Identify the residue by percent composition",tag:"Objectives 1 and 3 · ▶ EVIDENTIARY",blocks:[
+  {t:"p",html:"<b>(a)</b> Compute the <b>theoretical mass percent of arsenic</b> in each candidate, to four significant figures. <i>(You already have the molar mass of As₂O₃ from the warm-up — do not recompute it.)</i>"},
+  {t:"num",id:"b3a1",q:"% As in NaAsO₂",unit:"%",tol:0.0015,tgt:function(){return 100*AM.As/M_NaAsO2;},
+   miss:[[function(){return 100*AM.As/(AM.As+2*AM.O);},"Every atom in the formula unit belongs in the denominator, the cation included."]]},
+  {t:"num",id:"b3a2",q:"% As in Na₃AsO₄",unit:"%",tol:0.0015,tgt:function(){return 100*AM.As/M_Na3AsO4;},
+   miss:[[function(){return 100*AM.As/(AM.Na+AM.As+4*AM.O);},"Check the subscript on the cation before you add the molar mass up."]]},
+  {t:"num",id:"b3a3",q:"% As in As₂O₃",unit:"%",tol:0.0015,tgt:function(){return 100*2*AM.As/M_As2O3;},
+   miss:[[function(){return 100*AM.As/M_As2O3;},"The numerator is the mass of <i>all</i> the atoms of that element in one formula unit."]]},
+  {t:"p",html:"<b>(a·ii) Rule one out on evidence, before you do any matching.</b> A flame test on the residue gave a strong, persistent <b>yellow</b> emission. Which of the three candidates contains <b>no sodium</b>, and is therefore excluded by that observation? Strike it from your table."},
+  {t:"text",id:"b3aii",q:"Excluded by flame test:",ph:"formula"},
+  {t:"p",html:"<b>(b)</b> Your replicate was digested and the arsenic recovered gravimetrically."},
+  {t:"givens"},
+  {t:"num",id:"b3b",q:"<b>(b)</b> Experimental mass percent of arsenic in <i>your</i> replicate.",unit:"%",evid:true,tol:0.0015,
+   tgt:function(){return 100*R("mass_arsenic_recovered_g")/R("mass_residue_sample_g");},
+   miss:[[function(){return 100*R("mass_residue_sample_g")/R("mass_arsenic_recovered_g");},"Percent composition is the part over the whole. Decide which of your two masses is the part."],
+         [function(){return R("mass_arsenic_recovered_g")/R("mass_residue_sample_g");},"Percent and fraction are not the same number. Check where the ×100 belongs."]]},
+  {t:"text",id:"b3c",q:"<b>(c)</b> Which surviving candidate does your residue match? State the formula and the size of the gap to the other one. (Recorded — not checked here.)",ph:"",rows:3},
+  {t:"text",id:"b3c2",q:"Oxidation state of As in the candidate you matched.",ph:""},
+  {t:"recnote"},
+  {t:"rub",text:"Rubric line — B3: molar masses computed · percent formula set up · experimental percent computed · significant figures · match stated with the numerical gap · boxed answers."}]});
+ s.push(halfReactionSection("B","ACIDIC",null));
+ return s;
+}
+
+/*<<ENDSET:CoIn>>*/
+function setLiFe(){return [];}
+
+function setAuRa(){return [];}
+
+function setAsH(){return [];}
+
+var SETS={BeAr:setBeAr,CoIn:setCoIn,LiFe:setLiFe,AuRa:setAuRa,AsH:setAsH};
+
+/* =====================  RENDERING  ===================== */
+function evidenceCard(){
+  var c=el("div","card");
+  c.appendChild(h("div",null,"<span class='stamp seal'>Evidence card</span> <span class='stamp blue'>"+escAttr(rec.specimen_code)+"</span>"));
+  c.appendChild(el("h3",null,rec.specimen_label));
+  var t=el("table","kv"), tb=el("tbody"), k;
+  for(k in rec.raw_display){
+    if(!Object.prototype.hasOwnProperty.call(rec.raw_display,k)) continue;
+    var lab=Object.prototype.hasOwnProperty.call(LBL,k)?LBL[k]:[k.replace(/_/g," "),""];
+    var tr=el("tr");
+    tr.appendChild(el("th",null,lab[0]+(lab[1]===""?"":" ("+lab[1]+")")));
+    /* the string is printed exactly as the generator wrote it. Never reformat:
+       the significant figures in it are a graded answer downstream. */
+    tr.appendChild(el("td",null,rec.raw_display[k]));
+    tb.appendChild(tr);
+  }
+  t.appendChild(tb); c.appendChild(t);
+
+  var ctx=el("div","card tight");
+  ctx.appendChild(h("div","small","<b>Bench conditions, as logged</b>"));
+  var t2=el("table","kv"), tb2=el("tbody"), kk;
+  for(kk in rec.raw_context){
+    if(!Object.prototype.hasOwnProperty.call(rec.raw_context,kk)) continue;
+    var v=rec.raw_context[kk];
+    var tr2=el("tr");
+    tr2.appendChild(el("th",null,Object.prototype.hasOwnProperty.call(CTXLBL,kk)?CTXLBL[kk]:kk.replace(/_/g," ")));
+    tr2.appendChild(el("td",null, Object.prototype.toString.call(v)==="[object Array]" ? v.join(", ") : String(v)));
+    tb2.appendChild(tr2);
+  }
+  t2.appendChild(tb2); ctx.appendChild(t2); c.appendChild(ctx);
+
+  var cus=el("div","card tight");
+  cus.appendChild(h("div","small","<b>Chain of custody</b> &mdash; compare each line against the acceptance criterion beside it. Whether a criterion is met, and what follows from that, is your house's decision, not this page's."));
+  var t3=el("table","kv"), th=el("thead"), htr=el("tr");
+  ["line","as received","acceptance criterion"].forEach(function(x){htr.appendChild(el("th",null,x));});
+  th.appendChild(htr); t3.appendChild(th);
+  var tb3=el("tbody"), key, seen={};
+  for(key in rec.custody){
+    if(!Object.prototype.hasOwnProperty.call(rec.custody,key)) continue;
+    seen[key]=true;
+    var tr3=el("tr");
+    tr3.appendChild(el("th",null,key.replace(/_/g," ")));
+    tr3.appendChild(el("td",null,String(rec.custody[key])));
+    var crit=Object.prototype.hasOwnProperty.call(rec.custody_acceptance_criteria,key)?rec.custody_acceptance_criteria[key]:"—";
+    tr3.appendChild(el("td",null,String(crit)));
+    tb3.appendChild(tr3);
+  }
+  for(key in rec.custody_acceptance_criteria){
+    if(!Object.prototype.hasOwnProperty.call(rec.custody_acceptance_criteria,key)) continue;
+    if(Object.prototype.hasOwnProperty.call(seen,key)) continue;
+    var tr4=el("tr");
+    tr4.appendChild(el("th",null,key.replace(/_/g," ")));
+    tr4.appendChild(el("td",null,"—"));
+    tr4.appendChild(el("td",null,String(rec.custody_acceptance_criteria[key])));
+    tb3.appendChild(tr4);
+  }
+  t3.appendChild(tb3); cus.appendChild(t3);
+  var note=el("p","small"); note.style.marginBottom="0";
+  note.appendChild(el("b",null,"Intake note: "));
+  note.appendChild(document.createTextNode(rec.custody_note));
+  cus.appendChild(note);
+  c.appendChild(cus);
+  return c;
+}
+function escAttr(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");}
+
+function mkInput(id,ph,rows){
+  var e;
+  if(isMissing(rows)||rows<=1){ e=el("input"); e.type="text"; e.setAttribute("inputmode","text"); }
+  else { e=el("textarea"); e.rows=rows; }
+  e.id="f_"+id; e.autocomplete="off"; e.spellcheck=false;
+  if(!isMissing(ph)) e.placeholder=ph;
+  var prev=state.ans[id];
+  if(!isMissing(prev)) e.value=prev;
+  e.addEventListener("input",function(){ state.ans[id]=e.value; save(); updateProgress(); });
+  return e;
+}
+
+function numBlock(b){
+  var box=el("div");
+  box.appendChild(h("label","q",b.q+(b.evid===true?" <span class='stamp seal'>evidentiary</span>":"")));
+  var row=el("div","row");
+  var inp=mkInput(b.id, b.t==="int"?"whole number":"value");
+  row.appendChild(inp);
+  if(!isMissing(b.unit)) row.appendChild(el("span","unit",b.unit));
+  var btn=el("button","ghost sm","Check");
+  row.appendChild(btn);
+  box.appendChild(row);
+  var fb=el("div"); box.appendChild(fb);
+  function paint(res){
+    fb.textContent=""; fb.className="";
+    if(isMissing(res)) return;
+    var d=el("div","fb "+res.cls, res.msg);
+    fb.appendChild(d);
+  }
+  if(state.done[b.id]===true) paint({cls:"ok",msg:"✓ Checks out. Box it on your sheet."});
+  function run(){
+    var left=coolLeft(b.id);
+    if(left>0){
+      paint({cls:"wait",msg:"Take this one back to paper for "+Math.ceil(left/1000)+" s. Rewrite the setup line — what you want, what you have, the factor between them — before the next attempt."});
+      btn.disabled=true;
+      setTimeout(function(){ btn.disabled=false; paint(null); }, left+50);
+      return;
+    }
+    var raw=inp.value;
+    var v=parseNum(raw);
+    var target;
+    try{ target=b.tgt(); }catch(e){ target=NaN; }
+    if(b.t==="int"){
+      if(!isFinite(v)||Math.abs(v-Math.round(v))>1e-9){ paint({cls:"no",msg:"Enter a whole number, with its sign if it has one."}); return; }
+      if(Math.round(v)===Math.round(target)){
+        state.done[b.id]=true; clearMiss(b.id); save(); updateProgress();
+        paint({cls:"ok",msg:"✓ Checks out. Box it on your sheet."}); return;
+      }
+      var mm2=null;
+      if(!isMissing(b.miss)){
+        for(var i=0;i<b.miss.length;i++){
+          var a; try{a=b.miss[i][0]();}catch(e2){a=NaN;}
+          if(isFinite(a)&&Math.round(a)===Math.round(v)){ mm2=b.miss[i][1]; break; }
+        }
+      }
+      state.done[b.id]=false; bumpMiss(b.id); updateProgress();
+      paint({cls:"no",msg:(mm2===null?GENERIC:mm2)}); return;
+    }
+    var res=judge(v,target,b);
+    if(res.k==="ok"||res.k==="okish"){
+      state.done[b.id]=true; clearMiss(b.id); save(); updateProgress();
+      var sf=sigFigs(raw);
+      if(!isMissing(b.sfReq)){
+        var need=b.sfReq();
+        if(typeof sf==="object"&&sf!==null){
+          state.done[b.id]=false; updateProgress();
+          paint({cls:"wait",msg:"Written that way the number of significant figures is ambiguous. Rewrite it in scientific notation so the figures you are claiming are unambiguous."}); return;
+        }
+        if(typeof sf==="number"&&typeof need==="number"&&sf!==need){
+          state.done[b.id]=false; bumpMiss(b.id); updateProgress();
+          paint({cls:"no",msg:"Your arithmetic is right; the significant figures are not. Look at the inputs again and find the weakest one \u2014 it rules the answer. Do not carry more figures out of this step than went into it, and do not carry fewer."}); return;
+        }
+      }
+      var msg="✓ Checks out. Box it on your sheet.";
+      if(res.k==="okish") msg="✓ "+res.m;
+      if(typeof sf==="number" && (sf<3||sf>5)){
+        msg+="  —  Look again at the significant figures before you box it. This page is not grading them here; your sheet is.";
+      }
+      paint({cls:"ok",msg:msg}); return;
+    }
+    state.done[b.id]=false; bumpMiss(b.id); updateProgress();
+    paint({cls:"no",msg:res.m});
+  }
+  btn.addEventListener("click",run);
+  inp.addEventListener("keydown",function(ev){ if(ev.key==="Enter"){ ev.preventDefault(); run(); } });
+  return box;
+}
+
+function renderBlock(b){
+  if(b.t==="p") return h("p",null,b.html);
+  if(b.t==="note"){ return h("div","fb note",b.html); }
+  if(b.t==="warn"){ return h("div","warnbanner",b.html); }
+  if(b.t==="pre"){ var p=el("pre","eq"); p.textContent=b.text; return p; }
+  if(b.t==="rub") return el("div","rub",b.text);
+  if(b.t==="recnote") return h("div","small","<i>Recorded, not checked. Nomenclature and wording are read off your paper sheet — this page checks arithmetic only.</i>");
+  if(b.t==="untimed") return h("div","warnbanner","<span class='stamp untimed'>Untimed &middot; not due today</span> <b>Work this one whenever you have room.</b> It is taught content, not assessment — the half-reaction is the piece that most deserves unhurried attention, so it gets it. <b>Your evidence line is complete after Problem 3</b>; nothing your house needs waits on Problem 4. Hand it in at the <b>start of the next session</b>.");
+  if(b.t==="givens") return evidenceGivens();
+  if(b.t==="scaf"){
+    var d=el("details"); d.appendChild(el("summary",null,b.title+"  (tap to open)"));
+    var body=el("div","body"); body.appendChild(scafTable(b.rows)); d.appendChild(body); return d;
+  }
+  if(b.t==="num"||b.t==="int"){ var bb={}; for(var k in b){ if(Object.prototype.hasOwnProperty.call(b,k)) bb[k]=b[k]; } return numBlock(bb); }
+  if(b.t==="text"){
+    var box=el("div");
+    box.appendChild(h("label","q",b.q));
+    box.appendChild(mkInput(b.id,b.ph,isMissing(b.rows)?1:b.rows));
+    return box;
+  }
+  return el("div");
+}
+function evidenceGivens(){
+  var c=el("div","card tight");
+  c.appendChild(h("div","small","<b>From your evidence card</b> — copy these onto your sheet exactly as printed."));
+  var t=el("table","kv"), tb=el("tbody"), k;
+  for(k in rec.raw_display){
+    if(!Object.prototype.hasOwnProperty.call(rec.raw_display,k)) continue;
+    var lab=Object.prototype.hasOwnProperty.call(LBL,k)?LBL[k]:[k.replace(/_/g," "),""];
+    var tr=el("tr");
+    tr.appendChild(el("th",null,lab[0]+(lab[1]===""?"":" ("+lab[1]+")")));
+    tr.appendChild(el("td",null,rec.raw_display[k]));
+    tb.appendChild(tr);
+  }
+  t.appendChild(tb); c.appendChild(t); return c;
+}
+
+/* =====================  POOL & TREAT  ===================== */
+function statsSection(){
+  var cfg=HOUSES[rec.house];
+  var sec=el("section");
+  sec.appendChild(el("h2",null,"Pool & treat — the house stats block"));
+  sec.appendChild(h("p",null,"Your five housemates have run <b>their own replicate</b> of the same specimen. Pool the six values, then — <b>on your own sheet</b> — compute the <b>mean</b> and the <b>standard deviation</b>, and report the mean to the correct number of significant figures."));
+  sec.appendChild(h("div","fb note","If one of the six sits apart from the others, your house decides whether it stays in. <b>A value is rejected only on documented grounds</b> — read the chain-of-custody block on the evidence card before anyone votes. “It looks wrong” is not grounds, and another house may say so in front of the room. This page will not tell you which value to drop and will not decide it for you."));
+  var card=el("div","card");
+  card.appendChild(h("div","small","<b>The six pooled values</b> ("+cfg.quantity+", in "+cfg.unit+"). Tick <i>exclude</i> only if your house has written down the grounds."));
+  var i;
+  for(i=0;i<6;i++){
+    (function(idx){
+      var r=el("div","statrow");
+      r.appendChild(el("span","idx",String(idx+1)+"."));
+      var inp=el("input"); inp.type="text"; inp.id="sv_"+idx; inp.autocomplete="off"; inp.spellcheck=false;
+      inp.placeholder="value "+(idx+1);
+      var pv=state.stats.v[idx]; if(!isMissing(pv)) inp.value=pv;
+      inp.addEventListener("input",function(){ state.stats.v[idx]=inp.value; save(); });
+      r.appendChild(inp);
+      var lab=el("label","ex");
+      var cb=el("input"); cb.type="checkbox"; cb.id="sx_"+idx;
+      cb.checked=(state.stats.x[idx]===true);
+      cb.addEventListener("change",function(){ state.stats.x[idx]=cb.checked; save(); });
+      lab.appendChild(cb); lab.appendChild(document.createTextNode("exclude"));
+      r.appendChild(lab);
+      card.appendChild(r);
+    })(i);
+  }
+  card.appendChild(h("label","q","If your house excluded a value, write the documented grounds here — the custody line it fails, in words."));
+  var reason=el("textarea"); reason.rows=3; reason.id="sreason";
+  if(!isMissing(state.stats.reason)) reason.value=state.stats.reason;
+  reason.addEventListener("input",function(){ state.stats.reason=reason.value; save(); });
+  card.appendChild(reason);
+  sec.appendChild(card);
+
+  var out=el("div","card");
+  out.appendChild(h("div","small","<b>Your mean and standard deviation.</b> Compute them on your sheet, then enter them. Significant figures on the reported mean are checked."));
+  var mrow=el("div","row");
+  var mi=el("input"); mi.type="text"; mi.id="smean"; mi.placeholder="mean"; mi.autocomplete="off"; mi.spellcheck=false;
+  if(!isMissing(state.stats.mean)) mi.value=state.stats.mean;
+  mi.addEventListener("input",function(){ state.stats.mean=mi.value; save(); });
+  mrow.appendChild(mi); mrow.appendChild(el("span","unit",cfg.unit));
+  var mb=el("button","ghost sm","Check mean"); mrow.appendChild(mb);
+  out.appendChild(h("label","q","<b>Mean</b> of the retained values, reported to the correct number of significant figures."));
+  out.appendChild(mrow);
+  var mfb=el("div"); out.appendChild(mfb);
+
+  var srow=el("div","row");
+  var si=el("input"); si.type="text"; si.id="ssd"; si.placeholder="standard deviation"; si.autocomplete="off"; si.spellcheck=false;
+  if(!isMissing(state.stats.sd)) si.value=state.stats.sd;
+  si.addEventListener("input",function(){ state.stats.sd=si.value; save(); });
+  srow.appendChild(si); srow.appendChild(el("span","unit",cfg.unit));
+  var sb=el("button","ghost sm","Check SD"); srow.appendChild(sb);
+  out.appendChild(h("label","q","<b>Standard deviation</b> of the retained values."));
+  out.appendChild(srow);
+  var sfb=el("div"); out.appendChild(sfb);
+  var confirmed=el("div"); out.appendChild(confirmed);
+  sec.appendChild(out);
+
+  function retained(){
+    var xs=[],k;
+    for(k=0;k<6;k++){
+      if(state.stats.x[k]===true) continue;
+      var v=parseNum(state.stats.v[k]);
+      if(isFinite(v)) xs.push(v);
+    }
+    return xs;
+  }
+  function paintFb(node,cls,msg){ node.textContent=""; node.appendChild(el("div","fb "+cls,msg)); }
+  function showConfirmed(){
+    confirmed.textContent="";
+    if(state.done["__mean"]===true && state.done["__sd"]===true){
+      var d=el("div","fb ok");
+      d.appendChild(el("b",null,"Both check out. "));
+      d.appendChild(document.createTextNode("Reported mean "+state.stats.mean+" "+cfg.unit+" · s = "+state.stats.sd+" "+cfg.unit+
+        " · n retained = "+retained().length+". Transfer these to your house card and to your sheet."));
+      confirmed.appendChild(d);
+    }
+  }
+  mb.addEventListener("click",function(){
+    var xs=retained();
+    if(xs.length<2){ paintFb(mfb,"no","Enter the pooled values first — at least two of them have to be readable numbers."); return; }
+    if(state.stats.x.indexOf(true)>=0 && String(state.stats.reason).replace(/\s/g,"")===""){
+      paintFb(mfb,"wait","You have excluded a value but written no grounds. Write the custody line it fails, in words, before this is checked. A value is rejected only on documented grounds."); return;
+    }
+    /* No throttle here. The mean and the SD are computed from the six values the
+       student typed in themselves; there is no hidden target to search for, so a
+       freeze would add friction and protect nothing. */
+    var s=0,i2; for(i2=0;i2<xs.length;i2++) s+=xs[i2];
+    var mean=s/xs.length;
+    var v=parseNum(state.stats.mean);
+    if(!isFinite(v)){ paintFb(mfb,"no","Enter your mean as a number. Scientific notation is fine."); return; }
+    if(!near(v,mean,0.004)){
+      var msg=GENERIC, sfi;
+      /* right arithmetic, wrong precision: rounding the mean to too few figures
+         moves it further than the arithmetic tolerance, so this has to be caught
+         here or the student gets told nothing useful. */
+      for(sfi=1;sfi<=8;sfi++){ if(near(v,rsf(mean,sfi),1e-9)){
+        state.done["__mean"]=false; save();
+        paintFb(mfb,"no","Your arithmetic is right; the significant figures are not. A mean cannot be more precise \u2014 or less precise \u2014 than the measurements behind it. Find the least precise quantity that went into your value and let it set the count.");
+        showConfirmed(); return; } }
+      if(near(v,s,0.004)) msg="That is the total of the values you retained, not their mean.";
+      else if(xs.length!==6 && near(v,s/6,0.004)) msg="Check the divisor. It is the number of values you actually retained, not the number of investigators in the house.";
+      else if(xs.length===6){
+        var alt=0,c2=0,j;
+        for(j=0;j<6;j++){ var vv=parseNum(state.stats.v[j]); if(isFinite(vv)){alt+=vv;c2++;} }
+        if(c2>0 && near(v,alt/(c2-1),0.004)) msg="Check the divisor. A mean divides by the number of values; it is the standard deviation that uses one less than that.";
+      }
+      state.done["__mean"]=false; save(); paintFb(mfb,"no",msg); showConfirmed(); return;
+    }
+    var sf=sigFigs(state.stats.mean);
+    if(sf!==null && typeof sf==="object"){
+      paintFb(mfb,"wait","Written that way the number of significant figures is ambiguous. Rewrite it in scientific notation so the figures you are claiming are unambiguous, then check again."); return;
+    }
+    if(typeof sf==="number" && sf!==sfRequired()){
+      state.done["__mean"]=false; save();
+      paintFb(mfb,"no","Your arithmetic is right; the significant figures are not. A mean cannot be more precise than the measurements behind it — find the least precise quantity that went into your value and let it set the count. Do not add figures a burette or a balance did not give you.");
+      showConfirmed(); return;
+    }
+    state.done["__mean"]=true; save();
+    paintFb(mfb,"ok","✓ Mean checks out, and the significant figures are right.");
+    showConfirmed();
+  });
+  sb.addEventListener("click",function(){
+    var xs=retained();
+    if(xs.length<2){ paintFb(sfb,"no","Enter the pooled values first — at least two of them have to be readable numbers."); return; }
+    var n=xs.length,s=0,i3;
+    for(i3=0;i3<n;i3++) s+=xs[i3];
+    var m=s/n, q=0;
+    for(i3=0;i3<n;i3++) q+=(xs[i3]-m)*(xs[i3]-m);
+    var sd=Math.sqrt(q/(n-1)), sdp=Math.sqrt(q/n);
+    var v=parseNum(state.stats.sd);
+    if(!isFinite(v)){ paintFb(sfb,"no","Enter your standard deviation as a number."); return; }
+    if(near(v,sd,0.02)){
+      state.done["__sd"]=true; save();
+      paintFb(sfb,"ok","✓ Standard deviation checks out."); showConfirmed(); return;
+    }
+    var msg=GENERIC;
+    if(near(v,sdp,0.02)) msg="Check the divisor inside the square root. For a set of replicate measurements it is one less than the number of values.";
+    else if(near(v,q/(n-1),0.02)) msg="That is the variance. The standard deviation is the square root of it.";
+    else if(near(v,sd*sd,0.02)) msg="That is the variance. The standard deviation is the square root of it.";
+    state.done["__sd"]=false; save();
+    paintFb(sfb,"no",msg); showConfirmed();
+  });
+  showConfirmed();
+
+  sec.appendChild(el("div","rub","Rubric line — stats block: six values transcribed · mean computed · standard deviation computed · significant figures on the reported mean · retain/reject decision with the stated reason written out."));
+  return sec;
+}
+
+/* =====================  BENCH ASSEMBLY  ===================== */
+var EVLINE={
+ BeAr:["Specimen A","identity","oxidation state of As","concentration (M)","origin as bagged"],
+ CoIn:["Specimen B","experimental % As","identity","oxidation state of As","where it was collected"],
+ LiFe:["Specimen C","collection number","c(As) (M)","oxidation state of As","medium of assay"],
+ AuRa:["Specimen D","c(vault I₂) (M)","% difference vs certified","oxidation number of I in the titrant","inventory line 23, transcribed"],
+ AsH :["Specimen E","n(As) in the mirror (mol)","c(As) in the digest (M)","oxidation state of As in As₂O₃","oxidation state of As in AsH₃","balanced generator equation"]
+};
+function evidenceLineSection(){
+  var sec=el("section");
+  sec.appendChild(el("h2",null,"▣ House "+rec.house+" — evidence line"));
+  sec.appendChild(h("p",null,"Transfer to the house card. <b>Do not write what you think it means — the chair is for that.</b>"));
+  var card=el("div","card");
+  var f=EVLINE[rec.house],i;
+  for(i=1;i<f.length;i++){
+    card.appendChild(h("label","q",f[i]));
+    card.appendChild(mkInput("ev_"+rec.house+"_"+i,"",f[i].length>28?2:1));
+  }
+  sec.appendChild(card);
+  return sec;
+}
+function updateProgress(){
+  var ids=[],n=0,d=0,k;
+  for(k in state.done){ if(Object.prototype.hasOwnProperty.call(state.done,k)){ n++; if(state.done[k]===true) d++; } }
+  var bp=$("barProg");
+  if(bp!==null) bp.textContent=d+" checked";
+}
+function buildBench(){
+  var m=$("bench");
+  m.textContent="";
+  var head=el("div","card");
+  head.appendChild(h("div",null,"<span class='stamp blue'>House "+escAttr(rec.house)+"</span> <span class='stamp seal'>"+escAttr(rec.specimen_code)+"</span>"));
+  var nm=el("h3",null,rec.name); nm.style.margin="8px 0 2px"; head.appendChild(nm);
+  head.appendChild(el("div","small","Investigator ID "+rec.canvas_user_id+" · "+rec.specimen_label));
+  m.appendChild(head);
+  if(STORE_OK!==true){
+    m.appendChild(h("div","storewarn","<b>This device is not saving your work.</b> Private browsing or a blocked storage setting will do that. Nothing you type here will survive a refresh or a locked screen — keep writing on the paper sheet, which is what is read anyway, and use <i>Copy my work</i> at the bottom before you close the page."));
+  }
+  m.appendChild(el("h2",null,"Your evidence card"));
+  m.appendChild(evidenceCard());
+
+  var secs=[warmup()].concat(SETS[rec.house]());
+  var i;
+  for(i=0;i<secs.length;i++){
+    var s=secs[i];
+    var wrap=el("div", i===0?"prob":(s.untimed===true?"prob untimed":"prob"));
+    var hh=el("h3",null,s.title); wrap.appendChild(hh);
+    if(!isMissing(s.tag)) wrap.appendChild(el("div","small",s.tag));
+    var j;
+    for(j=0;j<s.blocks.length;j++){ wrap.appendChild(renderBlock(s.blocks[j])); }
+    m.appendChild(wrap);
+  }
+  m.appendChild(statsSection());
+  m.appendChild(evidenceLineSection());
+  $("footline").className="foot";
+  $("bar").className="bar";
+  var bw=$("barWho"); bw.textContent="";
+  bw.appendChild(el("span","nm",rec.name+" · "));
+  bw.appendChild(document.createTextNode(rec.house+" · "+rec.specimen_code));
+  updateProgress();
+}
+
+/* export */
+function exportText(){
+  var L=[];
+  L.push("CASE 26-08-1447 - investigator bench");
+  L.push("name: "+rec.name);
+  L.push("house: "+rec.house+"   specimen code: "+rec.specimen_code+"   investigator ID: "+rec.canvas_user_id);
+  L.push("");
+  var k;
+  for(k in state.ans){
+    if(!Object.prototype.hasOwnProperty.call(state.ans,k)) continue;
+    var v=state.ans[k];
+    if(isMissing(v)||String(v).replace(/\s/g,"")==="") continue;
+    L.push(k+" = "+String(v).replace(/\n/g," / ")+(state.done[k]===true?"   [checked]":""));
+  }
+  L.push("");
+  L.push("pooled: "+state.stats.v.map(function(x,i){return (state.stats.x[i]===true?"[excluded] ":"")+String(isMissing(x)?"":x);}).join(" | "));
+  L.push("grounds: "+String(state.stats.reason).replace(/\n/g," / "));
+  L.push("mean = "+state.stats.mean+(state.done["__mean"]===true?"   [checked]":"")+"    s = "+state.stats.sd+(state.done["__sd"]===true?"   [checked]":""));
+  return L.join("\n");
+}
+
+/* =====================  GATE  ===================== */
+/* keys are namespaced so that no specimen code can ever collide with an
+   inherited Object property. Values are looked up with hasOwnProperty only. */
+var INDEX={};
+(function buildIndex(){
+  var arr=DATA.students, i;
+  for(i=0;i<arr.length;i++){
+    var s=arr[i];
+    if(isMissing(s)||isMissing(s.specimen_code)) continue;
+    INDEX["code:"+String(s.specimen_code).toUpperCase()]=s;
+  }
+})();
+function lookup(codeRaw){
+  if(isMissing(codeRaw)) return null;
+  var c=String(codeRaw).trim().toUpperCase().replace(/[^A-Z0-9]/g,"");
+  if(c==="") return null;
+  var k="code:"+c;
+  if(!Object.prototype.hasOwnProperty.call(INDEX,k)) return null;
+  return INDEX[k];
+}
+var pending=null;
+function gateFb(cls,msg){
+  var n=$("codeFb"); n.textContent="";
+  if(isMissing(msg)) return;
+  n.appendChild(el("div","fb "+cls,msg));
+}
+$("codeGo").addEventListener("click",function(){
+  var s=lookup($("codeInput").value);
+  if(s===null){
+    gateFb("no","That code is not on the register for this sitting. Check the four letters on your evidence card — they are easy to misread. If the card and this page disagree, put your hand up; do not use someone else's code.");
+    $("confirm").className="card hide";
+    pending=null; return;
+  }
+  gateFb(null,null);
+  pending=s;
+  $("confirmWho").textContent=s.name;
+  $("confirmHouse").textContent="House "+s.house+" · "+s.specimen_label+" · investigator ID "+s.canvas_user_id;
+  $("confirm").className="card";
+});
+$("codeInput").addEventListener("keydown",function(ev){ if(ev.key==="Enter"){ev.preventDefault();$("codeGo").click();} });
+$("confirmNo").addEventListener("click",function(){
+  pending=null; $("confirm").className="card hide"; $("codeInput").value=""; $("codeInput").focus();
+});
+$("confirmYes").addEventListener("click",function(){
+  if(pending===null) return;
+  rec=pending;
+  state=loadState(rec.specimen_code);
+  $("gate").className="gate hide";
+  $("bench").className="";
+  buildBench();
+  save();
+  window.scrollTo(0,0);
+});
+$("barExport").addEventListener("click",function(){
+  var txt=exportText();
+  var m=$("bench");
+  var box=$("exportBox");
+  if(box===null){
+    box=el("div","card"); box.id="exportBox";
+    box.appendChild(h("div","small","<b>Your work, as text.</b> Screenshot it or paste it somewhere safe. This is a backup for the page only — the paper sheet is what is collected."));
+    var ta=el("textarea"); ta.id="exportTa"; ta.rows=12; box.appendChild(ta);
+    m.appendChild(box);
+  }
+  $("exportTa").value=txt;
+  $("exportTa").scrollIntoView({block:"center"});
+  $("exportTa").select();
+  try{ if(!isMissing(navigator.clipboard)) navigator.clipboard.writeText(txt); }catch(e){}
+});
+(function prefill(){
+  var m=String(window.location.search).match(/[?&]code=([A-Za-z0-9]+)/);
+  if(m!==null){ $("codeInput").value=m[1].toUpperCase(); }
+  try{ $("codeInput").focus(); }catch(e){}
+})();
+</script>
+</body>
+</html>
