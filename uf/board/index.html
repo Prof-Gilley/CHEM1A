@@ -195,6 +195,7 @@
 </div>
 <footer>NOTHING APPEARS HERE BEFORE IT APPEARS IN CLASS.</footer>
 
+<script src="../pins.js"></script>
 <script>
 /* ============================================================
    PIN DATABASE — INSTRUCTOR EDITS THIS BLOCK ONLY
@@ -243,6 +244,8 @@ const PINS = [
   {side:"L", kind:"", title:"the society was divided. he died anyway.", note:true,
    desc:"One faction voted to measure him. One wrote to him alone and told him he would be stopped. One promised protection it had no power to give. Weeks later he is dead in a basement and nobody can identify the body.<br><br>Five houses. Five copies. Every one of them read all three of these.<br><br><b>Which side did your house take?</b>"},
 ];
+if (window.EXTRA_PINS) window.EXTRA_PINS.forEach(p=>PINS.push(p));
+
 
 /* ============================================================
    HOUSES — INSTRUCTOR EDITS verdict FIELDS ONLY

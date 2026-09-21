@@ -50,6 +50,7 @@
   <footer>ChemMystery Underground is not affiliated with any institution, society, or order — despite what you may have read. · <span id="stamp"></span></footer>
 </div>
 
+<script src="posts.js"></script>
 <script>
 /* ============================================================
    POST DATABASE — INSTRUCTOR EDITS THIS BLOCK ONLY
@@ -144,6 +145,11 @@ const THREADS = [
     ]
   }
 ];
+if (window.EXTRA_THREADS) window.EXTRA_THREADS.forEach(x=>{
+  if (x.append_to) { const t=THREADS.find(t=>t.title===x.append_to); if (t) { t.posts.push(x.post); return; } x={title:x.append_to, posts:[x.post]}; }
+  THREADS.unshift(x);
+});
+
 
 /* ---------- render (no need to edit below) ---------- */
 const root=document.getElementById("threads");

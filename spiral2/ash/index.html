@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Case 26-08-1447 · Spiral 2 · AsH</title>
+<link rel="icon" href="data:,">
+<style>
+:root{
+  --ink:#16181d; --ink2:#474d59; --ink3:#6b7280;
+  --paper:#f6f4ef; --card:#fffdf8; --line:#d9d3c6; --line2:#c2b9a6;
+  --seal:#7a2323; --ok:#1f5c3a; --okbg:#e6f1e9; --warn:#7a4e12; --warnbg:#fbf0dc;
+  --blue:#1d3f6e; --bluebg:#e7edf6;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;-webkit-text-size-adjust:100%}
+.wrap{max-width:760px;margin:0 auto;padding:0 14px 104px}
+header.mast{background:var(--ink);color:#f3efe6;padding:14px;margin:0 -14px 16px;border-bottom:4px double var(--seal)}
+header.mast .case{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:#c9bfa9}
+header.mast h1{font-size:19px;margin:4px 0 2px;font-weight:600;letter-spacing:.01em}
+header.mast .sub{font-size:12.5px;color:#b9b0a0}
+h2{font-size:17px;margin:26px 0 8px;padding-bottom:5px;border-bottom:2px solid var(--line2)}
+h3{font-size:15px;margin:18px 0 6px}
+p{margin:8px 0}
+small,.small{font-size:12.5px;color:var(--ink2)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:12px;margin:12px 0}
+.card.tight{padding:10px}
+.kv{width:100%;border-collapse:collapse;font-size:14px;table-layout:fixed}
+.kv th,.kv td{text-align:left;padding:5px 6px;border-bottom:1px solid #eae5da;vertical-align:top}
+.kv th{font-weight:500;color:var(--ink2);width:52%}
+.kv td{font-family:var(--mono);font-size:14px;word-break:break-word}
+.stamp{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;border:1px solid currentColor;border-radius:3px;padding:2px 6px;vertical-align:middle}
+.stamp.seal{color:var(--seal)}
+.stamp.blue{color:var(--blue)}
+label.q{display:block;font-size:14px;margin:10px 0 4px;color:var(--ink)}
+.row{display:flex;gap:8px;align-items:flex-start;flex-wrap:wrap}
+.row>input,.row>textarea{flex:1 1 150px;min-width:0}
+input[type=text],textarea{font-family:var(--mono);font-size:16px;padding:11px 10px;border:1px solid var(--line2);border-radius:5px;background:#fff;color:var(--ink);width:100%;min-height:44px}
+textarea{min-height:64px;line-height:1.4}
+input:focus,textarea:focus{outline:2px solid var(--blue);outline-offset:1px}
+button{font-family:var(--sans);font-size:15px;padding:10px 14px;border-radius:5px;border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;min-height:44px}
+button.ghost{background:#fff;color:var(--ink)}
+button.sm{font-size:13px;padding:10px 12px;min-height:44px}
+button:disabled{opacity:.45;cursor:not-allowed}
+.unit{font-family:var(--mono);font-size:13px;color:var(--ink2);align-self:center;padding-top:10px}
+.fb{margin:6px 0 2px;padding:9px 10px;border-radius:5px;font-size:13.5px;border:1px solid transparent}
+.fb.ok{background:var(--okbg);border-color:#a9cdb8;color:var(--ok)}
+.fb.no{background:#fdeceb;border-color:#e3b4b0;color:#8a2318}
+.fb.note{background:var(--bluebg);border-color:#b6c6dd;color:var(--blue)}
+.fb.wait{background:var(--warnbg);border-color:#d9b877;color:var(--warn)}
+.prob{border:1px solid var(--line);border-left:5px solid var(--ink2);border-radius:6px;background:var(--card);padding:12px;margin:16px 0}
+.prob h3{margin-top:0}
+.prob .tag{font-family:var(--mono);font-size:11px;color:var(--ink3);letter-spacing:.06em}
+.gate{max-width:420px;margin:36px auto}
+.hide{display:none!important}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--ink);color:#efe9dc;font-size:12.5px;padding:5px 12px;display:flex;gap:10px;justify-content:space-between;align-items:center;z-index:20}
+.bar .who{font-family:var(--mono);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar button{font-size:12.5px;padding:6px 11px;min-height:44px;background:#3a3f49;border-color:#565c68}
+.storewarn{background:var(--warnbg);border:1px solid #d9b877;color:var(--warn);padding:10px;border-radius:5px;font-size:13px;margin:10px 0}
+.statrow{display:flex;gap:8px;align-items:center;margin:6px 0;flex-wrap:wrap}
+.statrow .idx{font-family:var(--mono);font-size:12px;color:var(--ink3);width:52px;flex:0 0 52px}
+.statrow input[type=text]{flex:1 1 110px}
+.guide{margin:26px 0 0;padding:12px 14px;border-left:4px solid var(--seal);background:var(--card);font-style:italic;color:var(--ink2);font-size:14.5px}
+.foot{margin:30px 0 10px;font-size:13px;color:var(--ink2);font-style:italic;text-align:center;border-top:1px solid var(--line);padding-top:14px}
+.progress{font-family:var(--mono);font-size:11.5px;color:var(--ink3);letter-spacing:.06em}
+@media (max-width:420px){
+  body{font-size:15.5px}
+  .kv th{width:46%}
+  header.mast h1{font-size:17px}
+  .bar .who{font-size:11.5px}
+  .bar button{font-size:12px;padding:6px 9px}
+  .bar .progress{font-size:11px}
+}
+@media print{.bar,button,.gate{display:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="mast">
+  <div class="case" id="mastCase">Case 26-08-1447 · Investigator Exhibit</div>
+  <h1 id="mastH1">Investigator Exhibit</h1>
+  <div class="sub" id="mastSub"></div>
+</header>
+
+<div id="gate" class="gate">
+  <div class="card">
+    <p style="margin-top:0"><strong>Enter your investigator code.</strong></p>
+    <div class="row">
+      <input type="text" id="codeInput" inputmode="text" autocapitalize="characters" autocomplete="off"
+             spellcheck="false" maxlength="12" placeholder="4 letters" aria-label="Investigator code">
+      <button id="codeGo">Open</button>
+    </div>
+    <div id="codeFb"></div>
+    <p class="small">Your code is the one you have used since Spiral 1. Your givens are not your neighbour&rsquo;s.
+       This page checks arithmetic only. Your shown work on the paper sheet is what is read.</p>
+  </div>
+  <div id="confirm" class="card hide">
+    <p style="margin-top:0">Confirm before you start:</p>
+    <p id="confirmWho" style="font-size:18px;font-weight:600;margin:6px 0"></p>
+    <p id="confirmHouse" class="small" style="margin:0 0 12px"></p>
+    <div class="row">
+      <button id="confirmYes">That is me &mdash; open my exhibit</button>
+      <button id="confirmNo" class="ghost">Not me</button>
+    </div>
+  </div>
+</div>
+
+<main id="main" class="hide"></main>
+
+<div class="foot hide" id="footline">
+  What your number means is not decided on this page. It is decided on Thursday, by the five houses together.
+</div>
+
+</div>
+
+<div class="bar hide" id="bar">
+  <span class="who" id="barWho"></span>
+  <span class="progress" id="barProg"></span>
+  <button id="barExport">Copy my work</button>
+</div>
+
+<script>
+"use strict";
+/* ------------------------------------------------------------------
+   INVESTIGATOR EXHIBIT PAGE (toolkit template)
+   Serves ONE house's slice of exhibits_student.json (no answers).
+
+   DESIGN INVARIANT: this file contains NO stored answer to any step.
+   Each step carries only a salted, iterated SHA-256 hash of the expected
+   value rounded onto a tolerance grid. A check hashes the student's own
+   value (and its two grid neighbours) and compares. Nothing on this page
+   can print a target.
+   ------------------------------------------------------------------ */
+
+var DATA = /*<<DATA>>*/{"spiral":2,"house":"ash","house_display":"AsH","book_title":"Preparation ledger — book I: inputs charged","date_long":"Thursday 8 October 2026","salt":"s2-life-1447-c1447-obj4","hash_rounds":1000,"exhibits":[{"code":"ARLO","epithet":"THE CONFIDANT","given":{"ledger line":{"value":"1 — 01 AUG","unit":""},"starting material A charged":{"value":"11.62","unit":"g"},"purity of A":{"value":"98.4","unit":"%"},"reagent B charged":{"value":"33.1","unit":"g"},"M(A)":{"value":"58.08","unit":"g/mol"},"M(B)":{"value":"159.81","unit":"g/mol"},"M(product BAL)":{"value":"124.22","unit":"g/mol"},"ledger basis":{"value":"1 mol A + 1 mol B → 1 mol product","unit":""}},"steps":[{"id":"s1","label":"Moles of A charged (correct for purity)","skill_tag":"obj3.mole.molarmass","unit":"mol","kind":"num","grid":0.0005,"is_pooled":false,"hashes":["e22a4f9ef25a1a5e77bfc95e3c4bbb84594772c994ca3481923911f2daffa893"],"hint_b64":"bWFzcyDDlyBwdXJpdHkvMTAwLCB0aGVuIGRpdmlkZSBieSBNKEEpLg=="},{"id":"s2","label":"Moles of B charged","skill_tag":"obj3.mole.molarmass","unit":"mol","kind":"num","grid":0.001,"is_pooled":false,"hashes":["9a24d639c8b8a05a6aa92e84b872db3a87411ec0df102d0294d1a50fa0f5b26f"],"hint_b64":"bWFzcyDDtyBNKEIpLg=="},{"id":"s3","label":"Which input limits? enter 1 for A, 2 for B","skill_tag":"obj4.stoich.limiting","unit":"","kind":"int","grid":1.0,"is_pooled":false,"hashes":["cfe17a1208900e0d373b25d792e7805d2a300bb142cba65b2c9b4df0d053435d"],"hint_b64":"T24gYSAxOjEgYmFzaXMgdGhlIHNtYWxsZXIgbW9sZSBhbW91bnQgbGltaXRzLg=="},{"id":"s4","label":"Theoretical mass of product from the limiting input","skill_tag":"obj4.stoich.massmass","unit":"g","kind":"num","grid":0.1,"is_pooled":true,"hashes":["2cb2e0ad8e2bb54e9e0dec461d4d2cef94be69604815d675ef86779c28a33351"],"hint_b64":"bW9sZXMgb2YgdGhlIGxpbWl0aW5nIGlucHV0IMOXIE0ocHJvZHVjdCku"}]},{"code":"BRIN","epithet":"THE CLOSED FILE","given":{"ledger line":{"value":"2 — 03 AUG","unit":""},"starting material A charged":{"value":"12.9","unit":"g"},"purity of A":{"value":"98.1","unit":"%"},"reagent B charged":{"value":"31.05","unit":"g"},"M(A)":{"value":"58.08","unit":"g/mol"},"M(B)":{"value":"159.81","unit":"g/mol"},"M(product BAL)":{"value":"124.22","unit":"g/mol"},"ledger basis":{"value":"1 mol A + 1 mol B → 1 mol product","unit":""}},"steps":[{"id":"s1","label":"Moles of A charged (correct for purity)","skill_tag":"obj3.mole.molarmass","unit":"mol","kind":"num","grid":0.001,"is_pooled":false,"hashes":["e367675248f68f59e2c536dd809de488caa8a3536f68ec5b552f16dd8a066094"],"hint_b64":"bWFzcyDDlyBwdXJpdHkvMTAwLCB0aGVuIGRpdmlkZSBieSBNKEEpLg=="},{"id":"s2","label":"Moles of B charged","skill_tag":"obj3.mole.molarmass","unit":"mol","kind":"num","grid":0.0005,"is_pooled":false,"hashes":["c5dc9cd6fe9b5014edf5aa7c269ddaf5a25ebc5e4f7ff7a897a4276434768df0"],"hint_b64":"bWFzcyDDtyBNKEIpLg=="},{"id":"s3","label":"Which input limits? enter 1 for A, 2 for B","skill_tag":"obj4.stoich.limiting","unit":"","kind":"int","grid":1.0,"is_pooled":false,"hashes":["95ca15b85864f891d758e4a89b1cb4a09a2bcdbb40e5319b2560c8b6c9616ae0"],"hint_b64":"T24gYSAxOjEgYmFzaXMgdGhlIHNtYWxsZXIgbW9sZSBhbW91bnQgbGltaXRzLg=="},{"id":"s4","label":"Theoretical mass of product from the limiting input","skill_tag":"obj4.stoich.massmass","unit":"g","kind":"num","grid":0.1,"is_pooled":true,"hashes":["335c28cf794cacd33fbc42d2f55f6da73a37877860989f713bba4773eeeea77f"],"hint_b64":"bW9sZXMgb2YgdGhlIGxpbWl0aW5nIGlucHV0IMOXIE0ocHJvZHVjdCku"}]},{"code":"URSA","epithet":"THE FIRST MARK","given":{"ledger line":{"value":"3 — 06 AUG","unit":""},"starting material A charged":{"value":"11.05","unit":"g"},"purity of A":{"value":"100.0 (clerk entry; certificate not attached)","unit":"%"},"reagent B charged":{"value":"31.4","unit":"g"},"M(A)":{"value":"58.08","unit":"g/mol"},"M(B)":{"value":"159.81","unit":"g/mol"},"M(product BAL)":{"value":"124.22","unit":"g/mol"},"ledger basis":{"value":"1 mol A + 1 mol B → 1 mol product","unit":""}},"steps":[{"id":"s1","label":"Moles of A charged (correct for purity)","skill_tag":"obj3.mole.molarmass","unit":"mol","kind":"num","grid":0.0005,"is_pooled":false,"hashes":["82a18b96660e180ac32eb4fd4a198e065deea8b166fcc68fb0ddd0c41f070d82"],"hint_b64":"bWFzcyDDlyBwdXJpdHkvMTAwLCB0aGVuIGRpdmlkZSBieSBNKEEpLg=="},{"id":"s2","label":"Moles of B charged","skill_tag":"obj3.mole.molarmass","unit":"mol","kind":"num","grid":0.0005,"is_pooled":false,"hashes":["3d19f689febfd2afab75af41f196626fb51810fc807ec1c2f88bd6ef4a87a7b7"],"hint_b64":"bWFzcyDDtyBNKEIpLg=="},{"id":"s3","label":"Which input limits? enter 1 for A, 2 for B","skill_tag":"obj4.stoich.limiting","unit":"","kind":"int","grid":1.0,"is_pooled":false,"hashes":["64325dbe5f78d469ffc47b5fba66dc206fa28582bc9f1899c8565cb0024d8840"],"hint_b64":"T24gYSAxOjEgYmFzaXMgdGhlIHNtYWxsZXIgbW9sZSBhbW91bnQgbGltaXRzLg=="},{"id":"s4","label":"Theoretical mass of product from the limiting input","skill_tag":"obj4.stoich.massmass","unit":"g","kind":"num","grid":0.1,"is_pooled":true,"hashes":["0450af046dfaedd310255fa4f76eeb0b3a50eafdbbda303c58091b1fa14916ad"],"hint_b64":"bW9sZXMgb2YgdGhlIGxpbWl0aW5nIGlucHV0IMOXIE0ocHJvZHVjdCku"}]},{"code":"VELD","epithet":"THE UNREAD PAGE","given":{"ledger line":{"value":"4 — 08 AUG","unit":""},"starting material A charged":{"value":"10.48","unit":"g"},"purity of A":{"value":"98.6","unit":"%"},"reagent B charged":{"value":"27.15","unit":"g"},"M(A)":{"value":"58.08","unit":"g/mol"},"M(B)":{"value":"159.81","unit":"g/mol"},"M(product BAL)":{"value":"124.22","unit":"g/mol"},"ledger basis":{"value":"1 mol A + 1 mol B → 1 mol product","unit":""}},"steps":[{"id":"s1","label":"Moles of A charged (correct for purity)","skill_tag":"obj3.mole.molarmass","unit":"mol","kind":"num","grid":0.0005,"is_pooled":false,"hashes":["7ca7925c1573e542890b968b97a00f739aba73b7aa5b7f8de6bf34c7b337bb52"],"hint_b64":"bWFzcyDDlyBwdXJpdHkvMTAwLCB0aGVuIGRpdmlkZSBieSBNKEEpLg=="},{"id":"s2","label":"Moles of B charged","skill_tag":"obj3.mole.molarmass","unit":"mol","kind":"num","grid":0.0005,"is_pooled":false,"hashes":["f30ad451ba173172c3678cd8d3a49a71dc32ebbead5c25adaa482d753ba2e9b4"],"hint_b64":"bWFzcyDDtyBNKEIpLg=="},{"id":"s3","label":"Which input limits? enter 1 for A, 2 for B","skill_tag":"obj4.stoich.limiting","unit":"","kind":"int","grid":1.0,"is_pooled":false,"hashes":["0b61b019a1f1efaa77f7e257e8f36fbffea55e7aca70b52b6bd69fd4b575c22e"],"hint_b64":"T24gYSAxOjEgYmFzaXMgdGhlIHNtYWxsZXIgbW9sZSBhbW91bnQgbGltaXRzLg=="},{"id":"s4","label":"Theoretical mass of product from the limiting input","skill_tag":"obj4.stoich.massmass","unit":"g","kind":"num","grid":0.1,"is_pooled":true,"hashes":["9dc074fe961c2648e1cf9f19f60a47d31eb005b4b6805b9b4ca02b2baea5e810"],"hint_b64":"bW9sZXMgb2YgdGhlIGxpbWl0aW5nIGlucHV0IMOXIE0ocHJvZHVjdCku"}]},{"code":"WREN","epithet":"THE QUIET HAND","given":{"ledger line":{"value":"5 — 10 AUG","unit":""},"starting material A charged":{"value":"11.9","unit":"g"},"purity of A":{"value":"98.2","unit":"%"},"reagent B charged":{"value":"33.85","unit":"g"},"M(A)":{"value":"58.08","unit":"g/mol"},"M(B)":{"value":"159.81","unit":"g/mol"},"M(product BAL)":{"value":"124.22","unit":"g/mol"},"ledger basis":{"value":"1 mol A + 1 mol B → 1 mol product","unit":""}},"steps":[{"id":"s1","label":"Moles of A charged (correct for purity)","skill_tag":"obj3.mole.molarmass","unit":"mol","kind":"num","grid":0.001,"is_pooled":false,"hashes":["c91c281dcc601e9b1d590687b90460419ba5b0db79a8813c90e38f2871d2eeb0"],"hint_b64":"bWFzcyDDlyBwdXJpdHkvMTAwLCB0aGVuIGRpdmlkZSBieSBNKEEpLg=="},{"id":"s2","label":"Moles of B charged","skill_tag":"obj3.mole.molarmass","unit":"mol","kind":"num","grid":0.001,"is_pooled":false,"hashes":["ad69f46600dfb0e0ec75972e831498e8d7618935488cd1d28b9a5350c30df276"],"hint_b64":"bWFzcyDDtyBNKEIpLg=="},{"id":"s3","label":"Which input limits? enter 1 for A, 2 for B","skill_tag":"obj4.stoich.limiting","unit":"","kind":"int","grid":1.0,"is_pooled":false,"hashes":["948872bedf174ad701477c7029acd652253a0969e5c94fb632f8a58a264ad378"],"hint_b64":"T24gYSAxOjEgYmFzaXMgdGhlIHNtYWxsZXIgbW9sZSBhbW91bnQgbGltaXRzLg=="},{"id":"s4","label":"Theoretical mass of product from the limiting input","skill_tag":"obj4.stoich.massmass","unit":"g","kind":"num","grid":0.1,"is_pooled":true,"hashes":["c239a2feae491e8c5c1e197010b23cb515caf4f98e0677291271a79c290d1cba"],"hint_b64":"bW9sZXMgb2YgdGhlIGxpbWl0aW5nIGlucHV0IMOXIE0ocHJvZHVjdCku"}]},{"code":"ZEPH","epithet":"THE KEPT COUNSEL","given":{"ledger line":{"value":"6 — 12 AUG","unit":""},"starting material A charged":{"value":"12.24","unit":"g"},"purity of A":{"value":"98.0","unit":"%"},"reagent B charged":{"value":"34.6","unit":"g"},"M(A)":{"value":"58.08","unit":"g/mol"},"M(B)":{"value":"159.81","unit":"g/mol"},"M(product BAL)":{"value":"124.22","unit":"g/mol"},"ledger basis":{"value":"1 mol A + 1 mol B → 1 mol product","unit":""}},"steps":[{"id":"s1","label":"Moles of A charged (correct for purity)","skill_tag":"obj3.mole.molarmass","unit":"mol","kind":"num","grid":0.001,"is_pooled":false,"hashes":["bcb8d57e96920311363ea6a5de487dbda7403fc0e1bfeee90efbb2149eff976d"],"hint_b64":"bWFzcyDDlyBwdXJpdHkvMTAwLCB0aGVuIGRpdmlkZSBieSBNKEEpLg=="},{"id":"s2","label":"Moles of B charged","skill_tag":"obj3.mole.molarmass","unit":"mol","kind":"num","grid":0.001,"is_pooled":false,"hashes":["a98a9632d2520612be2db30b449aa3fe085f70ed79a90841c515848fbc321f9a"],"hint_b64":"bWFzcyDDtyBNKEIpLg=="},{"id":"s3","label":"Which input limits? enter 1 for A, 2 for B","skill_tag":"obj4.stoich.limiting","unit":"","kind":"int","grid":1.0,"is_pooled":false,"hashes":["ef1b505993faefc319261753b578537dabc1533defeaa7cb22295087e86e3932"],"hint_b64":"T24gYSAxOjEgYmFzaXMgdGhlIHNtYWxsZXIgbW9sZSBhbW91bnQgbGltaXRzLg=="},{"id":"s4","label":"Theoretical mass of product from the limiting input","skill_tag":"obj4.stoich.massmass","unit":"g","kind":"num","grid":0.1,"is_pooled":true,"hashes":["5ac145fe889a1b7f6a923d4bff75169607e2a44f8029e4e0694c450c8555b3b4"],"hint_b64":"bW9sZXMgb2YgdGhlIGxpbWl0aW5nIGlucHV0IMOXIE0ocHJvZHVjdCku"}]}],"codes":["ARLO","BRIN","URSA","VELD","WREN","ZEPH"],"pool":{"field":"s4","variants":[{"n":6,"sum_grid":0.5,"sum_hash":"e431adcb046c3e2d5999528ff7232711d2c8a9daf54a55a834ea97ccfc330c59"},{"n":5,"sum_grid":0.2,"sum_hash":"60b0a786dc7b1adb23d24bd801ac0d450192316c5028c4417f2e60dd60b1be7c"}]},"pooling_stat":"sum","pooling_unit":"g (AuRa: days)","pooling_label":"the book total: theoretical product (I) · active product (II) · period bound (III) · gross consignment (IV) · ledger-to-receipt lag in days (V)","reading_guide_line":"Working ahead? Objective 4 reading guide, §5.3 (mass–mass, limiting reactant, percent yield) and §6.2 (mass percent)."};
+
+/* ---------- pure-JS SHA-256 (no network, no crypto.subtle dependency) ---------- */
+var SHA_K=[0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2];
+function sha256Bytes(bytes){
+  var l=bytes.length, padLen=((l+9+63)>>6)<<6, m=new Uint8Array(padLen), i;
+  for(i=0;i<l;i++) m[i]=bytes[i];
+  m[l]=0x80;
+  var bits=l*8;
+  m[padLen-4]=(bits>>>24)&255; m[padLen-3]=(bits>>>16)&255; m[padLen-2]=(bits>>>8)&255; m[padLen-1]=bits&255;
+  var H=[0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19];
+  var w=new Array(64), j, a,b,c,d,e,f,g,h,t1,t2,s0,s1;
+  for(i=0;i<padLen;i+=64){
+    for(j=0;j<16;j++) w[j]=(m[i+j*4]<<24)|(m[i+j*4+1]<<16)|(m[i+j*4+2]<<8)|m[i+j*4+3];
+    for(j=16;j<64;j++){
+      s0=((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+      s1=((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+      w[j]=(w[j-16]+s0+w[j-7]+s1)|0;
+    }
+    a=H[0];b=H[1];c=H[2];d=H[3];e=H[4];f=H[5];g=H[6];h=H[7];
+    for(j=0;j<64;j++){
+      s1=((e>>>6)|(e<<26))^((e>>>11)|(e<<21))^((e>>>25)|(e<<7));
+      t1=(h+s1+((e&f)^(~e&g))+SHA_K[j]+w[j])|0;
+      s0=((a>>>2)|(a<<30))^((a>>>13)|(a<<19))^((a>>>22)|(a<<10));
+      t2=(s0+((a&b)^(a&c)^(b&c)))|0;
+      h=g;g=f;f=e;e=(d+t1)|0;d=c;c=b;b=a;a=(t1+t2)|0;
+    }
+    H[0]=(H[0]+a)|0;H[1]=(H[1]+b)|0;H[2]=(H[2]+c)|0;H[3]=(H[3]+d)|0;H[4]=(H[4]+e)|0;H[5]=(H[5]+f)|0;H[6]=(H[6]+g)|0;H[7]=(H[7]+h)|0;
+  }
+  var out=new Uint8Array(32);
+  for(i=0;i<8;i++){ out[i*4]=(H[i]>>>24)&255; out[i*4+1]=(H[i]>>>16)&255; out[i*4+2]=(H[i]>>>8)&255; out[i*4+3]=H[i]&255; }
+  return out;
+}
+function utf8(str){
+  var s=unescape(encodeURIComponent(str)), b=new Uint8Array(s.length), i;
+  for(i=0;i<s.length;i++) b[i]=s.charCodeAt(i);
+  return b;
+}
+function hex(bytes){ var s="",i; for(i=0;i<bytes.length;i++){ s+=(bytes[i]<16?"0":"")+bytes[i].toString(16); } return s; }
+function hashIndex(house, code, stepId, k){
+  var msg=DATA.salt+"|"+DATA.spiral+"|"+house+"|"+code+"|"+stepId+"|"+k;
+  var h=utf8(msg), r;
+  for(r=0;r<DATA.hash_rounds;r++) h=sha256Bytes(h);
+  return hex(h);
+}
+function gridIndex(v,g){ return Math.floor(v/g+0.5); }
+function matches(hashes, house, code, stepId, v, g, neighbours){
+  var k=gridIndex(v,g), ks=neighbours?[k-1,k,k+1]:[k], i;
+  for(i=0;i<ks.length;i++){ if(hashes.indexOf(hashIndex(house,code,stepId,ks[i]))>=0) return true; }
+  return false;
+}
+function b64dec(s){ try{ return decodeURIComponent(escape(atob(s))); }catch(e){ return ""; } }
+
+/* ---------- tiny DOM helpers (no innerHTML for any data value) ---------- */
+function el(tag, cls, txt){var e=document.createElement(tag); if(cls)e.className=cls; if(txt!==undefined&&txt!==null)e.textContent=String(txt); return e;}
+function h(tag, cls, html){var e=document.createElement(tag); if(cls)e.className=cls; if(html!==undefined)e.innerHTML=html; return e;}
+function $(id){return document.getElementById(id);}
+function isMissing(v){return (typeof v === "undefined") || v === null;}
+
+/* ---------- storage: every call wrapped, in-memory fallback ---------- */
+var MEM={}, STORE_OK=true;
+function sget(k){
+  try{ var v=window.localStorage.getItem(k); if(isMissing(v)) return null; return v; }
+  catch(e){ STORE_OK=false; return Object.prototype.hasOwnProperty.call(MEM,k)?MEM[k]:null; }
+}
+function sset(k,v){
+  MEM[k]=v;
+  try{ window.localStorage.setItem(k,v); }catch(e){ STORE_OK=false; }
+}
+(function probeStorage(){
+  try{
+    var t="__exhibit_probe__";
+    window.localStorage.setItem(t,"1");
+    if(window.localStorage.getItem(t)!=="1"){STORE_OK=false;}
+    window.localStorage.removeItem(t);
+  }catch(e){ STORE_OK=false; }
+})();
+
+var KEYPREFIX="exhibit.spiral"+(DATA?DATA.spiral:"x")+"."+(DATA?DATA.house:"x")+".";
+var state=null, rec=null;
+
+function loadState(code){
+  var raw=sget(KEYPREFIX+code), st=null;
+  if(raw!==null){ try{ st=JSON.parse(raw); }catch(e){ st=null; } }
+  if(st===null || typeof st!=="object"){ st={}; }
+  if(typeof st.ans!=="object"||st.ans===null) st.ans={};
+  if(typeof st.done!=="object"||st.done===null) st.done={};
+  if(typeof st.tries!=="object"||st.tries===null) st.tries={};
+  if(typeof st.pool!=="object"||st.pool===null) st.pool={v:[],a:"",b:""};
+  return st;
+}
+var saveTimer=null;
+function save(){
+  if(rec===null) return;
+  if(saveTimer!==null) clearTimeout(saveTimer);
+  saveTimer=setTimeout(function(){
+    try{ sset(KEYPREFIX+rec.code, JSON.stringify(state)); }catch(e){ STORE_OK=false; }
+    saveTimer=null;
+  },250);
+}
+
+/* ---------- numeric parsing ---------- */
+function parseNum(s){
+  if(isMissing(s)) return NaN;
+  var t=String(s).trim().replace(/−/g,"-").replace(/,/g,"").replace(/\s+/g,"");
+  t=t.replace(/^\+/,"");
+  t=t.replace(/[x×*]10\^?/i,"e").replace(/\^/,"");
+  if(!/^-?(\d+\.?\d*|\.\d+)(e[-+]?\d+)?$/i.test(t)) return NaN;
+  var v=parseFloat(t);
+  return isFinite(v)?v:NaN;
+}
+
+/* ---------- feedback text: one generic message, no gradient ---------- */
+var GENERIC="That does not check out. Go back to your setup on the sheet: write the quantity you are solving for, the quantity you are given, and the conversion factor between them, each with its unit. Do not change your number until the setup changes.";
+var OKMSG="✓ Checks out. Box it on your sheet.";
+
+/* Throttle. After 3 consecutive misses on one step the step freezes 15 s,
+   then 30 s, then 60 s, until a check passes. Escalation resets on success. */
+var COOL_AFTER=3, COOL_STEPS=[15000,30000,60000];
+function coolFor(level){ return COOL_STEPS[level<COOL_STEPS.length?level:COOL_STEPS.length-1]; }
+function tries(id){ var t=state.tries[id]; if(isMissing(t)) t={n:0,total:0,until:0,lvl:0}; return t; }
+function coolLeft(id){ var t=tries(id); var left=(t.until||0)-Date.now(); return left>0?left:0; }
+function bumpMiss(id){
+  var t=tries(id);
+  t.n=(t.n||0)+1; t.total=(t.total||0)+1;
+  if(t.n>=COOL_AFTER){ t.until=Date.now()+coolFor(t.lvl||0); t.lvl=(t.lvl||0)+1; t.n=0; }
+  state.tries[id]=t; save();
+  return t.total;
+}
+function clearMiss(id){ var t=tries(id); t.n=0; t.until=0; t.lvl=0; state.tries[id]=t; save(); }
+
+/* =====================  RENDERING  ===================== */
+function mkInput(id, ph){
+  var inp=el("input"); inp.type="text"; inp.id="in_"+id; inp.autocomplete="off"; inp.spellcheck=false;
+  inp.placeholder=ph||"";
+  var pv=state.ans[id]; if(!isMissing(pv)) inp.value=pv;
+  inp.addEventListener("input",function(){ state.ans[id]=inp.value; save(); });
+  return inp;
+}
+function givensCard(){
+  var c=el("div","card");
+  c.appendChild(h("div",null,"<span class='stamp seal'>Your givens</span> <span class='stamp blue'>"+escapeHtml(rec.code)+"</span>"));
+  c.appendChild(h("div","small","Copy these onto your sheet exactly as printed. The figures carry their own precision."));
+  var t=el("table","kv"), tb=el("tbody"), k;
+  for(k in rec.given){
+    if(!Object.prototype.hasOwnProperty.call(rec.given,k)) continue;
+    var g=rec.given[k];
+    var tr=el("tr");
+    tr.appendChild(el("th",null,k+(g.unit?" ("+g.unit+")":"")));
+    tr.appendChild(el("td",null,g.value));
+    tb.appendChild(tr);
+  }
+  t.appendChild(tb); c.appendChild(t);
+  return c;
+}
+function escapeHtml(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+
+function stepBlock(st, n){
+  var box=el("div","prob"); box.id="step_"+st.id;
+  var hh=el("h3",null,"Step "+n+(st.is_pooled?" · pooled":""));
+  box.appendChild(hh);
+  box.appendChild(el("div","tag",st.skill_tag));
+  box.appendChild(el("label","q",st.label));
+  var row=el("div","row");
+  var inp=mkInput(st.id, st.kind==="int"?"whole number":"value");
+  row.appendChild(inp);
+  if(st.unit) row.appendChild(el("span","unit",st.unit));
+  var btn=el("button","ghost sm","Check"); btn.id="chk_"+st.id;
+  row.appendChild(btn);
+  box.appendChild(row);
+  var fb=el("div"); fb.id="fb_"+st.id; box.appendChild(fb);
+  function paint(cls,msg){ fb.textContent=""; if(isMissing(msg)) return; fb.appendChild(el("div","fb "+cls,msg)); }
+  if(state.done[st.id]===true) paint("ok",OKMSG);
+  function run(){
+    var left=coolLeft(st.id);
+    if(left>0){
+      paint("wait","Take this one back to paper for "+Math.ceil(left/1000)+" s. Rewrite the setup line — what you want, what you have, the factor between them — before the next attempt.");
+      btn.disabled=true;
+      setTimeout(function(){ btn.disabled=false; paint(null,null); }, left+50);
+      return;
+    }
+    var v=parseNum(inp.value);
+    if(!isFinite(v)){ paint("no","Enter a number. Scientific notation is fine — write it as 1.5e-3 or 1.5x10^-3."); return; }
+    if(st.kind==="int" && Math.abs(v-Math.round(v))>1e-9){ paint("no","Enter a whole number, with its sign if it has one."); return; }
+    var ok=matches(st.hashes, DATA.house, rec.code, st.id, v, st.grid, st.kind!=="int");
+    if(ok){
+      state.done[st.id]=true; clearMiss(st.id); save(); updateProgress();
+      paint("ok",OKMSG); return;
+    }
+    state.done[st.id]=false;
+    var total=bumpMiss(st.id); updateProgress();
+    var msg=GENERIC;
+    if(total>=2){ var hint=b64dec(st.hint_b64); if(hint) msg=GENERIC+"  Hint: "+hint; }
+    paint("no",msg);
+  }
+  btn.addEventListener("click",run);
+  inp.addEventListener("keydown",function(ev){ if(ev.key==="Enter"){ ev.preventDefault(); run(); } });
+  return box;
+}
+
+/* =====================  POOLING PANEL  ===================== */
+function poolSection(){
+  var P=DATA.pool, sec=el("section"); sec.id="pool";
+  var isSum=(DATA.pooling_stat==="sum");
+  sec.appendChild(el("h2",null,"Pooling — the house's "+(isSum?"total":"mean and standard deviation")));
+  sec.appendChild(h("p",null,"Your housemates each hold their own exhibit. Pool the <b>"+escapeHtml(DATA.pooling_label)+"</b> from every exhibit in the house, then — <b>on your own sheet</b> — compute the "+(isSum?"<b>sum</b>":"<b>mean</b> and the <b>standard deviation</b>")+" and enter them here. If your house sets a value aside, it writes the documented grounds on the house sheet; this page does not decide that."));
+  var card=el("div","card");
+  card.appendChild(h("div","small","<b>The pooled values</b>"+(DATA.pooling_unit?" (in "+escapeHtml(DATA.pooling_unit)+")":"")+", one per investigator code."));
+  var codes=DATA.codes, i;
+  for(i=0;i<codes.length;i++){
+    (function(idx){
+      var r=el("div","statrow");
+      r.appendChild(el("span","idx",codes[idx]));
+      var inp=el("input"); inp.type="text"; inp.id="pv_"+idx; inp.autocomplete="off"; inp.spellcheck=false;
+      inp.placeholder="value";
+      var pv=state.pool.v[idx]; if(!isMissing(pv)) inp.value=pv;
+      inp.addEventListener("input",function(){ state.pool.v[idx]=inp.value; save(); });
+      r.appendChild(inp);
+      card.appendChild(r);
+    })(i);
+  }
+  sec.appendChild(card);
+
+  var out=el("div","card");
+  var arow=el("div","row");
+  var ai=el("input"); ai.type="text"; ai.id="pool_a"; ai.placeholder=isSum?"sum":"mean"; ai.autocomplete="off"; ai.spellcheck=false;
+  if(!isMissing(state.pool.a)) ai.value=state.pool.a;
+  ai.addEventListener("input",function(){ state.pool.a=ai.value; save(); });
+  arow.appendChild(ai); if(DATA.pooling_unit) arow.appendChild(el("span","unit",DATA.pooling_unit));
+  out.appendChild(h("label","q",isSum?"<b>Sum</b> of the pooled values.":"<b>Mean</b> of the retained values."));
+  out.appendChild(arow);
+  var bi=null;
+  if(!isSum){
+    var brow=el("div","row");
+    bi=el("input"); bi.type="text"; bi.id="pool_b"; bi.placeholder="standard deviation"; bi.autocomplete="off"; bi.spellcheck=false;
+    if(!isMissing(state.pool.b)) bi.value=state.pool.b;
+    bi.addEventListener("input",function(){ state.pool.b=bi.value; save(); });
+    brow.appendChild(bi); if(DATA.pooling_unit) brow.appendChild(el("span","unit",DATA.pooling_unit));
+    out.appendChild(h("label","q","<b>Standard deviation</b> of the retained values (sample, n−1)."));
+    out.appendChild(brow);
+  }
+  var pb=el("button","ghost sm","Check pooling"); pb.id="chk_pool";
+  out.appendChild(pb);
+  var pfb=el("div"); pfb.id="fb_pool"; out.appendChild(pfb);
+  sec.appendChild(out);
+
+  function paintFb(cls,msg){ pfb.textContent=""; pfb.appendChild(el("div","fb "+cls,msg)); }
+  if(state.done["__pool"]===true) paintFb("ok","✓ Pooling checks out. Transfer it to the house sheet.");
+  pb.addEventListener("click",function(){
+    var left=coolLeft("__pool");
+    if(left>0){ paintFb("wait","Take the pooling back to paper for "+Math.ceil(left/1000)+" s, then check again."); pb.disabled=true; setTimeout(function(){pb.disabled=false;},left+50); return; }
+    var n=0,k; for(k=0;k<codes.length;k++){ if(isFinite(parseNum(state.pool.v[k]))) n++; }
+    if(n<1){ paintFb("no","Enter the pooled values first — one per code."); return; }
+    var a=parseNum(state.pool.a);
+    if(!isFinite(a)){ paintFb("no","Enter your "+(isSum?"sum":"mean")+" as a number. Scientific notation is fine."); return; }
+    var b=NaN;
+    if(!isSum){ b=parseNum(state.pool.b); if(!isFinite(b)){ paintFb("no","Enter your standard deviation as a number."); return; } }
+    var ok=false, vi;
+    for(vi=0;vi<P.variants.length;vi++){
+      var V=P.variants[vi];
+      if(isSum){
+        if(matches([V.sum_hash],DATA.house,"POOL","sum"+V.n,a,V.sum_grid,true)){ ok=true; break; }
+      }else{
+        if(matches([V.mean_hash],DATA.house,"POOL","mean"+V.n,a,V.mean_grid,true) &&
+           matches([V.sd_hash],DATA.house,"POOL","sd"+V.n,b,V.sd_grid,true)){ ok=true; break; }
+      }
+    }
+    if(ok){
+      state.done["__pool"]=true; clearMiss("__pool"); save(); updateProgress();
+      paintFb("ok","✓ Pooling checks out. Transfer it to the house sheet."); return;
+    }
+    state.done["__pool"]=false; var total=bumpMiss("__pool"); updateProgress();
+    var msg="That does not check out against the house. Check three things on paper: every pooled value is the checked (green) value from that investigator's own page; the divisor is the number of values you retained; the standard deviation divides by one less than that number.";
+    if(total>=2) msg+="  If your house set a value aside, the check accepts the pool with that value out only if the grounds are the documented ones — re-read the givens of the value in question.";
+    paintFb("no",msg);
+  });
+  return sec;
+}
+
+/* =====================  ASSEMBLY  ===================== */
+function updateProgress(){
+  var n=0,d=0,k;
+  for(k in state.done){ if(Object.prototype.hasOwnProperty.call(state.done,k)){ n++; if(state.done[k]===true) d++; } }
+  var bp=$("barProg"); if(bp!==null) bp.textContent=d+" checked";
+}
+function buildMain(){
+  var m=$("main"); m.textContent="";
+  var head=el("div","card");
+  head.appendChild(h("div",null,"<span class='stamp blue'>House "+escapeHtml(DATA.house_display)+"</span> <span class='stamp seal'>"+escapeHtml(rec.code)+"</span>"));
+  var nm=el("h3",null,rec.epithet); nm.style.margin="8px 0 2px"; head.appendChild(nm);
+  head.appendChild(el("div","small",DATA.book_title));
+  m.appendChild(head);
+  if(STORE_OK!==true){
+    m.appendChild(h("div","storewarn","<b>This device is not saving your work.</b> Private browsing or a blocked storage setting will do that. Keep writing on the paper sheet, which is what is read anyway, and use <i>Copy my work</i> at the bottom before you close the page."));
+  }
+  m.appendChild(el("h2",null,"Your givens"));
+  m.appendChild(givensCard());
+  m.appendChild(el("h2",null,"Steps"));
+  var i;
+  for(i=0;i<rec.steps.length;i++){ m.appendChild(stepBlock(rec.steps[i], i+1)); }
+  m.appendChild(poolSection());
+  var g=el("div","guide",DATA.reading_guide_line); g.id="guide"; m.appendChild(g);
+  $("footline").className="foot";
+  $("bar").className="bar";
+  var bw=$("barWho"); bw.textContent=DATA.house_display+" · "+rec.code;
+  updateProgress();
+}
+
+function exportText(){
+  var L=[];
+  L.push("CASE 26-08-1447 - investigator exhibit - spiral "+DATA.spiral);
+  L.push("house: "+DATA.house_display+"   code: "+rec.code+"   "+rec.epithet);
+  L.push("");
+  var k;
+  for(k in state.ans){
+    if(!Object.prototype.hasOwnProperty.call(state.ans,k)) continue;
+    var v=state.ans[k];
+    if(isMissing(v)||String(v).replace(/\s/g,"")==="") continue;
+    L.push(k+" = "+String(v)+(state.done[k]===true?"   [checked]":""));
+  }
+  L.push("");
+  L.push("pooled: "+DATA.codes.map(function(c,i){return c+"="+String(isMissing(state.pool.v[i])?"":state.pool.v[i]);}).join(" | "));
+  L.push((DATA.pooling_stat==="sum"?"sum = ":"mean = ")+state.pool.a+(DATA.pooling_stat==="sum"?"":"    s = "+state.pool.b)+(state.done["__pool"]===true?"   [checked]":""));
+  return L.join("\n");
+}
+
+/* =====================  GATE  ===================== */
+var INDEX={};
+function init(){
+  if(DATA===null){ $("codeFb").appendChild(el("div","fb no","This page has no data embedded. It is the template, not a house page.")); return; }
+  $("mastCase").textContent="Case 26-08-1447 · Investigator Exhibit · Spiral "+DATA.spiral+" · "+DATA.house_display;
+  $("mastH1").textContent="Investigator Exhibit";
+  $("mastSub").textContent="CHEM 1A · Spiral "+DATA.spiral+" · House "+DATA.house_display+" · "+DATA.date_long;
+  document.title="Case 26-08-1447 · Spiral "+DATA.spiral+" · "+DATA.house_display;
+  var i;
+  for(i=0;i<DATA.exhibits.length;i++){
+    var s=DATA.exhibits[i];
+    if(isMissing(s)||isMissing(s.code)) continue;
+    INDEX["code:"+String(s.code).toUpperCase()]=s;
+  }
+}
+function lookup(codeRaw){
+  if(isMissing(codeRaw)) return null;
+  var c=String(codeRaw).trim().toUpperCase().replace(/[^A-Z0-9]/g,"");
+  if(c==="") return null;
+  var k="code:"+c;
+  if(!Object.prototype.hasOwnProperty.call(INDEX,k)) return null;
+  return INDEX[k];
+}
+var pending=null;
+function gateFb(cls,msg){
+  var n=$("codeFb"); n.textContent="";
+  if(isMissing(msg)) return;
+  n.appendChild(el("div","fb "+cls,msg));
+}
+$("codeGo").addEventListener("click",function(){
+  var s=lookup($("codeInput").value);
+  if(s===null){
+    gateFb("no","That code is not on this house's page. Check the four letters — they are easy to misread — and check that you opened your own house's page. If they disagree, put your hand up; do not use someone else's code.");
+    $("confirm").className="card hide";
+    pending=null; return;
+  }
+  gateFb(null,null);
+  pending=s;
+  $("confirmWho").textContent=s.code+" · "+s.epithet;
+  $("confirmHouse").textContent="House "+DATA.house_display+" · "+DATA.book_title;
+  $("confirm").className="card";
+});
+$("codeInput").addEventListener("keydown",function(ev){ if(ev.key==="Enter"){ev.preventDefault();$("codeGo").click();} });
+$("confirmNo").addEventListener("click",function(){
+  pending=null; $("confirm").className="card hide"; $("codeInput").value=""; $("codeInput").focus();
+});
+$("confirmYes").addEventListener("click",function(){
+  if(pending===null) return;
+  rec=pending;
+  state=loadState(rec.code);
+  $("gate").className="gate hide";
+  $("main").className="";
+  buildMain();
+  save();
+  window.scrollTo(0,0);
+});
+$("barExport").addEventListener("click",function(){
+  var txt=exportText();
+  var m=$("main");
+  var box=$("exportBox");
+  if(box===null){
+    box=el("div","card"); box.id="exportBox";
+    box.appendChild(h("div","small","<b>Your work, as text.</b> Screenshot it or paste it somewhere safe. This is a backup for the page only — the paper sheet is what is collected."));
+    var ta=el("textarea"); ta.id="exportTa"; ta.rows=12; box.appendChild(ta);
+    m.appendChild(box);
+  }
+  $("exportTa").value=txt;
+  $("exportTa").scrollIntoView({block:"center"});
+  $("exportTa").select();
+  try{ if(!isMissing(navigator.clipboard)) navigator.clipboard.writeText(txt); }catch(e){}
+});
+init();
+(function prefill(){
+  var m=String(window.location.search).match(/[?&]code=([A-Za-z0-9]+)/);
+  if(m!==null){ $("codeInput").value=m[1].toUpperCase(); }
+  try{ $("codeInput").focus(); }catch(e){}
+})();
+</script>
+</body>
+</html>
