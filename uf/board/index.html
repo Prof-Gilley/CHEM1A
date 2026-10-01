@@ -31,6 +31,17 @@
   .grid{display:flex; flex-wrap:wrap; gap:18px; justify-content:center; align-items:flex-start;}
   .col{display:flex; flex-direction:column; gap:18px; flex:1 1 260px; max-width:300px;}
 
+  .col-mid{flex:1 1 300px; max-width:330px;}
+  .col-mid .suspect{flex:none; max-width:none;}
+  .pin-card .when{display:block; text-align:right; font-size:9px; letter-spacing:1.5px; color:#7a6f5d; margin-top:6px;}
+  .pin-card .latest{position:absolute; top:-9px; right:-8px; background:var(--red); color:#fff; font-size:9.5px; font-weight:bold;
+    letter-spacing:2px; padding:2px 7px; transform:rotate(6deg); box-shadow:1px 2px 4px rgba(0,0,0,.4); font-family:inherit;}
+  /* ---- LATEST section ---- */
+  .latest-wrap{margin:0 auto 26px; padding:14px 10px 20px; border-top:2px dashed rgba(253,246,184,.55); border-bottom:2px dashed rgba(253,246,184,.55);}
+  .latest-title{text-align:center; margin-bottom:14px;}
+  .latest-head{border-left:6px solid var(--red);}
+  .latest-row{display:flex; flex-wrap:wrap; gap:18px; justify-content:center; align-items:flex-start;}
+  .latest-row .pin-card{flex:1 1 260px; max-width:300px;}
   /* pinned cards */
   .pin-card{
     background:var(--paper); padding:12px 12px 10px; position:relative;
@@ -143,11 +154,23 @@
     </div>
   </div>
 
+  <!-- LATEST: every pin from the newest POSTED date shows here first. When a newer day is pinned,
+       these drop into their own column (side) below and the new day takes this section. Automatic. -->
+  <div class="latest-wrap" id="latest-wrap" hidden>
+    <div class="latest-title">
+      <div class="board-title latest-head">LATEST — <span id="latest-date"></span>
+        <span class="sub">new since the last session · older evidence is below</span>
+      </div>
+    </div>
+    <div class="latest-row" id="latest-row"></div>
+  </div>
+
   <div class="grid" id="board">
     <!-- left column -->
     <div class="col" id="col-left"></div>
 
-    <!-- center: the unknown man -->
+    <!-- center: the unknown man, then centre pins (side:"C") newest first -->
+    <div class="col col-mid" id="col-center">
     <div class="suspect">
       <svg viewBox="0 0 200 230" width="210" height="240" xmlns="http://www.w3.org/2000/svg">
         <rect width="200" height="230" fill="#221d17"/>
@@ -158,6 +181,7 @@
       </svg>
       <div class="who">UNIDENTIFIED MALE — "D.K. RADAN"</div>
       <div class="aka">name returns nothing · body unclaimed · found 08/14/2026</div>
+    </div>
     </div>
 
     <!-- right column -->
@@ -204,44 +228,45 @@
    the room; it never leads it.
    Fields: kind (label), title, desc, href (omit = not clickable),
    newtab:true to open in new tab, note:true for sticky-note style,
-   side:"L"|"R".
+   side:"L"|"R"|"C" (C = centre column, under the photo, newest first),
+   date:"YYYY-MM-DD" (the class day it was pinned; shows as POSTED and the newest day is stamped LATEST).
    Deferred panels (add at their beats, not before):
      wk3 — HOUSE STANDINGS panel + sorting results
      wk3+ — OPEN QUESTIONS ledger (R24 cards)
      post-verdicts — red string (CSS lines between pins)
    ============================================================ */
 const PINS = [
-  {side:"L", kind:"MAILED TO THE CLASS · AUG 25", title:"C.O. ORIENTATION PRIMER — 1962 COPY",
+  {side:"L", date:"2026-08-25", kind:"MAILED TO THE CLASS · AUG 25", title:"C.O. ORIENTATION PRIMER — 1962 COPY",
    desc:"Photocopy, no return address. COLLEGIATE OBSCURUM — FRESNO CITY COLLEGE CHAPTER. Copy stamp 1962-07-23 — dated AFTER the disbandment order on its own last page. Scan strip 2019-02-28: three days before the forum's C.O. thread was locked. Five houses, no names: 33·1 · 3·26 · 27·49 · 4·18 · 79·88."},
-  {side:"R", kind:"MARGIN · SECTION V", title:"“CORRECTION PRECEDES THE OFFER. SEE MEMORANDUM.”",
+  {side:"R", date:"2026-08-25", kind:"MARGIN · SECTION V", title:"“CORRECTION PRECEDES THE OFFER. SEE MEMORANDUM.”",
    desc:"Typed, same machine as the other marginal notes. Beneath it, handwritten — in ink decades newer than the page: “he was warned. he kept publishing. the memorandum decided what he was.” No memorandum was in the envelope. Someone annotated this document recently, then mailed it to us."},
-  {side:"L", kind:"COUNTY DOCUMENT", title:"PRELIMINARY ME REPORT",
+  {side:"L", date:"2026-08-18", kind:"COUNTY DOCUMENT", title:"PRELIMINARY ME REPORT",
    desc:"Cardiac arrest, etiology undetermined. No trauma. Core temp 98.1°F six hours post-mortem — three readings, two instruments. Flagged and signed anyway.",
    href:"../files/coroner-report.pdf", newtab:true},
-  {side:"L", kind:"RECOVERED FROM EFFECTS", title:"THE LAST UPLOAD",
+  {side:"L", date:"2026-08-18", kind:"RECOVERED FROM EFFECTS", title:"THE LAST UPLOAD",
    desc:"Printed capture of a video page — an anonymous chemistry channel, 1.14M subscribers, face never shown. Final upload Aug 5: “the next one changes everything.” Channel silent since.",
    href:"../last-upload/", newtab:true},
-  {side:"L", kind:"LEAKED AUDIO · PLAYED IN CLASS AUG 20", title:"FRAGMENT B — THE NOTEBOOK LINE",
+  {side:"L", date:"2026-08-20", kind:"LEAKED AUDIO · PLAYED IN CLASS AUG 20", title:"FRAGMENT B — THE NOTEBOOK LINE",
    desc:"“TRIAL 17. PROBE SWAP. HOLDING TEMPERATURE.” Quoted from a recovered notebook page by two unidentified voices reviewing case 26-08-1447. Fragments A and C are on the forum.<br><audio controls src='../audio/rec-B.mp3' style='width:100%;margin-top:8px;'></audio>"},
-  {side:"R", kind:"", title:"the forum is live →", note:true,
+  {side:"R", date:"2026-08-18", kind:"", title:"the forum is live →", note:true,
    desc:"they were talking about him before we ever were. read everything. verify everyone.",
    href:"../", newtab:true},
-  {side:"R", kind:"LEAKED AUDIO · THE NAME", title:"“…SOMEONE NAMED D.K. RADAN”",
+  {side:"R", date:"2026-08-20", kind:"LEAKED AUDIO · THE NAME", title:"“…SOMEONE NAMED D.K. RADAN”",
    desc:"Two more fragments from the same case review. The victim has a name — and the review mentions anomalous thermal data.<br><audio controls src='../audio/rec-E.mp3' style='width:100%;margin-top:8px;'></audio><br><audio controls src='../audio/rec-E-ext.mp3' style='width:100%;margin-top:6px;'></audio>"},
 
-  {side:"L", kind:"LEAKED · DOCUMENT 1 OF 3", title:"MEMORANDUM — COUNCIL CIRCULATION ONLY",
+  {side:"L", date:"2026-09-10", kind:"LEAKED · DOCUMENT 1 OF 3", title:"MEMORANDUM — COUNCIL CIRCULATION ONLY",
    desc:"Not from the 1962 batch. A recent photograph of a typed page, dated <b>2026</b>. Three corrections were made to his work and none of them held. Observation continued under &ldquo;the usual protocol&rdquo; — and the memo says plainly that <b>he knew, and had begun to say so</b>. It refers him to Council under Article IV, and puts one question: <i>the candidate is to be measured, or the candidate is to be managed.</i> Distribution line: FIVE COPIES. Handwritten at the bottom, in different ink: <i>&ldquo;decided — see you in the basement.&rdquo;</i> He was found in a basement.",
    href:"../files/co-memorandum.pdf", newtab:true},
 
-  {side:"R", kind:"LEAKED · DOCUMENT 2 OF 3", title:"THE LETTER — “YOU WILL BE STOPPED”",
+  {side:"R", date:"2026-09-10", kind:"LEAKED · DOCUMENT 2 OF 3", title:"THE LETTER — “YOU WILL BE STOPPED”",
    desc:"No letterhead. No signature — a mark where a name should be. Addressed to him, not about him. <i>&ldquo;You have been written to twice. This is the third, and there will not be a fourth.&rdquo;</i> It orders the publication down and ends: <b>&ldquo;If you do not stop, you will be stopped.&rdquo;</b><br><br>Read the fourth paragraph twice. The writer knows others in the society have written to him <i>kindly</i>, and dismisses them: <i>&ldquo;They spoke for the reading of a vote… They do not speak for the outcome.&rdquo;</i> Distribution line is not FIVE COPIES. It is <b>THIS COPY ONLY</b>.",
    href:"../files/the-letter.pdf", newtab:true},
 
-  {side:"R", kind:"LEAKED · DOCUMENT 3 OF 3", title:"THE DISSENT — “WE WILL DO WHAT WE CAN”",
+  {side:"R", date:"2026-09-10", kind:"LEAKED · DOCUMENT 3 OF 3", title:"THE DISSENT — “WE WILL DO WHAT WE CAN”",
    desc:"Circulated to all five houses. Unsigned, and it says outright that it carries no authority. The Council voted to <b>measure</b> him — and someone inside the society is ignoring that vote and acting alone. <i>&ldquo;It has been done in our name, on our paper, to a man who has done nothing to us but work in the open.&rdquo;</i><br><br>They refuse to name the sender. They pledge protection they admit they cannot authorise, and warn anyone who helps: <i>&ldquo;you will not be protected while you are protecting him.&rdquo;</i> Signed only: <i>those who do not accept the reading of the vote.</i>",
    href:"../files/the-dissent.pdf", newtab:true},
 
-  {side:"L", kind:"", title:"the society was divided. he died anyway.", note:true,
+  {side:"L", date:"2026-09-10", kind:"", title:"the society was divided. he died anyway.", note:true,
    desc:"One faction voted to measure him. One wrote to him alone and told him he would be stopped. One promised protection it had no power to give. Weeks later he is dead in a basement and nobody can identify the body.<br><br>Five houses. Five copies. Every one of them read all three of these.<br><br><b>Which side did your house take?</b>"},
 ];
 if (window.EXTRA_PINS) window.EXTRA_PINS.forEach(p=>PINS.push(p));
@@ -278,17 +303,33 @@ const HOUSES = [
 ];
 
 /* ---------- render (no need to edit below) ---------- */
-const L=document.getElementById("col-left"), R=document.getElementById("col-right");
-PINS.forEach((p,i)=>{
+const L=document.getElementById("col-left"), R=document.getElementById("col-right"), C=document.getElementById("col-center");
+const LROW=document.getElementById("latest-row");
+const MON=["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
+const LATEST=PINS.reduce((m,p)=>(p.date&&p.date>m?p.date:m),"");
+const fmt=d=>{const a=d.split("-"); return MON[+a[1]-1]+" "+(+a[2]);};
+/* centre pins: newest first; left/right keep the order they were pinned */
+const ORDER=PINS.map((p,i)=>({p,i}));
+const mid=ORDER.filter(o=>o.p.side==="C").sort((a,b)=>(b.p.date||"").localeCompare(a.p.date||"")||a.i-b.i);
+ORDER.filter(o=>o.p.side!=="C").concat(mid).forEach(({p,i})=>{
   const el=document.createElement(p.href?"a":"div");
   el.className="pin-card"+(p.note?" note":"");
   if(p.href){el.href=p.href; if(p.newtab){el.target="_blank"; el.rel="noopener";}}
   el.style.transform="rotate("+((i*137)%5-2)+"deg)";
-  el.innerHTML=(p.kind?'<div class="kind">'+p.kind+'</div>':'')+
+  el.innerHTML=(p.date&&p.date===LATEST?'<span class="latest">LATEST</span>':'')+
+    (p.kind?'<div class="kind">'+p.kind+'</div>':'')+
     '<h3>'+p.title+'</h3><p>'+p.desc+'</p>'+
-    (p.href?'<span class="open">OPEN ▸</span>':'');
-  (p.side==="R"?R:L).appendChild(el);
+    (p.href?'<span class="open">OPEN ▸</span>':'')+
+    (p.date?'<span class="when">POSTED '+fmt(p.date)+'</span>':'');
+  (p.date&&p.date===LATEST?LROW:p.side==="R"?R:p.side==="C"?C:L).appendChild(el);
 });
+
+if(LATEST && LROW.children.length){
+  const FULL=["January","February","March","April","May","June","July","August","September","October","November","December"];
+  const d=LATEST.split("-"), wd=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"][new Date(+d[0],+d[1]-1,+d[2]).getDay()];
+  document.getElementById("latest-date").textContent=(wd+", "+FULL[+d[1]-1]+" "+(+d[2])).toUpperCase();
+  document.getElementById("latest-wrap").hidden=false;
+}
 
 /* houses render */
 const HR=document.getElementById("houses-row");
