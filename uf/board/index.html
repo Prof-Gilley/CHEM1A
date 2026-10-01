@@ -316,5 +316,31 @@ HOUSES.forEach((h,i)=>{
   HR.appendChild(slot);
 });
 </script>
+<script>
+/* AUTO-SIZE IN CANVAS (same technique as the stoichiometry game), added 2026-10-01.
+   When this page is inside an iframe it tells Canvas its content height, so the frame grows with the board. */
+(function(){
+  if (window.parent === window) return;
+  document.body.style.minHeight = '0';   /* 100vh would make the frame grow forever */
+  var last = 0, pending = false;
+  function contentHeight(){
+    var b = document.body, cs = getComputedStyle(b);
+    return Math.ceil(b.getBoundingClientRect().height + parseFloat(cs.marginTop||0) + parseFloat(cs.marginBottom||0));
+  }
+  function sync(){
+    pending = false;
+    var t = contentHeight();
+    if (!t || Math.abs(t - last) < 2) return;
+    last = t;
+    window.parent.postMessage({ subject: 'lti.frameResize', height: t }, '*');
+  }
+  function schedule(){ if (pending) return; pending = true; requestAnimationFrame(sync); }
+  if (window.ResizeObserver) new ResizeObserver(schedule).observe(document.body);
+  new MutationObserver(schedule).observe(document.body, {childList:true, subtree:true, attributes:true, characterData:true});
+  window.addEventListener('load', sync);
+  window.addEventListener('resize', schedule);
+  sync(); setTimeout(sync, 500); setTimeout(sync, 1500); setTimeout(sync, 3000);
+})();
+</script>
 </body>
 </html>
